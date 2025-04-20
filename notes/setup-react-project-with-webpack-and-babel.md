@@ -19,7 +19,7 @@ In this article, i’m going to demonstrate how to create simple webpack config 
 First you need to config three file such as:
 
 * webpack.dev.js: this is our webpack config use in develop environment
-* webpack.prod.js: this is our webpack config use in production enviroment
+* webpack.prod.js: this is our webpack config use in production environment
 
 ![](assets/setup-react-project-with-webpack-and-babel_0eb458d1be6d0f37210105e714a1a304_md5.webp)
 
