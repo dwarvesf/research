@@ -31,7 +31,7 @@ title: Cognitive functions stack
 
 ### Cognitive functions stack 
 
- Mỗi PT có 4 cognitive functions tạo thành, gọi là cognitive fuctions stack. Nó được sắp xếp theo thứ tự 4 layers từ strong > weak 
+ Mỗi PT có 4 cognitive functions tạo thành, gọi là cognitive functions stack. Nó được sắp xếp theo thứ tự 4 layers từ strong > weak 
 
  + Dominant
  + Auxiliary
