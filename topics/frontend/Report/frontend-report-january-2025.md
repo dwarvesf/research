@@ -8,6 +8,7 @@ authors:
 tags:
   - frontend
   - market-report
+ai_summary: true
 ---
 
 ## React
