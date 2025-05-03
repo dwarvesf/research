@@ -1,14 +1,14 @@
 ---
+title: Data-first Approach & Maintaining Data Integrity with Zod Schema
+description: This memo explores the importance of a data-first approach and how to maintain data integrity using Zod, a powerful TypeScript schema validation library
+date: 2025-05-02
+authors:
+  - haongo138
 tags: 
   - schema-validation
   - code-quality
   - software-development
   - typescript
-title: Data-first Approach & Maintaining Data Integrity with Zod Schema
-date: 2025-05-02
-description: This memo explores the importance of a data-first approach and how to maintain data integrity using Zod, a powerful TypeScript schema validation library
-authors:
-  - haongo1
 ---
 
 ## Which is data integrity?
@@ -106,7 +106,7 @@ z.coerce.string(); // Coerces input to string
 z.coerce.number(); // Coerces input to number
 ```
 
-### Custom Error Messages
+### Custom error messages
 
 Provide custom error messages for validation failures:
 
@@ -116,7 +116,7 @@ z.string({ required_error: "Name is required" }).min(5, "Name must be at least 5
 
 ## Advanced schema validation
 
-### Chaining Validations
+### Chaining validations
 
 Add custom validation logic with `.refine()` or `.superRefine()`:
 
@@ -167,7 +167,7 @@ type User = z.infer<typeof userSchema>; // { name: string; age: number; }
 
 This ensures that your types and validation are always in sync. You can use these types in function signatures, API responses, and more.
 
-## Real-world Use Cases
+## Real-world use cases
 
 ### Validating API inputs / responses
 
@@ -267,3 +267,4 @@ Zod is a powerful tool for ensuring data integrity and type safety in TypeScript
 - [TypeScript Integration Guide](https://github.com/colinhacks/zod#typescript-integration)
 - [Building Type-Safe APIs with Zod](https://blog.logrocket.com/schema-validation-typescript-zod/)
 - [Zod Best Practices](https://github.com/colinhacks/zod#best-practices)
+- [Zod Validation in React & Typescript](https://dev.to/silentvoice143/zod-validation-in-react-typescript-28k6)
