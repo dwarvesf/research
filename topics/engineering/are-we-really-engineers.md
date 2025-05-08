@@ -8,7 +8,7 @@ tags:
 
 ![](assets/are-we-really-engineers_6cf3675a02ca90a8745a69479b359671_md5.webp)
 
-Is software engineering "really" engineering? As the Dwarves asked this question during the [Apprenticeship Training Program](https://github.com/dwarvesf/WeAreHiring/blob/master/open-positions/Apprentice.md), we had a chance to dig more into the topic. Many professionals discuss this, but there's not a full answer. The engineers strictly follow the engineering process, apply math to solve the problem, and build products. We software engineers don't feel like the same as described. I found the originated articles from [Hillel Wayne](https://www.hillelwayne.com/post/crossover-project/are-we-really-engineers/), and it perfectly answers the question.
+Is software engineering "really" engineering? As the Dwarves asked this question during the [Apprenticeship Training Program](https://github.com/dwarvesf/WeAreHiring/blob/master/apprentice/apprentice.md), we had a chance to dig more into the topic. Many professionals discuss this, but there's not a full answer. The engineers strictly follow the engineering process, apply math to solve the problem, and build products. We software engineers don't feel like the same as described. I found the originated articles from [Hillel Wayne](https://www.hillelwayne.com/post/crossover-project/are-we-really-engineers/), and it perfectly answers the question.
 
 ## Engineering is mathematical
 
@@ -94,4 +94,4 @@ Some aspects of software engineering are unique to software, such as the speed o
 
 Engineering processes are more sophisticated than ours in ways that we can extract lessons from. Traditional engineers have a stronger sense of professionalism and responsibility than we tend to. In contrast, our culture is much more open and our communities much stronger than what exists in trad engineering. And our developments in version control have the potential to revolutionize traditional engineering.
 
-Back to the [Apprenticeship Program](https://github.com/dwarvesf/WeAreHiring/blob/master/open-positions/Apprentice.md), this primary question is once thing I feel necessary to discuss with apprentices and the practitioners. Getting to know the industry we are working on and might spend years with it, will help to form the foundation for the future. It will also help us as an engineer to make a better decisions
+Back to the [Apprenticeship Program](https://github.com/dwarvesf/WeAreHiring/blob/master/apprentice/apprentice.md), this primary question is once thing I feel necessary to discuss with apprentices and the practitioners. Getting to know the industry we are working on and might spend years with it, will help to form the foundation for the future. It will also help us as an engineer to make a better decisions
