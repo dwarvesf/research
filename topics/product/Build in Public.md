@@ -5,6 +5,8 @@ date: null
 tags:
   - build-in-public
   - product
+redirect:
+  - /s/jaLOGw
 ---
 
 ## What is #buildinpublic

@@ -5,6 +5,8 @@ date: null
 tags:
   - fingerprint
   - hr
+redirect:
+  - /s/slJM8A
 ---
 
 Eagle type (Whorl) accounts for 30-35% (9 types): has a swirl pattern and 2 intersections

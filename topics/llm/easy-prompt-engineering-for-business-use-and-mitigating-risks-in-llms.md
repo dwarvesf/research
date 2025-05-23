@@ -5,6 +5,8 @@ date: 2023-05-22
 tags:
   - llm
   - engineering
+redirect:
+  - /s/CTr4wA
 ---
 
 ## Preface

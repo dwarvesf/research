@@ -7,6 +7,8 @@ authors:
 tags:
   - design
   - ux
+redirect:
+  - /s/g_6uNQ
 ---
 
 In the world of digital products, ensuring that users have a smooth experience is crucial. One key part of this is designing interfaces that can handle user mistakes. This concept, known as "designing for forgiveness," means creating systems that not only help users avoid errors but also assist them in recovering quickly when they make mistakes. In this article, we will look at some simple principles for designing error-tolerant interfaces and how to apply them to improve user experience.

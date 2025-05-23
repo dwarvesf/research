@@ -4,6 +4,8 @@ description: Learn how to build and deploy a Golang todolist backend with Postgr
 date: 2017-06-10
 tags:
   - dcos
+redirect:
+  - /s/oc3Brw
 ---
 
 ## Create an application with Golang

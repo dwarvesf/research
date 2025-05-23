@@ -8,6 +8,8 @@ authors:
 tags:
   - react
   - testing
+redirect:
+  - /s/ITfz3g
 ---
 
 Testing is essential for ensuring that your code works as expected, is maintainable, and doesn't introduce bugs with future changes. React testing involves **unit tests, integration tests, and end-to-end (e2e) tests**, each targeting different aspects of your application's functionality.

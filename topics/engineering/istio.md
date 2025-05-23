@@ -4,6 +4,8 @@ description: Learn how Istio service mesh improves microservices networking with
 date: 2019-06-09
 tags:
   - tool
+redirect:
+  - /s/EkacqA
 ---
 
 Istio is an implementation of the Service mesh architecture, which is a network of microservices that interactive with each other to form an application. Besides Istio, there are several concept applying service mesh architecture such as Linkerd, Consul.

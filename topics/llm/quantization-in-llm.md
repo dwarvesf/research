@@ -7,6 +7,8 @@ authors:
 tags:
   - ai
   - llm
+redirect:
+  - /s/cUCxsQ
 ---
 
 As large language models (LLMs) continue to evolve, their parameter counts grow exponentially, with some models reaching trillions of parameters. This exponential growth presents significant challenges for deployment on edge devices and in resource-constrained environments due to extensive memory and computational requirements. Quantization emerges as a crucial technique to reduce model footprint while preserving acceptable performance.

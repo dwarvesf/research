@@ -4,6 +4,8 @@ description: Discover the key traits of Sensors and Intuitives, highlighting how
 date: null
 URL: "https://drive.google.com/file/d/1n8ID_iXqzs6cMZlRS0Su7lQUhrfd7khh/view?usp=sharing"
 tag: mbti, preferences
+redirect:
+  - /s/h89CnA
 ---
 
 Book: My True Type, page 33 - 38

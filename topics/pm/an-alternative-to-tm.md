@@ -4,6 +4,8 @@ description: "Discover why Atomic replaces 'time and materials' with 'fixed budg
 date: 2020-05-09
 tags:
   - pm
+redirect:
+  - /s/6fyIqg
 ---
 
 Vendors may use the phrase "time and materials" (T&M) to describe how they engage in projects and invoice their clients.

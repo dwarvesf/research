@@ -8,6 +8,8 @@ authors:
 tags:
   - frontend
   - market-report
+redirect:
+  - /s/X2m7wA
 ---
 
 This report provides a detailed look at the significant developments in frontend development during the first half of November 2024. It covers the latest updates, tools, and approaches shaping the frontend scene, including React 19's full-stack features, XState for managing state, Shopify's move to React Native, improvements in Next.js 15, and how container queries impact responsive design.

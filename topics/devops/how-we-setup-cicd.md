@@ -4,6 +4,8 @@ description: Learn how Dwarves simplifies CI/CD with Gitlab, Github Actions, aut
 date: 2021-02-16
 tags:
   - devops
+redirect:
+  - /s/bC38DA
 ---
 
 Before we dig through a detailed process, let's set some grounded knowledge about the CI/CD:

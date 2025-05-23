@@ -7,6 +7,8 @@ tags:
   - engineering
   - javascript
   - typescript
+redirect:
+  - /s/gkWH8A
 ---
 
 ## What

@@ -5,6 +5,8 @@ date: null
 tags:
   - idea
   - innovation
+redirect:
+  - /s/9w413A
 ---
 
 ## Summary

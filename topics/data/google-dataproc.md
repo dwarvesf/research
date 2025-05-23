@@ -4,6 +4,8 @@ description: Learn how to set up and use Google Dataproc for fast, scalable Apac
 date: 2024-01-22
 github_id: mickwan1234
 icy: 10
+redirect:
+  - /s/UZgRiw
 ---
 
 ## Introduction

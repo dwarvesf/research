@@ -2,6 +2,8 @@
 title: Unstoppable code
 description: null
 date: null
+redirect:
+  - /s/0loFXQ
 ---
 
 ### Unstoppable code

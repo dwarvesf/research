@@ -4,6 +4,8 @@ description: Learn how trees, especially binary search trees (BST) and AVL trees
 date: 2023-02-13
 github_id: mirageruler
 icy: 10
+redirect:
+  - /s/s0exEw
 ---
 
 ## What are trees?

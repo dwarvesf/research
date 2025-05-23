@@ -4,6 +4,8 @@ description: Learn how Burnup and Burndown charts help project managers track pr
 date: 2023-02-28
 github_id: nhuthm
 icy: 10
+redirect:
+  - /s/FuHTcA
 ---
 
 From the team product, when the Project Manager want to report with their client for the question: "How is our project coming along?", to have a catch-up on the product's process.

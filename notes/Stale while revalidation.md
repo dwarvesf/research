@@ -6,6 +6,8 @@ tags:
   - cache
   - http
   - practice
+redirect:
+  - /s/x-broA
 ---
 
 ### Concept

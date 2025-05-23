@@ -5,6 +5,8 @@ date: null
 tags:
   - blockchain
   - icp
+redirect:
+  - /s/E07Hrg
 ---
 
 - Start local network: `$ dfx start`

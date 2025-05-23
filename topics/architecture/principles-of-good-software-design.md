@@ -2,6 +2,8 @@
 title: Principles of good software design
 description: Learn how software design breaks complex systems into simple, manageable modules with deep interfaces, error prevention, and effective design reviews to create better APIs and reduce complexity.
 date: null
+redirect:
+  - /s/-6o6pw
 ---
 
 - Software design is a process of decomposition: breaking down large systems into manageable units for independent implementation.

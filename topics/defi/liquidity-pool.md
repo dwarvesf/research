@@ -3,6 +3,8 @@ title: Liquidity pool
 description: null
 date: null
 author: Hien Le
+redirect:
+  - /s/aYszNQ
 ---
 
 ## 1. What is a Liquidity Pool?

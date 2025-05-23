@@ -4,6 +4,8 @@ description: null
 date: null
 tags:
   - tool
+redirect:
+  - /s/F5Ca_A
 ---
 
 The new Automation Tool comes from M$, wrote the first public version early last year

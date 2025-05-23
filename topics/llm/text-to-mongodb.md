@@ -10,6 +10,8 @@ tags:
   - database
   - mongodb
   - llm
+redirect:
+  - /s/TEAKTQ
 ---
 
 ```mermaid

@@ -4,6 +4,8 @@ description: null
 date: null
 recurringTemplate: true
 recurringTemplateName: engineering-moc
+redirect:
+  - /s/8Z2Kxw
 ---
 
 This is a [[Map of Content]] related to the engineering.

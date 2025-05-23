@@ -3,6 +3,8 @@ title: Triple s of ux in web3
 description: Discover the Triple S of UX—Simple, Secure, and Self-custodial designs that make Web3 easy and safe for users to access and control decentralized applications.
 date: 2022-08-05
 github_id: Maniub102
+redirect:
+  - /s/Fh7B3g
 ---
 
 For most users in Web3 not excepting me, they are exposed to the tip of the iceberg which got them interested in space like Bitcoin, Defi, and NFT - these are simple terms that people know but when they dig deeper it's actually a whole lot term like "Gas Fees", "Private Key", "Public address",... It's not very user-friendly and people just give up halfway when you ask them about private key or others. So we want a familiar easy to understand way for users, I compose the Triple S of UX to make web3 accessible.

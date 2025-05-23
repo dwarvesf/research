@@ -8,6 +8,8 @@ github_id: trankhacvy
 tags:
   - frontend
   - hsl
+redirect:
+  - /s/ZwVzEg
 ---
 
 Frontend engineers use Hexadecimal color codes to represent colors, but they have some limitations:

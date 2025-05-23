@@ -4,6 +4,8 @@ description: Learn how the broker pattern structures distributed systems by deco
 date: 2019-08-24
 tags:
   - distributed
+redirect:
+  - /s/ZkZBFw
 ---
 
 ## Definition

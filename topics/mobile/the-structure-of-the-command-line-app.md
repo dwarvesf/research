@@ -3,6 +3,8 @@ title: The structure of the command line app
 description: Learn how to build powerful Xcode command line tools using Swift, covering CLI app structure, commands, options, flags, and creating custom build tools for automation and safer coding.
 date: 2022-09-18
 github_id: viettrungphan
+redirect:
+  - /s/XBnGdQ
 ---
 
 ## How to create an XCode build tools with Swift

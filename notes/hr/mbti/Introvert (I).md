@@ -3,6 +3,8 @@ title: null
 description: null
 date: null
 tag: mbti
+redirect:
+  - /s/idyrDg
 ---
 
 Book: My True Type, page 24 - 32

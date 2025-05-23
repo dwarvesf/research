@@ -9,6 +9,8 @@ tags:
   - css
   - fonts
   - frontend
+redirect:
+  - /s/S9GZRw
 ---
 
 ## What's variable font?

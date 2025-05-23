@@ -5,6 +5,8 @@ date: null
 tags:
   - features
   - product
+redirect:
+  - /s/oAroMg
 ---
 
 This phase usually happens after the MVP stage. Once the idea is validated as an early version, product owners tend to get overwhelmed with feature request and nubmers of way to develop the next highlight.

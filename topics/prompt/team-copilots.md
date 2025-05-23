@@ -8,6 +8,8 @@ tags:
   - ai
   - copilots
   - team
+redirect:
+  - /s/vICh4g
 ---
 
 ## Introduction to Team copilots

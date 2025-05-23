@@ -6,6 +6,8 @@ authors:
   - tieubao
 tags:
   - wealth
+redirect:
+  - /s/_ri84Q
 ---
 
 ```dsql-list

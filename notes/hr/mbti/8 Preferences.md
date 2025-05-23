@@ -3,6 +3,8 @@ title: null
 description: null
 date: null
 tag: mbti
+redirect:
+  - /s/tDjVBg
 ---
 
 - I (introverted) >< E (extroverted)

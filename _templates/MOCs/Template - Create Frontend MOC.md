@@ -4,6 +4,8 @@ description: null
 date: null
 recurringTemplate: true
 recurringTemplateName: engineering-frontend-moc
+redirect:
+  - /s/Ju0u7w
 ---
 
 This is a [[Map of Content]] related to the engineering concepts around frontend.

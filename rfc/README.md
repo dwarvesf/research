@@ -12,6 +12,8 @@ tags:
 perma_storage_id: 'WmseoW7nLaxcKPQD4W28DMLUjec2i9Dw4m81DW7FvDM'
 minted_at: '2025-05-12'
 token_id: '4'
+redirect:
+  - /s/83G_UQ
 ---
 This is where we store and organize proposals and RFCs from our team. Think of this as our collaborative workspace for new ideas, improvements, and significant changes.
 

@@ -7,6 +7,8 @@ authors:
 tags:
   - labs
   - updates
+redirect:
+  - /s/GGcV7Q
 ---
 
 In a recent collaborative discussion between key members of the Labs and Consulting teams, we've made decisive strides in pinpointing key topics and potential projects for development. Each topic is paired with specific challenges to ensure we engage deeply with the technology, understanding its practical applications. The focal point for the coming month is WebAssembly (WASM), alongside a range of exciting use-cases we plan to implement and demonstrate.

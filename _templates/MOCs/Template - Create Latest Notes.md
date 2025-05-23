@@ -4,6 +4,8 @@ description: null
 date: null
 recurringTemplate: true
 recurringTemplateName: latest-notes
+redirect:
+  - /s/-5qBmA
 ---
 
 This is where we keep track of our top 10 latest Brainery notes:

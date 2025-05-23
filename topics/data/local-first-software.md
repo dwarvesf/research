@@ -10,6 +10,8 @@ tags:
   - data-synchronization
   - local-first
   - real-time
+redirect:
+  - /s/tjBG0A
 ---
 
 ## What is Local-first software?

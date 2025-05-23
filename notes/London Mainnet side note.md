@@ -5,6 +5,8 @@ date: null
 tags:
   - blockchain
   - ethereum
+redirect:
+  - /s/FUB_dw
 ---
 
 ### POV

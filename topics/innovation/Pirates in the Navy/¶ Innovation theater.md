@@ -4,6 +4,8 @@ description: null
 date: null
 tags:
   - innovation
+redirect:
+  - /s/Js9G5Q
 ---
 
 Innovation theater is the creation of shiny workspaces that don't actually produce results. It may be characterized by innovation labs or teams that go through the motions of innovation without ever producing a [sustainable business model](https://publish.obsidian.md/mobydiction/notes/Corporate+innovation+means+discovering+sustainable+new+business+models).

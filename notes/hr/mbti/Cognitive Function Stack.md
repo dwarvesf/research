@@ -3,6 +3,8 @@ title: null
 description: null
 date: null
 tag: function, mbti
+redirect:
+  - /s/NDTGEA
 ---
 
 Each PT has 4 [cognitive functions](obsidian://open?vault=dwarves&file=brain%2FHR%2FMBTI%2F8%20Cognitive%20Functions) that called cognitive fuctions stack. t is arranged in order of 4 layers from strong > weak:

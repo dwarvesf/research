@@ -9,6 +9,8 @@ tags:
   - distributed-system
   - blockchain
   - foundational-topics
+redirect:
+  - /s/AqtZMA
 ---
 
 ![](assets/blockchain-bridge_blockruption-blockchain-300h.webp)

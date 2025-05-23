@@ -4,6 +4,8 @@ description: Discover how cognitive functions explain the deeper traits behind M
 date: null
 URL: "https://personalityjunkie.com/functional-stack-type-dynamics-theory/"
 tag: function, mbti
+redirect:
+  - /s/Eo3xww
 ---
 
 - https://www.youtube.com/watch?v=9xf13VRNPp8

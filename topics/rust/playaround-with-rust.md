@@ -4,6 +4,8 @@ description: "Learn how Mozilla uses Rust to build safer, parallel browsers by l
 date: 2019-08-30
 tags:
   - rust
+redirect:
+  - /s/wgXv8Q
 ---
 
 Mozilla intends to use Rust as a platform for prototyping experimental browser architectures.

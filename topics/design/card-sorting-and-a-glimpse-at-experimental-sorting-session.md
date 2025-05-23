@@ -5,6 +5,8 @@ date: 2018-08-26
 tags:
   - design
   - technique
+redirect:
+  - /s/UA2QpQ
 ---
 
 > As part of our team’s weekly activities is a knowledge sharing session. So, in this article I’d like to share a UX technique we practiced recently — Card Sorting.

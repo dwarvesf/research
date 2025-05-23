@@ -5,6 +5,8 @@ date: null
 tags:
   - innovation
   - writing
+redirect:
+  - /s/LB8QWg
 ---
 
 Innovation doesn't typically happen in great leaps forward, or in sudden "eureka" moments of inspiration. More commonly, it accrues over time with small, incremental steps.

@@ -8,6 +8,8 @@ github_id: nguyend-nam
 tags:
   - frontend
   - social-network
+redirect:
+  - /s/YcfpTA
 ---
 
 ## Why?

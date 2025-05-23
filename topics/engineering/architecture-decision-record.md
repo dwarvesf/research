@@ -5,6 +5,8 @@ date: 2020-03-27
 tags:
   - architecture
   - engineering
+redirect:
+  - /s/tKXNuw
 ---
 
 There is an issue that every team will inevitably bump into. Newbies might get confused when a project is being developed. They wonder how that code was written, how we ended up choosing that architecture. It somehow leads to finger-point, and even the decision-maker himself can't remember how that decision was taken.

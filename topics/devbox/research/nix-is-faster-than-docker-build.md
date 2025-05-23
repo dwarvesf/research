@@ -8,6 +8,8 @@ tags:
   - devbox
   - docker
   - nix
+redirect:
+  - /s/7JaPIw
 ---
 
 As I mentioned in the [Build the same thing at any time](≈%20Nix%20-%20Build%20the%20same%20thing%20at%20any%20time.md), Nix knows the exact content of packages and dependencies before builds. So it can take advantage of this characteristic to avoid duplicated building different layers with the same content but different instructions.

@@ -10,6 +10,8 @@ tags:
   - polymorphic-component
   - react
   - typescript
+redirect:
+  - /s/l49I2g
 ---
 
 Let's say we want to create a `Text` component with React and Typescript. A basic implementation could look like:

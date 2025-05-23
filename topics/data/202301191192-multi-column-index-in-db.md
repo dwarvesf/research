@@ -9,6 +9,8 @@ tags:
   - composite-index
   - index
   - multi-column-index
+redirect:
+  - /s/darNdA
 ---
 
 **Multi-column index in DB**

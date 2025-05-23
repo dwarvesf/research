@@ -3,6 +3,8 @@ title: null
 description: null
 date: null
 tag: mbti
+redirect:
+  - /s/aqlKAw
 ---
 
 Book: My True Type, page 46 - 57

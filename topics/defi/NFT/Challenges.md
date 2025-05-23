@@ -2,6 +2,8 @@
 title: Challenges
 description: null
 date: null
+redirect:
+  - /s/N561sA
 ---
 
 ### Current problem

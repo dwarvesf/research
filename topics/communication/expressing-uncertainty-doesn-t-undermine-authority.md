@@ -2,6 +2,8 @@
 title: Expressing uncertainty doesn t undermine authority
 description: Researchers should openly share uncertainties in their findings, as expressing doubt builds trust and helps audiences better evaluate evidence, especially in changing situations like COVID-19.
 date: null
+redirect:
+  - /s/d6folA
 ---
 
 When reporting their findings, researchers should not be reluctant to admitting what they don't know. What we know might remain in flux as new evidence comes to light, and identifying remaining uncertainties is more informative than presenting false confidence in an assertion. Indeed, uncertainty may be a critical part of the message that needs to be shared, such as when reporting on dynamic situations (like COVID guidelines and trends).

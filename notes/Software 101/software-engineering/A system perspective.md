@@ -5,6 +5,8 @@ date: null
 tags:
   - 101
   - engineering
+redirect:
+  - /s/H6iwYw
 ---
 
 ## A system perspective

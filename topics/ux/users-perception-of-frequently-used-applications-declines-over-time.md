@@ -2,6 +2,8 @@
 title: Users perception of frequently used applications declines over time
 description: Long-term user experience shows that perceived usefulness declines over time, making software attractiveness and enjoyment key to maintaining user loyalty and satisfaction.
 date: null
+redirect:
+  - /s/nQeEjw
 ---
 
 Over time, a user's perception of a frequently used tool or application will decline if the application itself remains static. Kujala et al. found that with prolonged usage of an application, the impact of "perceived usefulness" of the application declined as a predictor of the attractiveness of software. Non-instrumental factors, in turn, including attractiveness and enjoyment, become increasingly important to engaging user loyalty.

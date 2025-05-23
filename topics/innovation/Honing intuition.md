@@ -5,6 +5,8 @@ date: null
 tags:
   - innovation
   - intuition
+redirect:
+  - /s/fj57VQ
 ---
 
 In Sönke Ahrens words, intuition is the "sedimented experience on which we build our conscious, explicit knowledge." To intuit good ideas, we must first consume good ideas.

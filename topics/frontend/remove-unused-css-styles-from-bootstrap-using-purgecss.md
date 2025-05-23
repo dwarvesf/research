@@ -7,6 +7,8 @@ authors:
 tags:
   - css
   - frontend
+redirect:
+  - /s/wzD5fw
 ---
 
 ![](assets/remove-unused-css-styles-from-bootstrap-using-purgecss_50067f1125ee42d2d68068bd93443235_md5.webp)

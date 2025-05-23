@@ -4,6 +4,8 @@ description: null
 date: null
 tags:
   - innovation
+redirect:
+  - /s/iWgBOA
 ---
 
 ### Summary

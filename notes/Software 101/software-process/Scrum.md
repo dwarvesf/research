@@ -7,6 +7,8 @@ tags:
   - engineering
   - process
   - scrum
+redirect:
+  - /s/fCii6w
 ---
 
 Scrum is the most popular Agile approach and is being used in software companies worldwide. It is a simple but very effective management process for software development. Scrum can help project team to manage changes in scope of the project. Scrum iterations help the team to develop products in several incremental steps called **Sprint** (1 to 4 weeks) where the team can get feedback from users quickly. Scrum process is simple, clear and easy to learn, its “**Daily Standup**” meetings allow the team to share information effectively; the “**Burndown chart**” helps team members to check status easily.

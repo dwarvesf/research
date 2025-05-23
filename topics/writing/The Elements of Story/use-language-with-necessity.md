@@ -2,6 +2,8 @@
 title: Use language with necessity
 description: Learn how to write clearly by cutting unnecessary words and focusing only on impactful details that support your main theme for stronger, more effective storytelling.
 date: null
+redirect:
+  - /s/2binbQ
 ---
 
 Writing demands a certain economy. Extraneous words, flowery phrases, unnecessary details are clutter. Each one comes at a cost to the reader; too many dilutes the value of the text, adding noise instead of signal. Choose only words that will have impact, and include only details that support the theme.

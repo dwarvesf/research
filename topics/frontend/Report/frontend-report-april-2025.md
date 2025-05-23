@@ -8,6 +8,8 @@ description: "April 2025 brings exciting frontend developments! React Server Com
 date: 2025-04-30
 authors:
   - hthai2201
+redirect:
+  - /s/nY6WUg
 ---
 
 ![](assets/frontend-report-202504.webp)

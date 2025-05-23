@@ -9,6 +9,8 @@ tags:
   - engineering
   - golang
   - practice
+redirect:
+  - /s/lRv4MA
 ---
 
 One common issue we often tackle in backend engineering is writing test cases. In this article, we will explore the techniques for crafting effective tests in Go, discussing best practices for writing unit tests and utilizing mocks to achieve better isolation. Although our primary focus lies in unit testing-related practices, it is important to note that Golang also supports integration testing. We will also tackle the subject of integration testing in a future article, where we will examine the details and best practices for integration testing in Golang.

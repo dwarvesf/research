@@ -9,6 +9,8 @@ tags:
   - networking
   - go-weekly
   - golang
+redirect:
+  - /s/a52MWg
 ---
 
 ## [Go 1.23 Release Note](https://go.dev/doc/go1.23)

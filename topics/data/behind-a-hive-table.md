@@ -4,6 +4,8 @@ description: Learn how to create and understand Hive tables, including table str
 date: 2022-11-11
 github_id: dudaka
 icy: 10
+redirect:
+  - /s/237HPQ
 ---
 
 From the last article, [[Introduction to Apache Hive]], we saw how to create a database and a table in Hive. In this article, we will look at the details behind a Hive table. More importantly, we'll see what are the essential elements that is needed behind the Hive table. We've already created this database `stocks_db` in our last article, so we won't do it again. Thus, we will execute `USE stocks_db;` to switch to the database `stocks_db`. Let's now create a table for the stocks data set.

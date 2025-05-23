@@ -6,6 +6,8 @@ tags:
   - database
   - sharding
   - engineering
+redirect:
+  - /s/_zIftw
 ---
 
 ### Why?

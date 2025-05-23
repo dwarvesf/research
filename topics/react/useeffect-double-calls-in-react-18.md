@@ -8,6 +8,8 @@ tags:
   - frontend
   - react
   - use-effect
+redirect:
+  - /s/F26_ug
 ---
 
 In the React 18 version, the `useEffect` hook has been updated to called twice compare to only one in the older version in StrictMode.

@@ -3,6 +3,8 @@ title: Double entry accounting
 description: Learn the basics of double-entry accounting, including assets, liabilities, equity, and how this system improves accuracy over single-entry bookkeeping for better financial tracking and reporting.
 date: 2022-08-24
 github_id: monotykamary
+redirect:
+  - /s/YMdCQQ
 ---
 
 ## Introduction

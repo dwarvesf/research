@@ -7,6 +7,8 @@ authors:
 tags:
   - architecture
   - moc
+redirect:
+  - /s/o_c56g
 ---
 
 ### Architecture patterns

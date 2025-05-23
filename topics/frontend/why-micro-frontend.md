@@ -8,6 +8,8 @@ tags:
   - architecture
   - engineering
   - micro-frontend
+redirect:
+  - /s/3slpiA
 ---
 
 ## Micro-Frontend - What & Why?

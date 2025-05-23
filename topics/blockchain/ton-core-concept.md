@@ -8,6 +8,8 @@ tags:
   - blockchain
   - ton
   - web3
+redirect:
+  - /s/FhRkiw
 ---
 
 In my previous post, [Ton: Blockchain of Blockchains](ton-blockchain-of-blockchains.md), I talked about some core technologies that make TON strong. However, it was just an overview. To begin developing on TON is not enough. Today, I will introduce some core concepts in TON that you will frequently work with as a TON developer.

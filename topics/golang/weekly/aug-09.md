@@ -9,6 +9,8 @@ tags:
   - networking
   - go-weekly
   - golang
+redirect:
+  - /s/8Z4SfQ
 ---
 
 ## [Cogent Core: A New GUI Framework for Go](https://www.cogentcore.org/blog/initial-release)

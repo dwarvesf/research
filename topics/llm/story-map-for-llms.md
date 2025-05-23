@@ -9,6 +9,8 @@ tags:
   - ai
   - llm
   - prompt
+redirect:
+  - /s/ahf_2g
 ---
 
 ## Story Map: Journey for Engineers Developing Applications on top of Large Language Models (LLMs)

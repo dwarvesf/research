@@ -4,6 +4,8 @@ description: null
 date: null
 tags:
   - rust
+redirect:
+  - /s/tdHvtg
 ---
 
 ### Why

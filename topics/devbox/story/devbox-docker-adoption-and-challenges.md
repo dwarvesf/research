@@ -11,6 +11,8 @@ tags:
   - docker
   - tool
   - virtualization
+redirect:
+  - /s/-Au_Wg
 ---
 
 This is the 2nd post of Devbox series includes

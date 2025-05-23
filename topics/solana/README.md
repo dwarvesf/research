@@ -8,6 +8,8 @@ tags:
   - blockchain
   - moc
   - solana
+redirect:
+  - /s/nlsBJA
 ---
 
 ### Core concepts

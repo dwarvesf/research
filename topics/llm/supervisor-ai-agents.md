@@ -8,6 +8,8 @@ tags:
   - ai
   - llm
   - supervisor-architecture
+redirect:
+  - /s/tG9ofA
 ---
 
 ## Introduction

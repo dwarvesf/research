@@ -8,6 +8,8 @@ tags:
   - ai
   - machine-learning
   - llm
+redirect:
+  - /s/_QMw9g
 ---
 
 ## The cycle

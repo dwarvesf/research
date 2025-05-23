@@ -7,6 +7,8 @@ tags:
   - engineering
   - lifecycle
   - testing
+redirect:
+  - /s/hSF95Q
 ---
 
 Several of you have asked me about testing and its relationship to the software development life cycle. Basically testing follows a life cycle that corresponds to every phase of the development life cycle.

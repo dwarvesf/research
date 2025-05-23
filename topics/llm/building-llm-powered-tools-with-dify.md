@@ -9,6 +9,8 @@ authors:
 tags:
   - ai
   - llm
+redirect:
+  - /s/6Vj7PQ
 ---
 
 Organizations are always looking for ways to improve efficiency and productivity. Large Language Models (LLMs) are a powerful technology that can help create smart internal tools. However, using LLMs in existing workflows can be complicated and resource-heavy. This is where managed LLMOps comes into play, providing a smoother way to develop and deploy LLM-powered tools. In this post, we'll see how platforms like Dify enhance the workflow for building internal AI tools.

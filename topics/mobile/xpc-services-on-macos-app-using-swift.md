@@ -5,6 +5,8 @@ date: 2020-11-05
 tags:
   - macos
   - swift
+redirect:
+  - /s/dD0cyQ
 ---
 
 Before XPC we used to pick up Sockets and Mach Messages (Mach Ports).

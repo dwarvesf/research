@@ -9,6 +9,8 @@ tags:
   - frontend
   - typescript
   - validation
+redirect:
+  - /s/eMtyRw
 ---
 
 The _**"parse, don't validate"**_ approach is all about processing incoming data and failing in a controlled manner if parsing fails. It is all about leveraging trustworthy, secure, and typed data structures within your code and ensuring that all incoming data is handled at the very edges of your systems. Instead of passing receiving data deep into your code, parse it immediately and fail quickly if necessary.

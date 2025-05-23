@@ -7,6 +7,8 @@ authors:
 tags:
   - mobile
   - moc
+redirect:
+  - /s/PNpusw
 ---
 
 ### Mobile fundamentals

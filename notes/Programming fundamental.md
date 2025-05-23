@@ -5,6 +5,8 @@ date: null
 tags:
   - fundamental
   - programming
+redirect:
+  - /s/Nb9I0A
 ---
 
 The importance of programming fundamental is somehow being underrated.

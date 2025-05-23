@@ -8,6 +8,8 @@ tags:
   - engineering
   - frontend
   - radio-talk
+redirect:
+  - /s/GtQBVA
 ---
 
 A brief comparison between Remix and Next.js frameworks

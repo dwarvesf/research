@@ -5,6 +5,8 @@ date: 2023-08-08
 blog: "https://dwarvesf.hashnode.dev/level-up-your-testing-game-harnessing-gomock-for-unbeatable-unit-testing-in-go"
 github_id: datphamcode295
 icy: 15
+redirect:
+  - /s/-OdUVg
 ---
 
 In the Go programming language, a popular framework called Gomock provides a powerful solution for mocking dependencies during testing. Gomock simplifies the process of isolating units of code, enabling more focused and effective testing.

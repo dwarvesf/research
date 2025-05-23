@@ -2,6 +2,8 @@
 title: null
 description: null
 date: null
+redirect:
+  - /s/BZ_P2w
 ---
 
 ## Notes submitted within past month

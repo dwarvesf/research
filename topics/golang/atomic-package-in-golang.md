@@ -3,6 +3,8 @@ title: Atomic package in golang
 description: Learn how to solve race conditions in Go by using the sync/atomic package for atomic operations and pointers, offering faster and simpler alternatives to mutex locks in concurrent programming.
 date: 2022-08-09
 github_id: hieuphq
+redirect:
+  - /s/6Gxs9A
 ---
 
 We often run some functions asynchronously in real projects using the go routine. The problem we're facing is race-condition when updating the same variable. The solutions can be using a mutex lock or concurrency patterns to change our situation using the channels. However, In this document, we want to solve this problem when we want to update the same memory resource. Go standard library provide `sync/atomic` package to solve our problem.

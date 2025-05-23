@@ -2,6 +2,8 @@
 title: AtomicSwap
 description: null
 date: null
+redirect:
+  - /s/HM9pLw
 ---
 
 ### What

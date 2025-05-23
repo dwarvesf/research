@@ -6,6 +6,8 @@ tags:
   - note
   - writing
   - zettelkasten
+redirect:
+  - /s/ziGWsQ
 ---
 
 Systems that are unnecessarily rigid are prone to failure. They are threatened by what is unexpected or what does not conform to the environment that was considered during the system's design. Rigid systems, therefore, are poor tools in situations of uncertainty or volatility.

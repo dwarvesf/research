@@ -2,6 +2,8 @@
 title: Use jtbd stories to foreground the context in which a solution is required
 description: Learn how job stories focus on user context and motivations to improve product design, offering a clear alternative to traditional user stories by highlighting real user needs and situations.
 date: null
+redirect:
+  - /s/7wtw0A
 ---
 
 A "job story" is an alternative to the traditional user story format. In contrast to the user story, which foregrounds the persona performing an action, a job story highlights the context in which the action is performed.

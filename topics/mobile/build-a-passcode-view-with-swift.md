@@ -4,6 +4,8 @@ description: Learn how to build a custom passcode input view in Swift that shows
 date: 2019-06-22
 tags:
   - swift
+redirect:
+  - /s/SMhYbw
 ---
 
 ![](assets/build-a-passcode-view-with-swift_38059dcec9bd2edb9ac9b1433eb8870c_md5.webp)

@@ -4,6 +4,8 @@ description: Discover the key traits of J and P personality types, including the
 date: null
 URL: "https://drive.google.com/file/d/1n8ID_iXqzs6cMZlRS0Su7lQUhrfd7khh/view?usp=sharing"
 tag: mbti, preferences
+redirect:
+  - /s/afGNIQ
 ---
 
 Book: My True Type, page 46 - 57

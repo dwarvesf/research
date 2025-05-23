@@ -5,6 +5,8 @@ date: null
 tags:
   - architecture
   - strangler
+redirect:
+  - /s/YriB1g
 ---
 
 ### Context

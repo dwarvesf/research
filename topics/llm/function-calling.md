@@ -8,6 +8,8 @@ tags:
   - ai
   - llm
   - function-calling
+redirect:
+  - /s/ZgcROQ
 ---
 
 ## Introduction

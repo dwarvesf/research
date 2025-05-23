@@ -4,6 +4,8 @@ description: Learn how to use analysis documentation to clarify requirements, id
 date: 2023-01-03
 github_id: nhuthm
 icy: 10
+redirect:
+  - /s/6QtN1Q
 ---
 
 _The following entry is taken from field experience that I'm doing in a team project._

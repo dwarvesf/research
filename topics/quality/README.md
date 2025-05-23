@@ -7,6 +7,8 @@ authors:
 tags:
   - moc
   - qa
+redirect:
+  - /s/Okk-3Q
 ---
 
 ### Testing techniques

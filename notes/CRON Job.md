@@ -5,6 +5,8 @@ date: null
 tags:
   - development
   - practice
+redirect:
+  - /s/W2nSrA
 ---
 
 ### What

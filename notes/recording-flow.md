@@ -7,6 +7,8 @@ authors:
 tags:
   - recording
   - workflow
+redirect:
+  - /s/8y3A-Q
 ---
 
 There are many interesting topics shared in the Office Hours of Dwarves Foundation, and it would be a pity if anyone missed them. Moreover, we want to share our findings with the community and encourage learning within our team. Therefore, we have introduced a recording workflow to store all the OGIF content in two forms: video and audio.

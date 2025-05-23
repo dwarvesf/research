@@ -5,6 +5,8 @@ date: null
 tags:
   - innovation
   - pattern
+redirect:
+  - /s/w_lRLw
 ---
 
 ### Common innovation anti-patterns

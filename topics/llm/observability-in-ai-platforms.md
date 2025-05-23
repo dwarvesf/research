@@ -7,6 +7,8 @@ authors:
 tags:
   - observability
   - llm
+redirect:
+  - /s/hlDPsA
 ---
 
 ## Introduction

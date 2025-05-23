@@ -6,6 +6,8 @@ authors:
   - nnhuyhoang
 tags:
   - llm
+redirect:
+  - /s/xBFi6g
 ---
 
 Inspite of having strength to process and produce highly coherent human-like, behavior of LLM is unpredictable, so the need of a safety mechanisms and boundaries that control and direct an AI model's behavior to ensure it operates safely, ethically, and within intended parameters is crucial. That why we need guardrails in LLM.

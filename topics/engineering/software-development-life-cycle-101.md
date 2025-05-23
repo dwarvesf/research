@@ -4,6 +4,8 @@ description: Learn the Software development life cycle (SDLC) basics, key projec
 date: 2020-05-19
 tags:
   - sdlc
+redirect:
+  - /s/nRyPaw
 ---
 
 This workshop contains the basic knowledge on Software development life cycle, provides people with a step-to-step guideline and the artifacts which will be created on the way. We don't dive in the details. Instead, we treat it as an overview look on how to build software successfully.

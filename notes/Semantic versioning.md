@@ -5,6 +5,8 @@ date: null
 tags:
   - practice
   - versioning
+redirect:
+  - /s/B8_PxQ
 ---
 
 Versioning system that represents the product version, using a formal convention based on 3 parts in alpha numerics.

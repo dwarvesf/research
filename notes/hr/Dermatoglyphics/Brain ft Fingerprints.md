@@ -5,6 +5,8 @@ date: null
 tags:
   - fingerprint
   - hr
+redirect:
+  - /s/mndbRg
 ---
 
 Each finger is related to a lobe of our brain. Its characteristics are: unique and unchanging.

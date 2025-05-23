@@ -6,6 +6,8 @@ tags:
   - design
   - framework
   - practice
+redirect:
+  - /s/4ZYX2Q
 ---
 
 We could find a bunch of AARRR frameworks definition across the internet (Thanks to Google). I don’t intend to create another one here.

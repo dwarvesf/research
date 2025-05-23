@@ -9,6 +9,8 @@ tags:
   - ai
   - guide
   - ogif
+redirect:
+  - /s/yFnLDQ
 ---
 
 ### What’s OGIF?

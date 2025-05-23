@@ -8,6 +8,8 @@ tags:
   - ai
   - blockchain
   - icy
+redirect:
+  - /s/fdRC8A
 ---
 
 ![](assets/build_custom_ai_agent_with_elizaos_intro.webp)

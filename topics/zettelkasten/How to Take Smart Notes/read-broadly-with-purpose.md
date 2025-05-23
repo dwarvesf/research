@@ -2,6 +2,8 @@
 title: Read broadly with purpose
 description: Learn how purposeful reading and seeking diverse perspectives can improve understanding, avoid confirmation bias, and enhance connections across information for better learning and thinking.
 date: null
+redirect:
+  - /s/FxJMbw
 ---
 
 Read (and consume any information) with purpose: approaching a text with intention can help focus our attention on the most important information. Read looking for connections with information you have already processed, and look explicitly for limitations, elisions, and contradictions.

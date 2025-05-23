@@ -5,6 +5,8 @@ date: null
 tags:
   - blockchain
   - web3
+redirect:
+  - /s/Eh-zZg
 ---
 
 # I, robot (2004): crypto version

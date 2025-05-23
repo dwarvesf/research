@@ -8,6 +8,8 @@ authors:
 tags:
   - frontend
   - market-report
+redirect:
+  - /s/_EvRHg
 ---
 
 A comprehensive August 2024 update on key advancements in React 19, Next.js 15, and web development tools. Highlights include new async transitions, server components, SSR performance comparisons, and emerging technologies in the web development landscape.

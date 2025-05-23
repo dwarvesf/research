@@ -4,6 +4,8 @@ description: null
 date: null
 tags:
   - innovation
+redirect:
+  - /s/SyQngw
 ---
 
 Organizations should stake a balance between type 1 decisions, which are big, significant and risky; and type 2 decisions, which are low-risk, reversible, and offer new insights. At Amazon, for example, small teams are empowered to make decisions and act on type 2 decisions without heavy bureaucratic control; this helps ensure Amazon has a steady stream of new insights.

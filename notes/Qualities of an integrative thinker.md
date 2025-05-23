@@ -4,6 +4,8 @@ description: null
 date: null
 tags:
   - insight
+redirect:
+  - /s/QiBB8Q
 ---
 
 An integrative thinker, according to Roger Martin, rejects binary frameworks and either/or decision-making, instead seeking synthesis between apparently opposed options.

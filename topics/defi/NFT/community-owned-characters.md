@@ -2,6 +2,8 @@
 title: Community owned characters
 description: null
 date: null
+redirect:
+  - /s/wM299w
 ---
 
 ## The trend of owning a character

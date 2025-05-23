@@ -8,6 +8,8 @@ tags:
   - blockchain
   - evm
   - foundry
+redirect:
+  - /s/ExVP0g
 ---
 
 ## Introduction

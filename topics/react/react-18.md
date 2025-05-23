@@ -8,6 +8,8 @@ tags:
   - engineering
   - frontend
   - react
+redirect:
+  - /s/KCBFeA
 ---
 
 React 18 was released in March 2022. This release focuses on performance improvements and updating the rendering engine.

@@ -4,6 +4,8 @@ description: Learn how to estimate work using story points, time, and planning p
 date: 2016-02-12
 tags:
   - agile
+redirect:
+  - /s/1LNhmQ
 ---
 
 **Estimation** (or **estimating**) is the process of finding an **estimate**, or approximation, which is a value that is usable for some purpose even if input data may be incomplete, uncertain, or unstable.

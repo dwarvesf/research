@@ -4,6 +4,8 @@ description: "Learn how remote moderated usability testing helped improve Purcha
 date: 2020-05-10
 tags:
   - testing
+redirect:
+  - /s/iCCNBw
 ---
 
 ## Intro

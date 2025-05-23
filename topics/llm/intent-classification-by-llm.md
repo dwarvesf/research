@@ -8,6 +8,8 @@ tags:
   - intent-classification
   - llm
   - prompt
+redirect:
+  - /s/oPKlDg
 ---
 
 User intent classification is a crucial aspect of conversational AI, start with machine learning models, but now advanced language models (LLMs) are being explored for this task. Unlike the old methods which is need to labeled datasets exhaustively, LLMs can understand what users mean without all that preparation. This memo explores the application of LLMs in intent classification, highlighting their potential to streamline the process and overcome traditional NLU limitations.

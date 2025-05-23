@@ -3,6 +3,8 @@ title: Overview of BI tools
 description: Compare top data visualization tools like Tableau, Power BI, and Google Data Studio to find the best business intelligence software for interactive dashboards, ease of use, pricing, and integration.
 date: 2022-11-21
 github_id: Bachpx2911
+redirect:
+  - /s/UL0JEg
 ---
 
 Data visualization is one of most important skill of data analytic. Companies utilize the software for data visualization to have a greater insight into their company data. By using Business Intelligence software, one can do lots of excellent operations with the data, like interact, interpret, and exhibit it. There are several data visualization tools on market such as: Power BI, Sap, Oracle BI,..Power BI , Tableau, Google data studio are the most popular tools. I have chances to work with all of them in my career, so I will review the pros and cons of each tools in this article.

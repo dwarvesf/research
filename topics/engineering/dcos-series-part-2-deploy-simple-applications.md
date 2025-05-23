@@ -4,6 +4,8 @@ description: Learn how to deploy applications on DC/OS using the GUI and CLI, ma
 date: 2017-05-05
 tags:
   - dcos
+redirect:
+  - /s/TGAuPQ
 ---
 
 There are so many interesting things in DC/OS GUI (`Dashboard` with useful metrics/status from all nodes, `Services` tab help us to know which application/service is running on which node, its status, etc.).

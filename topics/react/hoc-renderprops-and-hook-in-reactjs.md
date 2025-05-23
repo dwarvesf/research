@@ -4,6 +4,8 @@ description: Learn how to refactor React.js components using HOC, render props, 
 date: 2019-04-12
 tags:
   - react
+redirect:
+  - /s/4bnnaw
 ---
 
 ## Introduction

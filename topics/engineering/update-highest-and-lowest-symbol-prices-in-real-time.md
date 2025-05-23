@@ -4,6 +4,8 @@ description: Learn how to update highest and lowest symbol prices in real-time u
 date: 2023-06-07
 github_id: thminhVN
 icy: 10
+redirect:
+  - /s/irHMBg
 ---
 
 ## Introduction

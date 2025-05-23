@@ -6,6 +6,8 @@ tags:
   - cqrs
   - engineering
   - pattern
+redirect:
+  - /s/6ZXGiQ
 ---
 
 ### What

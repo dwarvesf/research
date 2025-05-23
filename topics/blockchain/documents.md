@@ -2,6 +2,8 @@
 title: Documents
 description: Learn how to properly document smart contracts with contact info, testing history, known issues, procedures, specifications, and deployment status to ensure security and transparency.
 date: null
+redirect:
+  - /s/-uOV9A
 ---
 
 When launching a contract that will have substantial funds or is required to be mission critical, it is important to include proper documentation.

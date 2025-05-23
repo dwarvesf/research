@@ -5,6 +5,8 @@ date: null
 tags:
   - fingerprint
   - hr
+redirect:
+  - /s/GvjnVw
 ---
 
 ![[nhan dien van tay.png]]

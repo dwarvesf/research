@@ -10,6 +10,8 @@ tags:
   - dom
   - render-tree
   - rendering
+redirect:
+  - /s/6NOl9Q
 ---
 
 Inside a web browser, there exists a software component responsible for determining the content to show you based on the data it receives. This component is known as the browser engine.

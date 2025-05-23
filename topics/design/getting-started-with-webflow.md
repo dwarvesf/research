@@ -4,6 +4,8 @@ description: Learn how to design responsive, high-quality websites quickly with 
 date: 2021-01-23
 tags:
   - nocode
+redirect:
+  - /s/taiTSw
 ---
 
 ![](assets/getting-started-with-webflow_5386df53f5360ba922dbe2c4b467dfdb_md5.webp)

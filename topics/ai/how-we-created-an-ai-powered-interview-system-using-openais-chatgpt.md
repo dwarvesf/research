@@ -6,6 +6,8 @@ tags:
   - ai
   - llm
   - engineering
+redirect:
+  - /s/nBM8jg
 ---
 
 ![](assets/how-we-created-an-ai-powered-interview-system-using-openais-chatgpt_7fbe880aa3a51713c213dc3db6043fc7_md5.webp)

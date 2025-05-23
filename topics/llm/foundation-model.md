@@ -10,6 +10,8 @@ tags:
   - fine-tuning
   - foundation-model
   - llm
+redirect:
+  - /s/Sv-Yvw
 ---
 
 Foundation models are the latest advancement in the AI realm, proposed by Stanford researchers. Unlike conventional AI systems, they aren't limited to specific tasks, making them a game-changer for a variety of applications.

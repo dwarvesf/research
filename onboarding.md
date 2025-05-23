@@ -7,6 +7,8 @@ authors:
 tags:
   - labs
   - process
+redirect:
+  - /s/ci6zZw
 ---
 
 New members joining our Labs team can be recommended either personally by an existing team member or through a development plan survey. Once onboarded, each new member is paired with a mentor who provides guidance on our operational practices within the team, specifically in relation to a chosen research topic. The initial probation period for new members is set to one month.

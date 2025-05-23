@@ -11,6 +11,8 @@ tags:
   - data-types
   - distributed-system
   - data-structures
+redirect:
+  - /s/OEivow
 ---
 
 ## What is CRDT?

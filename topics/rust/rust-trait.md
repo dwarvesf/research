@@ -7,6 +7,8 @@ authors:
 tags:
   - rust
   - trait
+redirect:
+  - /s/1n0_bg
 ---
 
 Rust's **trait** system is a powerful feature that enables developers to define shared behavior across different types. Traits play a crucial role in achieving code reusability, abstraction, and flexibility.

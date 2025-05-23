@@ -4,6 +4,8 @@ description: null
 date: null
 tags:
   - elixir
+redirect:
+  - /s/Ujcf6A
 ---
 
 An advantage to using the umbrella structure is that the applications are structured as standalone applications. This can help to give clearer boundaries between the applications and to separate application concerns. For example, an application in the umbrella should only call the public apis of another umbrella application. However, this is not enforced and private apis can still be called.

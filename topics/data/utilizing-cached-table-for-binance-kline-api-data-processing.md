@@ -4,6 +4,8 @@ description: Learn how to speed up Binance Kline API data retrieval by using a c
 date: 2023-06-07
 github_id: thminhVN
 icy: 10
+redirect:
+  - /s/SaTR1A
 ---
 
 ## Introduction

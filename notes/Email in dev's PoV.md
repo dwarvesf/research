@@ -5,6 +5,8 @@ date: null
 tags:
   - development
   - email
+redirect:
+  - /s/YC6aQw
 ---
 
 2 types that draws the most focus

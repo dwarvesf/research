@@ -11,6 +11,8 @@ tags:
   - docker
   - tool
   - virtualization
+redirect:
+  - /s/ESJJ-w
 ---
 
 This is the 1st post of Devbox series includes

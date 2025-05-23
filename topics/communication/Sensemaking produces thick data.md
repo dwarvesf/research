@@ -4,6 +4,8 @@ description: null
 date: null
 tags:
   - communication
+redirect:
+  - /s/uBlR0w
 ---
 
 [[¶ Sensemaking | Sensemaking]], a qualitative, humanities-based approach to developing understanding of a culture, produces what Christian Madsbjerg calls "thick data." In contrast to the [[Quant data is lossy | thin, broad data]] produced by more scientific approaches, thick data goes below the surface to find the rich context behind facts. Beyond observing that an event occurred, thick data includes information on what the experience of the event feels like or means to a culture or population, and how they relate to it.

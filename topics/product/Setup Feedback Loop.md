@@ -5,6 +5,8 @@ date: null
 tags:
   - feedback
   - product
+redirect:
+  - /s/r7FjGg
 ---
 
 ## What is feedback-loop

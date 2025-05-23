@@ -9,6 +9,8 @@ tags:
   - project-management
   - scrum
   - technical-debt
+redirect:
+  - /s/X_yGGA
 ---
 
 How to deal with Technical debt in Scrum:

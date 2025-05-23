@@ -5,6 +5,8 @@ date: null
 tags:
   - note
   - zettelkasten
+redirect:
+  - /s/jBgbTA
 ---
 
 ## Summary

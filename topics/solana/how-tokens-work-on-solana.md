@@ -9,6 +9,8 @@ tags:
   - token
   - blockchain
   - solana
+redirect:
+  - /s/XWNYwQ
 ---
 
 ## How tokens work on Solana - explain for EVM developers

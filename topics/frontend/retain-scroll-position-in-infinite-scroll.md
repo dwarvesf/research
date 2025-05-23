@@ -8,6 +8,8 @@ tags:
   - frontend
   - swr-infinite
   - web-design
+redirect:
+  - /s/zvF7Uw
 ---
 
 ## Infinite scroll - benefits and challenges

@@ -4,6 +4,8 @@ description: Discover a detailed competency framework for user research, design,
 date: 2018-04-01
 tags:
   - design
+redirect:
+  - /s/zme61g
 ---
 
 We identified skills and actions showing someone has one competency or not.

@@ -10,6 +10,8 @@ tags:
   - frontend
   - productivity
   - radar
+redirect:
+  - /s/uV4bBg
 ---
 
 ![](assets/adoption-of-pnpm_4601b8f71eebe7c7fbc4a6fc7925a8b6_md5.webp)

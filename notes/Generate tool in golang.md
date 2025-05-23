@@ -5,6 +5,8 @@ date: null
 tags:
   - generator
   - golang
+redirect:
+  - /s/NbawhA
 ---
 
 ### Story about generate a file

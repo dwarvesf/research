@@ -6,6 +6,8 @@ authors:
   - baenv
 tags:
   - devbox
+redirect:
+  - /s/E1g_eA
 ---
 
 Ever wished you could clone your perfect dev environment? With `devbox.json`, you can. This little file is the beating heart of your Devbox setup. Let's crack it open and see what makes it tick.

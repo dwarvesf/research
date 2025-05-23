@@ -4,6 +4,8 @@ description: null
 date: null
 tags:
   - technology
+redirect:
+  - /s/qOyw9g
 ---
 
 ### Technology trend awareness

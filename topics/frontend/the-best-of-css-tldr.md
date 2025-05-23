@@ -8,6 +8,8 @@ discord_channel: engineering
 discord_id: "hollow#3333"
 tags:
   - ui
+redirect:
+  - /s/xaK5lQ
 ---
 
 https://www.youtube.com/watch?v=CQuTF-bkOgc

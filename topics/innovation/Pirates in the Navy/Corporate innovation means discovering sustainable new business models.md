@@ -5,6 +5,8 @@ date: null
 tags:
   - corporate
   - innovation
+redirect:
+  - /s/ojNHGw
 ---
 
 Innovation doesn't mean simply coming with the newest shiny thing; it means discovering new business models that yield long-term profit for the organization. Businesses will often promote "innovation" but generate ideas that aren't sustainable. It may be that the organization is unable to absorb the innovation into its existing structures; it may be that it has no place in the broader corporate strategy; or, it may be that the innovation, as good as it sounds in a press release, doesn't actually have a profitable business model behind it.

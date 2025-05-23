@@ -5,6 +5,8 @@ date: null
 tags:
   - 101
   - engineering
+redirect:
+  - /s/EOKQNw
 ---
 
 To improve quality and to reduce defects, developers often ask other team members to review their work to determine whether they have defects or not. The reason is to avoid “personal bias” because if developers are doing their own review, they may follow the same logic that they used to do the work and will not be able to detect any error that they made. Another person could do better in finding defects because he has different perspective. In “Peer Review”, team members examine each other’s work and provide feedback to the authors. Peer Review can be informal or formal, depending on the purpose of the review.

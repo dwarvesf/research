@@ -8,6 +8,8 @@ tags:
   - security
   - standardization
   - work-adoption
+redirect:
+  - /s/j0bWYA
 ---
 
 In this memo, I want to share with you my thought process behind our security guideline for Dwarves. This is a critical aspect for a software company that aims to establish trusted partnerships with clients. They rely on us because we take the security of their ideas and data seriously.

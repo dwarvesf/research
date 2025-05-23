@@ -3,6 +3,8 @@ title: Cognitive load
 description: Learn how cognitive load affects mental effort and team performance, and why managing it is key to reducing overload and improving focus in business and technology teams.
 date: 2022-08-28
 github_id: zlatanpham
+redirect:
+  - /s/DGo5Rw
 ---
 
 Cognitive load is a measure of how much mental effort is required for a task. It’s usually thought of as the amount of information you have to process at any given moment. For example, if you’re trying to solve a math problem, you have to hold in mind that 2+2=4, you need to know what 2 and 4 are, and you need to know how to add numbers together. That’s three separate things that your brain needs to remember at the same time.

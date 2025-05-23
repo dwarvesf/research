@@ -2,6 +2,8 @@
 title: Spend more time in the problem space
 description: Learn why embracing uncertainty and spending more time understanding problems leads to better solutions by avoiding assumptions and applying thoughtful analysis in decision-making.
 date: null
+redirect:
+  - /s/f_B5DQ
 ---
 
 It's tempting to rush to an answer. As Christian Madsbjerg has argued, we seem to want as a culture to turn creativity into an assembly line: we input problems, we output answers, all through some standardized process. We want to move as quickly as we can away from uncertainty and toward some kind of resolution.

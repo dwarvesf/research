@@ -9,6 +9,8 @@ tags:
   - golang
   - practice
   - tool
+redirect:
+  - /s/ICkd-Q
 ---
 
 ## Introduction

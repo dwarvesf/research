@@ -8,6 +8,8 @@ tags:
   - observer-pattern
   - design-pattern
   - gang-of-four
+redirect:
+  - /s/DwoJIA
 ---
 
 ![](assets/observer-pattern.webp)

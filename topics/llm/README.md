@@ -7,6 +7,8 @@ authors:
 tags:
   - llm
   - moc
+redirect:
+  - /s/nJowBQ
 ---
 
 ### Foundations

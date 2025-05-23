@@ -4,6 +4,8 @@ description: Learn how to improve QA testing records with clear documentation fo
 date: 2022-11-08
 github_id: nhuthm
 icy: 10
+redirect:
+  - /s/OA9CbQ
 ---
 
 _The following entry is from the thoughts, compositions, and conclusions from field work by one of our leads._

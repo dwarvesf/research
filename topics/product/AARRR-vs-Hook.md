@@ -6,6 +6,8 @@ tags:
   - model
   - framework
   - product
+redirect:
+  - /s/zjOfoA
 ---
 
 | type/function | aarrr                          | hook                                 |

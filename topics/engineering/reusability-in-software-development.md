@@ -4,6 +4,8 @@ description: Learn how software reuse strategies, including component reuse, fra
 date: 2020-05-05
 tags:
   - engineering
+redirect:
+  - /s/2EfaRQ
 ---
 
 ## Introduction

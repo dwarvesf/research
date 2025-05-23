@@ -5,6 +5,8 @@ date: null
 tags:
   - business
   - strategy
+redirect:
+  - /s/VeuCiQ
 ---
 
 The OODA (observe, orient, decide, act) loop is a decision-making concept that was developed by military strategist John Boyd to describe the means by which an enemy can be defeated or a goal can be achieved even in the face of an imbalance of strength. Since its initial application in combat operations, it has been applied frequently in business, litigation, law enforcement, and other venues.

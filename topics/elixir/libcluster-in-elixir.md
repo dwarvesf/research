@@ -4,6 +4,8 @@ description: Learn how to set up Elixir node clustering with Libcluster on Kuber
 date: 2022-11-02
 github_id: hieuphq
 icy: 10
+redirect:
+  - /s/QX-Vtg
 ---
 
 In the Dwarves Foundation, we applied some practices to decrease the operation cost. We set up the runtime environments in the team.

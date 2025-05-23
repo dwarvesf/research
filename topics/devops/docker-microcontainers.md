@@ -4,6 +4,8 @@ description: Learn how to create ultra-small Docker images using the scratch ima
 date: 2016-02-04
 tags:
   - docker
+redirect:
+  - /s/vmMnIg
 ---
 
 When using Docker, you will quickly realize that the image using to run a project takes a big capacity. A simple image ubuntu took nearly 200MB, but you don’t take full advantage of its available tools. Other images like Node, Go, etc almost run in Ubuntu, debian and only set up more environments to easily deploy. However, downloading a new image takes more time because of its big capacity and it seems to be not necessary at all.

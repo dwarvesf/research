@@ -8,6 +8,8 @@ tags:
   - elixir
   - erlang
   - fsm
+redirect:
+  - /s/EUL3zQ
 ---
 
 Finite State Machines (FSMs) are a crucial concept in computer science and software development, providing a robust method for modeling the behavior of systems. Erlang, a language designed for concurrency, fault tolerance, and distributed computing, offers unique advantages when implementing FSMs. In this note, we'll explore how Erlang excels in handling FSMs, using the Catch Chicken Machine as a practical example.

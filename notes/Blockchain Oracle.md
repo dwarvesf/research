@@ -6,6 +6,8 @@ author: Vy Tran Khac
 tags:
   - blockchain
   - engineering
+redirect:
+  - /s/HCqWIw
 ---
 
 ## The blockchain oracle problem

@@ -9,6 +9,8 @@ tags:
   - btc
   - icy
   - swap
+redirect:
+  - /s/kMVrBQ
 ---
 
 Swapping ICY tokens for Bitcoin means exchanging one type of digital currency for another across different blockchain systems. Since ICY tokens (on the Base chain) and Bitcoin (on its own blockchain) operate on incompatible networks, specific tools are needed to make this process work. Below, I’ll explain the tools, why a direct swap isn’t possible, how the swap happens, and how the price is determined.

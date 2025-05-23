@@ -7,6 +7,8 @@ authors:
 tags:
   - performance
   - javascript
+redirect:
+  - /s/0PaMaA
 ---
 
 We all know that for web applications, perceived performance is highly importance for our users. For data intensive SPAs with CPU-intensive tasks, the single-threaded nature of Javascript starts to hinder the application's perceived performance when you cannot fit those CPU-intensive tasks into a 16.67 ms/frame window (translates to 60fps). That doesn't even account for code execution time of frameworks (React, Vue...etc), which then leaves you with approximately only a 10 ms/frame window or less to complete all your tasks on the main thread to make user interaction feel smooth and snappy.

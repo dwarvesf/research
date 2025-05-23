@@ -6,6 +6,8 @@ tags:
   - permanent-note
   - writing
   - zettelkasten
+redirect:
+  - /s/Ik7DFQ
 ---
 
 Permanent notes are not intended just for the [[¶ Collector's Fallacy | collection of ideas]]; instead, they help us develop ideas.

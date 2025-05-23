@@ -9,6 +9,8 @@ tags:
   - ai
   - llm
   - open-source
+redirect:
+  - /s/Xkxosg
 ---
 
 Currently, AI chatbot services like ChatGPT are being widely used, but these services are restricted in many countries and also prohibited by many schools due to the high quality of results they produce compared to the level of students’ knowledge. Additionally, these services also require high costs to generate results. Therefore, I think that if we can run a personal chatbot for use with acceptable results and without hardware costs, you can run it on your personal computer with a minimum requirement of 8GB of RAM. In this post, I will guide you on how to run a personal chatbot with an open model like Alpaca 7b or gpt4all model.

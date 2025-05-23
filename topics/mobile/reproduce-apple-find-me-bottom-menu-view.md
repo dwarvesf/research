@@ -4,6 +4,8 @@ description: Learn how to recreate the Apple Find Me Bottom Menu view with Swift
 date: 2019-06-29
 tags:
   - swift
+redirect:
+  - /s/4xarPg
 ---
 
 Today we are going to recreate Find Me Bottom Menu view in few lines of code.

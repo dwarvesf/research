@@ -10,6 +10,8 @@ tags:
   - frontend
   - sandbox
   - webassembly
+redirect:
+  - /s/ko7y8w
 ---
 
 ### What

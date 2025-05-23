@@ -6,6 +6,8 @@ tags:
   - engineering
   - practice
   - radar
+redirect:
+  - /s/ucW9pw
 ---
 
 > I am Bach Phuong and I work at Dwarves Foundation as a Data Analyst, helping partner companies realize insights and understand their business better.

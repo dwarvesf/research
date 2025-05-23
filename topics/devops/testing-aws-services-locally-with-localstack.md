@@ -4,6 +4,8 @@ description: LocalStack lets developers locally test and develop AWS services li
 date: 2023-03-17
 github_id: nguyend-nam
 icy: 10
+redirect:
+  - /s/nwellA
 ---
 
 **Amazon Web Services** (AWS) provides a wide range of cloud computing services that can be used to build and deploy applications at scale. However, using AWS can be costly, especially for small-scale projects or for developers who are just starting out. That's where [LocalStack](https://localstack.cloud/) comes in. LocalStack is an open-source tool that enables **local development** and **testing** of cloud applications by emulating various AWS services on a developer's local side. It can be used to test and develop applications **without** incurring the cost and complexity of using live AWS environment.

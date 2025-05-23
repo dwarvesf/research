@@ -5,6 +5,8 @@ date: 2020-05-09
 tags:
   - design
   - technique
+redirect:
+  - /s/DZ0xrA
 ---
 
 This talk is created from my experiences & lesson learnt, the rule and self-code I've built and believe to be applicable. So I can guarantee you may not find some of it in any other places on the internet.

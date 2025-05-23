@@ -9,6 +9,8 @@ tags:
   - llm
   - pillar
   - tracing
+redirect:
+  - /s/4q7BpA
 ---
 
 ## What is tracing

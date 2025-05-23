@@ -4,6 +4,8 @@ description: Learn how to simplify Android app navigation with Jetpack navigatio
 date: 2022-11-14
 github_id: truong-dwarvesv
 icy: 10
+redirect:
+  - /s/RH3qsg
 ---
 
 In the past, to implement based on fragment navigation, we used `FragmentManager` and `FragmentTransaction` to

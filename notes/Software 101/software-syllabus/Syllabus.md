@@ -6,6 +6,8 @@ tags:
   - 101
   - engineering
   - syllabus
+redirect:
+  - /s/0yJnlw
 ---
 
 The goal of the Software Engineering degree is to produce a software engineer who can rapidly assume a position of substantial responsibility within an organization. To achieve this goal, the curriculum must be designed to give the student a strong foundation of knowledge and practical skills that includes the software engineering process activities, software development lifecycle, various software development methodologies and tools, so they can develop quality products that meet the need of users.

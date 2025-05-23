@@ -8,6 +8,8 @@ authors:
 tags:
   - go-weekly
   - golang
+redirect:
+  - /s/WKZuYA
 ---
 
 ## [Go sync.Map: The Right Tool for the Right Job](https://victoriametrics.com/blog/go-sync-map/index.html)

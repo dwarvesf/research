@@ -2,6 +2,8 @@
 title: Secret management on iOS
 description: Learn the best ways to securely manage and store secrets in iOS apps, from code obfuscation to why keeping secrets off the client is the safest approach for developers.
 date: 2022-09-09
+redirect:
+  - /s/97WYfw
 ---
 
 One thing that I realized after few years doing iOS application development. iOS developer seem not handle secret management properly. Secret management is one of important aspects which we should think about when doing the software development. And while other side (like backend/frontend) have no problem with it, or they already have a common standard for doing it. in iOS world, people do it in many different ways or worst, not do it at all.

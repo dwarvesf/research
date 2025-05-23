@@ -5,6 +5,8 @@ date: null
 tags:
   - social-capital
   - social-network
+redirect:
+  - /s/FPj5Dw
 ---
 
 ### Introduction to social capital

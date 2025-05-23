@@ -2,6 +2,8 @@
 title: ¶ persona
 description: User personas help product teams understand user needs, behaviors, and goals by creating realistic profiles that guide design and improve user experience in marketing and development.
 date: null
+redirect:
+  - /s/Ts5wvg
 ---
 
 User personas are research artifacts that describe patterns of needs, behaviour, and attributes of users. Usually presented as a character or a description of a specific, individual user, personas are commonly used to help product design teams understand and empathize with likely users. Personas draw attention to some aspects of the user and make concrete the abstract findings of research.

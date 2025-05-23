@@ -6,6 +6,8 @@ tags:
   - 101
   - engineering
   - testing
+redirect:
+  - /s/gxUysA
 ---
 
 In theory, testers should stop testing until all defects are found and fixed. Of course, it is impossible because no one would know whether all defects have been removed or not. Therefore, testers must stop testing at some time to deliver software to customer.

@@ -8,6 +8,8 @@ authors:
 tags:
   - frontend
   - market-report
+redirect:
+  - /s/BqcMbQ
 ---
 
 The report for July 2024 gives you a snapshot of what’s happening in the world of web development. React is evolving with Server Components, and Next.js continues to push the boundaries of performance. Vite is solidifying its position as a top build tool, while TypeScript and other frameworks hold steady. Whether you’re looking for the latest updates or just want to stay in the loop, this report has you covered with key trends, tools, and insights to keep you informed.

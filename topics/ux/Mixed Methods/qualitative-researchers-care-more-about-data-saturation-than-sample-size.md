@@ -2,6 +2,8 @@
 title: Qualitative researchers care more about data saturation than sample size
 description: Learn how qualitative UX research focuses on data saturation over sample size to uncover key user insights and improve products through ongoing Agile feedback and diverse user interviews.
 date: null
+redirect:
+  - /s/rXw_cQ
 ---
 
 Qualitative research is less concerned with reaching a particular sample size. Its focus isn't on measuring scale, but on discovering high-level problems and mental models. Instead of sample size, qualitative researchers strive for data saturation: the point at which new data yields only minor, incremental returns and the broad trends have been identified. Therefore, as Seaman and Yocco have each argued, the number of users interviewed may vary depending on factors such as the diversity of your audience, the experience of the researcher, and the extent of the problem space.

@@ -4,6 +4,8 @@ description: Learn how Don Norman’s three levels of design—visceral, behavio
 date: 2018-03-21
 tags:
   - design
+redirect:
+  - /s/LDJf9w
 ---
 
 Don Norman in his book titled _The Design of Everyday Things_ talks about three levels of design — Visceral level, Behavioral level and Reflective level — on how they work together and play an important role in determining how people like or dislike the product. In other words, these three levels together determine whether your product is successful or not.

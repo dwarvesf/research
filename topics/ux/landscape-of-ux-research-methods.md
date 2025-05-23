@@ -2,6 +2,8 @@
 title: Landscape of ux research methods
 description: Learn how UX research methods are organized by attitudinal vs behavioural, qualitative vs quantitative, and context of use to uncover valuable user insights and improve product design.
 date: null
+redirect:
+  - /s/80x5aA
 ---
 
 UX research methods can be organized according to a 3-dimensional framework with the following axes:

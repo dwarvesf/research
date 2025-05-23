@@ -7,6 +7,8 @@ authors:
 tags:
   - llm
   - history
+redirect:
+  - /s/IqootA
 ---
 
 ## Overview

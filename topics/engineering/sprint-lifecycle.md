@@ -4,6 +4,8 @@ description: Learn the strict sprint lifecycle rules including sprint start, aut
 date: 2016-02-10
 tags:
   - agile
+redirect:
+  - /s/zjpqmg
 ---
 
 ## Sprint "milestones"

@@ -9,6 +9,8 @@ tags:
   - ai
   - vector-database
   - llm
+redirect:
+  - /s/-yBSAQ
 ---
 
 During our research on applying LLM to real-world applications, we have observed the widespread usage and increasing popularity of Vector databases in various fields. Therefore, we have delved into understanding and summarizing what we have learned in this article.

@@ -8,6 +8,8 @@ tags:
   - ai
   - data
   - mcp
+redirect:
+  - /s/-uo0Tg
 ---
 
 Think of a single **Model Context Protocol (MCP)** server, like the Anthropic memory example or potentially our own knowledge base interface, as a specialized tool provider. It's essentially a defined protocol endpoint that exposes a set of functions – **tools** – that an **LLM** can call.

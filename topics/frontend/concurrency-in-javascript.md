@@ -3,6 +3,8 @@ title: Concurrency in javascript
 description: Learn how JavaScript’s single-threaded event loop enables asynchronous, non-blocking concurrency using callbacks, Promises, and async/await to handle tasks efficiently and avoid callback hell.
 date: 2022-08-26
 github_id: hieuphq
+redirect:
+  - /s/wIk9JA
 ---
 
 Javascript is a single-threaded programming language that has single-threaded at the runtime. It has a single call stack so it can do one thing simultaneously. JavaScript has a runtime model based on an **event loop**, which is responsible for executing the code, collecting and processing events, and executing queued sub-tasks. Javascript is a single-threaded, non-blocking asynchronous concurrent language. A JavaScript runtime uses a message queue, a list of messages to be processed. Each message has an associated function that gets called to handle the message.

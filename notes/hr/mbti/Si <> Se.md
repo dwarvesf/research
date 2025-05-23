@@ -3,6 +3,8 @@ title: null
 description: null
 date: null
 tag: function, mbti
+redirect:
+  - /s/SsQrBw
 ---
 
 #### The difference between Si <> Se

@@ -9,6 +9,8 @@ tags:
   - ai
   - reinforcement-learning
   - llm
+redirect:
+  - /s/Cq0xcw
 ---
 
 In [Reinforcement Learning](reinforcement-learning.md), we are familiar with the function that computes rewards for an agent's actions in an environment. And these rewards are becoming increasingly complex for different machine learning programs, especially for programs where rewards are hard to define. For large language models, this reward is represented as a scoring system evaluating the model's answer quality, which helps the model generate better responses. The combination of reward models and reinforcement learning has enabled the widespread use of large language models by aligning models with acceptable human values. Reward modeling and RLHF are the most common terms in AI since the release of GPT-3.5.

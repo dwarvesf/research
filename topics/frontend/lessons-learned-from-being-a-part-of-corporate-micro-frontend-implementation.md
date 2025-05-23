@@ -5,6 +5,8 @@ date: 2023-04-24
 tags:
   - micro-frontend
   - web
+redirect:
+  - /s/DA-Rbg
 ---
 
 ## Introduction

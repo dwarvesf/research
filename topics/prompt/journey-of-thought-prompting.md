@@ -8,6 +8,8 @@ tags:
   - ai
   - llm
   - prompt
+redirect:
+  - /s/sMkjow
 ---
 
 ## The problem with prompt engineering

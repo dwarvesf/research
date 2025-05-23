@@ -8,6 +8,8 @@ github_id: thanhlmm
 tags:
   - performance
   - frontend
+redirect:
+  - /s/eb8_GA
 ---
 
 ## What is layout thrashing

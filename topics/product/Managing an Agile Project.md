@@ -6,6 +6,8 @@ tags:
   - agile
   - pm
   - project
+redirect:
+  - /s/WNbHIA
 ---
 
 Most project management trainings are focusing on larger project focusing on the “Waterfall life cycle” approach. As more companies are using agile method, project managers should be retrained to keep up with changing technology and method so they can be more effective. Following are some suggestions:

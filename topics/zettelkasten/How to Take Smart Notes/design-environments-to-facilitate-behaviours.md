@@ -2,6 +2,8 @@
 title: Design environments to facilitate behaviours
 description: Design environments that reduce friction for good habits and increase friction for bad ones to conserve willpower and encourage positive behavior effectively.
 date: null
+redirect:
+  - /s/-p-rAg
 ---
 
 Willpower is a finite resource, and difficult to sustain. Designing environments to facilitate desired behaviour is a much more effective approach in the long run.

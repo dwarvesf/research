@@ -5,6 +5,8 @@ date: 2020-11-24
 tags:
   - design
   - process
+redirect:
+  - /s/hgTsUg
 ---
 
 One of the factors that could make or break a project is the process of communication between designers and developers. Designers and developers have their own working “_languages_.”

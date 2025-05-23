@@ -3,6 +3,8 @@ title: Vim repl driven development
 description: Learn how to use Vim, tmux, and vim-slime for REPL Driven Development to run and test code interactively in languages like Python, JavaScript, and OCaml with fast feedback loops.
 date: 2023-06-09
 github_id: thanhnguyen2187
+redirect:
+  - /s/dgQ4oQ
 ---
 
 ## Introduction

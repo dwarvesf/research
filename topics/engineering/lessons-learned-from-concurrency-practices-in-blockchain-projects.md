@@ -5,6 +5,8 @@ date: 2023-04-17
 tags:
   - backend
   - engineering
+redirect:
+  - /s/Bo3NRA
 ---
 
 _This article covers some lessons learned from working on blockchain projects, with a team that was often optimistic about transparent distributed concurrency. Our API server was scaled to 3 replicas, which introduces a lot of concurrency nuance and race conditions in our app. This post mentions one of those problems, which we tackled with advisory locks. All examples are written in Go._

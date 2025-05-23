@@ -4,6 +4,8 @@ description: null
 date: null
 tags:
   - insight
+redirect:
+  - /s/lhLLKg
 ---
 
 ### Why

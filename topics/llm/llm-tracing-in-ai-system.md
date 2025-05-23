@@ -8,6 +8,8 @@ tags:
   - ai
   - llm
   - tool
+redirect:
+  - /s/iyK9mg
 ---
 
 ## When

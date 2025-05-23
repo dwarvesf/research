@@ -7,6 +7,8 @@ authors:
 tags:
   - devbox
   - nix
+redirect:
+  - /s/NE7Tmg
 ---
 
 Ever tried to share your perfect dev setup, only to hear "It doesn't work on my machine"? Nix Flakes is about to make that headache a thing of the past.

@@ -4,6 +4,8 @@ description: Create clear daily reports with this simple template to track tasks
 date: 2018-07-23
 tags:
   - scrum
+redirect:
+  - /s/6OyKUA
 ---
 
 ## Report template

@@ -7,6 +7,8 @@ authors:
 tags:
   - ai
   - llm
+redirect:
+  - /s/Gghebw
 ---
 
 In the course of technological history, few developments have captured the imagination and transformed industries as swiftly and profoundly as the recent surge in artificial intelligence. The release of ChatGPT marked a pivotal moment, followed by other tech giants entering the arena. Google introduced Gemini, Facebook unveiled Llama, and Anthropic launched Claude. These powerful AI foundation models have demonstrated an unprecedented ability to drive a wide array of tasks, significantly boosting productivity and creating substantial economic value. As a result, teams and individuals across various sectors have begun to explore innovative ways to harness AI for building a new wave of applications.

@@ -9,6 +9,8 @@ tags:
   - data-fetching
   - engineering
   - frontend
+redirect:
+  - /s/5ibnwg
 ---
 
 Data-fetching libraries are software tools or frameworks that can help improve the performance and scalability of your application by handling network requests and data processing more efficiently. In React, one of the key challenges these libraries address is optimizing rendering to avoid unnecessary re-rendering of components when the underlying data remains unchanged. This helps to prevent situations where components re-render multiple times despite no changes in the data, resulting in improved efficiency and smoother user experiences.

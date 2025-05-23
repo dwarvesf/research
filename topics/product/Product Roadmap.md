@@ -5,6 +5,8 @@ date: null
 tags:
   - product
   - roadmap
+redirect:
+  - /s/O7HHxw
 ---
 
 ## What is a product roadmap

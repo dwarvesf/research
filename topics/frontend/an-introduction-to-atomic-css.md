@@ -9,6 +9,8 @@ tags:
   - atomic-css
   - css
   - frontend
+redirect:
+  - /s/htEAsg
 ---
 
 ## Definition

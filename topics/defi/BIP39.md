@@ -2,6 +2,8 @@
 title: BIP39
 description: null
 date: null
+redirect:
+  - /s/A09p4A
 ---
 
 - BIP39 is the protocol to generate mnemonic sentence (e.g seed phrase in metamask)

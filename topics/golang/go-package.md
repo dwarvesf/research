@@ -7,6 +7,8 @@ authors:
 tags:
   - golang
   - package
+redirect:
+  - /s/OevFkQ
 ---
 
 Here's another article that I want to reassure everyone to know about it. As Go pushes more type [composition over inheritance](https://go.dev/doc/faq#Is_Go_an_object-oriented_language), the POV on building 'unit' is different compare to other languages.

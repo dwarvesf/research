@@ -4,6 +4,8 @@ description: null
 date: null
 tags:
   - technology
+redirect:
+  - /s/uJedVg
 ---
 
 ## Artificial intelligence (AI) and machine learning

@@ -7,6 +7,8 @@ authors:
 tags:
   - devops
   - moc
+redirect:
+  - /s/EG8mBA
 ---
 
 ### DevOps fundamentals & culture

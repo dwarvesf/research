@@ -4,6 +4,8 @@ description: Kubernetes is an open-source platform for managing containerized ap
 date: 2019-09-27
 tags:
   - engineering
+redirect:
+  - /s/jDOP-A
 ---
 
 ## What is Kubernetes

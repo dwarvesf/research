@@ -9,6 +9,8 @@ tags:
   - state-management
   - frontend
   - react
+redirect:
+  - /s/RgaLjw
 ---
 
 Frontend development has become increasingly complex over the years, and with it, the need for efficient state management. Global State is one such programming pattern that has emerged as a solution to the problem of prop drilling. Prop drilling is the process of passing data through multiple levels of nested components, which can make code difficult to maintain. By managing and sharing state across multiple components, Global State reduces the need to pass data through each component, resulting in cleaner and more maintainable code.

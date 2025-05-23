@@ -5,6 +5,8 @@ date: null
 tags:
   - fingerprint
   - hr
+redirect:
+  - /s/SSHorg
 ---
 
 ![[Screenshot 2021-07-07 at 16.19.00.png]] From center to Delta greater than 5 ridges

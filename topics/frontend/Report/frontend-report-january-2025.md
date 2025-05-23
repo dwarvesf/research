@@ -23,6 +23,8 @@ ai_generated_summary:
     server dependencies.  
   - Tailwind CSS v4 brings major updates but raises concerns over CSS variable
     performance and class naming clarity.
+redirect:
+  - /s/fAdS8g
 ---
 
 ## React

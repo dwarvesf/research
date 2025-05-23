@@ -2,6 +2,8 @@
 title: Definition
 description: null
 date: null
+redirect:
+  - /s/Q8SsLg
 ---
 
 ### What

@@ -9,6 +9,8 @@ tags:
   - design-pattern
   - gang-of-four
   - golang
+redirect:
+  - /s/w852Xw
 ---
 
 ![](assets/template-method-design-pattern.pdf)

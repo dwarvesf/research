@@ -4,6 +4,8 @@ description: Learn the difference between data race and race condition in multit
 date: 2022-12-11
 github_id: pthung1311
 icy: 10
+redirect:
+  - /s/t4_jIQ
 ---
 
 This article will present a concept, which is `Data Race`. And what are we going to do to ensure data safety in multithreaded programming.

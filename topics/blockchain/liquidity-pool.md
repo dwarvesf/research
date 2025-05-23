@@ -8,6 +8,8 @@ github_id: leduyhien152
 tags:
   - blockchain
   - liquidity
+redirect:
+  - /s/HsGSgg
 ---
 
 ## 1. What is a Liquidity Pool?

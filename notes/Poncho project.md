@@ -4,6 +4,8 @@ description: null
 date: null
 tags:
   - elixir
+redirect:
+  - /s/iNlIDw
 ---
 
 What we have found is that, since you have to do the `mix firmware` step from the “firmware” application directory anyway, it’s less surprising to have a separate, non-umbrella project for building firmware. This application can use a `path: "../your_business_logic"` dependency to achieve the same result as the `in_umbrella: true` convenience if you keep them side-by-side. We call it a “poncho project” because it protects you from things leaking in from the sides rather than from above.

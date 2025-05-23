@@ -5,6 +5,8 @@ date: 2021-07-07
 tags:
   - database
   - sql
+redirect:
+  - /s/WJpmtA
 ---
 
 ## Definition

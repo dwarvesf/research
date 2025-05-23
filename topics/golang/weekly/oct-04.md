@@ -8,6 +8,8 @@ authors:
 tags:
   - go-weekly
   - golang
+redirect:
+  - /s/0P_Xng
 ---
 
 ## [Prep: Golang comptime. Pure blasphemy](https://github.com/pijng/prep)

@@ -4,6 +4,8 @@ description: Apache Pig simplifies Hadoop data processing by converting easy-to-
 date: 2022-11-14
 github_id: dudaka
 icy: 10
+redirect:
+  - /s/BmaasQ
 ---
 
 In short, Apache Pig takes a set of instructions from the user and converts those instructions into MapReduce jobs and execute the MapReduce jobs in Hadoop cluster.

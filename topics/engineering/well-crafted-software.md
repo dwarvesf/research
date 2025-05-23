@@ -6,6 +6,8 @@ authors:
   - tieubao
 tags:
   - engineering
+redirect:
+  - /s/MlTIhw
 ---
 
 This post ain't gonna be a speech of Uncle Bob's Software Craftsmanship Manifesto. We've all known that. And to people who don't, for God's sake. Google.

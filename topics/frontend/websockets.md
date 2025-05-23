@@ -9,6 +9,8 @@ tags:
   - frontend
   - protocol
   - websocket
+redirect:
+  - /s/y91V5A
 ---
 
 ## What are WebSockets

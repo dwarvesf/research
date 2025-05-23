@@ -3,6 +3,8 @@ title: Team first thinking
 description: Effective software delivery depends on building stable, small teams of five to nine people who own their code, foster trust, minimize cognitive load, and communicate clearly through defined team APIs.
 date: 2022-08-15
 github_id: zlatanpham
+redirect:
+  - /s/rD8MiQ
 ---
 
 Modern-day software development is too complex and fast-paced to rely on individuals to comprehend all information needed to build and evolve software-rich systems, and research by Google on their own teams found that who is on the team matters less than the team dynamics; and that when it comes to measuring performance, teams matter more than individuals. In software development specifically, we must therefore start with the team for effective software delivery. There are multiple aspects to consider and nurture: team size, team lifespan, team relationships, and team cognition.

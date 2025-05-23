@@ -3,6 +3,8 @@ title: null
 description: null
 date: null
 tag: mbti
+redirect:
+  - /s/6yb_gQ
 ---
 
 #### Characteristics of Feelers:

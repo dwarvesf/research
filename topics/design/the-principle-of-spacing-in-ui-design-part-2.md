@@ -5,6 +5,8 @@ date: 2018-11-01
 tags:
   - design
   - technique
+redirect:
+  - /s/2dgKLA
 ---
 
 ## Vertical spacing

@@ -8,6 +8,8 @@ tags:
   - case-study
   - devbox
   - nix
+redirect:
+  - /s/9cvEqQ
 ---
 
 Remember when setting up a new project felt like assembling IKEA furniture blindfolded? Yeah, those days are over. Here's how Devbox revolutionized our workflow, from dev to production.

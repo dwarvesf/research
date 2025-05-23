@@ -4,6 +4,8 @@ description: Learn how to install and secure Gitlab on DC/OS with HTTPS, configu
 date: 2017-06-11
 tags:
   - dcos
+redirect:
+  - /s/OoWb4w
 ---
 
 Gitlab an open source developer tool (like Github) that allows you to host git repositories, review code, track issues, host Docker images and perform continuous integration, and it is very compatible for a small team wit CE version.

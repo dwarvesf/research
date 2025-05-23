@@ -2,6 +2,8 @@
 title: null
 description: null
 date: null
+redirect:
+  - /s/2u78CA
 ---
 
 ```dataviewjs

@@ -7,6 +7,8 @@ authors:
 tags:
   - earn
   - rfc
+redirect:
+  - /s/MG14Jw
 ---
 
 # RFC: [Title]

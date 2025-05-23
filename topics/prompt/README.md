@@ -8,6 +8,8 @@ pinned: true
 tags:
   - prompt
   - moc
+redirect:
+  - /s/VmNscw
 ---
 
 ## Foundations of prompt engineering

@@ -2,6 +2,8 @@
 title: Focus product development on customer jobs that are important tangible unsatisfied and lucrative
 description: Learn how to identify high-value customer jobs by focusing on important, tangible, unsatisfied, and lucrative needs to create effective value propositions that drive business success.
 date: null
+redirect:
+  - /s/gbobQg
 ---
 
 In value proposition design, focus your strongest efforts on customer jobs that fit in the middle of a Venn diagram comprising

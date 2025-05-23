@@ -5,6 +5,8 @@ date: null
 tags:
   - smart-note
   - writing
+redirect:
+  - /s/JioK8Q
 ---
 
 Brainstorming is a common suggestion whenever anyone is hunting for ideas. But brainstorming doesn't generate new thinking; it can only bring forward existing, readily available ideas. And it brings them up in their raw, unprocessed form. These aren't necessarily our best ideas. They're just the ones that are top of mind. They may not represent our own, original thought, or the idea best suited to the problem at hand; they're just what's most available to us.

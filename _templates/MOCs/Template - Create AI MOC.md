@@ -4,6 +4,8 @@ description: null
 date: null
 recurringTemplate: true
 recurringTemplateName: engineering-ai-moc
+redirect:
+  - /s/p-5_Og
 ---
 
 This is a [[Map of Content]] related to the engineering concepts around AI.

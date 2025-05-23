@@ -10,6 +10,8 @@ tags:
   - frontend
   - hooks
   - react
+redirect:
+  - /s/eatFkw
 ---
 
 ## Why should you read this article?

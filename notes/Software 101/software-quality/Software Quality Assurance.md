@@ -6,6 +6,8 @@ tags:
   - 101
   - engineering
   - quality
+redirect:
+  - /s/Krd0iQ
 ---
 
 As software project is becoming larger and more complex, the role of Software Quality Assurance (SQA) is becoming more critical. Even today, methods for assuring software quality are often not well understood by many project managers. Assuring software quality requires that engineering knowledge and discipline be applied at ALL phases of the development life cycle, NOT the last phases of test or release as many people misunderstood. Software Quality Assurance engineers are required to possess many years of software development and sufficient domain knowledge to evaluate the completeness and correctness of system requirements, and they must have the ability to determine whether the design has incorporated all requirements accurately. Ultimately, SQA engineers are responsible for advising management whether a software product is reliable and meet quality standards. For this kind of works, SQA engineers probably should be the most experience persons in the organization. They should work as software developers for many years and move up to technical leader or architect and perform this work for years before becoming SQA engineers.

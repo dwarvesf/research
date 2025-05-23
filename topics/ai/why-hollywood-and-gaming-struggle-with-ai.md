@@ -7,6 +7,8 @@ authors:
 tags:
   - ai
   - entertainment
+redirect:
+  - /s/HPAImQ
 ---
 
 Incumbent entertainment and video game companies are experiencing friction in experimenting with generative AI, creating opportunities for startups to innovate. There are several reasons why big companies are hesitant to embrace AI aggressively:

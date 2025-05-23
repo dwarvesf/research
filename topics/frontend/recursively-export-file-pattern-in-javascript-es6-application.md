@@ -4,6 +4,8 @@ description: Learn how to simplify JavaScript ES6 imports by using recursive re-
 date: 2019-09-07
 tags:
   - javascript
+redirect:
+  - /s/AtzQZA
 ---
 
 ![](assets/recursively-export-file-pattern-in-javascript-es6-application_08f14b555ce54599844167b5700622ca_md5.webp)

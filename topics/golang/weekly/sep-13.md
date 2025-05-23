@@ -8,6 +8,8 @@ authors:
 tags:
   - go-weekly
   - golang
+redirect:
+  - /s/ITUJkQ
 ---
 
 ## [Go Survey](https://google.qualtrics.com/jfe/form/SV_ei0CDV2K9qQIsp8?s=b)

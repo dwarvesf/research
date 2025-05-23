@@ -8,6 +8,8 @@ tags:
   - translation
   - engineering
   - web
+redirect:
+  - /s/BAJ-yA
 ---
 
 ![](assets/continuous-translation_eaf982ca480d0677ec9d8fd34553b51a_md5.webp)

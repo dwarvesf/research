@@ -4,6 +4,8 @@ description: null
 date: null
 tags:
   - thought
+redirect:
+  - /s/2qtN_g
 ---
 
 PoV

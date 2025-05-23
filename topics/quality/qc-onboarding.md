@@ -5,6 +5,8 @@ date: 2017-07-13
 tags:
   - people
   - process
+redirect:
+  - /s/VuHd1w
 ---
 
 ## General workflow

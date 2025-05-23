@@ -4,6 +4,8 @@ description: Learn about Personality Types and MBTI to better understand yoursel
 date: null
 URL: "https://personalityjunkie.com/typology-101/#anchor1"
 tag: mbti, preferences
+redirect:
+  - /s/Ow0iaA
 ---
 
 Why learn about Personality Type (PT)?

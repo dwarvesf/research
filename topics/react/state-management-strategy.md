@@ -7,6 +7,8 @@ authors:
   - zlatanpham
 tags:
   - react
+redirect:
+  - /s/5M647A
 ---
 
 State management is a core architectural topic in React, especially as applications grow in complexity. While local component state (using `useState` or `useReducer`) is suitable for small to medium apps, more sophisticated state management strategies become essential as your app scales.

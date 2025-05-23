@@ -3,6 +3,8 @@ title: Debugging in javascript
 description: Learn how to use JavaScript console methods like console.log, console.assert, console.dir, console.time, and the debugger statement to effectively debug code in Chrome DevTools.
 date: 2022-10-16
 github_id: namtrhg
+redirect:
+  - /s/-hr50Q
 ---
 
 _This note focus on utilizing some of the **` console`** object methods and the **` debugger`** statement to better debug JavaScript application in the [Chrome DevTools](https://developer.chrome.com/docs/devtools/)._

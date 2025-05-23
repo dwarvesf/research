@@ -6,6 +6,8 @@ authors:
   - baenv
 tags:
   - devbox
+redirect:
+  - /s/6Kh9cg
 ---
 
 So you've installed Devbox with that nifty one-liner:

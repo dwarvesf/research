@@ -4,6 +4,8 @@ description: Learn how to use Google Cloud Data Fusion to build and manage ETL p
 date: 2024-01-22
 github_id: mickwan1234
 icy: 10
+redirect:
+  - /s/xt2qRg
 ---
 
 ## Introduction

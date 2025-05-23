@@ -9,6 +9,8 @@ tags:
   - frontend
   - iframe
   - post-message
+redirect:
+  - /s/4geJpA
 ---
 
 When working with web development, communicating between a main window and an embedded iframe is often necessary for various tasks, such as content creation or widget implementation. This communication can occur between windows and iframes with the same origin or across different origins.

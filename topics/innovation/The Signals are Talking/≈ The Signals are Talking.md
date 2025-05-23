@@ -7,6 +7,8 @@ tags:
   - innovation
   - signal
   - ux
+redirect:
+  - /s/-Tg7mQ
 ---
 
 ### Notes

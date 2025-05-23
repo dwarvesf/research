@@ -6,6 +6,8 @@ authors:
   - baenv
 tags:
   - devbox
+redirect:
+  - /s/Jd90Iw
 ---
 
 ## The pursuit of consistency

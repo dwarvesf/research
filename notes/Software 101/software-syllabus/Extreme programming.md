@@ -6,6 +6,8 @@ tags:
   - 101
   - engineering
   - syllabus
+redirect:
+  - /s/CRksTw
 ---
 
 In Extreme programming, which steps we need in the development process and what are documents for each steps?

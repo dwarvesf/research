@@ -11,6 +11,8 @@ tags:
   - backend
   - golang
   - json
+redirect:
+  - /s/vcGV8Q
 ---
 
 ### Go JSON parser: number <-> interface

@@ -2,6 +2,8 @@
 title: ¶ NFT
 description: null
 date: null
+redirect:
+  - /s/zFks-Q
 ---
 
 NFT is an abbreviation for non-fungible token. It's one the tokens that represents an ownership of rare digital goods such as digital artworks or collectibles.

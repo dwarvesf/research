@@ -10,6 +10,8 @@ tags:
   - components
   - frontend
   - react
+redirect:
+  - /s/KJ3fQQ
 ---
 
 Imagine we have a component with multiple states. It is simple enough not to use state management libraries. `useState` is surely a choice for the sake of brevity and clarity. But are there any issues we have to deal with? In this article, I want to make some improvements on `useState` hook and how we can replace it with `useReducer` as an alternative solution.

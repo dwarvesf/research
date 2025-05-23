@@ -7,6 +7,8 @@ authors:
 tags:
   - labs
   - process
+redirect:
+  - /s/qsdJUw
 ---
 
 Our Tech Labs is a hub of continuous learning and application of advanced technologies. This program is designed to celebrate contributions at various levels, from enhancing knowledge to contributing to business growth.

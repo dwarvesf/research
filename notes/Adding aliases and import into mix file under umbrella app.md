@@ -4,6 +4,8 @@ description: null
 date: null
 tags:
   - elixir
+redirect:
+  - /s/vlrTtw
 ---
 
 Here is the content of my mix file: `.iex.exs`

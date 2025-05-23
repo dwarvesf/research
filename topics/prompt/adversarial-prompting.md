@@ -9,6 +9,8 @@ tags:
   - ai
   - llm
   - prompt
+redirect:
+  - /s/DeO5jg
 ---
 
 Adversarial prompting is a crucial aspect of prompt engineering, as it aids in understanding the risks and safety concerns associated with Large Language Models (LLMs). It's a vital field for identifying these risks and developing strategies to mitigate them.

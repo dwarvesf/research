@@ -9,6 +9,8 @@ tags:
   - llm
   - rag
   - evaluation
+redirect:
+  - /s/6lvlzQ
 ---
 
 ## Introduction

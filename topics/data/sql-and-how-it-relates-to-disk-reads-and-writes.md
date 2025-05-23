@@ -13,6 +13,8 @@ tags:
   - sequential-reads
   - sequential-writes
   - engineering
+redirect:
+  - /s/uuLKzA
 ---
 
 ## What are random and sequential reads and writes?

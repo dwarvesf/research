@@ -8,6 +8,8 @@ tags:
   - llm
   - feedback
   - mechanism
+redirect:
+  - /s/OBq99A
 ---
 
 Getting consistent and accurate answers from LLMs is a major challenge. One effective strategy to address this challenge is incorporating a robust feedback mechanism within the app to collect user feedback. The memo will focus on how we collect logs of this feedback, showing how important it is to have a system for collecting input from users. It will also dive into how we design a database to safely store all this valuable feedback, making sure it's organized and useful for improving our models.

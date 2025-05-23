@@ -4,6 +4,8 @@ description: Discover how Bramble, an open-source GraphQL federation gateway, un
 date: 2023-03-29
 github_id: mirageruler
 icy: 10
+redirect:
+  - /s/AtJ_kA
 ---
 
 ## Preamble

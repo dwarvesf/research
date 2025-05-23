@@ -8,6 +8,8 @@ tags:
   - language
   - enterprise
   - golang
+redirect:
+  - /s/754GCA
 ---
 
 ## Go as enterprise standard language

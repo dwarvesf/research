@@ -2,6 +2,8 @@
 title: General
 description: Learn best practices for Solidity smart contracts including abstract contracts vs interfaces, proper use of assert/require/revert, inheritance, event monitoring, fallback functions, security tips, and visibility modifiers.
 date: null
+redirect:
+  - /s/Wyn-pA
 ---
 
 ### 1. Abstract-vs-interfaces

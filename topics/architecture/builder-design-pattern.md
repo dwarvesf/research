@@ -7,6 +7,8 @@ authors:
 tags:
   - design-pattern
   - gang-of-four
+redirect:
+  - /s/L3vacw
 ---
 
 ![](assets/builder-design-pattern.pdf)

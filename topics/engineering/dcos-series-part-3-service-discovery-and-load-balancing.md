@@ -4,6 +4,8 @@ description: Learn how to use Marathon Load Balancer in Mesosphere DCOS for effi
 date: 2017-05-17
 tags:
   - dcos
+redirect:
+  - /s/eCbZnw
 ---
 
 The Mesosphere Datacenter Operating System (DCOS) provides useful tooling for service discovery and load balancing. One of the primary tools is Marathon Load Balancer, which will be the focus of this post.

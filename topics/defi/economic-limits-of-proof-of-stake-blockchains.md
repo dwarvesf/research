@@ -2,6 +2,8 @@
 title: Economic limits of proof of stake blockchains
 description: null
 date: null
+redirect:
+  - /s/7Zlyrg
 ---
 
 In 2018's [_Cryptocurrencies Have Limits_](https://blog.dshr.org/2018/06/cryptocurrencies-have-limits.html) I discussed Eric Budish's [_The Economic Limits Of Bitcoin And The Blockchain_](http://www.nber.org/papers/w24717), an important analysis of the economics of two kinds of "51% attack" on Bitcoin and other cryptocurrencies based on "Proof-of-Work" (PoW) blockchains. Among other things, [Budish shows that](https://blog.dshr.org/2018/06/cryptocurrencies-have-limits.html), for safety, the value of transactions in a block must be low relative to the fees in the block plus the reward for mining the block. In last year's [_The Economics Of Bitcoin Transactions_](https://blog.dshr.org/2019/02/the-economics-of-bitcoin-transactions.html) I discussed Raphael Auer's [_Beyond the doomsday economics of “proof-of-work” in cryptocurrencies_](https://www.bis.org/publ/work765.pdf), in which Auer shows that:

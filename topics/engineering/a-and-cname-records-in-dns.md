@@ -4,6 +4,8 @@ description: Learn the key differences between A records and CNAME records in DN
 date: 2022-01-06
 github_id: namtrhg
 icy: 10
+redirect:
+  - /s/MXVocA
 ---
 
 **A record** and **CNAME** are one of the most common types of records when you want to deploy your `domain` or `subdomain` on the internet.

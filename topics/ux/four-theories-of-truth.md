@@ -2,6 +2,8 @@
 title: Four theories of truth
 description: Explore the four main theories of truth—correspondence, coherence, consensus, and pragmatic—to understand how claims are evaluated and applied across cultures and disciplines.
 date: null
+redirect:
+  - /s/IYy_bQ
 ---
 
 In epistemology, there are generally four theories by which a claim may be evaluated as true. These are

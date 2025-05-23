@@ -4,6 +4,8 @@ description: Mimir is a fast CLI tool that uses AI and heuristic methods to prov
 date: 2020-03-27
 tags:
   - tutorial
+redirect:
+  - /s/r8lL2w
 ---
 
 ## Introduction

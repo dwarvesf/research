@@ -3,6 +3,8 @@ title: Story point estimation
 description: Learn how agile teams use story points and collaborative methods like Planning Poker to estimate workloads accurately, improving sprint planning and product development efficiency.
 date: 2022-09-15
 github_id: nhuthm
+redirect:
+  - /s/Cn2lhA
 ---
 
 From most of the team project, with higher roles like: project manager, product owner, and engineering manager will need to understand the workload of each members from the team, to see what they has been doing so far in the product development. The story point is one of the way to determine that.

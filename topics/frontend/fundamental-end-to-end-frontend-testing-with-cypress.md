@@ -5,6 +5,8 @@ date: 2019-08-02
 tags:
   - javascript
   - testing
+redirect:
+  - /s/NXo7yQ
 ---
 
 ![](assets/fundamental-end-to-end-frontend-testing-with-cypress_7578257d37750f65869976d63ebb2b57_md5.webp)

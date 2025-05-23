@@ -7,6 +7,8 @@ authors:
 tags:
   - git
   - moc
+redirect:
+  - /s/x9a1fQ
 ---
 
 ### Git fundamentals & concepts

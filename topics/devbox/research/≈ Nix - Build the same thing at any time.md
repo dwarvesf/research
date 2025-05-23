@@ -8,6 +8,8 @@ tags:
   - devbox
   - docker
   - nix
+redirect:
+  - /s/au8QAQ
 ---
 
 Nix gives us the ability to build Docker image with minimum deterministic by providing some solid mechanisms.

@@ -7,6 +7,8 @@ authors:
 tags:
   - ai
   - moc
+redirect:
+  - /s/J9uxow
 ---
 
 ### AI fundamentals

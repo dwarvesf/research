@@ -6,6 +6,8 @@ tags:
   - idea
   - note
   - writing
+redirect:
+  - /s/UW_y1g
 ---
 
 When taking notes, always write them with consideration for the notes that you already have. Notes are far more powerful when we connect them to a larger [[Ideas are networks | network of thought]], crafting idea [[Ideas are constellations | constellations]] from discrete ideas that we have [[Decontextualize ideas to make them new | recontextualized]] into new conversations.

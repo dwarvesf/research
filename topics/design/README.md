@@ -7,6 +7,8 @@ authors:
 tags:
   - design
   - moc
+redirect:
+  - /s/eiP4Ag
 ---
 
 ### Design fundamentals & principles

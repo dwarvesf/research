@@ -9,6 +9,8 @@ tags:
   - ai
   - mcp
   - security
+redirect:
+  - /s/N6aHPQ
 ---
 
 ![](assets/tool-level-security-for-remote-mcp-servers.webp)

@@ -7,6 +7,8 @@ authors:
 tags:
   - graphical-notation
   - software-design
+redirect:
+  - /s/IGIaJQ
 ---
 
 ![](assets/c4-modelling.pdf)

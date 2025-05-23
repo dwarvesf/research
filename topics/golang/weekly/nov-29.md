@@ -8,6 +8,8 @@ authors:
 tags:
   - go-weekly
   - golang
+redirect:
+  - /s/-kYuQw
 ---
 
 ## [GoMLX: ML in Go without Python](https://eli.thegreenplace.net/2024/gomlx-ml-in-go-without-python)

@@ -5,6 +5,8 @@ date: null
 tags:
   - idea
   - innovation
+redirect:
+  - /s/-6xTRg
 ---
 
 New ideas are built from the scraps of other ideas that we've encountered. When we piece those scraps together in new ways, we innovate and create. In contrast, siloed societies and organizations prevent flow of ideas between minds, what Johnson describes as "information spillover."

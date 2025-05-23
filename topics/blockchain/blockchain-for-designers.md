@@ -5,6 +5,8 @@ date: 2020-05-04
 tags:
   - blockchain
   - design
+redirect:
+  - /s/XLfnXA
 ---
 
 ## Intro

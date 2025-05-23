@@ -4,6 +4,8 @@ description: null
 date: null
 tags:
   - writing
+redirect:
+  - /s/hzJZtQ
 ---
 
 In creative work, strive to marry form with function. The content of the work should align well with its message, theme, or argument. There should be symmetry between the way in which a story is told and its content.

@@ -8,6 +8,8 @@ pinned: true
 tags:
   - data
   - moc
+redirect:
+  - /s/goaFww
 ---
 
 ![](assets/data-engineering-moc.webp)

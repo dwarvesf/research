@@ -6,6 +6,8 @@ authors:
   - baenv
 tags:
   - devbox
+redirect:
+  - /s/qy-8AA
 ---
 
 Ever wished you could manage your development services as easily as with Docker Compose, but without all the Docker baggage? Say hello to Devbox Services, powered by process-compose.

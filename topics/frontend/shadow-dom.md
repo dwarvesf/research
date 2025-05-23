@@ -10,6 +10,8 @@ tags:
   - frontend
   - shadow-dom
   - web-api
+redirect:
+  - /s/j4g3hg
 ---
 
 I'm currently working on a new application called Javis, which operates as a Chrome extension. Functioning as an AI assistant, Javis is designed to facilitate a smooth and enriching web browsing experience for users. During its testing phase in Chrome, I faced a unique challenge - **Javis's CSS clashed with the webpage's CSS**. The result was a distortion of both the application's and the webpage's interfaces. Following a research, I unearthed a potent solution - the Shadow DOM. In this piece, I aim to explain the concept of Shadow DOM and shed light on the its advantage of encapsulating style.

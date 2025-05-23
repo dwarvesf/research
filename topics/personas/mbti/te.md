@@ -4,6 +4,8 @@ description: "Discover how Te users like ENTJs and ESTJs make clear, logic-based
 date: null
 URL: "https://drive.google.com/file/d/1n8ID_iXqzs6cMZlRS0Su7lQUhrfd7khh/view?usp=sharing,https://practicaltyping.com/thinking-functions-te-ti/"
 tag: function, mbti
+redirect:
+  - /s/Os2LLw
 ---
 
 Book: My True Type, page 98 - 102

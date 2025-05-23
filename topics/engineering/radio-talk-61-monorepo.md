@@ -5,6 +5,8 @@ date: 2023-03-27
 tags:
   - engineering
   - web
+redirect:
+  - /s/63cMgA
 ---
 
 ## Demystifying monorepos: a recap of our recent sharing session

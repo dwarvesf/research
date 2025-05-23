@@ -4,6 +4,8 @@ description: Learn how to build a fast user leaderboard system using Redis sorte
 date: 2023-08-08
 github_id: Tuanpm31
 icy: 10
+redirect:
+  - /s/IUTHBg
 ---
 
 In this post, we're going to explore how to implement a user leaderboard system using Redis. The leaderboard will keep track of user scores and profile information such as username and avatar.

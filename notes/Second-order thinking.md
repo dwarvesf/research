@@ -3,6 +3,8 @@ title: null
 description: null
 date: null
 tag: longterm
+redirect:
+  - /s/JsHXdg
 ---
 
 Cool thoughts on why we should think long term before making any decision.

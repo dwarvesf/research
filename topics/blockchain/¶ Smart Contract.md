@@ -9,6 +9,8 @@ tags:
   - blockchain
   - foundational-topics
   - smart-contract
+redirect:
+  - /s/6ibBQg
 ---
 
 ## Smart contracts

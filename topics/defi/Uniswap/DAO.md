@@ -5,6 +5,8 @@ date: null
 tags:
   - blockchain
   - defi
+redirect:
+  - /s/F9_Ruw
 ---
 
 ### Decentralized autonomous organization

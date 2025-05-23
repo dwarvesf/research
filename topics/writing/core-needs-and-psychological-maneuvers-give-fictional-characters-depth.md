@@ -2,6 +2,8 @@
 title: Core needs and psychological maneuvers give fictional characters depth
 description: "Learn how to create deep, multidimensional characters by exploring their core needs and psychological maneuvers, key concepts from Elizabeth George's _Mastering the Process: From Idea to Novel_."
 date: null
+redirect:
+  - /s/Xv6c_A
 ---
 
 In _Mastering the Process: From Idea to Novel_ Elizabeth George suggests that two ingredients that help understand characters are their **core need** and their **psychopathology** or psychological maneuver.

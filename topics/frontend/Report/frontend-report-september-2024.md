@@ -8,6 +8,8 @@ authors:
 tags:
   - frontend
   - market-report
+redirect:
+  - /s/vc0sKQ
 ---
 
 This roundup covers the latest in React, Next.js, and web development. React Server Actions are now Server Functions, and there's a deep dive into the React 19 compiler. In Next.js news, OpenNext is enabling self-hosting, and there's fresh guidance on Progressive Web Apps. Plus, explore tips on lazy loading, CSS Grid, and JavaScript's evolution.

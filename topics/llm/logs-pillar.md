@@ -9,6 +9,8 @@ tags:
   - observability
   - llm
   - pillar
+redirect:
+  - /s/JExziQ
 ---
 
 When you’re working with generative AI application, one thing that often gets overlooked is logging. Logging helps you keep track of what’s happening under the hood and gives you the insights you need to improve your model. Whether it's detecting errors or maintaining your AI runs smoothly, logging is fundamental. In this article, we'll look at why logging is important and how to use it to improve your LLM application.

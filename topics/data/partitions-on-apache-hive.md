@@ -4,6 +4,8 @@ description: Learn how Hive partitions and dynamic partitions optimize query per
 date: 2022-12-02
 github_id: dudaka
 icy: 10
+redirect:
+  - /s/s1NLfg
 ---
 
 Have you ever been in a situation where you are trying to optimize a slow running query to make it run faster? In our case, we have been looking at that query for hours and realized that the query is scanning the entire table and we are thinking that this query will be super fast if it only targets specific set of records instead of the entire table. Thus, what we really want, hopefully you too, in such cases is partitions.

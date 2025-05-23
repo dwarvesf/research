@@ -4,6 +4,8 @@ description: Discover Clojure, a dynamic, functional Lisp dialect hosted on the 
 date: 2019-09-06
 tags:
   - clojure
+redirect:
+  - /s/bef_tw
 ---
 
 ## Definition

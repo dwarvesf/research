@@ -4,6 +4,8 @@ description: null
 date: null
 tags:
   - architecture
+redirect:
+  - /s/dc02Vg
 ---
 
 ### Software Architecture (SA)

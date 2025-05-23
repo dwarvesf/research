@@ -4,6 +4,8 @@ description: Learn how to create an infinite image gallery with react-three-fibe
 date: 2020-09-14
 tags:
   - tutorial
+redirect:
+  - /s/Uey68A
 ---
 
 ![](assets/infinite-image-gallery-with-r3f---an-approach_eb91b6c0aa14997e1a88191e1acaa8dd_md5.webp)

@@ -2,6 +2,8 @@
 title: Smart contracts
 description: null
 date: null
+redirect:
+  - /s/55MOYw
 ---
 
 ### What

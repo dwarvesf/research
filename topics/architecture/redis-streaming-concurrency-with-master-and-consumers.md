@@ -4,6 +4,8 @@ description: Learn how to implement a Redis streaming master-consumers pattern t
 date: 2023-05-16
 github_id: R-Jim
 icy: 10
+redirect:
+  - /s/ty0RhQ
 ---
 
 ## The problem statement

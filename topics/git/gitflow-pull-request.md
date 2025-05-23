@@ -4,6 +4,8 @@ description: Learn the best Git workflows, branching models, commit message tips
 date: 2021-04-10
 tags:
   - git
+redirect:
+  - /s/fjhe-w
 ---
 
 ![](assets/gitflow-pull-request_0150827f46aae013c7fa3a68c509e812_md5.webp)

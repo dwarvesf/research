@@ -4,6 +4,8 @@ description: Learn how to create a custom watch face with circular bezel, ticks,
 date: 2020-03-23
 tags:
   - swift
+redirect:
+  - /s/f-qhAQ
 ---
 
 SwiftUI are nice and fun to working with. You can read my previous article to get a bit knowledge about create circular control, it will make you easy to working with this article. This article also use Shape and Path, if you have worked with CoreGraphic before you will find it similar With CALayer, CAShapeLayer and UIBezierPath.

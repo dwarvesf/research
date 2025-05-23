@@ -11,6 +11,8 @@ tags:
   - docker
   - tool
   - virtualization
+redirect:
+  - /s/U_hyxw
 ---
 
 This is the 3rd post of Devbox series includes

@@ -10,6 +10,8 @@ tags:
   - performance
   - sql
   - sargable-queries
+redirect:
+  - /s/9N2l7Q
 ---
 
 Structured Query Language (SQL) is widely used for managing data in relational database management systems (RDBMS). In the context of SQL, the optimization of database queries forms the foundation for efficient data retrieval, providing quicker response times and increasing overall database performance. One key strategy to optimize SQL queries involves the concept of "Sargable" queries.

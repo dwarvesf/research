@@ -9,6 +9,8 @@ tags:
   - ai
   - vector-database
   - llm
+redirect:
+  - /s/kPbQrg
 ---
 
 When it comes to Large Language Models (LLMs) like GPT, managing context size - the number of tokens per prompt - is a unique challenge. As it stands, GPT-3.5 can process up to 4096 tokens, roughly equivalent to 3000 English words. This limitation creates difficulties for tasks requiring the consumption of large amounts of text, such as retrieving information from extensive documentation or keeping track of [[Dealing with Long-Term Memory in AI Chatbot | a long chat history]]. Despite the potential of future models such as GPT-4 to support larger context windows, there may be a significant trade-off in terms of increased computational power and latency costs. To address these challenges, a viable strategy is ‘chunking’ - a process that involves dissecting large volumes of text into smaller, more manageable segments. These segments are then fed to an embedding model before being stored in a vector database for tasks such as similarity search. This note will explore different chunking strategies to overcome the limitations of LLM and ensure that the output remains coherent and meaningful.

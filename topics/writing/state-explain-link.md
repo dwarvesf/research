@@ -7,6 +7,8 @@ authors:
 tags:
   - english
   - writing
+redirect:
+  - /s/2h105g
 ---
 
 ## Introduction

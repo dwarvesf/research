@@ -8,6 +8,8 @@ tags:
   - devbox
   - docker
   - nix
+redirect:
+  - /s/cRFhsA
 ---
 
 On different machines with different nixpkgs versions, Nix build will result different packages.

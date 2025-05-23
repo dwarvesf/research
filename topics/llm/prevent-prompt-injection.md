@@ -8,6 +8,8 @@ tags:
   - ai
   - llm
   - security
+redirect:
+  - /s/koYaBw
 ---
 
 Nowadays, Large Language Models (LLMs) have become integral to various applications. However, with great power comes great responsibility, and the rise of LLMs has introduced new security challenges. One such challenge is prompt injection attacks, a process of overriding original instructions in the prompt with special user input. It often occurs when untrusted input is used as part of the prompt. In this article, we'll dive deep into the world of prompt injection, understand its implications, and explore strategies to prevent these attacks.

@@ -4,6 +4,8 @@ description: Learn how Discord migrated from MongoDB to Cassandra for scalable, 
 date: 2023-06-02
 github_id: fuatto
 icy: 10
+redirect:
+  - /s/8sY0ow
 ---
 
 ## Introduction

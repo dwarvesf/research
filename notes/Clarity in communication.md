@@ -4,6 +4,8 @@ description: null
 date: null
 tags:
   - communication
+redirect:
+  - /s/bQhEaQ
 ---
 
 Author's PoV: Dev should spend more effort on nurturing the mindset on clarity in communcation.

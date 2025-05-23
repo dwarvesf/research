@@ -8,6 +8,8 @@ tags:
   - gang-of-four
   - graphical-notation
   - software-design
+redirect:
+  - /s/mwNbqw
 ---
 
 ![](assets/prototype-design-pattern.pdf)

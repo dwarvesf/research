@@ -6,6 +6,8 @@ authors:
   - baenv
 tags:
   - devbox
+redirect:
+  - /s/qS1aUw
 ---
 
 Containers are great, but sometimes they're overkill. With Devbox Services and Plugins, you can create a sleek, containerless environment for local development. Let's build a Golang backend to show you how it's done.

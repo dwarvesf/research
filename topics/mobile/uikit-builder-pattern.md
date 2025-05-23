@@ -3,6 +3,8 @@ title: UIKit builder pattern
 description: Learn how to build reusable, flexible UIKit user interfaces using the builder pattern with Swift extensions and @discardableResult for cleaner, declarative UI code.
 date: 2022-08-05
 github_id: viettrungphan
+redirect:
+  - /s/xEvMAQ
 ---
 
 SwiftUI introduces a way to write UI code declaratively. Can we use the same paradigm with UIKit? We will show you how.

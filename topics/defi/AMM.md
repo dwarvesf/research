@@ -2,6 +2,8 @@
 title: Amm
 description: null
 date: null
+redirect:
+  - /s/rvBaNQ
 ---
 
 ### Automated market maker

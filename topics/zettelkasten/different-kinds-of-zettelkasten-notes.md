@@ -2,6 +2,8 @@
 title: Different kinds of zettelkasten notes
 description: Learn how the Zettelkasten method uses fleeting, permanent, and project notes to boost writing and thinking by capturing and rephrasing ideas for better understanding and lasting value.
 date: null
+redirect:
+  - /s/jErlNw
 ---
 
 In the Zettelkasten method as described by Ahrens in [[≈ How to Take Smart Notes]], there are three kinds of notes:

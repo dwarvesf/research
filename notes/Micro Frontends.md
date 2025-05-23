@@ -4,6 +4,8 @@ description: null
 date: null
 tags:
   - micro-frontend
+redirect:
+  - /s/W9entg
 ---
 
 ### What is Micro-frontend?

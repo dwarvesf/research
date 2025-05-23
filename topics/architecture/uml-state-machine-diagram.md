@@ -4,6 +4,8 @@ description: Learn how UML State Machine Diagrams visualize object states, trans
 date: 2023-08-16
 github_id: trankhacvy
 icy: 10
+redirect:
+  - /s/RGIpEg
 ---
 
 ## UML state machine diagram

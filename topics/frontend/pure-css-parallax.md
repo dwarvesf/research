@@ -10,6 +10,8 @@ tags:
   - css
   - frontend
   - html
+redirect:
+  - /s/UvqX-w
 ---
 
 This article demonstrates how to use CSS transforms, perspective and some scaling trickery to create a pure CSS parallax scrolling website.

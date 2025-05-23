@@ -6,6 +6,8 @@ tags:
   - enterprise
   - innovation
   - organization
+redirect:
+  - /s/jKezUg
 ---
 
 - A large organization isn't a startup; nor should it try to act like one. The enterprise operates in a wholly different context. It must able to execute an existing business model while searching for a new one, two activities that rely on entirely different management structures.

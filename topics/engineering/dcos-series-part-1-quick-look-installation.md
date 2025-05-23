@@ -4,6 +4,8 @@ description: Learn how to install and set up DC/OS, a data center OS based on Ap
 date: 2017-05-04
 tags:
   - dcos
+redirect:
+  - /s/i-zaKQ
 ---
 
 ## What is DC/OS ?

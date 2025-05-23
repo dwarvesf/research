@@ -2,6 +2,8 @@
 title: ¶ falsifiability
 description: Falsifiability is the ability to prove a statement false and helps turn observations into scientific laws by seeking disconfirming evidence rather than just confirming data.
 date: null
+redirect:
+  - /s/44izZA
 ---
 
 _Faslifiability_ describes the capacity of a statement to be proven false. For example, the presence of a black swan _falsifies_ the statement "All swans are white." [Karl Popper](https://publish.obsidian.md/mobydiction/Karl+Popper) suggested that a focus on falsifiability may enable us to more quickly move from observation to scientific law. That is, it may be impossible to verify that all swans are white; however, finding a swan that is not white quickly invalidates the statement.  

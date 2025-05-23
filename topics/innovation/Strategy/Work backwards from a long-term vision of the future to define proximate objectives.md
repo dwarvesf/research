@@ -5,6 +5,8 @@ date: null
 tags:
   - innovation
   - strategy
+redirect:
+  - /s/q5gseg
 ---
 
 Discovery-driven planning is a technique whereby you define the parameters of a future state and then work backward to understand what would have to be true for that future to come about. Before making a big commitment, you can then make “little bets” that are designed to yield new intelligence, breaking the big inflection point down into smaller, more manageable pieces. Identify checkpoints: points at which you can learn something and determine whether you should continue to move forward or pivot away from the plan.

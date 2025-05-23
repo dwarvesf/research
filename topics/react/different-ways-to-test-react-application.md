@@ -4,6 +4,8 @@ description: Learn effective React testing methods including unit tests with rea
 date: 2019-06-06
 tags:
   - react
+redirect:
+  - /s/dfvIaw
 ---
 
 ![](assets/different-ways-to-test-react-application_b057b9816631efa15334f5edbd90c8ea_md5.webp)

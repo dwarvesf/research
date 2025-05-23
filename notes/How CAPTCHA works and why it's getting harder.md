@@ -3,6 +3,8 @@ title: null
 description: null
 date: null
 tag: captcha
+redirect:
+  - /s/4y2XZA
 ---
 
 CAPTCHA stands for _Completely Automated Public Turing test to tell Computer and Humans Apart_. CAPTCHA works whenever the computer asks user to indentify letters. Later then, the invention of reCAPTCHA requires human to select graphic based on topics, or enter images of text that computers have trouble deciphering.

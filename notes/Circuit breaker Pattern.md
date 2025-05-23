@@ -6,6 +6,8 @@ tags:
   - cloud-pattern
   - engineering
   - microservice
+redirect:
+  - /s/3fzvXQ
 ---
 
 ### Context

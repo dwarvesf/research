@@ -9,6 +9,8 @@ tags:
   - blockchain
   - evm
   - zk-proof
+redirect:
+  - /s/k0f0zw
 ---
 
 Zero-knowledge proof is a way of proving the validity of a statement without disclosing the statement itself. A "validator" is the party attempting to prove a claim, while a "verifier" is responsible for validating the claim.

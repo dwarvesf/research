@@ -4,6 +4,8 @@ description: Learn how to manage manual and automated test cases in one document
 date: 2022-12-12
 github_id: binhle59
 icy: 10
+redirect:
+  - /s/RXyTMw
 ---
 
 ## Note

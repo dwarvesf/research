@@ -8,6 +8,8 @@ authors:
 tags:
   - frontend
   - market-report
+redirect:
+  - /s/mcbgMQ
 ---
 
 ![](assets/frontend-report-202503.png)

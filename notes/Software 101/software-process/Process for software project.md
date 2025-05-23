@@ -6,6 +6,8 @@ tags:
   - 101
   - engineering
   - process
+redirect:
+  - /s/xxr69Q
 ---
 
 Last week, a friend who owns a software company called me: “After working for a software company for six years, I started my own company. I hired top graduated students and paid them well, I had several customers and my company grew fast. However, currently we are having problems with high defects and schedule slippages. If these problems continue, my company will be in trouble. As the owner, I usually spent most of my time with customers to bring in new business so how could I fix these problems and continue to grow my company?

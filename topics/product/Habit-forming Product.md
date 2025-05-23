@@ -5,6 +5,8 @@ date: null
 tags:
   - habit-forming
   - product
+redirect:
+  - /s/c1Gx1A
 ---
 
 ## What is habit-forming product

@@ -6,6 +6,8 @@ author: Giang Ngoc Huy
 tags:
   - engineering
   - frontend
+redirect:
+  - /s/VIlGXQ
 ---
 
 If you've been on Twitter lately, you might've seen the term "Partial Hydration" as well as MPA going along and hyped by web advocates, wondering what about them?

@@ -6,6 +6,8 @@ authors:
   - baenv
 tags:
   - devbox
+redirect:
+  - /s/7EHbZQ
 ---
 
 Ever spent hours configuring a new package in your dev environment? Yeah, we've all been there. It sucks. That's why we created Devbox Plugins.

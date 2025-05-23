@@ -6,6 +6,8 @@ tags:
   - machine-learning
   - llm
   - engineering
+redirect:
+  - /s/YgTFXQ
 ---
 
 ![](assets/exploring-machine-learning-approaches-for-fine-tuning-llama-models_b6f4054793fd3b5ef748c5dcf072cc09_md5.webp)

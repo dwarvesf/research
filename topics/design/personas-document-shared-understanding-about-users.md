@@ -2,6 +2,8 @@
 title: Personas document shared understanding about users
 description: Personas help design teams understand user goals and priorities, prevent feature creep, and create shared empathy by focusing on real users’ needs throughout the product development process.
 date: null
+redirect:
+  - /s/1ad5Jg
 ---
 
 Whether or not personas can help design teams achieve empathy for their users, personas may still be worthwhile as a document that shares a team's current understanding of their users' perspectives, values, and priorities. While affective empathy can be difficult to achieve, cognitive empathy—consider another person's more functional needs—seems more attainable. Personas can be an effective shorthand for that purpose, if nothing else reminding product or design teams that there is a real, human user on the other side of the experience whose goals may differ from their own.

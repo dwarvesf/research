@@ -2,6 +2,8 @@
 title: Qualitative research excels at explanation
 description: Qualitative research explains causation using metaphors and narratives to create concepts for quantitative testing, offering deep insights beyond event frequency and complementing quantitative methods.
 date: null
+redirect:
+  - /s/8kVNCA
 ---
 
 Qualitative researchers can explain causation through metaphor, narratives, and thought experiments; these can in turn generate explanatory concepts that may be tested with quantitative methodologies. Qualitative research is less concerned with the frequency of an event as it is with “unriddling” or sensemaking from the data.

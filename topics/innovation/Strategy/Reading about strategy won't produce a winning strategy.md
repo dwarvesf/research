@@ -5,6 +5,8 @@ date: null
 tags:
   - business
   - strategy
+redirect:
+  - /s/9Qif5Q
 ---
 
 Good strategies are doomed by their own success. An especially effective strategy will be studied, repackaged by consultancies, adopted by competitors, and ultimately become a best practice. And, a best practice is never a winning strategy. After all, the core of strategy is differentiation.

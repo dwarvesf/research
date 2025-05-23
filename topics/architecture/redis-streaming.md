@@ -4,6 +4,8 @@ description: Learn how to use Redis Streaming for event sourcing and messaging w
 date: 2023-04-21
 github_id: R-Jim
 icy: 10
+redirect:
+  - /s/Gj7Khg
 ---
 
 ## What is Redis

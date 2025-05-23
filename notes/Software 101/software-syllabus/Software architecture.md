@@ -7,6 +7,8 @@ tags:
   - architecture
   - engineering
   - syllabus
+redirect:
+  - /s/sBiOJA
 ---
 
 According to several studies, the larger the software project, the less chance of success it will have because the complexity exceeds the developer’ ability to comprehend it. The key for success depends on the ability of the system architect to decompose requirements into smaller tasks so that developers can understand and be able to implement them. When developers finished, these tasks can be integrated into the large system according to the defined architecture.

@@ -5,6 +5,8 @@ date: 2019-07-26
 tags:
   - macos
   - swift
+redirect:
+  - /s/354duw
 ---
 
 ## Definition

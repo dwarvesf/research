@@ -4,6 +4,8 @@ description: null
 date: null
 tags:
   - writing
+redirect:
+  - /s/qNw4Wg
 ---
 
 Writing by hand rather than on a computer has a number of benefits. Some studies have found that writing by hand activates more areas of the brain than typing, leading some scientists to argue that it promotes "deep encoding." Students who took notes by hand were found to remember more of what they recorded; those who typed their notes tended to transcribe rather than take notes and were less likely to process the information in the same way as those students who wrote by hand.

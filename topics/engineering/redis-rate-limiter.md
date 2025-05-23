@@ -4,6 +4,8 @@ description: Learn how to implement basic rate limiting in Redis using counters 
 date: 2023-06-01
 github_id: Tuanpm31
 icy: 10
+redirect:
+  - /s/e3R_aA
 ---
 
 ## Introduction

@@ -4,6 +4,8 @@ description: null
 date: null
 tags:
   - innovation
+redirect:
+  - /s/myDLpw
 ---
 
 The "adjacent possible" describes the open space of direction that the future may take—the realm of the possible that is available at a given moment. Greater change is possible, but unlikely to extend beyond the adjacent space. Innovation doesn't happen in leaps and bounds, but occurs through [small, incremental steps](https://publish.obsidian.md/mobydiction/notes/Innovation+accrues+in+small%2C+incremental+steps.). When ideas skip too far ahead beyond the "adjacent possible," they're unlikely to be adopted in the short-term. This is what we would call an idea that is "ahead of its time." They've skipped too far past the adjacent possible.

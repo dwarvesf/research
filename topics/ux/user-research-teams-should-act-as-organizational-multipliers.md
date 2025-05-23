@@ -2,6 +2,8 @@
 title: User research teams should act as organizational multipliers
 description: Learn how user research teams act as multipliers to share customer insights across organizations, enabling confident, customer-focused solutions through training, best practices, and collaboration.
 date: null
+redirect:
+  - /s/75ZflQ
 ---
 
 An effective user research team cannot proceed as though it holds a monopoly on intelligence about the user. In a mature, design-centric organization, customer knowledge is everyone's concern. Therefore, the purpose of user research specialists is to act as a "multiplier" who helps cross-functional teams discover and learn and facilitates what Microsoft's Monty Hammontree calls "co-experienced learning." They enable everyone to hear from and learn about their customers so that they are confident in their understanding and are energized to develop customer-centric solutions.

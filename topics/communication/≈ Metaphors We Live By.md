@@ -4,6 +4,8 @@ description: null
 date: null
 tags:
   - communication
+redirect:
+  - /s/-NSaTg
 ---
 
 ## Summary

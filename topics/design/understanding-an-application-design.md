@@ -4,6 +4,8 @@ description: Learn how to design web applications by choosing the right project 
 date: 2021-07-09
 tags:
   - design
+redirect:
+  - /s/MVBt5g
 ---
 
 Requested by our Apprentices, and hosted by Thanh Pham - our Head of Web. Understanding an Application Design is the upfront work for every web project. An application design consists of different main parts, which we highlighted a few below.

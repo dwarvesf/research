@@ -4,6 +4,8 @@ description: null
 date: null
 tags:
   - rust
+redirect:
+  - /s/4VI_YQ
 ---
 
 Each decade comes with a modern language that resolve a problem at the time. the blog author is guessing who is the winner for the 20s, and it's neither C or Java - despite these twos are trying to come back. It's not Go either, since he claimed Go can only work in cloud-native tools and cross platform interfaces.

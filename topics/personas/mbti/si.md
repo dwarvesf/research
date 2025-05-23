@@ -4,6 +4,8 @@ description: Discover how Introverted Sensing (Si) shapes ISTJs and ISFJs by val
 date: null
 URL: "https://drive.google.com/file/d/1n8ID_iXqzs6cMZlRS0Su7lQUhrfd7khh/view?usp=sharing"
 tag: function, mbti
+redirect:
+  - /s/G-ZXpQ
 ---
 
 Book: My True Type, page 79 - 85

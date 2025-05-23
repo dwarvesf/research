@@ -6,6 +6,8 @@ authors:
   - tienan92it
 tags:
   - migrations
+redirect:
+  - /s/b-3lIw
 ---
 
 https://newsletter.pragmaticengineer.com/p/real-world-engineering-challenges

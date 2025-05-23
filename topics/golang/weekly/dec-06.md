@@ -8,6 +8,8 @@ authors:
 tags:
   - go-weekly
   - golang
+redirect:
+  - /s/r0SCSQ
 ---
 
 ## [Draft Release Notes Go 1.24](https://tip.golang.org/doc/go1.24)

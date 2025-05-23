@@ -5,6 +5,8 @@ date: null
 tags:
   - concurrency
   - elixir
+redirect:
+  - /s/kD647Q
 ---
 
 ### Fire and forget

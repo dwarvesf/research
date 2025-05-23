@@ -4,6 +4,8 @@ description: Learn how Data Vault architecture builds flexible, scalable data la
 date: 2022-12-15
 github_id: Bachpx2911
 icy: 10
+redirect:
+  - /s/6S6FMg
 ---
 
 ## Introduction

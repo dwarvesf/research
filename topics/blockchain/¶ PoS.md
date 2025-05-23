@@ -9,6 +9,8 @@ tags:
   - blockchain
   - foundational-topics
   - po-s
+redirect:
+  - /s/NKsPvQ
 ---
 
 ## The proof of stake

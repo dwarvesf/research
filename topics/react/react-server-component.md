@@ -11,6 +11,8 @@ tags:
   - nextjs
   - react
   - server-component
+redirect:
+  - /s/_Lqfkw
 ---
 
 ## React server components, NextJs route and data fetching

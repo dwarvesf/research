@@ -5,6 +5,8 @@ date: null
 tags:
   - habit-forming
   - product
+redirect:
+  - /s/GUwyJA
 ---
 
 ## Definition

@@ -4,6 +4,8 @@ description: Discover the power of Introverted Intuition (Ni), the rare cognitiv
 date: null
 URL: "https://drive.google.com/file/d/1n8ID_iXqzs6cMZlRS0Su7lQUhrfd7khh/view?usp=sharing"
 tag: function, mbti
+redirect:
+  - /s/MUTrPw
 ---
 
 Book: My True Type, page 58 - 69

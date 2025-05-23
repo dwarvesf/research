@@ -9,6 +9,8 @@ tags:
   - go-weekly
   - golang
   - kernel-programing
+redirect:
+  - /s/EtZrLQ
 ---
 
 ## [An Applied Introduction to eBPF with Go](https://sazak.io/articles/an-applied-introduction-to-ebpf-with-go-2024-06-06)

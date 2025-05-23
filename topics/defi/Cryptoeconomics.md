@@ -2,6 +2,8 @@
 title: Cryptoeconomics
 description: null
 date: null
+redirect:
+  - /s/TIe34w
 ---
 
 ### Cryptoeconomics

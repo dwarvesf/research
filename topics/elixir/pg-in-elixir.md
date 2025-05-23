@@ -4,6 +4,8 @@ description: "Learn how to use Erlang's pg library for process groups to broadca
 date: 2022-11-01
 github_id: hieuphq
 icy: 10
+redirect:
+  - /s/kh7p4w
 ---
 
 pg2 is an erlang module that implements **process groups**. Each message may be sent to one, some, or all group members.

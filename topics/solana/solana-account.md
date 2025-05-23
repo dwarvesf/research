@@ -8,6 +8,8 @@ github_id: trankhacvy
 tags:
   - blockchain
   - solana
+redirect:
+  - /s/toGiuA
 ---
 
 Unlike most blockchain, Solana separates logic and data into two separate components: Program and Account. What that means is that instead of storing data inside variables internally, Programs interact with external data stored in Accounts with the ability to mutate them.

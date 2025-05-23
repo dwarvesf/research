@@ -4,6 +4,8 @@ description: Learn how to improve product design with user research, job stories
 date: 2018-03-22
 tags:
   - design
+redirect:
+  - /s/4ikglw
 ---
 
 ## Project research

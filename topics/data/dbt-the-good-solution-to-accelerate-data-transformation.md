@@ -4,6 +4,8 @@ description: Discover how DBT (data build tool) simplifies data transformation i
 date: 2022-11-21
 github_id: Bachpx2911
 icy: 10
+redirect:
+  - /s/5a1QKw
 ---
 
 Transformation is one of the most important process in building data warehouse. It will allow you to clean, combine, remove duplicates, reorganize, and filter all your data. The transformation will enable your enterprise to develop useful and reliable insights via analytics and There are several tools on market for it such as Striim, Pentaho, Hevo Data..Yet, the one that clearly stands out, in particular, the data build tool. This article will introduce and review DBT in transforming data.

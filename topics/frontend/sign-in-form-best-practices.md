@@ -7,6 +7,8 @@ authors:
 tags:
   - form
   - frontend
+redirect:
+  - /s/rMKM-A
 ---
 
 ### Sign-in form best practices

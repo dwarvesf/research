@@ -8,6 +8,8 @@ github_id: thanhpn
 tags:
   - blockchain
   - multisign-wallet
+redirect:
+  - /s/38AEJQ
 ---
 
 ![](assets/multisign-wallet-hero-image.webp)

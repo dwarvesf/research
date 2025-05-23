@@ -4,6 +4,8 @@ description: Learn how to split and reuse repetitive React code using render pro
 date: 2019-05-02
 tags:
   - engineering
+redirect:
+  - /s/OortDw
 ---
 
 ![](assets/split-and-reuse-code-in-react-application_5f86abdbff47c3d17d6258e3b001ceb8_md5.webp)

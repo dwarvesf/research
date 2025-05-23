@@ -4,6 +4,8 @@ description: Learn how to implement the circuit breaker pattern in Go to handle 
 date: 2023-07-02
 github_id: R-Jim
 icy: 10
+redirect:
+  - /s/B1xi0w
 ---
 
 ## The problem statement

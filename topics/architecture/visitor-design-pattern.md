@@ -7,6 +7,8 @@ authors:
 tags:
   - design-pattern
   - gang-of-four
+redirect:
+  - /s/-UO_Ag
 ---
 
 ![](assets/visitor-design-pattern.pdf)

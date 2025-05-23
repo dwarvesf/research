@@ -10,6 +10,8 @@ tags:
   - frontend
   - mock-service-worker
   - web-development-tool
+redirect:
+  - /s/mi0Rdw
 ---
 
 ## Introduction

@@ -6,6 +6,8 @@ tags:
   - features
   - kano
   - product
+redirect:
+  - /s/-grVhw
 ---
 
 ## Definition

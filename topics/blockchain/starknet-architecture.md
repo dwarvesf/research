@@ -10,6 +10,8 @@ tags:
   - evm
   - stark-net
   - zk-rollup
+redirect:
+  - /s/whdbgg
 ---
 
 ## StarkNet layer 2 solution

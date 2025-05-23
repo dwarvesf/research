@@ -2,6 +2,8 @@
 title: Swap
 description: null
 date: null
+redirect:
+  - /s/UEA0xw
 ---
 
 ### Smart contract

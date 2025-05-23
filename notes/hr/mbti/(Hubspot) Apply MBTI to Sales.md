@@ -5,6 +5,8 @@ date: null
 tags:
   - mbti
   - sales
+redirect:
+  - /s/0FmiQg
 ---
 
 #### What personality types succeed in sales?

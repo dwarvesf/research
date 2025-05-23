@@ -8,6 +8,8 @@ tags:
   - accessibility
   - frontend
   - wai-aria
+redirect:
+  - /s/_OhNXg
 ---
 
 Since modern websites and applications contain huge amounts of dynamic content and complex components with no semantics to describe what they mean, users with disabilities, those dependent on **assistive technologies** such as **[Screen Reader](https://chrome.google.com/webstore/detail/screen-reader/kgejglhpjiefppelpmljglcjbhoiplfn/related?hl=en)**, text-to-speech or screen magnification tools might suffer to interact with those components.

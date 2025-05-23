@@ -7,6 +7,8 @@ authors:
 tags:
   - moc
   - pm
+redirect:
+  - /s/mVa6og
 ---
 
 ### Project management fundamentals

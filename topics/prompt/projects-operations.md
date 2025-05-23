@@ -8,6 +8,8 @@ tags:
   - ai
   - copilots
   - project-management
+redirect:
+  - /s/iWnPwA
 ---
 
 ## Introduction to Project operations copilots

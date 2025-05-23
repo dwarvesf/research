@@ -8,6 +8,8 @@ github_id: thanhpn
 tags:
   - blockchain
   - proof-of-knowledge
+redirect:
+  - /s/7UyHqQ
 ---
 
 ## Introduction

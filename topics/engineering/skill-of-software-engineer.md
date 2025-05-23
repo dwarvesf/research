@@ -4,6 +4,8 @@ description: Discover essential software development skills including coding, de
 date: 2017-03-14
 tags:
   - engineering
+redirect:
+  - /s/WXm6TA
 ---
 
 1. **Read code**

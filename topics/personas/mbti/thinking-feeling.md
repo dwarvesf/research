@@ -4,6 +4,8 @@ description: Learn how Thinkers use logic and efficiency in decision-making whil
 date: null
 URL: "https://drive.google.com/file/d/1n8ID_iXqzs6cMZlRS0Su7lQUhrfd7khh/view?usp=sharing"
 tag: mbti, preferences
+redirect:
+  - /s/FsAm7Q
 ---
 
 Book: My True Type, page 39 - 45

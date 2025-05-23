@@ -3,6 +3,8 @@ title: null
 description: null
 date: null
 tag: developer, writing
+redirect:
+  - /s/69v8wA
 ---
 
 For many reasons

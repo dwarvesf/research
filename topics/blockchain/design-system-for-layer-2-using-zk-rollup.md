@@ -4,6 +4,8 @@ description: Learn how Layer 2 blockchain design using zkEVM and zero-knowledge 
 date: 2023-04-24
 tags:
   - blockchain
+redirect:
+  - /s/PO07cw
 ---
 
 <!-- table_of_contents adbd9b7d-46a4-4a1f-ab90-ce4abf276231 -->

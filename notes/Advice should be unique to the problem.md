@@ -4,6 +4,8 @@ description: null
 date: null
 tags:
   - productivity
+redirect:
+  - /s/vH-5SQ
 ---
 
 The problem of bad advice is the unrelativity between the advice and the situation.

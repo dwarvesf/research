@@ -4,6 +4,8 @@ description: Discover key differences between introverted and extraverted traits
 date: null
 URL: "https://drive.google.com/file/d/1n8ID_iXqzs6cMZlRS0Su7lQUhrfd7khh/view?usp=sharing"
 tag: mbti, preferences
+redirect:
+  - /s/W0_C1A
 ---
 
 Book: My True Type, page 24 - 32

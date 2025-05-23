@@ -7,6 +7,8 @@ authors:
 tags:
   - blockchain
   - moc
+redirect:
+  - /s/chP2VA
 ---
 
 ### Foundational topics

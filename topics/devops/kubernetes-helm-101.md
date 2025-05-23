@@ -4,6 +4,8 @@ description: Learn how Helm, the Kubernetes package manager and deployment tool,
 date: 2019-10-30
 tags:
   - k8s
+redirect:
+  - /s/TQjlJg
 ---
 
 In recent years, Kubernetes has exploded tremendously. At the same time, it creates new communities including ecosystems that make it easier to develop and deploy complex applications. If Kubernetes means the shipman of the ship, then Helm is the steering wheel of that shipman in the career of every DevOps and Developer.

@@ -10,6 +10,8 @@ tags:
   - evm
   - polygon
   - zk-rollup
+redirect:
+  - /s/egl_Ww
 ---
 
 ## Polygon zkEVM architecture

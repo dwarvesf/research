@@ -2,6 +2,8 @@
 title: Dex market share
 description: null
 date: null
+redirect:
+  - /s/rwMnjg
 ---
 
 Currently, DEX exchanges are competing for market share in the rapidly growing market.

@@ -5,6 +5,8 @@ date: null
 tags:
   - microservice
   - pattern
+redirect:
+  - /s/INAZaw
 ---
 
 ### Two-phase commit pattern

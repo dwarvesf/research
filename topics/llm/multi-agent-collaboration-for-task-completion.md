@@ -9,6 +9,8 @@ tags:
   - ai-agents
   - llm
   - integration
+redirect:
+  - /s/9weANQ
 ---
 
 In AI integrated systems, instead of putting all the workload on a single agent, we can apply a divide and conquer strategy to distribute workload to multiple agents. This approach can enhance task completion by leveraging the unique skills and capabilities of each agent. This approach allows for more complex and nuanced problem-solving, as well as increased efficiency and scalability. By coordinating and communicating effectively, agents can work together to achieve common goals, divide labor, and overcome challenges that a single agent might face alone.

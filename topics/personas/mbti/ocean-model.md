@@ -5,6 +5,8 @@ date: null
 tags:
   - model
   - mbti
+redirect:
+  - /s/vZZsTw
 ---
 
 Bài trắc nghiệm trên 16personalities còn kết hợp với Five Big personalities traits (OCEAN model), nên kết qủa thường có 5 kí tự.

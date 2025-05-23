@@ -8,6 +8,8 @@ authors:
 tags:
   - go-weekly
   - golang
+redirect:
+  - /s/-4V6Zw
 ---
 
 ## [Go sync.Once is simple... Is it really?](https://victoriametrics.com/blog/go-sync-once/)

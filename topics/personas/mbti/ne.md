@@ -4,6 +4,8 @@ description: "Discover how Ne users like ENTPs and ENFPs excel at brainstorming,
 date: null
 URL: "https://drive.google.com/file/d/1n8ID_iXqzs6cMZlRS0Su7lQUhrfd7khh/view?usp=sharing"
 tag: function, mbti
+redirect:
+  - /s/LH2O6A
 ---
 
 Book: My True Type, page 70 - 78

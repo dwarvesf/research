@@ -8,6 +8,8 @@ tags:
   - database
   - sql
   - data-modeling
+redirect:
+  - /s/tuzZpA
 ---
 
 In the database solution design, there is the bad practices is called circular references.

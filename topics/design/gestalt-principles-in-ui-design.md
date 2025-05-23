@@ -5,6 +5,8 @@ date: 2020-07-13
 tags:
   - design
   - technique
+redirect:
+  - /s/BhAUSA
 ---
 
 ![](assets/gestalt-principles-in-ui-design_261d02efd9a855cdb1eed8a98112d3ae_md5.webp)

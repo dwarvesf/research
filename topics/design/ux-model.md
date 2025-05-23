@@ -4,6 +4,8 @@ description: Good UX means creating useful, easy-to-use, and accessible products
 date: 2018-03-19
 tags:
   - design
+redirect:
+  - /s/_6xbGw
 ---
 
 ## What is good UX?

@@ -3,6 +3,8 @@ title: null
 description: null
 date: null
 tag: mbti
+redirect:
+  - /s/Ev_Kyw
 ---
 
 - Better understanding yourself/others

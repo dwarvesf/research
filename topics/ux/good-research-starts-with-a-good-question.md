@@ -2,6 +2,8 @@
 title: Good research starts with a good question
 description: Effective research starts with a clear, focused question that guides inquiry and helps find solutions, making the process more targeted and valuable.
 date: null
+redirect:
+  - /s/BW6-7Q
 ---
 
 Good research needs to start with a good question. Without a clear question to guide inquiry, research will end up churning and pursuing leads that may be interesting but that don't contribute to finding a solution.

@@ -2,6 +2,8 @@
 title: Personas start with qualitative research
 description: Discover how effective user personas emerge from qualitative research and sensemaking to capture rich user experiences, helping teams design better products by focusing on real user needs and behaviors.
 date: null
+redirect:
+  - /s/m-E2Tg
 ---
 
 Personas shouldn't be created so much as discovered. First and foremost, personas document research. Personas articulate patterns of thought and feeling. These are attributes that can't easily be quantified. Effective user personas should be an outcome of qualitative research. Personas should be the result of [sensemaking](https://publish.obsidian.md/mobydiction/Sensemaking+MOC), not measurement.

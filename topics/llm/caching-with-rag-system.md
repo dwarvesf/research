@@ -9,6 +9,8 @@ tags:
   - caching
   - llm
   - rag
+redirect:
+  - /s/3N8a5g
 ---
 
 ## Introduction

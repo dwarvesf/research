@@ -7,6 +7,8 @@ tags:
   - engineering
   - integration
   - testing
+redirect:
+  - /s/SlSJSw
 ---
 
 Today, information systems such as Enterprise Resource Planning (ERP), Customer Relation Management (CRM) and Supply Chain Management (SCM are very large, inter-linked through a number of applications and platforms, and spread over different organizations. These large and complex systems must be designed and tested carefully. If this kind of systems is only being tests by the traditional method such as unit test, functional test, then it is impossible to determine whether the whole system will work well or not. Finding defects after the entire system is fully implemented will be very costly, especially because several organizations will have to be involved in the finding and fixing problems. An integration test is needed as its objective is to gain insight into the quality of the implementation of the entire system. By adding an integration test to the traditional set of tests, many risks could be identified and fixed.

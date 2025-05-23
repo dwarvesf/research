@@ -4,6 +4,8 @@ description: Event sourcing records all changes as events, allowing e-commerce p
 date: 2022-12-05
 github_id: R-Jim
 icy: 10
+redirect:
+  - /s/ccekKQ
 ---
 
 ## What is event sourcing

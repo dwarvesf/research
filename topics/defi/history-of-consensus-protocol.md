@@ -2,6 +2,8 @@
 title: History of consensus protocol
 description: null
 date: null
+redirect:
+  - /s/gCPNJg
 ---
 
 A bit of rabbit hole leads me here, but great podcast sofar:

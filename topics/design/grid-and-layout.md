@@ -5,6 +5,8 @@ date: 2020-08-17
 tags:
   - design
   - technique
+redirect:
+  - /s/RgGBow
 ---
 
 To almost fresher who started in Graphic design and Digital design, who wants to make our model look beautiful and right. When we - fresher receive brief directly from the client or leader, we start to search online for ideas. Honestly, those projects look pretty good, super clean, and all you want is your project look the same way as them, but you just CAN’T. That’s because you don’t do the same way they did. You might forget or skip the step called: “Build Layout.”

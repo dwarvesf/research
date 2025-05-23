@@ -8,6 +8,8 @@ authors:
 tags:
   - hooks
   - react
+redirect:
+  - /s/nLTPcw
 ---
 
 Hooks architecture in React refers to the systematic approach of using hooks to manage state, side effects, and reusable logic across components. **Custom hooks** are one of the most powerful features, allowing you to encapsulate and reuse complex logic independently of component structure. Custom hooks improve code readability, keep components lean, and make stateful logic portable and composable.

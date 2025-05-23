@@ -4,6 +4,8 @@ description: null
 date: null
 tags:
   - insight
+redirect:
+  - /s/3nOFAg
 ---
 
 Our culture is currently biased toward [science, math, and engineering](https://publish.obsidian.md/mobydiction/notes/Objectivism+assumes+a+concrete%2C+knowable+world) as modes of producing new knowledge, often at the expense of the humanities.

@@ -4,6 +4,8 @@ description: Learn how design thinking and the Software Development Life Cycle (
 date: 2021-05-10
 tags:
   - design-thinking
+redirect:
+  - /s/n03OuA
 ---
 
 I'm Huyen Le - newcomer of Dwarves Foundation. Last week, I was taught under the instruction of Khai Le about design thinking and how it works in a design process of a software project. So I decided to write a recap of what I've learned.

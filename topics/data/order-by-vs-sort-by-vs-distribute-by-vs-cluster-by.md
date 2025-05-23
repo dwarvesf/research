@@ -4,6 +4,8 @@ description: Learn how to optimize Hive queries by using ORDER BY, SORT BY, DIST
 date: 2022-11-23
 github_id: dudaka
 icy: 10
+redirect:
+  - /s/IjcD5Q
 ---
 
 These are very interesting concepts which are about ordering records in a data set. What is so special about ordering? If we want to order the records in the stocks data set by closing price in descending order, we can write a simple query like

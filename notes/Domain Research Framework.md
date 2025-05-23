@@ -5,6 +5,8 @@ date: null
 tags:
   - design
   - ux
+redirect:
+  - /s/zwSjQw
 ---
 
 As a designer working in the Digital Product industry, I'm pretty sure we all hear about UX Research once at least. In this field, we learn about the business's strategy, users' behaviors, needs, pain points, etc. to build a product that meets the business's goal and solves users' existing problems. There are multiple ways to do UX research, our team also has one. However, there is a higher level, which helps UX Researchers process their works much faster, empathize with target users much easier and then save more effort and time, it called Domain Insight Research.

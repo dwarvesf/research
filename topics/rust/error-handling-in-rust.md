@@ -7,6 +7,8 @@ authors:
 tags:
   - error-handling
   - rust
+redirect:
+  - /s/Kz8eMg
 ---
 
 ## **Introduction**

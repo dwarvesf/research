@@ -4,6 +4,8 @@ description: Discover top UX design resources, including expert articles, commun
 date: 2018-03-25
 tags:
   - design
+redirect:
+  - /s/wi7Myw
 ---
 
 Besides learning the UI design, the most important thing is to learn UX design to create a good user experience. Helps the user get the goal when in your app.

@@ -8,6 +8,8 @@ github_id: trankhacvy
 tags:
   - blockchain
   - nft
+redirect:
+  - /s/o44Q7w
 ---
 
 ## What is a fractional NFT?

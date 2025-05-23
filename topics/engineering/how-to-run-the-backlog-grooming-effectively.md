@@ -4,6 +4,8 @@ description: Learn how to run effective Backlog Grooming meetings in Agile teams
 date: 2022-11-18
 github_id: nhuthm
 icy: 10
+redirect:
+  - /s/mm-umQ
 ---
 
 _The following entry is from the reality experience that I'm doing in the team project that is running with Agile._

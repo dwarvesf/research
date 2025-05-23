@@ -4,6 +4,8 @@ description: null
 date: null
 tags:
   - regex
+redirect:
+  - /s/N6qDGA
 ---
 
 _Buzz Andersen (BA) is an interesting builder on the internet (and has been for some time, with stints at Apple, Square, Tumblr, and more) but has also emerged as an important and moral voice in technology’s evolution. He’s an incredible [twitter follow](https://mobile.twitter.com/buzz) and I always feel smarter for having interacted with him. - Colin (CJN)_

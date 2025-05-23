@@ -5,6 +5,8 @@ date: 2023-04-11
 tags:
   - engineering
   - research
+redirect:
+  - /s/M3n8Gw
 ---
 
 ![](assets/database-designs-for-multilingual-apps_c9a1b2c55d33bd432d3b0ace8d0a65e7_md5.webp)

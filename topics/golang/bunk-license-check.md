@@ -5,6 +5,8 @@ date: 2020-02-05
 tags:
   - golang
   - license
+redirect:
+  - /s/jeQW4w
 ---
 
 ## License detector tool: Glice

@@ -4,6 +4,8 @@ description: null
 date: null
 tags:
   - technology
+redirect:
+  - /s/WOccgQ
 ---
 
 Technology is evolving day by day and has a huge impact on both our individual and social lives. It plays a tool to solve our problems, helps improve the quality of lives and makes it much easier to live. As technology thrives, businesses must continually embrace technology trends to seize new opportunities and not fall behind. This study will learn what the technology trend is, how to evaluate new technology and how to follow the trend.

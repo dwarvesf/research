@@ -4,6 +4,8 @@ description: null
 date: null
 github_id: null
 icy: 10
+redirect:
+  - /s/_W_CZw
 ---
 
 <%\*

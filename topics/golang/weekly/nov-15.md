@@ -8,6 +8,8 @@ authors:
 tags:
   - go-weekly
   - golang
+redirect:
+  - /s/BuYiXQ
 ---
 
 ## [Go Turns 15](https://go.dev/blog/15years)

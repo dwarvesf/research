@@ -2,6 +2,8 @@
 title: Change happens gradually then suddenly
 description: Discover how long-term change unfolds through subtle signals and storytelling, and learn why we often underestimate its impact over ten years despite early weak signs.
 date: null
+redirect:
+  - /s/g2R6sA
 ---
 
 Large-scale changes seem to happen quickly. However, changes generally gestate over long periods of time. In the beginning, there may be weak signals of change. These are usually on the periphery of our vision and can be difficult to observe as they occur outside of our typical frame of reference.

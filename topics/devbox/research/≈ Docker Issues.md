@@ -7,6 +7,8 @@ authors:
 tags:
   - devbox
   - docker
+redirect:
+  - /s/B7SYsA
 ---
 
 Docker build is not deterministic. This means that with the same `Dockerfile`, different build times (or builds on different machines) can result in different outcomes.

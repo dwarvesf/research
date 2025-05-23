@@ -7,6 +7,8 @@ authors:
 tags:
   - golang
   - vim
+redirect:
+  - /s/K7BVMQ
 ---
 
 ## An introduction to Vim and how to use Vim with Golang

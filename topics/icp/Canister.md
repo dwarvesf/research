@@ -5,6 +5,8 @@ date: null
 tags:
   - blockchain
   - icp
+redirect:
+  - /s/cHzKaA
 ---
 
 Canister contains program and state. It's like a container.

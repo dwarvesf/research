@@ -8,6 +8,8 @@ tags:
   - blockchain
   - defi
   - solana
+redirect:
+  - /s/sv88uQ
 ---
 
 ![](assets/introduce-to-solana-token-2022-new-standard-to-create-a-token-in-solana-1.webp)

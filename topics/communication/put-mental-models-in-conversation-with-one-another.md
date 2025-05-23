@@ -2,6 +2,8 @@
 title: Put mental models in conversation with one another
 description: Learn how applying multiple mental models and diverse perspectives improves decision-making by revealing hidden insights and overcoming narrow, specialized thinking.
 date: null
+redirect:
+  - /s/PnRwUQ
 ---
 
 Mental models are tools that help us more efficiently arrive at decisions: they filter information and give it narrative shape. But they always represent a particular lens. They help make meaning, but meaning comes at the expense of information.

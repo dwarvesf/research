@@ -2,6 +2,8 @@
 title: Assert require revert
 description: Learn how to enforce smart contract invariants in Solidity using assert(), require(), and revert() to ensure error checking and secure contract behavior.
 date: null
+redirect:
+  - /s/Eq4qXQ
 ---
 
 #### Enforce invariants with `assert()`

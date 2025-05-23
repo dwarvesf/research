@@ -2,6 +2,8 @@
 title: Research repositories should generate new knowledge
 description: Discover how an effective research repository combines insights to spark new ideas and unlock hidden knowledge beyond simply storing information.
 date: null
+redirect:
+  - /s/uTpr0g
 ---
 
 A research repository that simply accumulates insights is only doing half its job. An effective repository facilitates the productive combination of knowledge to generate new ideas and insights that might have been inaccessible until disparate observations were put into conversation with one another.

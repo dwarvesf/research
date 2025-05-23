@@ -5,6 +5,8 @@ date: null
 tags:
   - api
   - RESTful
+redirect:
+  - /s/-bAuYQ
 ---
 
 ## The demand of API

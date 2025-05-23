@@ -16,6 +16,8 @@ tags:
   - labs
   - work
   - workshop
+redirect:
+  - /s/xhStug
 ---
 
 | Event Date                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Discord Channel | Type     |

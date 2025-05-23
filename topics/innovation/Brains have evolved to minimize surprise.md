@@ -5,6 +5,8 @@ date: null
 tags:
   - brain-behaviour
   - innovation
+redirect:
+  - /s/1G8oyQ
 ---
 
 Neuroscientists who support the theory of "predictive processing" argue that our brains are designed to minimize average surprise, or prediction error. Our inquisitive drive is consistent with this, in that it leads us to probe, to discover, to identify areas of uncertainty and determine how to resolve them.

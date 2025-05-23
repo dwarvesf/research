@@ -5,6 +5,8 @@ date: null
 tags:
   - data
   - diagram
+redirect:
+  - /s/8pLjKA
 ---
 
 ### What

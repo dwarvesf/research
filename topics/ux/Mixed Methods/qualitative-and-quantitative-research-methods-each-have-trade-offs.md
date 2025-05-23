@@ -2,6 +2,8 @@
 title: Qualitative and quantitative research methods each have trade offs
 description: Discover the key differences between qualitative and quantitative research methods, their strengths in explanation and measurement, and how each offers unique insights for better understanding data.
 date: null
+redirect:
+  - /s/8WPoIA
 ---
 
 There are trade-offs between quantitative and qualitative methods; quant methods offer scale and focus on causation, but sacrifice coherence and focus. They demand more of the consumer of the research in terms of sensemaking. Qual methods, meanwhile, offer that coherence and focus, but lack scale and the same sense of causation.

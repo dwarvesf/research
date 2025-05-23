@@ -4,6 +4,8 @@ description: "Discover the basics of SwiftUI, Apple's declarative UI framework f
 date: 2020-02-07
 tags:
   - swift
+redirect:
+  - /s/7VzfyQ
 ---
 
 Introduces by Apple in WWDC 2019, Swift UI impressed the technophiles with its convenience, as Apple aimed to help developers conduct code easier and spend more time working on other modified functions. This blog outlines my opinion about SwiftUI, such as how to layout views, handle user input, making a custom view, making a cross Apple platform apps, underlying architecture, integrate with UIKit (the old Apple UI framework). It won't be expanded on an advanced level like fancy animation or proposing any best architecture we should follow. No. Just the basic ones.

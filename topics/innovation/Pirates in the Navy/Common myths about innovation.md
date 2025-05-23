@@ -5,6 +5,8 @@ date: null
 tags:
   - innovation
   - myth
+redirect:
+  - /s/9qvyIg
 ---
 
 - One myth around innovation is that there are no bad ideas. This is not true. Innovative projects must continue to align with the larger business strategy.

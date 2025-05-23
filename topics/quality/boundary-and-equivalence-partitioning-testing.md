@@ -4,6 +4,8 @@ description: Learn how equivalence partitioning and boundary value analysis redu
 date: 2022-11-22
 github_id: binhle59
 icy: 10
+redirect:
+  - /s/5cX6Lw
 ---
 
 ## Overview

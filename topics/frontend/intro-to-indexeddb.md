@@ -9,6 +9,8 @@ tags:
   - storage
   - client-side
   - frontend
+redirect:
+  - /s/oO3e9w
 ---
 
 ## Overview & when to use IndexedDB

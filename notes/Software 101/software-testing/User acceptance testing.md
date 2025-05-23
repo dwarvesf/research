@@ -7,6 +7,8 @@ tags:
   - engineering
   - testing
   - uat
+redirect:
+  - /s/3PHO5w
 ---
 
 Today customers expect software companies to deliver quality software at lowest costs and shorter time to meet their business needs. However many software companies only focus on the functional aspects via several tests such as unite test, integration test, system test etc. in their development environment. Few pay attention on how the software will work in the users environment. Many times, the software meet all functional requirements but failed during the user acceptance test because of incompatible testing environment.

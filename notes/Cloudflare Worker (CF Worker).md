@@ -6,6 +6,8 @@ tags:
   - cloudflare
   - engineering
   - worker
+redirect:
+  - /s/18WMBw
 ---
 
 ### What

@@ -4,6 +4,8 @@ description: Learn how software modeling improves system maintainability and sca
 date: 2020-05-08
 tags:
   - modeling
+redirect:
+  - /s/lbuANg
 ---
 
 This is how I approach a new topic or knowledge, starts with why, understand the concept and figure out how to make it happen.

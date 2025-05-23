@@ -6,6 +6,8 @@ tags:
   - pattern
   - system-design
   - throttling
+redirect:
+  - /s/8OS-hg
 ---
 
 Control the consumption of resources used by an instance of an application, an individual tenant, or an entire service.

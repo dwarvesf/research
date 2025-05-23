@@ -6,6 +6,8 @@ tags:
   - design
   - ux
   - value-chain
+redirect:
+  - /s/WZDjdQ
 ---
 
 After analyzing [[Human needs]], we all understand where humans incentive comes from. However, we do not work alone, but with many people. Each person in a group of people has their own needs to motivate their action, actions are linked together to form a chain of activities, creating things, images, it called a **value chain**. For example, a project's value chain includes management design, implementation, quality assurance, and delivery to users. Each participant in the project provides value so that the product is fully built, if one of those values is lost, the product will not deliver well, or sometimes cannot be made.

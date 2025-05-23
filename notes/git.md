@@ -5,6 +5,8 @@ date: null
 tags:
   - git
   - git-flow
+redirect:
+  - /s/3pmKNA
 ---
 
 ### What is git?

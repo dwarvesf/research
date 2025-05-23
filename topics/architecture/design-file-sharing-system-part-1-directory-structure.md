@@ -8,6 +8,8 @@ tags:
   - file-management
   - file-system
   - directory-structure
+redirect:
+  - /s/WxaFvw
 ---
 
 This system aims to provide users with the ability to store, access, and share files directly on our website, similar to Google Drive. This system aims to enhance user convenience and collaboration by allowing seamless file management and sharing capabilities.

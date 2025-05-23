@@ -2,6 +2,8 @@
 title: History
 description: null
 date: null
+redirect:
+  - /s/893LqA
 ---
 
 ### Bitcoin

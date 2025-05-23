@@ -5,6 +5,8 @@ date: null
 tags:
   - mbti
   - team-building
+redirect:
+  - /s/3TBt1g
 ---
 
 The best practices to work with all MBTI types, ref from Atlassian

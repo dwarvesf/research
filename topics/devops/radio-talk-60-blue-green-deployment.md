@@ -8,6 +8,8 @@ tags:
   - devops
   - radar
   - technique
+redirect:
+  - /s/LeM8oQ
 ---
 
 Blue-green deployment has become an important topic in modern software development, and this deployment strategy has become our focus on the [tech radar](https://radar.d.foundation/Blue-green-deployment-a93ea5c3d4d8439ba8701aec57d7ea3c). In a recent [radio talk](https://www.youtube.com/watch?v=R0FwoGw9raU), Quang Le, one of our DevOps engineers, presented the significance of blue-green deployment and its benefits. This memo is a quick recap of the talk.

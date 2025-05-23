@@ -8,6 +8,8 @@ tags:
   - amm
   - blockchain
   - solana
+redirect:
+  - /s/4AsrDQ
 ---
 
 ![](assets/dynamic-liquidity-market-a-new-form-of-concentrated-liquidity-amm-on-solana-1.webp)

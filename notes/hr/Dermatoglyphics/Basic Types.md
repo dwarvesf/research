@@ -5,6 +5,8 @@ date: null
 tags:
   - fingerprint
   - hr
+redirect:
+  - /s/sFHXbg
 ---
 
 Fingerprints are divided into 3 types: Whorl, Loop, Arch.

@@ -5,6 +5,8 @@ date: null
 tags:
   - business
   - strategy
+redirect:
+  - /s/CEXG9g
 ---
 
 # Build organizations around a long-term narrative

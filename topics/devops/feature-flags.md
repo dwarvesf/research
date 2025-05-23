@@ -3,6 +3,8 @@ title: Feature flags
 description: Feature flags let software teams enable or disable features during runtime, supporting beta testing, A/B experiments, and smoother releases without multiple code branches or redeployments.
 date: 2022-09-25
 github_id: zlatanpham
+redirect:
+  - /s/7h5L-g
 ---
 
 Feature flags are a software engineering technique that allows you to enable or disable select functionality during runtime without having to deploy new code. The ability to control the visibility of features enables development teams to manage the full lifecycle of a feature — rather than being constrained by the traditional "code-deploy-test" cycle.

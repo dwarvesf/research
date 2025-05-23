@@ -2,6 +2,8 @@
 title: Build randomness into knowledge generation systems
 description: Discover how adding randomness to knowledge systems can spark creativity and reveal unexpected connections, avoiding narrow thinking and boosting new insights.
 date: null
+redirect:
+  - /s/e4DgZw
 ---
 
 It's tempting to structure our knowledge systematically; but, this has significant pitfalls. Systematizing knowledge forces us to make decisions early on that may confine us to narrow lanes of inquiry, rather than confront us with [[Learning is enhanced by surprise | novel information]] and connections we would not otherwise have expected.

@@ -4,6 +4,8 @@ description: Learn how to create circular text in SwiftUI by splitting strings, 
 date: 2020-03-23
 tags:
   - swift
+redirect:
+  - /s/3X7NRg
 ---
 
 ![](assets/create-circular-text-using-swiftui_6872696f92cc278214818c3e90f67383_md5.webp)

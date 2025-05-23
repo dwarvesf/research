@@ -6,6 +6,8 @@ authors:
   - tieubao
 tags:
   - automata
+redirect:
+  - /s/n-b2Jg
 ---
 
 ### What are Finite State Automata and why should a programmer know about them?

@@ -6,6 +6,8 @@ tags:
   - 101
   - engineering
   - syllabus
+redirect:
+  - /s/q_QONQ
 ---
 
 In this section we try to cover a few parts of software development. You can't expect much except some keywords or starting pieces that you have to do your our study over the internet and get back with questions (and lots of questions). We try to get them align in some forms of hierarchy.

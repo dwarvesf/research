@@ -6,6 +6,8 @@ tags:
   - engineering
   - practice
   - technique
+redirect:
+  - /s/eLikDQ
 ---
 
 I thought I have been through hell this evening. Took me 6 hours debugging in the deep dark of hell. Oh right.

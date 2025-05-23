@@ -7,6 +7,8 @@ authors:
 github_id: thanhpn
 tags:
   - blockchain
+redirect:
+  - /s/9aEbjg
 ---
 
 ## Blocks

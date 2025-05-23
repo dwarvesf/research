@@ -5,6 +5,8 @@ date: null
 tags:
   - innovation
   - martec
+redirect:
+  - /s/dEOGsg
 ---
 
 Martec's law describes a conflict between the pace at which technology changes and the pace at which organizations change. To whit, technology changes at an exponential rate, while organizations change at a logarithmic rate. This can create conflict within the organization, as it must strive to keep up with a world that changes more quickly than it can adjust to it.

@@ -4,6 +4,8 @@ description: Learn what makes good UX and UI design by exploring key factors lik
 date: 2018-04-02
 tags:
   - design
+redirect:
+  - /s/8wgOAw
 ---
 
 Good design is not just what looks good. It also needs to perform, convert, astonish, and fulfill its purpose. It can be innovative or it might just get the job done.

@@ -4,6 +4,8 @@ description: null
 date: null
 tags:
   - deployment
+redirect:
+  - /s/bxaLXg
 ---
 
 ### Recreate

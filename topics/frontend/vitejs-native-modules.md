@@ -10,6 +10,8 @@ tags:
   - frontend
   - native-modules
   - vitejs
+redirect:
+  - /s/EZL-rg
 ---
 
 Before ES modules was supported in the browser, we have no native mechanism for authoring JavaScript modules in a modularized fashion. That is why the concept of **"bundling"** and tools like Webpack, Rollup, and Parcel exist to improve the development experience for frontend developers.

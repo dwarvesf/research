@@ -2,6 +2,8 @@
 title: Prototypes help test ideas that are already refined
 description: Avoid rushing to prototypes in design; focus on deeply understanding the problem first to ensure solutions truly address user needs and avoid wasting effort on the wrong ideas.
 date: null
+redirect:
+  - /s/kcOo0g
 ---
 
 In design, it can be tempting to rush to develop a prototype to get "real" feedback on an idea. Erika Hall posits that this is because a prototype, no matter how low fidelity, feels tangible: it provides physical, concrete evidence of progress.

@@ -5,6 +5,8 @@ date: null
 tags:
   - business
   - strategy
+redirect:
+  - /s/vS9iEg
 ---
 
 Many organizations rely too heavily on lagging indicators for their strategic decision-making—measurements that inform us about what has happened in the past rather than indicating what may happen in the future. Relying on lagging indicators for strategic decisions means you will react too late.

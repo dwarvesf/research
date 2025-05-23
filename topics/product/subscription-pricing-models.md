@@ -8,6 +8,8 @@ tags:
   - pricing
   - product
   - subscription
+redirect:
+  - /s/8Oin5g
 ---
 
 ## Pricing models

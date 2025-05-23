@@ -8,6 +8,8 @@ tags:
   - ai
   - llm
   - rag
+redirect:
+  - /s/VjeAAQ
 ---
 
 One of the primary problems in RAG systems is the retrieval of a heterogeneous set of documents or pieces of information. These documents, while related to the query, often include extraneous details that can clutter the generation model's input. As a result, the generated text may lack coherence, accuracy, or pertinence, ultimately undermining the system's reliability and effectiveness. To address this issue, the concept of re-ranking has emerged as a critical solution.

@@ -4,6 +4,8 @@ description: null
 date: null
 recurringTemplate: true
 recurringTemplateName: engineering-data-moc
+redirect:
+  - /s/KrZMZg
 ---
 
 This is a [[Map of Content]] related to the engineering concepts around data.

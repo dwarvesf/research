@@ -4,6 +4,8 @@ description: null
 date: null
 tags:
   - microservice
+redirect:
+  - /s/XiXWaQ
 ---
 
 ### Context
