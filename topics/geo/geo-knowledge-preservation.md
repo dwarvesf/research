@@ -39,9 +39,9 @@ If a local historian’s blog isn’t cited by generative searching, does that k
 If you’re a writer, editor, or builder of digital spaces, you’re part of this story. The choices you make, what you publish, how you structure it, and who you cite decide what gets remembered.
 
 We should ask hard questions:
-	•	How do we make sure underrepresented voices aren’t erased by algorithmic convenience?
-	•	What can we do to keep the web weird, diverse, and surprising?
-	•	How do we balance optimization with authenticity?
+- How do we make sure underrepresented voices aren’t erased by algorithmic convenience?
+- What can we do to keep the web weird, diverse, and surprising?
+- How do we balance optimization with authenticity?
 
 ## The stakes
 
