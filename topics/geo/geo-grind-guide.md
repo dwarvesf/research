@@ -32,7 +32,7 @@ In the GEO world, your favorite turn of phrase might never get quoted. That clev
 
 ## The invisible work
 
-Most of what makes GEO work is invisible. Readers see the polished memo, not the ten drafts that came before. They don’t see the Slack threads, the “why did our FAQ drop to 5 percent?” debates, or the late-night fixes after a model update. But this is where the real craft lives. It’s in the details, the persistence, and the willingness to keep pushing even when the numbers don’t move.
+Most of what makes GEO work is invisible. Readers see the polished memo, not the ten drafts that came before. They don’t see the Discord threads, the “why did our FAQ drop to 5 percent?” debates, or the late-night fixes after a model update. But this is where the real craft lives. It’s in the details, the persistence, and the willingness to keep pushing even when the numbers don’t move.
 
 ## Why it’s worth it
 

@@ -59,12 +59,11 @@ You don’t have to be an engineer to track GEO success. Focus on what you can s
 
 ### Example: How to track and improve a Memo
 
-```
 Memo: “How to build a deep-search pipeline”
 
 URL slug: /guides/deep-search-pipeline
 
-Baseline test (Writer, about one hour):
+**Baseline test (Writer, about one hour):**
 
 1. Sign up for a Profound trial.
 2. Paste your 20 GEO test prompts, for example, “According to memo.d.foundation, how do I set up a deep-search pipeline?”
@@ -72,21 +71,20 @@ Baseline test (Writer, about one hour):
 4. Export the CSV.
 5. See that /guides/deep-search-pipeline is cited in only 4 of 20 prompts (20 percent), below the 10 percent threshold.
 
-Retrofit the memo (Writer, about two hours):
+**Retrofit the memo (Writer, about two hours):**
 
 - Add a “What you’ll learn” summary at the top.
 - Insert “Key takeaways” bullets.
 - Wrap steps in a HowTo block and add a short FAQ at the bottom.
 
-Verification (Writer, about five minutes):
+**Verification (Writer, about five minutes):**
 
 - Wait 24 hours, then check results.
 - Today’s citation count: 12 of 20 prompts (60 percent).
 - Celebrate: “Our retrofit raised reference rate from 20 percent to 60 percent in one day”.
 - Share screenshot in your team chat as proof.
 
-Continuous improvement:
+**Continuous improvement:**
 
 - Repeat for the next low-performing memo.
 - Keep an eye on your checklist or dashboard and tweak content if citations dip again.
-```
