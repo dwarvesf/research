@@ -45,19 +45,13 @@ You don’t have to build a DIY stack. Here’s what you can do:
 
 | **Path** | **Set-up time** | **Cost** | **Pros** | **Cons** |
 | --- | --- | --- | --- | --- |
-| **Commercial pilot**(Profound, Semrush AI Toolkit) | 1–2 h | $ – $$ | No code, dashboards out of the box | Ongoing fees, fewer custom prompts |
-| **DIY stack**(LangChain + Google Sheet + Grafana) | 4–8 h | $ (API only) | Full control, free to run | Needs a few engineering hours |
-| **Hybrid** | 1 h + 4 h | $$ | Start fast with SaaS, fall back on DIY | Two systems to watch |
+| **Commercial pilot**(Profound, Semrush AI Toolkit) | 1–2 h | \$ -- \$\$ | No code, dashboards out of the box | Ongoing fees, fewer custom prompts |
+| **DIY stack**(LangChain + Google Sheet + Grafana) | 4–8 h | \$ (API only) | Full control, free to run | Needs a few engineering hours |
+| **Hybrid** | 1 h + 4 h | \$\$ | Start fast with SaaS, fall back on DIY | Two systems to watch |
 
-*If you’re not technical, use the commercial pilot path. You can get started in about an hour.*
+*If you’re not technical, use the commercial pilot path. You can get started in about an hour.
 
-## The bottom line
-
-You don’t have to be an engineer to track GEO success. Focus on what you can see: is your memo being cited, which part is quoted, and do people click through? Use simple tools or manual checks. The goal is to write content that AI engines want to cite and to know when your work is paying off.
-
----
-
-### Example: How to track and improve a Memo
+## Example: How to track and improve a Memo
 
 Memo: “How to build a deep-search pipeline”
 
@@ -88,3 +82,7 @@ URL slug: /guides/deep-search-pipeline
 
 - Repeat for the next low-performing memo.
 - Keep an eye on your checklist or dashboard and tweak content if citations dip again.
+
+## The bottom line
+
+You don’t have to be an engineer to track GEO success. Focus on what you can see: is your memo being cited, which part is quoted, and do people click through? Use simple tools or manual checks. The goal is to write content that AI engines want to cite and to know when your work is paying off.
