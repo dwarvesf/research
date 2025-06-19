@@ -1,7 +1,7 @@
 ---
 title: "Seeding your content for AI: a writer’s guide"
 description: "This guide shows writers practical tactics for sharing content on platforms like Reddit, YouTube, and Quora to boost citations and stay visible in AI-generated answers."
-date: 2025-06-12
+date: 2025-06-19
 authors:
   - innnotruong
 tags:
@@ -11,8 +11,6 @@ tags:
 redirect:
   - /geo-seeding-guide
 ---
-
-## Seeding Your Memo: How to Get Cited by AI (Without Being a Developer)
 
 *Leverage the platforms LLMs love so your memos get quoted and drive AI-first discovery.*
 
