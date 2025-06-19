@@ -14,9 +14,9 @@ redirect:
 
 *Leverage the platforms LLMs love so your memos get quoted and drive AI-first discovery.*
 
-![](assets/seeding-content-for-AI.png)
+![](assets/seeding-content-for-ai.png)
 
-## Why “seeding” matters in GEO
+## Why "seeding" matters in GEO
 
 Seeding means placing your memo’s key ideas or summaries on platforms like Reddit, YouTube, and Quora, places that large language models crawl for fresh, trustworthy content. If you want your work to show up in AI-generated answers, you can’t just publish on your own site and hope for the best. You need to meet the models where they are.
 
