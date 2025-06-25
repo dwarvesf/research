@@ -78,7 +78,7 @@ column.
 
 ```sql
 // in this example we assume you use Postgres
-// mysql, sqlserver might have slighly syntax diffrent
+// mysql, sqlserver might have slightly syntax different
 
 // return translation in translation column
 // we wanted to return all translations
