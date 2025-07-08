@@ -7,7 +7,7 @@ tags:
   - ai
   - agentic-ai
 authors:
-  - anna
+  - bringastar
 ---
 
 ![](../assets/autonomy-automation.webp)
