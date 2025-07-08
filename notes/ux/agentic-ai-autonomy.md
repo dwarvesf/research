@@ -60,7 +60,7 @@ Unexpected charges or unclear automation can make users feel unsafe.
 
 **Actionable tip:** Allow users to set explicit spending limits easily.
 
-**Insight:** In a recent survey, 66% of U.S. shoppers said they would not allow AI to make purchases for them, even if it saved money. This distrust isn’t about laziness. It’s rooted in concern that AI might prioritize business goals over user interests. Clear boundaries and manual approvals help mitigate that [Source](https://www.pymnts.com/personal-finance/2025/financial-anxiety-spurs-demand-for-consumer-budgeting-apps/).
+**Insight:** [In a recent survey](https://www.pymnts.com/personal-finance/2025/financial-anxiety-spurs-demand-for-consumer-budgeting-apps/), 66% of U.S. shoppers said they would not allow AI to make purchases for them, even if it saved money. This distrust isn’t about laziness. It’s rooted in concern that AI might prioritize business goals over user interests. Clear boundaries and manual approvals help mitigate that.
 
 ### Reduce consent fatigue
 
