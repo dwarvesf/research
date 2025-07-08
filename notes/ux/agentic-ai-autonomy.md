@@ -40,7 +40,7 @@ AI can simplify digital experiences for users facing cognitive, visual, or proce
 
 Good for systems that need to handle lots of tiny transactions with minimal friction.
 
-[Coinbase’s x402 protoco](https://www.coinbase.com/developer-platform/discover/launches/x402)l enables AI agents to handle internet micropayments automatically, ideal for content subscriptions and small service fees.
+[Coinbase’s x402 protocol](https://www.coinbase.com/developer-platform/discover/launches/x402) enables AI agents to handle internet micropayments automatically, ideal for content subscriptions and small service fees.
 
 ## Key UX risks and practical solutions
 
