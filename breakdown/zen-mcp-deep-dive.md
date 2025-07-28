@@ -53,7 +53,16 @@ tags:
 
 ## Overview
 
-The Zen MCP Server is a sophisticated Model Context Protocol (MCP) server that enables multi-AI orchestration, conversation memory, and advanced workflow management. It transforms the stateless MCP protocol into a stateful, conversation-aware system that supports cross-tool collaboration between different AI models.
+The Zen MCP Server is a sophisticated Model Context Protocol (MCP) server that enables multi-AI orchestration, conversation memory, and advanced workflow management.
+
+### Solved Problems
+
+Traditional MCP tools call are stateless - each request is independent, with no memory. For complex tasks, this creates significant friction:
+
+- **Context Loss**: Need to re-explain the same codebase across multiple interactions
+- **Tool Isolation**: Different AI tools can't build upon each other's work
+- **Manual Coordination**: Developers must manually manage state between AI interactions
+- **Inefficient Workflows**: Repetitive context setting for systematic analysis tasks
 
 ### Key Technical Innovations
 
@@ -98,15 +107,6 @@ The Zen MCP Server is a sophisticated Model Context Protocol (MCP) server that e
 - **Local Models**: Ollama, vLLM, LM Studio
 - **Unified APIs**: DIAL platform
 - **Auto Selection**: Intelligent model routing based on task requirements
-
-### Solved Problems
-
-Traditional MCP tools call are stateless - each request is independent, with no memory. For complex tasks, this creates significant friction:
-
-- **Context Loss**: Need to re-explain the same codebase across multiple interactions
-- **Tool Isolation**: Different AI tools can't build upon each other's work
-- **Manual Coordination**: Developers must manually manage state between AI interactions
-- **Inefficient Workflows**: Repetitive context setting for systematic analysis tasks
 
 ### Usecases
 
@@ -162,6 +162,10 @@ graph TD
     AI -->|AI response| ZS
     ZS -->|Return + offer continuation| MCP
     MCP -->|Response to user| CLI
+
+    classDef highlight fill:#E13F5F,stroke:#E13F5F,stroke-width:3px,color:#fff
+    class CM highlight
+    class ZS highlight
 ```
 
 ### Request flow
@@ -264,6 +268,12 @@ class ModelContext:
 
 #### 1. File Deduplication Algorithm
 
+**Problem**: In multi-turn conversations, the same files get requested repeatedly. Without deduplication, a 50KB file could be embedded in every turn, quickly exhausting token budgets and degrading performance.
+
+**Why This Matters**: A typical 5-turn conversation might request the same 3 files repeatedly, resulting in 15 file embeddings instead of 3 unique ones. This wastes 80% of the file token budget.
+
+**Solution**: The filter_new_files algorithm tracks which files have been embedded in previous conversation turns and only embeds truly new files. Previously embedded files remain accessible through conversation history.
+
 ```python
 def filter_new_files(self, requested_files: list[str], continuation_id: Optional[str]) -> list[str]:
     """Prevents duplicate file embeddings using conversation history"""
@@ -286,6 +296,12 @@ def filter_new_files(self, requested_files: list[str], continuation_id: Optional
 **Cache Behavior**: Files cached in conversation memory, not re-read from disk
 
 #### 2. Token Budget Allocation Algorithm
+
+**Problem**: Different AI models have vastly different context windows (O3: 200K tokens, Gemini: 1M tokens). A one-size-fits-all allocation strategy either underutilizes large models or overwhelms small ones.
+
+**Why This Matters**: Poor token allocation leads to either truncated conversations (losing important context) or inefficient usage (leaving 800K tokens unused on Gemini models).
+
+**Solution**: The calculate_token_allocation algorithm dynamically adjusts allocation ratios based on model capacity. Smaller models prioritize conversation history over files, while larger models can afford generous file embedding.
 
 ```python
 def calculate_token_allocation(self, reserved_for_response: Optional[int] = None) -> TokenAllocation:
@@ -345,6 +361,12 @@ def build_conversation_history(context: ThreadContext, token_budget: int) -> str
 
 #### 3. Provider Resolution Algorithm
 
+**Problem**: Multiple AI providers offer overlapping models with different performance characteristics. Users shouldn't need to know which provider hosts which model.
+
+**Why This Matters**: Direct APIs (Google, OpenAI) offer better performance and cost than aggregated APIs (OpenRouter), but don't support all models. A poor routing strategy could send all requests to the slowest provider.
+
+**Solution**: The get_provider_for_model algorithm routes through a performance-optimized priority order: Direct APIs first, then unified APIs, then catch-all providers. First match wins.
+
 ```python
 def get_provider_for_model(cls, model_name: str) -> Optional[ModelProvider]:
     """Route model requests through provider priority order"""
@@ -374,7 +396,11 @@ def get_provider_for_model(cls, model_name: str) -> Optional[ModelProvider]:
 
 #### 4. Dual Prioritization Strategy
 
-Two-phase approach that prioritizes newest content but presents chronologically.
+**Problem**: For optimal token usage, we want newest content first (recent context is most relevant). But for LLM understanding, we want chronological order (natural conversation flow).
+
+**Why This Matters**: When token budgets are tight, we must choose which content to exclude. Excluding the most recent context would break conversation coherence, but presenting content out-of-order confuses LLMs.
+
+**Solution**: Two-phase approach that prioritizes newest content but presents chronologically.
 
 ```python
 def get_prioritized_files(context: ThreadContext) -> list[str]:
@@ -581,7 +607,7 @@ class UserManager:
     def authenticate(self, username, password):
         # SECURITY ISSUE: Plain text password comparison
         return self.users.get(username) == password
-````
+```
 
 === END REFERENCED FILES ===
 
@@ -643,7 +669,7 @@ def calculate_token_allocation(self) -> TokenAllocation:
         file_tokens=int(content_tokens * file_ratio),
         history_tokens=int(content_tokens * history_ratio),
     )
-````
+```
 
 **Real Examples**:
 
