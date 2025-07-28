@@ -12,76 +12,40 @@ tags:
   - llm
   - architecture
   - python
+toc: true
 ---
-
-## Table of Contents
-
-1. [Overview](#overview)
-   - [Key Technical Innovations](#key-technical-innovations)
-   - [Tool Categories and Responsibilities](#tool-categories-and-responsibilities)
-   - [Solved Problems](#solved-problems)
-   - [Usecases](#usecases)
-
-2. [How it works](#how-it-works)
-   - [Architecture Overview](#architecture-overview)
-   - [Request flow](#request-flow)
-   - [Data Structures and Algorithms](#data-structures-and-algorithms)
-     - [Core Data Models](#core-data-models)
-     - [Key Algorithms](#key-algorithms)
-   - [Storage and Memory Management](#storage-and-memory-management)
-
-3. [Technical Challenges and Solutions](#technical-challenges-and-solutions)
-   - [Challenge 1: Stateless Protocol + Stateful Conversations](#challenge-1-stateless-protocol--stateful-conversations)
-   - [Challenge 2: File Content Deduplication](#challenge-2-file-content-deduplication)
-   - [Challenge 3: Cross-Tool Context Preservation](#challenge-3-cross-tool-context-preservation)
-   - [Challenge 4: Token Budget Management Across Models](#challenge-4-token-budget-management-across-models)
-   - [Challenge 5: Workflow Tool Step Enforcement](#challenge-5-workflow-tool-step-enforcement)
-   - [Challenge 6: Multi-Provider Model Routing](#challenge-6-multi-provider-model-routing)
-   - [Challenge 7: Auto vs Manual Model Selection](#challenge-7-auto-vs-manual-model-selection)
-
-4. [Clever Tricks and Tips We Discovered](#clever-tricks-and-tips-we-discovered)
-   - [Trick 1: The "Newest-First" File Strategy](#trick-1-the-newest-first-file-strategy)
-   - [Trick 2: The Dual Prioritization Strategy](#trick-2-the-dual-prioritization-strategy)
-   - [Trick 3: Early Model Resolution](#trick-3-early-model-resolution)
-   - [Trick 4: Model-Specific Token Allocation](#trick-4-model-specific-token-allocation)
-   - [Trick 5: Provider Priority Cascade](#trick-5-provider-priority-cascade)
-   - [Trick 6: The "Continuation Offer" Pattern](#trick-6-the-continuation-offer-pattern)
-   - [Trick 7: Confidence-Driven Workflow Termination](#trick-7-confidence-driven-workflow-termination)
-   - [Trick 8: MCP Boundary Optimization](#trick-8-mcp-boundary-optimization)
-
-5. [What We Would Do Differently](#what-we-would-do-differently)
 
 ## Overview
 
 The Zen MCP Server is a sophisticated Model Context Protocol (MCP) server that enables multi-AI orchestration, conversation memory, and advanced workflow management.
 
-### Solved Problems
+### Solved problems
 
 Traditional MCP tools call are stateless - each request is independent, with no memory. For complex tasks, this creates significant friction:
 
-- **Context Loss**: Need to re-explain the same codebase across multiple interactions
-- **Tool Isolation**: Different AI tools can't build upon each other's work
-- **Manual Coordination**: Developers must manually manage state between AI interactions
-- **Inefficient Workflows**: Repetitive context setting for systematic analysis tasks
+- **Context loss**: Need to re-explain the same codebase across multiple interactions
+- **Tool isolation**: Different AI tools can't build upon each other's work
+- **Manual state magements**: Developers must manually manage state between AI interactions
+- **Inefficient workflows**: Repetitive context setting for systematic analysis tasks
 
-### Key Technical Innovations
+### Key technical advances
 
-1. **Stateless-to-Stateful Bridge**: Converts MCP's inherently stateless protocol into persistent conversation threads
-2. **Cross-Tool Continuation**: Seamless handoffs between different tools while preserving full context
-3. **Dual Prioritization Strategy**: Sophisticated file and conversation prioritization with token-aware budgeting
-4. **Multi-Provider Architecture**: Unified interface supporting multiple AI providers (Gemini, OpenAI, OpenRouter, Custom APIs)
-5. **Workflow-Enforced Tools**: Advanced tools that enforce systematic investigation patterns
+1. **Stateless-to-stateful bridge**: Converts MCP's inherently stateless protocol into persistent conversation threads
+2. **Cross-tool continuation**: Seamless handoffs between different tools while preserving full context
+3. **Dual prioritization strategy**: Sophisticated file and conversation prioritization with token-aware budgeting
+4. **Multi-provider architecture**: Unified interface supporting multiple AI providers (Gemini, OpenAI, OpenRouter, Custom APIs)
+5. **Workflow-enforced tools**: Advanced tools that enforce systematic investigation patterns
 
-### Tool Categories and Responsibilities
+### Tool categories and responsibilities
 
-**Simple Tools (4 tools)**:
+**Simple tools (4 tools)**:
 
 - `chat`: General conversation and collaborative thinking
 - `challenge`: Critical analysis to prevent reflexive agreement
 - `listmodels`: Display available AI models by provider
 - `version`: Server version and configuration information
 
-**Workflow Tools (11 tools)**:
+**Workflow tools (11 tools)**:
 
 - `thinkdeep`: Multi-stage workflow for complex problem analysis
 - `debug`: Systematic self-investigation for root cause analysis
@@ -100,17 +64,17 @@ Traditional MCP tools call are stateless - each request is independent, with no 
 - `tracer`: Code tracing workflow for execution flow analysis
 - `challenge`: Hybrid tool preventing reflexive agreement
 
-**Provider-Agnostic AI Access**:
+**Multi-provider AI Access**:
 
 - **Direct APIs**: Gemini, OpenAI, X.AI GROK
 - **Aggregated APIs**: OpenRouter (50+ models)
-- **Local Models**: Ollama, vLLM, LM Studio
+- **Local models**: Ollama, vLLM, LM Studio
 - **Unified APIs**: DIAL platform
-- **Auto Selection**: Intelligent model routing based on task requirements
+- **Auto selection**: Intelligent model routing based on task requirements
 
 ### Usecases
 
-**Scenario 1 - Cross-Tool Investigation**:
+**Scenario 1 - Cross-tool investigation**:
 
 ```
 1. Claude: "Analyze this codebase for security issues"
@@ -121,7 +85,7 @@ Traditional MCP tools call are stateless - each request is independent, with no 
    → debug tool sees BOTH analyze + secaudit findings, debugs specific vulnerabilities
 ```
 
-**Scenario 2 - Multi-Model Consensus**:
+**Scenario 2 - Multi-model consensus**:
 
 ```
 Claude: "Should we migrate from Express to Fastify?"
@@ -132,7 +96,7 @@ Claude: "Should we migrate from Express to Fastify?"
 → Returns synthesized recommendation with evidence from all perspectives
 ```
 
-**Scenario 3 - Context Revival After Reset**:
+**Scenario 3 - Context revival after reset**:
 
 ```
 1. Long conversation with Claude analyzing complex system
@@ -144,7 +108,7 @@ Claude: "Should we migrate from Express to Fastify?"
 
 ## How it works
 
-### Architecture Overview
+### Architecture overview
 
 ```mermaid
 graph TD
@@ -163,7 +127,7 @@ graph TD
     ZS -->|Return + offer continuation| MCP
     MCP -->|Response to user| CLI
 
-    classDef highlight fill:#E13F5F,stroke:#E13F5F,stroke-width:3px,color:#fff
+    classDef highlight fill:#FEF3F2,stroke:#FFCACA,stroke-width:1px,color:#000
     class CM highlight
     class ZS highlight
 ```
@@ -209,11 +173,11 @@ sequenceDiagram
     CLI->>U: Response (with full context)
 ```
 
-### Data Structures and Algorithms
+### Data structures and algorithms
 
-#### Core Data Models
+#### Core data models
 
-##### ThreadContext: The Conversation State
+##### Thread context
 
 ```python
 class ThreadContext(BaseModel):
@@ -226,7 +190,7 @@ class ThreadContext(BaseModel):
     initial_context: dict[str, Any]   # Original request parameters
 ```
 
-#### ConversationTurn: Individual Exchanges
+#### Conversation turn
 
 ```python
 class ConversationTurn(BaseModel):
@@ -241,7 +205,7 @@ class ConversationTurn(BaseModel):
     model_metadata: Optional[dict]    # Token usage, thinking mode, etc.
 ```
 
-#### ModelContext: Provider + Capability Metadata
+#### Model context
 
 ```python
 class ModelContext:
@@ -264,13 +228,13 @@ class ModelContext:
         # 20% remains for tool-specific prompts
 ```
 
-### Key Algorithms
+### Key algorithms
 
-#### 1. File Deduplication Algorithm
+#### 1. File deduplication algorithm
 
 **Problem**: In multi-turn conversations, the same files get requested repeatedly. Without deduplication, a 50KB file could be embedded in every turn, quickly exhausting token budgets and degrading performance.
 
-**Why This Matters**: A typical 5-turn conversation might request the same 3 files repeatedly, resulting in 15 file embeddings instead of 3 unique ones. This wastes 80% of the file token budget.
+**Why this matters**: A typical 5-turn conversation might request the same 3 files repeatedly, resulting in 15 file embeddings instead of 3 unique ones. This wastes 80% of the file token budget.
 
 **Solution**: The filter_new_files algorithm tracks which files have been embedded in previous conversation turns and only embeds truly new files. Previously embedded files remain accessible through conversation history.
 
@@ -291,15 +255,15 @@ def filter_new_files(self, requested_files: list[str], continuation_id: Optional
     return new_files
 ```
 
-**Time Complexity**: O(n) where n = number of conversation turns
-**Space Complexity**: O(f) where f = unique files across conversation
-**Cache Behavior**: Files cached in conversation memory, not re-read from disk
+- **Time complexity**: O(n) where n = number of conversation turns
+- **Space complexity**: O(f) where f = unique files across conversation
+- **Cache behavior**: Files cached in conversation memory, not re-read from disk
 
-#### 2. Token Budget Allocation Algorithm
+#### 2. Token budget allocation algorithm
 
 **Problem**: Different AI models have vastly different context windows (O3: 200K tokens, Gemini: 1M tokens). A one-size-fits-all allocation strategy either underutilizes large models or overwhelms small ones.
 
-**Why This Matters**: Poor token allocation leads to either truncated conversations (losing important context) or inefficient usage (leaving 800K tokens unused on Gemini models).
+**Why this matters**: Poor token allocation leads to either truncated conversations (losing important context) or inefficient usage (leaving 800K tokens unused on Gemini models).
 
 **Solution**: The calculate_token_allocation algorithm dynamically adjusts allocation ratios based on model capacity. Smaller models prioritize conversation history over files, while larger models can afford generous file embedding.
 
@@ -354,16 +318,16 @@ def build_conversation_history(context: ThreadContext, token_budget: int) -> str
     return "\n\n".join(conversation_parts)
 ```
 
-**Adaptive Behavior**:
+**Adaptive behavior**:
 
 - **O3 models** (200K context): Conservative split, prioritize history over files
 - **Gemini models** (1M context): Generous split, balanced file/history allocation
 
-#### 3. Provider Resolution Algorithm
+#### 3. Provider resolution algorithm
 
 **Problem**: Multiple AI providers offer overlapping models with different performance characteristics. Users shouldn't need to know which provider hosts which model.
 
-**Why This Matters**: Direct APIs (Google, OpenAI) offer better performance and cost than aggregated APIs (OpenRouter), but don't support all models. A poor routing strategy could send all requests to the slowest provider.
+**Why this matters**: Direct APIs (Google, OpenAI) offer better performance and cost than aggregated APIs (OpenRouter), but don't support all models. A poor routing strategy could send all requests to the slowest provider.
 
 **Solution**: The get_provider_for_model algorithm routes through a performance-optimized priority order: Direct APIs first, then unified APIs, then catch-all providers. First match wins.
 
@@ -388,17 +352,15 @@ def get_provider_for_model(cls, model_name: str) -> Optional[ModelProvider]:
     return None  # No provider supports this model
 ```
 
-**Design Rationale**:
-
 - **Direct APIs**: Lowest latency, best cost efficiency
 - **Aggregated APIs**: Broader model selection, higher latency
 - **Local APIs**: Privacy + control, limited model selection
 
-#### 4. Dual Prioritization Strategy
+#### 4. Dual prioritization strategy
 
 **Problem**: For optimal token usage, we want newest content first (recent context is most relevant). But for LLM understanding, we want chronological order (natural conversation flow).
 
-**Why This Matters**: When token budgets are tight, we must choose which content to exclude. Excluding the most recent context would break conversation coherence, but presenting content out-of-order confuses LLMs.
+**Why this matters**: When token budgets are tight, we must choose which content to exclude. Excluding the most recent context would break conversation coherence, but presenting content out-of-order confuses LLMs.
 
 **Solution**: Two-phase approach that prioritizes newest content but presents chronologically.
 
@@ -421,9 +383,9 @@ def get_prioritized_files(context: ThreadContext) -> list[str]:
     return prioritized_files
 ```
 
-### Storage and Memory Management
+### Storage and memory management
 
-**Data Structure**: Hash map with expiration tracking
+**Data structure**: Hash map with expiration tracking
 
 ```python
 class InMemoryStorage:
@@ -458,14 +420,14 @@ class InMemoryStorage:
 - **Update**: O(1) replacement of entire context
 - **Delete**: O(1) explicit deletion, automatic via TTL cleanup
 
-**Key Characteristics**:
+**Key characteristics**:
 
 - **TTL**: 3 hours (configurable via `CONVERSATION_TIMEOUT_HOURS`)
 - **Turn Limit**: 20 turns max (configurable via `MAX_CONVERSATION_TURNS`)
 - **Thread Safety**: All operations protected by threading.Lock()
 - **Automatic Cleanup**: Expired threads removed on access
 
-#### Conversation Chains
+#### Conversation chains
 
 ```python
 # Parent-child thread relationships enable conversation spanning
@@ -480,19 +442,13 @@ def build_conversation_history(context: ThreadContext):
         return f"{parent_history}\n{current_history}"
 ```
 
-## Technical Challenges and Solutions
+## Technical challenges and solutions
 
-### Challenge 1: Stateless Protocol + Stateful Conversations
+### Challenge 1: Stateless protocol + stateful conversations
 
-**The Problem**: MCP is inherently stateless. Each tool call is independent with no knowledge of previous interactions. But real AI collaboration requires memory.
+**The problem**: MCP is inherently stateless. Each tool call is independent with no knowledge of previous interactions. But real AI collaboration requires memory.
 
-**Traditional Approaches** (and why they fail):
-
-- **File-based persistence**: Too slow, race conditions, cleanup issues
-- **Database storage**: Overkill, deployment complexity
-- **Client-side state**: Not supported by MCP protocol
-
-**The Solution: In-Memory Process-Persistent Storage**
+**The solution: In-memory process-persistent storage**
 
 ```python
 # server.py: Single persistent process handles all requests
@@ -513,12 +469,12 @@ def create_thread(tool_name: str, initial_request: dict) -> str:
     return thread_id
 ```
 
-**Why This Works**:
+**Why this works**:
 
 - **Performance**: O(1) thread lookup, no I/O overhead
 - **Simplicity**: No external dependencies, pure Python
 - **Security**: UUID-based keys prevent injection attacks
-- **Auto-Cleanup**: TTL prevents memory leaks
+- **Auto-cleanup**: TTL prevents memory leaks
 
 **Trade-offs**:
 
@@ -526,11 +482,11 @@ def create_thread(tool_name: str, initial_request: dict) -> str:
 - ❌ **Single process** (not distributed), but MCP is single-process anyway
 - ✅ **Perfect for MCP use case**: Desktop integration, development workflows
 
-### Challenge 2: File Content Deduplication
+### Challenge 2: file content deduplication
 
-**The Problem**: In multi-turn conversations, the same files get requested repeatedly. Embedding the same 50KB file in every turn wastes tokens and degrades performance.
+**The problem**: In multi-turn conversations, the same files get requested repeatedly. Embedding the same 50KB file in every turn wastes tokens and degrades performance.
 
-**The Solution: Conversation-Aware File Filtering**
+**The solution: Conversation-aware file filtering**
 
 ```python
 def filter_new_files(self, requested_files: list[str], continuation_id: Optional[str]) -> list[str]:
@@ -556,13 +512,13 @@ Turn 3: debug tool requests ["auth.py", "bug.py"] → Only bug.py embedded (1 fi
 Total: 4 unique files embedded across 3 turns instead of 7 total files
 ```
 
-### Challenge 3: Cross-Tool Context Preservation
+### Challenge 3: Cross-tool context sharing
 
-**The Problem**: How do you hand off context from `analyze` tool to `codereview` tool to `debug` tool seamlessly?
+**The problem**: How do you hand off context from `analyze` tool to `codereview` tool to `debug` tool seamlessly?
 
-**The MCP Reality**: Each tool call is completely independent. No shared state, no knowledge of previous tools.
+**The MCP reality**: Each tool call is completely independent. No shared state, no knowledge of previous tools.
 
-**The Solution: Context Injection via Conversation Reconstruction**
+**The solution: Context injection via conversation reconstruction**
 
 ```python
 async def reconstruct_thread_context(arguments: dict[str, Any]) -> dict[str, Any]:
@@ -591,7 +547,7 @@ async def reconstruct_thread_context(arguments: dict[str, Any]) -> dict[str, Any
     return arguments
 ```
 
-**What The Tool Sees**:
+**What the tool sees**:
 
 ````
 === CONVERSATION HISTORY (CONTINUATION) ===
@@ -633,16 +589,16 @@ CURRENT REQUEST: Now do a comprehensive security audit focusing on the issues fo
 
 **Result**: The `secaudit` tool has complete context from the `analyze` tool without any manual re-explanation.
 
-### Challenge 4: Token Budget Management Across Models
+### Challenge 4: Token budget management across models
 
-**The Problem**: Different AI models have vastly different context windows:
+**The problem**: Different AI models have vastly different context windows:
 - **O3**: 200K tokens
 - **Gemini 2.5**: 1M tokens
 - **Custom models**: 8K-128K tokens
 
 How do you allocate tokens efficiently across conversation history, file content, and response space?
 
-**The Solution: Adaptive Token Allocation Strategy**
+**The solution: Adaptive token allocation strategy**
 
 ```python
 def calculate_token_allocation(self) -> TokenAllocation:
@@ -671,7 +627,7 @@ def calculate_token_allocation(self) -> TokenAllocation:
     )
 ```
 
-**Real Examples**:
+**Examples**:
 
 **O3 Model (200K tokens)**:
 
@@ -689,19 +645,13 @@ def calculate_token_allocation(self) -> TokenAllocation:
 - History: 320K tokens (40% of content)
 - Tool prompts: 160K tokens (remaining)
 
-**Adaptive Behavior**: Smaller models prioritize conversation history over files. Larger models can afford generous file embedding.
+**Adaptive behavior**: Smaller models prioritize conversation history over files. Larger models can afford generous file embedding.
 
-### Challenge 5: Workflow Tool Step Enforcement
+### Challenge 5: Workflow tool step enforcement
 
-**The Problem**: How do you ensure users actually investigate between workflow steps instead of just calling the tool repeatedly without doing any work?
+**The problem**: How do you ensure users actually investigate between workflow steps instead of just calling the tool repeatedly without doing any work?
 
-**Traditional Approaches** (and why they fail):
-
-- **Honor system**: Users skip investigation
-- **Time delays**: Artificial and annoying
-- **State machines**: Too complex, race conditions
-
-**The Solution: Forced Pause with Required Actions**
+**The solution: Forced pause with required actions**
 
 ```python
 def get_step_guidance_message(self, request) -> str:
@@ -730,9 +680,9 @@ def _get_required_actions(self, request) -> str:
         )
 ```
 
-**Enforcement Mechanism**: The tool responds with required actions but does NOT continue automatically. This forces Claude to actually do the investigation work before the next step.
+**Enforcement mechanism**: The tool responds with required actions but does NOT continue automatically. This forces Claude to actually do the investigation work before the next step.
 
-**Example Flow**:
+**Example flow**:
 
 ```
 1. User calls debug tool step 1 → Tool returns investigation guidance
@@ -742,25 +692,25 @@ def _get_required_actions(self, request) -> str:
 5. Process repeats until confidence = "certain"
 ```
 
-**Why This Works**:
+**Why this works**:
 
 - ✅ **Enforces thoroughness**: No shortcuts allowed
 - ✅ **Builds evidence**: Each step requires new findings
 - ✅ **Natural workflow**: Mimics real debugging process
 - ✅ **Quality control**: Tools track confidence progression
 
-### Challenge 6: Multi-Provider Model Routing
+### Challenge 6: Multi-provider model routing
 
-**The Problem**: Supporting 6+ different AI providers (Google, OpenAI, OpenRouter, XAI, DIAL, Custom) with different APIs, model names, capabilities, and failure modes.
+**The problem**: Supporting 6+ different AI providers (Google, OpenAI, OpenRouter, XAI, DIAL, Custom) with different APIs, model names, capabilities, and failure modes.
 
-**Why It's Hard**:
+**Why it's hard**:
 
 - Each provider has different authentication, endpoints, and request formats
 - Model names aren't standardized (gpt-4o vs gemini-2.5-pro vs claude-sonnet-4)
 - Capabilities vary wildly (context windows, image support, temperature constraints)
 - Failures need different retry strategies
 
-**The Solution**: Priority-based provider registry with graceful fallbacks
+**The solution**: Priority-based provider registry with graceful fallbacks
 
 ```python
 # Provider priority order optimizes for performance and cost
@@ -807,22 +757,22 @@ class OpenRouterProvider(ModelProvider):
 
 **Robustness**: This architecture gracefully handles provider outages, API key issues, and model availability changes without user-visible failures.
 
-### Challenge 7: Auto vs Manual Model Selection
+### Challenge 7: Auto vs manual model selection
 
-**The Problem**: Users want both simplicity (just work!) and control (use the right model for the job). How do you provide both without confusing UX?
+**The problem**: Users want both simplicity (just work!) and control (use the right model for the job). How do you provide both without confusing UX?
 
-**Why It's Hard**:
+**Why it's hard**:
 
 - Different tasks need different models (reasoning vs speed vs cost)
 - Available models depend on configured API keys
 - Users have varying levels of AI model expertise
 - Tool schemas must adapt to available models
 
-**The Solution**: Effective auto mode with intelligent defaults by using 4-Layer Architecture
+**The solution**: Effective auto mode with intelligent defaults by using 4-Layer Architecture
 
 The automatic model selection system operates through four sophisticated layers:
 
-#### Layer 1: Configuration Detection (`config.py`)
+#### Layer 1: Configuration detection (`config.py`)
 
 ```python
 # Auto mode activation patterns
@@ -830,7 +780,7 @@ DEFAULT_MODEL = "auto"                    # Explicit auto mode
 DEFAULT_MODEL = "unavailable-model"       # Fallback to auto mode
 ```
 
-**Effective Auto Mode Logic**:
+**Auto mode logic**:
 
 ```python
 def is_effective_auto_mode(self) -> bool:
@@ -842,9 +792,9 @@ def is_effective_auto_mode(self) -> bool:
     return not bool(provider)
 ```
 
-#### Layer 2: Tool Category Requirements
+#### Layer 2: Tool category requirements
 
-**Tool Category Distribution**:
+**Tool category distribution**:
 
 - **EXTENDED_REASONING**:
   - Tools: `thinkdeep`, `debug`, `analyze`, `codereview`, `secaudit`, `testgen`, `refactor`, `docgen`, `precommit`, `planner`, `tracer`, `consensus`
@@ -855,9 +805,9 @@ def is_effective_auto_mode(self) -> bool:
 - **BALANCED**: Default fallback category for new tools
   - Selection priority: `o4-mini` → `o3-mini` → `grok-3` → `gemini-2.5-flash`
 
-#### Layer 3: Provider Priority Routing
+#### Layer 3: Provider priority routing
 
-**Provider Priority Order**:
+**Provider priority order**:
 
 ```python
 PROVIDER_PRIORITY_ORDER = [
@@ -870,7 +820,7 @@ PROVIDER_PRIORITY_ORDER = [
 ]
 ```
 
-**Model Resolution Algorithm**:
+**Model resolution algorithm**:
 
 ```python
 def get_provider_for_model(model_name: str) -> Optional[ModelProvider]:
@@ -881,7 +831,7 @@ def get_provider_for_model(model_name: str) -> Optional[ModelProvider]:
     return None
 ```
 
-#### Layer 4: Early Resolution at MCP Boundary (`server.py:639`)
+#### Layer 4: Early resolution (`server.py:639`)
 
 **Request Processing Flow**:
 
@@ -898,9 +848,9 @@ model_context = ModelContext(model_name, provider, capabilities)
 arguments["_model_context"] = model_context
 ```
 
-### Model Restriction System
+### Model restriction
 
-**Environment-Based Restrictions**:
+**Environment-based restrictions**:
 
 ```bash
 OPENAI_ALLOWED_MODELS="o3-mini,o4-mini"
@@ -908,20 +858,20 @@ GOOGLE_ALLOWED_MODELS="flash,pro"
 OPENROUTER_ALLOWED_MODELS="opus,sonnet"
 ```
 
-**Multi-Level Enforcement**:
+**Multi-level enforcement**:
 
-1. **Provider Level**: Applied during model validation
-2. **Schema Generation**: Restricted models excluded from enums
-3. **Alias-Aware**: Checks both canonical names and aliases
-4. **Graceful Fallback**: Intelligent alternative selection
+1. **Provider level**: Applied during model validation
+2. **Schema generation**: Restricted models excluded from enums
+3. **Alias-aware**: Checks both canonical names and aliases
+4. **Graceful gallback**: Intelligent alternative selection
 
-## Clever Tricks and Tips We Discovered
+## Clever tricks and tips we discovered
 
-### Trick 1: The "Newest-First" File Strategy
+### Trick 1: The "newest-first" file strategy
 
-**The Challenge**: In multi-turn conversations, the same file often appears multiple times. Which version should we use?
+**The challenge**: In multi-turn conversations, the same file often appears multiple times. Which version should we use?
 
-**The Solution**: Walk backwards through conversation turns so newer file references take precedence:
+**The solution**: Walk backwards through conversation turns so newer file references take precedence:
 
 ```python
 def get_conversation_file_list(context: ThreadContext) -> list[str]:
@@ -942,11 +892,11 @@ def get_conversation_file_list(context: ThreadContext) -> list[str]:
 
 **Result**: Tools always see the most recent version of files, preventing outdated content from contaminating analysis.
 
-### Trick 2: The Dual Prioritization Strategy
+### Trick 2: The dual prioritization strategy
 
-**The Challenge**: For optimal token usage, we want newest content first. But for LLM understanding, we want chronological order.
+**The challenge**: For optimal token usage, we want newest content first. But for LLM understanding, we want chronological order.
 
-**The Solution**: Collect newest-first, present chronologically:
+**The solution**: Collect newest-first, present chronologically:
 
 ```python
 def build_conversation_history(context: ThreadContext) -> tuple[str, int]:
@@ -967,11 +917,11 @@ def build_conversation_history(context: ThreadContext) -> tuple[str, int]:
 
 **Result**: Optimal token allocation AND natural conversation flow.
 
-### Trick 3: Early Model Resolution
+### Trick 3: Early model resolution
 
-**The Challenge**: Model resolution is expensive and error-prone when done repeatedly.
+**The challenge**: Model resolution is expensive and error-prone when done repeatedly.
 
-**The Solution**: Resolve "auto" mode and validate models once at the MCP boundary:
+**The solution**: Resolve "auto" mode and validate models once at the MCP boundary:
 
 ```python
 @server.call_tool()
@@ -991,11 +941,11 @@ async def handle_call_tool(name: str, arguments: dict[str, Any]):
 
 **Result**: Single point of failure, consistent resolution, clear error messages.
 
-### Trick 4: Model-Specific Token Allocation
+### Trick 4: Model-specific token allocation
 
-**The Challenge**: O3 has 200K tokens, Gemini has 1M tokens. How do you allocate efficiently?
+**The challenge**: O3 has 200K tokens, Gemini has 1M tokens. How do you allocate efficiently?
 
-**The Solution**: Adaptive allocation based on model capacity:
+**The solution**: Adaptive allocation based on model capacity:
 
 ```python
 def calculate_token_allocation(self) -> TokenAllocation:
@@ -1009,13 +959,13 @@ def calculate_token_allocation(self) -> TokenAllocation:
         file_ratio, history_ratio = 0.4, 0.4
 ```
 
-**Real Examples**: O3 gets 36K for files, 60K for history. Gemini gets 320K for files, 320K for history.
+**Examples**: O3 gets 36K for files, 60K for history. Gemini gets 320K for files, 320K for history.
 
-### Trick 5: Provider Priority Cascade
+### Trick 5: Provider priority cascade
 
-**The Challenge**: Not all AI providers are equal in performance and cost.
+**The challenge**: Not all AI providers are equal in performance and cost.
 
-**The Solution**: Route through a performance-optimized priority order:
+**The solution**: Route through a performance-optimized priority order:
 
 ```python
 PROVIDER_PRIORITY_ORDER = [
@@ -1030,11 +980,11 @@ PROVIDER_PRIORITY_ORDER = [
 
 **Result**: Best performance provider is always chosen first, with automatic fallback.
 
-### Trick 6: The "Continuation Offer" Pattern
+### Trick 6: The "continuation offer" pattern
 
-**The Challenge**: How do you make cross-tool collaboration feel natural?
+**The challenge**: How do you make cross-tool collaboration feel natural?
 
-**The Solution**: Every tool response includes a continuation offer:
+**The solution**: Every tool response includes a continuation offer:
 
 ```python
 def generate_continuation_offer(self, thread_id: str) -> str:
@@ -1047,11 +997,11 @@ def generate_continuation_offer(self, thread_id: str) -> str:
 
 **User Flow**: analyze → continuation offer → secaudit gets FULL context → seamless handoff.
 
-### Trick 7: Confidence-Driven Workflow Termination
+### Trick 7: Confidence-driven workflow termination
 
-**The Challenge**: When should workflow tools stop investigating?
+**The challenge**: When should workflow tools stop investigating?
 
-**The Solution**: Progressive confidence tracking with expert validation:
+**The solution**: Progressive confidence tracking with expert validation:
 
 ```python
 def should_continue_investigation(self, request) -> bool:
@@ -1064,11 +1014,11 @@ def should_continue_investigation(self, request) -> bool:
 
 **Result**: Tools naturally evolve from exploration to certainty with quality control.
 
-### Trick 8: MCP Boundary Optimization
+### Trick 8: MCP optimization
 
-**The Challenge**: MCP protocol has transport limits, but internal processing doesn't.
+**The challenge**: MCP protocol has transport limits, but internal processing doesn't.
 
-**The Solution**: Separate transport constraints from internal capabilities:
+**The solution**: Separate transport constraints from internal capabilities:
 
 ```python
 # MCP Transport: Limited to ~960K characters
@@ -1083,12 +1033,12 @@ async def call_external_model(enhanced_prompt: str) -> str:
 
 **Result**: Rich internal context without transport constraints affecting user experience.
 
-## What We Would Do Differently
+## What we would do differently
 
-**1. Memory Persistence**: 
+**1. Memory persistence**: 
 - **Current**: In-memory storage, lost on restart
 - **Better**: Redis/SQLite persistence with conversation export/import
 
-**2. File Change Detection**:
+**2. File change detection**:
 - **Current**: File content may change between conversation turns
 - **Better**: File hashing to detect changes, automatic re-embedding
