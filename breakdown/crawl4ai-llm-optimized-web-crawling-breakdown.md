@@ -19,7 +19,7 @@ Crawl4ai takes a different approach to web crawling compared to traditional scra
 
 The framework runs **6x faster** than similar tools while producing much cleaner results. It does this by using smart algorithms that understand what content actually matters on a page, not just where it sits in the HTML structure. The end result is clean Markdown text and well-structured JSON data that AI systems can actually work with.
 
-Different use cases get different benefits. For **RAG systems** (retrieval-augmented generation), you get clean text that keeps track of where it came from while filtering out navigation menus and ads. **AI agents** get structured data that follows consistent schemas, so they don't have to guess at data formats from different websites. **Training datasets** get high-quality web content that's been filtered to remove junk, and **real-time applications** can crawl many pages at once without breaking.
+Different use cases get different benefits. For **RAG systems**, you get clean text that keeps track of where it came from while filtering out navigation menus and ads. **AI agents** get structured data that follows consistent schemas, so they don't have to guess at data formats from different websites. **Training datasets** get high-quality web content that's been filtered to remove junk, and **real-time applications** can crawl many pages at once without breaking.
 
 What makes Crawl4ai stand out is how it's built. It doesn't depend on external APIs, so you're not locked into paying for third-party services or hitting rate limits. Everything is designed with AI consumption in mind rather than human reading. You can swap out different extraction methods - CSS selectors, XPath, regex, or even language models - depending on what works best for your specific situation. It also handles tricky scenarios like websites that try to block bots, maintaining browser sessions, and rotating through different IP addresses.
 
@@ -77,6 +77,23 @@ graph TB
     WSS --> DMG
     DMG --> CF
     CF --> ES
+
+    %% Highlight key components with colors and styling
+    classDef coreComponent fill:#ff6b6b,stroke:#d63031,stroke-width:3px,color:#fff,font-weight:bold
+    classDef essentialComponent fill:#74b9ff,stroke:#0984e3,stroke-width:2px,color:#fff
+    classDef criticalComponent fill:#fd79a8,stroke:#e84393,stroke-width:2px,color:#fff
+
+    %% Core orchestration - the heart of the system
+    class AWC coreComponent
+
+    %% Essential browser management - handles the actual crawling
+    class BM,APCS essentialComponent
+
+    %% Critical content processing - what makes it AI-ready
+    class WSS,DMG,CF,ES criticalComponent
+
+    %% Key data management
+    class ADM essentialComponent
 ```
 
 ### Execution Flow
@@ -171,50 +188,99 @@ The content processing algorithms work together in a specific sequence to transf
 ```mermaid
 flowchart TD
     A[Raw HTML Content] --> B[WebScrapingStrategy Cleanup]
-    B --> C[PruningContentFilter]
-    C --> D{Content Filter Set?}
+    B --> C[DefaultMarkdownGenerator]
 
-    D -->|Yes| E[BM25ContentFilter]
-    D -->|No| F[DefaultMarkdownGenerator]
-    E --> F
+    C --> D{Content Filter Type?}
+    D -->|PruningContentFilter| E[PruningContentFilter]
+    D -->|BM25ContentFilter| F[BM25ContentFilter]
+    D -->|LLMContentFilter| G[LLMContentFilter]
+    D -->|None| H[No Filtering]
 
-    F --> G[ExtractionStrategy]
-    G --> H{Strategy Type?}
+    E --> J[Filtered Markdown]
+    F --> J
+    G --> J
+    H --> J
 
-    H -->|LLM| I[LLMExtractionStrategy<br/>OpenAI/Anthropic/Ollama]
-    H -->|CSS| J[JsonCssExtractionStrategy<br/>CSS Selectors + Schema]
-    H -->|Regex| K[RegexExtractionStrategy<br/>Pattern Matching]
+    J --> K[ExtractionStrategy]
+    K --> L{Strategy Type?}
 
-    I --> L[Final CrawlResult]
-    J --> L
-    K --> L
+    L -->|LLM| M[LLMExtractionStrategy<br/>OpenAI/Anthropic/Ollama]
+    L -->|CSS| N[JsonCssExtractionStrategy<br/>CSS Selectors + Schema]
+    L -->|Regex| O[RegexExtractionStrategy<br/>Pattern Matching]
 
-    L --> M[AdaptiveConfig Learning]
-    M --> N[SQLite Pattern Store]
+    M --> P[Final CrawlResult]
+    N --> P
+    O --> P
 
-    subgraph "Content Quality Pipeline"
+    subgraph "Content Processing Pipeline"
+        B
         C
+        D
         E
         F
+        G
+        H
+        J
     end
 
     subgraph "Data Extraction Pipeline"
-        I
-        J
         K
-    end
-
-    subgraph "Learning Pipeline"
+        L
         M
         N
+        O
     end
+
+    %% Styling for visual emphasis
+    classDef criticalNode fill:#ff6b6b,stroke:#d63031,stroke-width:3px,color:#fff,font-weight:bold
+    classDef keyDecision fill:#ffd93d,stroke:#f39c12,stroke-width:2px,color:#333,font-weight:bold
+    classDef filterNode fill:#74b9ff,stroke:#0984e3,stroke-width:2px,color:#fff
+    classDef strategyNode fill:#fd79a8,stroke:#e84393,stroke-width:2px,color:#fff
+    classDef resultNode fill:#00b894,stroke:#00a085,stroke-width:3px,color:#fff,font-weight:bold
+
+    %% Apply styles to key components
+    class A,P criticalNode
+    class D,L keyDecision
+    class E,F,G filterNode
+    class M,N,O strategyNode
+    class J resultNode
 
 
 ```
 
-**1. BM25 Content Filtering**
+**1. PruningContentFilter - The Smart Content Cleaner**
+
+The `PruningContentFilter` is Crawl4AI's main content cleaning workhorse. It runs right after the basic HTML cleanup but before the final markdown gets generated. Its job is to throw out the junk (like navigation menus, ads, and footer links) while keeping the actual content you care about.
+**What makes this different from other tools like Boilerpipe:**
+
+- **Smarter link handling**: Instead of just counting links versus text, Crawl4AI actually looks at what kind of links they are and where they appear. A navigation menu gets treated differently than a citation in an article.
+
+- **Works with multiple crawlers**: When you're running several browser instances at the same time, each filter keeps its own state so they don't interfere with each other.
+
+- **Self-adjusting thresholds**: This is the clever bit - the filter adapts to different types of pages:
+  - `"fixed"` mode: Every piece of content needs to hit the same score to survive
+  - `"dynamic"` mode: The scoring adjusts based on what type of page it's looking at, so it doesn't accidentally remove good content from sparse pages or leave junk on cluttered ones
+
+Everything happens in memory while processing, and the results get cached so you don't have to reprocess the same URL later.
+
+```python
+class PruningContentFilter:
+    def __init__(self, threshold: float = 0.48, threshold_type: str = "dynamic"):
+        self.threshold = threshold
+        self.threshold_type = threshold_type  # "fixed" or "dynamic"
+
+    def filter_content(self, content: str) -> str:
+        # Parse DOM and calculate node scores
+        # Apply link density heuristics
+        # Use dynamic thresholding for adaptive filtering
+        # Return pruned content with high information density
+```
+
+**2. BM25 Content Filtering**
 
 The BM25 filter kicks in during content processing, right after the HTML gets cleaned up but before it becomes final markdown. When you give it a search query, Crawl4AI uses this to keep only the content that actually matches what you're looking for, which makes the output much more focused.
+
+**How it works:** The filter breaks content into chunks and scores how well each chunk matches your query terms using the [BM25 algorithm](https://www.geeksforgeeks.org/nlp/what-is-bm25-best-matching-25-algorithm/) (a variation of TF-IDF that's better for short documents). It then throws out anything that doesn't score high enough.
 
 ```python
 class BM25ContentFilter:
@@ -230,7 +296,15 @@ class BM25ContentFilter:
 
 This runs when you set up the `content_filter` parameter in your crawler config. It happens after the basic HTML cleanup but before the final markdown gets generated. The filter breaks content into chunks and scores how well each chunk matches your query terms, then throws out anything that doesn't score high enough.
 
-**2. Strategy Pattern for Extraction**
+**3. Strategy Pattern for Extraction**
+
+Crawl4ai uses the Strategy pattern to support multiple extraction methods. This allows you to choose the best approach for each website - whether that's AI-powered extraction for complex pages, CSS selectors for structured sites, or regex patterns for predictable content.
+
+**Available strategies:**
+
+- **LLM-based**: Uses AI models for intelligent, flexible extraction
+- **CSS-based**: Fast extraction using CSS selectors with JSON schema mapping
+- **Regex-based**: Pattern matching for predictable, structured content
 
 ```python
 class ExtractionStrategy(ABC):
@@ -249,36 +323,11 @@ class RegexExtractionStrategy(ExtractionStrategy):
     # Pattern-based extraction for structured content
 ```
 
-**3. PruningContentFilter - The Smart Content Cleaner**
-
-The `PruningContentFilter` is Crawl4AI's main content cleaning workhorse. It runs right after the basic HTML cleanup but before the final markdown gets generated. Its job is to throw out the junk (like navigation menus, ads, and footer links) while keeping the actual content you care about.
-
-```python
-class PruningContentFilter:
-    def __init__(self, threshold: float = 0.48, threshold_type: str = "dynamic"):
-        self.threshold = threshold
-        self.threshold_type = threshold_type  # "fixed" or "dynamic"
-
-    def filter_content(self, content: str) -> str:
-        # Parse DOM and calculate node scores
-        # Apply link density heuristics
-        # Use dynamic thresholding for adaptive filtering
-        # Return pruned content with high information density
-```
-
-**What makes this different from other tools like Boilerpipe:**
-
-- **Smarter link handling**: Instead of just counting links versus text, Crawl4AI actually looks at what kind of links they are and where they appear. A navigation menu gets treated differently than a citation in an article.
-
-- **Works with multiple crawlers**: When you're running several browser instances at the same time, each filter keeps its own state so they don't interfere with each other.
-
-- **Self-adjusting thresholds**: This is the clever bit - the filter adapts to different types of pages:
-  - `"fixed"` mode: Every piece of content needs to hit the same score to survive
-  - `"dynamic"` mode: The scoring adjusts based on what type of page it's looking at, so it doesn't accidentally remove good content from sparse pages or leave junk on cluttered ones
-
-Everything happens in memory while processing, and the results get cached so you don't have to reprocess the same URL later.
-
 **4. Priority Queue for Deep Crawling**
+
+For deep crawling scenarios where you need to explore multiple pages from a starting URL, Crawl4ai uses a priority queue to intelligently decide which pages to crawl next. This ensures the most relevant or important pages are processed first.
+
+**How it works:** URLs are scored based on factors like link relevance, page importance, and content quality. The crawler then processes the highest-scoring URLs first, making deep crawling much more efficient than simple breadth-first or depth-first approaches.
 
 ```python
 class BestFirstCrawlStrategy:
@@ -296,6 +345,8 @@ class BestFirstCrawlStrategy:
 
 The learning system kicks in after each successful crawl to figure out what worked well and what didn't. It tracks how good the extraction was and adjusts its approach for similar websites in the future. All this learning gets saved to a local SQLite database, so the crawler gets better at handling specific sites over time.
 
+**Learning process:** The system analyzes extraction quality, updates pattern weights, and persists learned strategies. This happens in the background after each crawl, with updates batched every 10 successful extractions to maintain performance during heavy crawling.
+
 ```python
 class AdaptiveConfig:
     def __init__(self):
@@ -308,8 +359,6 @@ class AdaptiveConfig:
         # Improve future extraction strategies
 ```
 
-This happens in the background after each crawl finishes and the results are assembled, but before everything gets cached. To avoid constantly hitting the database, it batches up the learning updates and saves them every 10 successful extractions. This keeps things fast during heavy crawling while still building up knowledge about how to handle different types of websites.
-
 ## Technical challenges and solutions
 
 ### Challenge 1: Browser Anti-Detection
@@ -317,6 +366,15 @@ This happens in the background after each crawl finishes and the results are ass
 **Problem**: Modern websites use sophisticated bot detection including fingerprinting, behavioral analysis, and CAPTCHA systems.
 
 **Solution**: Multi-layered anti-detection strategy
+
+Crawl4ai implements several layers of anti-detection to bypass modern bot detection systems. This includes randomized browser fingerprints, behavioral simulation, and proxy rotation to make requests appear more human-like.
+
+**Anti-detection techniques:**
+
+- **Fingerprint randomization**: Rotating user agents, viewport sizes, locales, and timezones
+- **Behavioral simulation**: Human-like scrolling, mouse movements, and timing delays
+- **Proxy rotation**: Distributing requests across multiple IP addresses
+- **Session persistence**: Maintaining cookies and state like real users
 
 ```python
 # Randomized browser fingerprints
@@ -333,18 +391,20 @@ magic=True  # Enable stealth mode
 proxy_config=ProxyConfig(rotation_enabled=True)
 ```
 
-**Key techniques:**
-
-- **Fingerprint randomization**: User agents, viewport sizes, locales
-- **Behavioral simulation**: Human-like scrolling, mouse movements, delays
-- **Proxy rotation**: Distribute requests across multiple IP addresses
-- **Session persistence**: Maintain cookies and state like real users
-
 ### Challenge 2: Large-Scale Concurrent Crawling
 
 **Problem**: Memory exhaustion and resource contention when crawling thousands of URLs concurrently.
 
 **Solution**: Memory-adaptive dispatching with intelligent resource management
+
+To handle large-scale concurrent crawling without overwhelming system resources, Crawl4ai implements intelligent resource management that monitors system memory and adjusts crawling behavior accordingly.
+
+**Resource management features:**
+
+- **Memory monitoring**: Dynamically adjusts concurrency based on available system memory
+- **Semaphore-based rate limiting**: Controls the number of concurrent browser instances
+- **Browser pooling**: Reuses browser instances across requests to reduce overhead
+- **Graceful degradation**: Reduces concurrency under memory pressure
 
 ```python
 class MemoryAdaptiveDispatcher:
@@ -360,45 +420,49 @@ class MemoryAdaptiveDispatcher:
         # Proceed with crawl only when memory is available
 ```
 
-**Resource management features:**
-
-- **Semaphore-based rate limiting**: Control concurrent browser instances
-- **Memory monitoring**: Dynamic adjustment based on system resources
-- **Browser pooling**: Reuse browser instances across requests
-- **Graceful degradation**: Reduce concurrency under memory pressure
-
 ### Challenge 3: Content Quality for LLMs
 
 **Problem**: Raw web content contains navigation menus, ads, footers, and other noise that degrades LLM performance.
 
-**Solution**: Multi-stage content filtering pipeline
+**Solution**: Multiple content filtering strategies
+
+Crawl4ai provides three main content filter types that can be used individually or in combination to transform raw web content into clean, AI-ready text:
+
+**Available content filters:**
+
+- **PruningContentFilter**: Heuristic-based filtering using text density, link density, and tag importance
+- **BM25ContentFilter**: Query-based relevance filtering using BM25 ranking algorithm
+- **LLMContentFilter**: AI-powered intelligent content filtering and formatting
 
 ```python
-# Stage 1: Structural cleaning
-content = WebScrapingStrategy().clean_html(raw_html)
+# Heuristic-based filtering (most common)
+content_filter = PruningContentFilter(threshold=0.48, threshold_type="dynamic")
 
-# Stage 2: Heuristic filtering
-content = PruningContentFilter(threshold=0.48).filter(content)
+# Query-based filtering for targeted content
+content_filter = BM25ContentFilter(user_query="product information", bm25_threshold=1.0)
 
-# Stage 3: Query-based filtering
-content = BM25ContentFilter(user_query="product information").filter(content)
+# AI-powered filtering for intelligent selection
+content_filter = LLMContentFilter(instruction="Keep only product details and specifications")
 
-# Stage 4: LLM-based filtering (optional)
-content = LLMContentFilter(instruction="Keep only product details").filter(content)
+# Configure crawler with chosen filter
+config = CrawlerRunConfig(content_filter=content_filter)
+result = await crawler.arun(url, config=config)
 ```
-
-**Filtering strategies:**
-
-- **Pruning algorithm**: Remove low-information-density content
-- **BM25 relevance**: Keep content relevant to user queries
-- **LLM-powered filtering**: Intelligent content selection
-- **Citation generation**: Maintain source links for verification
 
 ### Challenge 4: Dynamic Content Handling
 
 **Problem**: JavaScript-heavy websites with infinite scroll, lazy loading, and dynamic content generation.
 
 **Solution**: Advanced browser automation with virtual scrolling
+
+For JavaScript-heavy websites with infinite scroll, lazy loading, and dynamic content, Crawl4ai uses advanced browser automation techniques to ensure all content is captured.
+
+**Dynamic content strategies:**
+
+- **Virtual scrolling**: Automatically detects and handles infinite scroll pages
+- **JavaScript execution**: Runs custom JS code to trigger dynamic content loading
+- **Wait strategies**: Intelligently waits for content to load before proceeding
+- **Content change detection**: Monitors DOM changes to ensure completeness
 
 ```python
 # Virtual scroll configuration for infinite content
@@ -416,13 +480,6 @@ js_code = [
     "return document.querySelectorAll('.dynamic-content').length;"
 ]
 ```
-
-**Dynamic content strategies:**
-
-- **Virtual scrolling**: Automatic infinite scroll detection and handling
-- **JavaScript execution**: Custom JS code for specific sites
-- **Wait strategies**: Smart waiting for content to load
-- **Content change detection**: Monitor DOM changes to ensure completeness
 
 ## Clever tricks and tips
 
@@ -509,33 +566,43 @@ console_messages = result.console_messages
 
 ### CRUD Operations
 
+Crawl4ai performs various Create, Read, Update, and Delete operations throughout its lifecycle.
+
 **Creates:**
 
-- **Browser sessions**: Persistent contexts with cookies, local storage
-- **Cached crawl results**: SQLite database storage with TTL
-- **Generated assets**: Screenshots (PNG), PDFs, MHTML archives
-- **Extracted data**: JSON structured output from various strategies
+Crawl4ai creates several types of resources during operation:
+
+- **Browser sessions**: Persistent contexts with cookies, local storage, and user profiles for maintaining state across multiple crawls
+- **Cached crawl results**: SQLite database storage with configurable TTL (Time To Live) for avoiding redundant requests
+- **Generated assets**: Screenshots (PNG), PDFs, MHTML archives, and other visual representations of crawled pages
+- **Extracted data**: JSON structured output from various extraction strategies (LLM, CSS, regex) with schema validation
 
 **Reads:**
 
-- **Web content**: HTML, CSS, JavaScript through Playwright automation
-- **Cached results**: Previously crawled content from AsyncDatabaseManager
-- **Configuration files**: YAML/JSON extraction schemas and crawler configs
-- **URL discovery**: Sitemaps, Common Crawl data, robots.txt
+The system reads from multiple data sources to optimize crawling:
+
+- **Web content**: HTML, CSS, JavaScript through Playwright automation with full browser rendering
+- **Cached results**: Previously crawled content from AsyncDatabaseManager to avoid re-crawling unchanged pages
+- **Configuration files**: YAML/JSON extraction schemas and crawler configs for defining extraction rules
+- **URL discovery**: Sitemaps, Common Crawl data, robots.txt for discovering new pages to crawl
 
 **Updates:**
 
-- **Browser state**: Cookies, session storage, navigation history
-- **Cache entries**: Refresh crawled content based on TTL policies
-- **Adaptive patterns**: Learning weights for website-specific optimization
-- **Link scores**: Priority adjustments based on crawling success
+Crawl4ai continuously updates various system states:
+
+- **Browser state**: Cookies, session storage, navigation history to maintain user-like behavior
+- **Cache entries**: Refresh crawled content based on TTL policies and content change detection
+- **Adaptive patterns**: Learning weights for website-specific optimization based on extraction success rates
+- **Link scores**: Priority adjustments based on crawling success and content relevance for deep crawling
 
 **Deletes:**
 
-- **Expired cache**: Automatic cleanup of old crawl results
-- **Browser profiles**: Temporary user data directories after sessions
-- **Resource cleanup**: Browser processes, temporary files, memory allocation
-- **Failed extractions**: Cleanup partial results from failed crawls
+The system automatically manages cleanup to prevent resource exhaustion:
+
+- **Expired cache**: Automatic cleanup of old crawl results based on TTL and storage limits
+- **Browser profiles**: Temporary user data directories after sessions to prevent disk space issues
+- **Resource cleanup**: Browser processes, temporary files, memory allocation to prevent memory leaks
+- **Failed extractions**: Cleanup partial results from failed crawls to maintain data quality
 
 ### Deployment Patterns
 
