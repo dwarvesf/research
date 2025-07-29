@@ -25,7 +25,7 @@ Crawl4AI's key advantages include independence from external APIs (avoiding rate
 
 ## How it works under the hood
 
-### Core Architecture
+### Core architecture
 
 Crawl4AI implements a layered architecture with clear separation between orchestration, browser management, and content processing:
 
@@ -85,20 +85,20 @@ graph TB
     class AWC important
 ```
 
-### Execution Flow
+### Execution flow
 
 The `AsyncWebCrawler.arun()` method orchestrates the entire crawling process:
 
-1. **Cache Check**: Query `AsyncDatabaseManager` for existing results
-2. **Browser Acquisition**: Get pre-warmed browser instance from `BrowserManager`
-3. **Page Navigation**: Use `AsyncPlaywrightCrawlerStrategy` for actual crawling
-4. **Content Processing**: Apply `WebScrapingStrategy` for HTML cleaning
-5. **Markdown Generation**: Transform content through `DefaultMarkdownGenerator`
-6. **Strategy Execution**: Run configured `ExtractionStrategy` for structured data
-7. **Result Assembly**: Package everything into `CrawlResult` object
-8. **Cache Storage**: Persist results for future use
+1. **Cache check**: Query `AsyncDatabaseManager` for existing results
+2. **Browser acquisition**: Get pre-warmed browser instance from `BrowserManager`
+3. **Page navigation**: Use `AsyncPlaywrightCrawlerStrategy` for actual crawling
+4. **Content processing**: Apply `WebScrapingStrategy` for HTML cleaning
+5. **Markdown generation**: Transform content through `DefaultMarkdownGenerator`
+6. **Strategy execution**: Run configured `ExtractionStrategy` for structured data
+7. **Result assembly**: Package everything into `CrawlResult` object
+8. **Cache storage**: Persist results for future use
 
-### Browser Management Strategy
+### Browser management strategy
 
 Crawl4AI uses sophisticated browser pooling to handle concurrent requests efficiently:
 
@@ -123,9 +123,9 @@ class BrowserManager:
 
 ## Data structures and algorithms
 
-### Core Data Structures
+### Core data structures
 
-**CrawlResult - The Primary Output Object**
+**CrawlResult - The primary output object**
 
 ```python
 @dataclass
@@ -151,7 +151,7 @@ class CrawlResult:
     network_logs: List       # HTTP request/response logs
 ```
 
-**Configuration Objects Hierarchy**
+**Configuration objects hierarchy**
 
 ```python
 # Browser-level configuration
@@ -229,9 +229,10 @@ flowchart TD
 
 ```
 
-**1. PruningContentFilter - The Smart Content Cleaner**
+**1. PruningContentFilter - The Smart content cleaner**
 
 The `PruningContentFilter` is Crawl4AI's main content cleaning workhorse. It runs right after the basic HTML cleanup but before the final markdown gets generated. Its job is to throw out the junk (like navigation menus, ads, and footer links) while keeping the actual content you care about.
+
 **What makes this different from other tools like Boilerpipe:**
 
 - **Smarter link handling**: Instead of just counting links versus text, Crawl4AI actually looks at what kind of links they are and where they appear. A navigation menu gets treated differently than a citation in an article.
@@ -257,7 +258,7 @@ class PruningContentFilter:
         # Return pruned content with high information density
 ```
 
-**2. BM25 Content Filtering**
+**2. BM25 content filtering**
 
 The BM25 filter kicks in during content processing, right after the HTML gets cleaned up but before it becomes final markdown. When you give it a search query, Crawl4AI uses this to keep only the content that actually matches what you're looking for, which makes the output much more focused.
 
@@ -277,7 +278,7 @@ class BM25ContentFilter:
 
 This runs when you set up the `content_filter` parameter in your crawler config. It happens after the basic HTML cleanup but before the final markdown gets generated. The filter breaks content into chunks and scores how well each chunk matches your query terms, then throws out anything that doesn't score high enough.
 
-**3. Strategy Pattern for Extraction**
+**3. Strategy pattern for extraction**
 
 Crawl4AI uses the Strategy pattern to support multiple extraction methods. This allows you to choose the best approach for each website - whether that's AI-powered extraction for complex pages, CSS selectors for structured sites, or regex patterns for predictable content.
 
@@ -304,7 +305,7 @@ class RegexExtractionStrategy(ExtractionStrategy):
     # Pattern-based extraction for structured content
 ```
 
-**4. Priority Queue for Deep Crawling**
+**4. Priority queue for deep crawling**
 
 For deep crawling scenarios where you need to explore multiple pages from a starting URL, Crawl4AI uses a priority queue to intelligently decide which pages to crawl next. This ensures the most relevant or important pages are processed first.
 
@@ -322,7 +323,7 @@ class BestFirstCrawlStrategy:
             # Process highest-scoring URLs first
 ```
 
-**5. Adaptive Learning - Getting Smarter Over Time**
+**5. Adaptive learning - Getting smarter over time**
 
 The learning system kicks in after each successful crawl to figure out what worked well and what didn't. It tracks how good the extraction was and adjusts its approach for similar websites in the future. All this learning gets saved to a local SQLite database, so the crawler gets better at handling specific sites over time.
 
@@ -342,7 +343,7 @@ class AdaptiveConfig:
 
 ## Technical challenges and solutions
 
-### Challenge 1: Browser Anti-Detection
+### Challenge 1: Browser anti-detection
 
 **Problem**: Modern websites use sophisticated bot detection including fingerprinting, behavioral analysis, and CAPTCHA systems.
 
@@ -372,7 +373,7 @@ magic=True  # Enable stealth mode
 proxy_config=ProxyConfig(rotation_enabled=True)
 ```
 
-### Challenge 2: Large-Scale Concurrent Crawling
+### Challenge 2: Large-scale concurrent crawling
 
 **Problem**: Memory exhaustion and resource contention when crawling thousands of URLs concurrently.
 
@@ -401,7 +402,7 @@ class MemoryAdaptiveDispatcher:
         # Proceed with crawl only when memory is available
 ```
 
-### Challenge 3: Content Quality for LLMs
+### Challenge 3: Content quality for LLMs
 
 **Problem**: Raw web content contains navigation menus, ads, footers, and other noise that degrades LLM performance.
 
@@ -430,7 +431,7 @@ config = CrawlerRunConfig(content_filter=content_filter)
 result = await crawler.arun(url, config=config)
 ```
 
-### Challenge 4: Dynamic Content Handling
+### Challenge 4: Dynamic content handling
 
 **Problem**: JavaScript-heavy websites with infinite scroll, lazy loading, and dynamic content generation.
 
@@ -464,9 +465,9 @@ js_code = [
 
 ## Clever tricks and tips
 
-### Performance Optimizations
+### Performance optimizations
 
-**1. Browser Pool Pre-warming**
+**1. Browser pool pre-warming**
 
 ```python
 # Pre-warm browser instances during application startup
@@ -477,7 +478,7 @@ async def setup_browser_pool():
         await browser_manager.create_browser_instance()
 ```
 
-**2. Intelligent Caching Strategy**
+**2. Intelligent caching strategy**
 
 ```python
 # Cache modes for different use cases
@@ -489,7 +490,7 @@ cache_config = {
 }
 ```
 
-**3. Chunk-based Processing for Large Content**
+**3. Chunk-based processing for large content**
 
 ```python
 # Process large documents in chunks to avoid memory issues
@@ -499,9 +500,9 @@ def process_large_content(content: str, chunk_size: int = 10000):
     return "".join(processed_chunks)
 ```
 
-### AI-Specific Features
+### AI-Specific features
 
-**1. Schema-based Extraction with Pydantic**
+**1. Schema-based extraction with Pydantic**
 
 ```python
 from pydantic import BaseModel
@@ -519,7 +520,7 @@ extraction_strategy = LLMExtractionStrategy(
 )
 ```
 
-**2. Multiple Markdown Variants**
+**2. Multiple markdown variants**
 
 ```python
 # Different markdown formats for different use cases
@@ -530,7 +531,7 @@ cited_content = result.markdown.markdown_with_citations  # With source links
 references = result.markdown.references_markdown    # Citation list
 ```
 
-**3. Network Traffic Analysis**
+**3. Network traffic analysis**
 
 ```python
 # Capture network requests for debugging and analysis
@@ -545,101 +546,23 @@ network_requests = result.network_logs
 console_messages = result.console_messages
 ```
 
-### CRUD Operations
-
-Crawl4AI performs various Create, Read, Update, and Delete operations throughout its lifecycle.
-
-**Creates:**
-
-Crawl4AI creates several types of resources during operation:
-
-- **Browser sessions**: Persistent contexts with cookies, local storage, and user profiles for maintaining state across multiple crawls
-- **Cached crawl results**: SQLite database storage with configurable TTL (Time To Live) for avoiding redundant requests
-- **Generated assets**: Screenshots (PNG), PDFs, MHTML archives, and other visual representations of crawled pages
-- **Extracted data**: JSON structured output from various extraction strategies (LLM, CSS, regex) with schema validation
-
-**Reads:**
-
-The system reads from multiple data sources to optimize crawling:
-
-- **Web content**: HTML, CSS, JavaScript through Playwright automation with full browser rendering
-- **Cached results**: Previously crawled content from AsyncDatabaseManager to avoid re-crawling unchanged pages
-- **Configuration files**: YAML/JSON extraction schemas and crawler configs for defining extraction rules
-- **URL discovery**: Sitemaps, Common Crawl data, robots.txt for discovering new pages to crawl
-
-**Updates:**
-
-Crawl4AI continuously updates various system states:
-
-- **Browser state**: Cookies, session storage, navigation history to maintain user-like behavior
-- **Cache entries**: Refresh crawled content based on TTL policies and content change detection
-- **Adaptive patterns**: Learning weights for website-specific optimization based on extraction success rates
-- **Link scores**: Priority adjustments based on crawling success and content relevance for deep crawling
-
-**Deletes:**
-
-The system automatically manages cleanup to prevent resource exhaustion:
-
-- **Expired cache**: Automatic cleanup of old crawl results based on TTL and storage limits
-- **Browser profiles**: Temporary user data directories after sessions to prevent disk space issues
-- **Resource cleanup**: Browser processes, temporary files, memory allocation to prevent memory leaks
-- **Failed extractions**: Cleanup partial results from failed crawls to maintain data quality
-
-### Deployment Patterns
-
-**1. Docker-based Scaling**
-
-```bash
-# Horizontal scaling with Docker Swarm
-docker service create \
-  --name crawl4ai-cluster \
-  --replicas 5 \
-  --publish 11235:11235 \
-  unclecode/crawl4ai:0.7.0
-```
-
-**2. MCP Integration for AI Tools**
-
-```bash
-# Connect to Claude, Cursor, or other MCP-compatible tools
-# Server-Sent Events transport
-curl http://localhost:11235/mcp/sse
-
-# WebSocket transport for real-time crawling
-ws://localhost:11235/mcp/ws
-```
-
-**3. CLI for Batch Processing**
-
-```bash
-# Batch process multiple URLs with deep crawling
-crwl https://example.com \
-  -e extract_llm.yml \
-  -s llm_schema.json \
-  -c "scan_full_page=true,delay_before_return_html=2,word_count_threshold=100" \
-  -b "headless=true,viewport_width=1280" \
-  -o json \
-  --bypass-cache \
-  -v
-```
-
 ## Considerations
 
-**Performance Trade-offs:**
+**Performance trade-offs:**
 
 - **LLM strategies** provide highest accuracy but cost $0.001-0.01 per page
 - **CSS/XPath strategies** are free and fast (~50ms) but require structured HTML
 - **Browser pooling** improves performance but increases memory usage
 - **Caching** reduces API calls but may serve stale content
 
-**Reliability Concerns:**
+**Reliability concerns:**
 
 - **Anti-detection bypassing** may violate website terms of service
 - **Large-scale crawling** can overwhelm target servers without rate limiting
 - **Session persistence** requires careful cleanup to avoid memory leaks
 - **Browser automation** depends on Playwright which may break with browser updates
 
-**Cost Optimization:**
+**Cost optimization:**
 
 - Use **hybrid strategies**: Generate schemas once with LLM, reuse with CSS extraction
 - Implement **smart caching** to avoid re-crawling unchanged content
