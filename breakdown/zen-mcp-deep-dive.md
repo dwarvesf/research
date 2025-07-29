@@ -1,8 +1,8 @@
 ---
 title: Zen MCP deep dive
-short_title: Zen MCP deep dive
+short_title: Zen MCP
 description: "Technical analysis of the Zen MCP (Model Context Protocol) Server architecture, implementation, and design patterns."
-date: 2025-07-25
+date: 2025-07-29
 authors:
   - vdhieu
 tags:
