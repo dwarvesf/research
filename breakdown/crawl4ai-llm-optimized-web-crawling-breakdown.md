@@ -78,22 +78,11 @@ graph TB
     DMG --> CF
     CF --> ES
 
-    %% Highlight key components with colors and styling
-    classDef coreComponent fill:#ff6b6b,stroke:#d63031,stroke-width:3px,color:#fff,font-weight:bold
-    classDef essentialComponent fill:#74b9ff,stroke:#0984e3,stroke-width:2px,color:#fff
-    classDef criticalComponent fill:#fd79a8,stroke:#e84393,stroke-width:2px,color:#fff
+    %% Highlight the most critical component
+    classDef important fill:#ff6b6b,stroke:#d63031,stroke-width:3px,color:#fff,font-weight:bold
 
-    %% Core orchestration - the heart of the system
-    class AWC coreComponent
-
-    %% Essential browser management - handles the actual crawling
-    class BM,APCS essentialComponent
-
-    %% Critical content processing - what makes it AI-ready
-    class WSS,DMG,CF,ES criticalComponent
-
-    %% Key data management
-    class ADM essentialComponent
+    %% Apply to core orchestrator only
+    class AWC important
 ```
 
 ### Execution Flow
@@ -231,19 +220,11 @@ flowchart TD
         O
     end
 
-    %% Styling for visual emphasis
-    classDef criticalNode fill:#ff6b6b,stroke:#d63031,stroke-width:3px,color:#fff,font-weight:bold
-    classDef keyDecision fill:#ffd93d,stroke:#f39c12,stroke-width:2px,color:#333,font-weight:bold
-    classDef filterNode fill:#74b9ff,stroke:#0984e3,stroke-width:2px,color:#fff
-    classDef strategyNode fill:#fd79a8,stroke:#e84393,stroke-width:2px,color:#fff
-    classDef resultNode fill:#00b894,stroke:#00a085,stroke-width:3px,color:#fff,font-weight:bold
+    %% Highlight only the most critical decision points
+    classDef important fill:#ff6b6b,stroke:#d63031,stroke-width:3px,color:#fff,font-weight:bold
 
-    %% Apply styles to key components
-    class A,P criticalNode
-    class D,L keyDecision
-    class E,F,G filterNode
-    class M,N,O strategyNode
-    class J resultNode
+    %% Apply to key decision points only
+    class D,L important
 
 
 ```
