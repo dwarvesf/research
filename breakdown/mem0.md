@@ -16,7 +16,7 @@ tags:
 toc: true
 ---
 
-# 1. Overview
+## 1. Overview
 
 **Mem0** is a memory-centric architecture designed to overcome the fixed-context window limitations of Large Language Models (LLMs), enabling consistent, long-term, multi-session conversations. It extracts, consolidates, and retrieves salient information dynamically.
 
@@ -109,7 +109,7 @@ graph TD
     class ExtractorLLM,RelationsLLM,UpdateResolver highlight
 ```
 
-# 2. What Memo Does
+## 2. What Memo Does
 
 Memo provides AI agents with scalable long-term memory, solving conversational amnesia from fixed context windows.
 
@@ -132,7 +132,7 @@ Memo provides AI agents with scalable long-term memory, solving conversational a
 - Enterprise Support: Tracks customer history across channels for better resolutions.
 - Personal Tutoring: Adapts lessons based on long-term student performance.
 
-# 3. System Architecture
+## 3. System Architecture
 
 ## Component Relationships and Data Flow
 
@@ -179,7 +179,7 @@ sequenceDiagram
     MemoGraph->>GraphDB: Execute graph update
 ```
 
-# 4. Core Implementation Patterns
+## 4. Core Implementation Patterns
 
 ## Key Algorithm: Memory Update Logic
 
@@ -233,7 +233,7 @@ class MemoryStore:
 - **Hyperparameters:** `m = 10` (recent messages), `s = 10` (similar memories).
 - **Asynchronous Processing:** Summary generation runs independently for up-to-date global context.
 
-# 5. Data Structures and Algorithms
+## 5. Data Structures and Algorithms
 
 ## Key Data Structures
 
@@ -270,7 +270,6 @@ class RelationshipTriplet:
 ## Algorithms
 
 - **Memory Extraction (Memo):**
-
   - Input: New message pair, summary, recent messages.
   - Process: Concatenate inputs, prompt LLM to extract salient facts.
   - Output: List of candidate memory facts.
@@ -286,7 +285,7 @@ class RelationshipTriplet:
 - **Token Cost:** Memo averages 7k tokens/conversation, Memo-Graph 14k, much less than full history (~26k tokens).
 - **Trade-offs:** Memo is fastest for single-hop queries; Memo-Graph excels at complex, multi-hop/temporal queries.
 
-# 6. Technical Challenges and Innovations
+## 6. Technical Challenges and Innovations
 
 ## Problems Solved
 
