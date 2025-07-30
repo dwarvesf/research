@@ -2,7 +2,7 @@
 title: "Cline breakdown"
 short_title: "Cline"
 description: "Comprehensive technical analysis of Cline's VS Code extension architecture, covering system design, implementation patterns, and architectural innovations"
-date: 2025-07-28
+date: 2025-07-30
 authors:
   - chinhld12
 tags:
