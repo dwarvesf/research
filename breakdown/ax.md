@@ -52,7 +52,7 @@ LLM dev in TypeScript used to suck:
 
 Compared to other frameworks/libraries like Mastra, VoltAgent or even the original DSPy itself:
 
-- Maturity: obviously because TypeScript is not the de-factor language of choice in the ML world, community adoption is still small. As a result, documentation is as rich as others
+- Maturity: obviously because TypeScript is not the de-factor language of choice in the ML world, community adoption is still small. As a result, documentation is not as rich as others
 - Usecase: Ax takes the doubling down approach on conversational agents, it's no coincidence that most of the examples are just chatbots. So unless you want to omega-optimize your agent to provide 100/10 answers otherwise it's quite overkill
 
 ### The three foundational pillars
@@ -309,6 +309,54 @@ export const f = {
 - **Space complexity**: O(f) where f = total number of fields across all signatures
 - **Validation performance**: Cached validation using SHA-256 hashing to avoid re-validation
 
+##### Extract and validate response
+
+```typescript
+export const streamingExtractFinalValue = (
+  sig: Readonly<AxSignature>,
+  values: Record<string, unknown>,
+  // eslint-disable-next-line functional/prefer-immutable-types
+  xstate: extractionState,
+  content: string,
+  strictMode = false
+) => {
+  if (xstate.currField) {
+    const val = content.substring(xstate.s).trim();
+
+    const parsedValue = validateAndParseFieldValue(xstate.currField, val);
+    if (parsedValue !== undefined) {
+      values[xstate.currField.name] = parsedValue;
+    }
+  }
+
+  // In strict mode, if we have content but no fields were extracted and no current field,
+  // this means field prefixes were missing when they should have been present
+  if (strictMode && !xstate.currField && xstate.extractedFields.length === 0) {
+    const trimmedContent = content.trim();
+    if (trimmedContent) {
+      // Find the first required field to report in the error
+      const outputFields = sig.getOutputFields();
+      const firstRequiredField = outputFields.find(
+        (field) => !field.isOptional
+      );
+      if (firstRequiredField) {
+        throw new ValidationError({
+          message: "Expected field not found",
+          fields: [firstRequiredField],
+        });
+      }
+      // If only optional fields exist, ignore unprefixed content in strict mode
+    }
+  }
+
+  // Check for optional fields that might have been missed by streaming parser
+  parseOptionalFieldsFromFullContent(sig, values, content);
+
+  // Check all previous required fields before processing current field
+  checkMissingRequiredFields(xstate, values, sig.getOutputFields());
+};
+```
+
 #### Flow execution engine (Pillar #2)
 
 ##### Dynamic signature inference algorithm
@@ -415,7 +463,7 @@ class AxFlowExecutionPlanner {
 
 #### Optimization algorithms (Pillar #3)
 
-![](./assets/ax_teacher-student.png)
+![](./assets/ax_optimize.png)
 
 ##### MiPRO v2 implementation
 
@@ -508,33 +556,70 @@ The teacher-student pattern that makes your prompts actually good:
 
 ```mermaid
 flowchart TD
-    Start([Start Bootstrap]) --> Examples[Load Training Examples]
-    Examples --> Teacher[Initialize Teacher Model<br/>GPT-4/Claude-3.5]
-    Teacher --> Student[Initialize Student Model<br/>GPT-3.5/Llama]
+    A[Start: compile method] --> B[Initialize parameters<br/>maxRounds, maxDemos, maxExamples]
+    B --> C[Reset stats and traces]
+    C --> D[Begin round loop<br/>i = 0 to maxRounds]
 
-    Student --> Round{Start Round i}
-    Round --> Sample[Randomly Sample Examples<br/>maxExamples size]
-    Sample --> Batch[Process Batch<br/>batchSize chunks]
+    D --> E[compileRound: Set temperature = 0.7<br/>Apply token limits if specified]
+    E --> F[Random sample examples<br/>up to maxExamples]
+    F --> G[Track previous success count]
 
-    Batch --> Demo[Use remaining examples<br/>as few-shot demos]
-    Demo --> StudentRun[Student generates output<br/>for current example]
-    StudentRun --> Eval[Evaluate with metric<br/>score >= 0.5 threshold]
+    G --> H[Begin batch processing<br/>Process examples in batches]
+    H --> I[For each batch: Adjust temperature<br/>temp = 0.7 + 0.001 * i]
 
-    Eval -->|Success| Save[Save successful trace<br/>to demo collection]
-    Eval -->|Fail| Skip[Skip failed attempt]
+    I --> J[For each example in batch]
+    J --> K[Set remaining examples as demos<br/>excluding current example]
+    K --> L[Get Teacher or Student AI]
+    L --> M[Increment totalCalls counter]
 
-    Save --> Check{Enough demos?<br/>count >= maxDemos}
-    Skip --> Check
-    Check -->|No| Batch
-    Check -->|Yes| EarlyStop{Early stopping?<br/>no improvement for patience rounds}
+    M --> N{Try forward pass}
+    N -->|Success| O[Get prediction result]
+    N -->|Error| P[Log warning and set empty result<br/>Continue bootstrap process]
 
-    EarlyStop -->|Continue| Round
-    EarlyStop -->|Stop| Result[Return bootstrapped demos<br/>with success rate]
+    O --> Q[Estimate token usage if<br/>cost monitoring enabled]
+    Q --> R[Calculate metric score<br/>using metricFn]
+    R --> S{Score >= 0.5?}
 
-    style Teacher fill:#e1f5fe
-    style Student fill:#fff3e0
-    style Save fill:#e8f5e8
-    style Skip fill:#ffebee
+    S -->|Yes| T[Add to traces<br/>Increment successfulDemos]
+    S -->|No| U[Continue to next example]
+    P --> U
+    T --> V{Traces >= maxDemos?}
+    U --> V
+
+    V -->|Yes| W[Exit batch processing]
+    V -->|No| X{More examples?}
+    X -->|Yes| J
+    X -->|No| Y[Check early stopping conditions]
+
+    W --> Y
+    Y --> Z{Early stopping enabled<br/>and patience exhausted?}
+    Z -->|Yes| AA[Set earlyStopped = true<br/>Break round loop]
+    Z -->|No| BB{More rounds?}
+
+    BB -->|Yes| D
+    BB -->|No| AA
+    AA --> CC{Any traces found?}
+
+    CC -->|No| DD[Throw Error:<br/>No demonstrations found]
+    CC -->|Yes| EE[Group traces by keys<br/>Create program demos]
+
+    EE --> FF[Calculate best score<br/>successfulDemos / totalCalls]
+    FF --> GG[Return AxOptimizerResult<br/>demos, stats, bestScore, config]
+
+    DD --> HH[End: Error]
+    GG --> II[End: Success]
+
+    classDef startEnd fill:#e1f5fe
+    classDef process fill:#f3e5f5
+    classDef decision fill:#fff3e0
+    classDef error fill:#ffebee
+    classDef success fill:#e8f5e8
+
+    class A,II,HH startEnd
+    class B,C,E,F,G,H,I,K,L,M,O,Q,R,T,U,W,Y,EE,FF,GG process
+    class D,J,N,S,V,X,Z,BB,CC decision
+    class P,DD error
+    class AA success
 ```
 
 **Key insight**: Teacher model quality examples → Student learns patterns → Better few-shot demos for production
@@ -545,49 +630,85 @@ Bayesian optimization that makes your prompts scientifically better:
 
 ```mermaid
 flowchart TD
-    Start([Start MiPRO v2]) --> Bootstrap[Phase 1: Bootstrap Few-Shot<br/>Generate high-quality demos]
-    Bootstrap --> Instructions[Phase 2: Generate Instructions<br/>Create instruction candidates]
-    Instructions --> Config[Phase 3: Bayesian Optimization<br/>Search configuration space]
+    A[Start: compile method<br/>Initialize MIPRO optimizer] --> B[Setup validation examples<br/>20% of training data]
+    B --> C[Bootstrap Few-Shot Examples<br/>if maxBootstrappedDemos > 0]
 
-    Config --> Trial{Trial Loop<br/>i < numTrials}
-    Trial --> History{History size<br/>> 2 examples?}
+    C --> D{Bootstrapping<br/>needed?}
+    D -->|Yes| E[Create AxBootstrapFewShot instance<br/>Run bootstrap compilation using Student AI]
+    D -->|No| F[Skip bootstrapping]
+    E --> G[Generate bootstrapped demonstrations<br/>via Student AI forward passes]
+    F --> G
+    G --> H[Select Labeled Examples<br/>Random sampling from training set]
 
-    History -->|Yes| Bayes[Bayesian Selection<br/>Use surrogate model]
-    History -->|No| Random[Random Selection<br/>Explore space]
+    H --> I[Generate Instruction Candidates<br/>proposeInstructionCandidates]
+    I --> J{Context-aware<br/>proposers enabled?}
+    J -->|Yes| K[Generate program/dataset summaries<br/>using Teacher AI if available]
+    J -->|No| L[Use default instruction templates]
+    K --> M[Generate instruction candidates<br/>using Teacher AI with context]
+    L --> N[Generate instruction candidates<br/>using fallback templates]
+    M --> O[Combine all instruction candidates]
+    N --> O
 
-    Bayes --> Acquisition[Calculate Acquisition Function<br/>EI, UCB, or PI]
-    Acquisition --> SelectConfig[Select next configuration<br/>instruction + demo counts]
-    Random --> SelectConfig
+    O --> P[Begin Optimization Loop<br/>runOptimization method]
+    P --> Q[Initialize best config and score<br/>Start optimization trials]
+    Q --> R[Trial loop: i = 0 to numTrials]
 
-    SelectConfig --> Evaluate[Evaluate Configuration<br/>Run on validation set]
-    Evaluate --> Score[Calculate performance score<br/>using metric function]
-    Score --> Update[Update Surrogate Model<br/>config → score mapping]
+    R --> S{Use Bayesian<br/>optimization?}
+    S -->|Yes & history > 2| T[Select config via Bayesian optimization<br/>Use acquisition function]
+    S -->|No| U[Random/round-robin config selection<br/>Exploration phase]
 
-    Update --> Best{Score > best + threshold?}
-    Best -->|Yes| SaveBest[Update best configuration<br/>and best score]
-    Best -->|No| CheckEarly{Early stopping?<br/>no improvement detected}
-    SaveBest --> CheckEarly
+    T --> V[Evaluate configuration<br/>evaluateConfig method]
+    U --> V
+    V --> W[Create test program with config<br/>Apply instruction, demos, examples]
 
-    CheckEarly -->|Continue| Trial
-    CheckEarly -->|Stop| Optimize[Create Optimized Program<br/>with best configuration]
+    W --> X{Use minibatch<br/>evaluation?}
+    X -->|Yes| Y[Adaptive minibatch size<br/>Stochastic evaluation]
+    X -->|No| Z[Full validation set evaluation]
 
-    Optimize --> Return[Return: demos, score,<br/>optimized program]
+    Y --> AA[For each evaluation example:<br/>Forward pass with Student AI]
+    Z --> AA
+    AA --> BB{Self-consistency<br/>sampling?}
+    BB -->|Yes| CC[Multiple samples with majority vote<br/>using Student AI]
+    BB -->|No| DD[Single prediction<br/>using Student AI]
 
-    subgraph "Acquisition Functions"
-        EI[Expected Improvement<br/>improvement × probability]
-        UCB[Upper Confidence Bound<br/>mean + exploration × std]
-        PI[Probability of Improvement<br/>P score greater than best]
-    end
+    CC --> EE[Calculate metric score<br/>Average across examples]
+    DD --> EE
+    EE --> FF[Update surrogate model<br/>Store config-score pair]
 
-    Acquisition -.-> EI
-    Acquisition -.-> UCB
-    Acquisition -.-> PI
+    FF --> GG{Score improvement<br/>> threshold?}
+    GG -->|Yes| HH[Update best config and score<br/>Reset stagnation counter]
+    GG -->|No| II[Increment stagnation rounds]
 
-    style Bootstrap fill:#e1f5fe
-    style Instructions fill:#fff3e0
-    style Config fill:#f3e5f5
-    style SaveBest fill:#e8f5e8
-    style Return fill:#e8f5e8
+    HH --> JJ[Update optimization progress]
+    II --> JJ
+    JJ --> KK{Early stopping<br/>conditions met?}
+
+    KK -->|Cost limits| LL[Stop: Cost limit reached]
+    KK -->|Stagnation| MM[Stop: No improvement for N trials]
+    KK -->|Target score| NN[Stop: Target score achieved]
+    KK -->|No| OO{More trials?}
+
+    OO -->|Yes| R
+    OO -->|No| PP[Optimization complete]
+    LL --> PP
+    MM --> PP
+    NN --> PP
+
+    PP --> QQ[Create optimized AxGen instance<br/>Apply best configuration]
+    QQ --> RR[Update final statistics]
+    RR --> SS[Return AxMiPROResult<br/>optimizedGen, demos, stats, bestScore]
+
+    SS --> TT[End: Success]
+
+    classDef startEnd fill:#e1f5fe
+    classDef process fill:#f3e5f5
+    classDef decision fill:#fff3e0
+    classDef success fill:#e8f5e8
+
+    class A,TT startEnd
+    class B,C,G,H,I,K,L,M,N,O,P,Q,V,W,Y,Z,AA,CC,DD,EE,FF,HH,JJ,QQ,RR,SS process
+    class D,J,R,S,X,BB,GG,KK,OO decision
+    class LL,MM,NN success
 ```
 
 **The magic**: Each trial teaches the algorithm which configurations work → Converges to optimal prompt settings faster than manual tuning
@@ -635,43 +756,6 @@ sequenceDiagram
     MiPRO-->>Dev: Optimized program with best config
 
     Note over Dev,Eval: Result: Production-Ready Program
-```
-
-### Type safety and template processing
-
-The template literal system gives you compile-time type checking through TypeScript magic:
-
-```typescript
-// Type-level template literal processing
-export function ax<IN extends AxGenIn, OUT extends AxGenerateResult<AxGenOut>>(
-  strings: TemplateStringsArray,
-  ...values: readonly AxSignatureTemplateValue[]
-): AxGen<IN, OUT> {
-  let result = '';
-
-  for (let i = 0; i < strings.length; i++) {
-    result += strings[i] ?? '';
-
-    if (i < values.length) {
-      const val = values[i];
-
-      if (isAxFieldType(val)) {
-        // Handle field markers (? for optional, ! for internal)
-        const fieldNameMatch = result.match(/(\w+)\s*:\s*$/);
-        if (fieldNameMatch && (val.isOptional || val.isInternal)) {
-          let modifiedFieldName = fieldNameMatch[1]!;
-          if (val.isOptional) modifiedFieldName += '?';
-          if (val.isInternal) modifiedFieldName += '!';
-          result = result.replace(/(\w+)(\s*:\s*)$/, `${modifiedFieldName}$2`);
-        }
-
-        result += convertFieldTypeToString(val);
-      }
-    }
-  }
-
-  return new AxGen<IN, OUT>(result);
-}
 ```
 
 ## Technical challenges and solutions
