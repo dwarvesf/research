@@ -1,10 +1,10 @@
 ---
-**title:** The Coding Agent Team
-**date:** 2025-08-07
-**description:** I've been experimenting with making AI assistants work not as a single tool, but as a specialized team. It seems to work surprisingly well.
-**authors:**
+title: The Coding Agent Team
+date: 2025-08-07
+description: I've been experimenting with making AI assistants work not as a single tool, but as a specialized team. It seems to work surprisingly well.
+authors:
 - "lmquang"
-**tags:**
+tags:
 - "claude-code"
 - "subagents"
 - "workflow"
@@ -20,7 +20,7 @@ It finally clicked for me that you can’t expect one person to do the work of a
 
 ## The Five-phase flow
 
-This led me to design a workflow with eight distinct agent roles, organized into a five-phase process. The key idea is that the agents don't all talk to each other at once. That would be chaos. Instead, they work sequentially, each producing documentation that becomes the input for the next. The system is managed by a master orchestrator that handles the handoffs, much like a project manager ensuring each person has what they need to start their work.
+This led me to design a workflow with five distinct agent roles, organized into a five-phase process. The key idea is that the agents don't all talk to each other at once. That would be chaos. Instead, they work sequentially, each producing documentation that becomes the input for the next. The system is managed by a master orchestrator that handles the handoffs, much like a project manager ensuring each person has what they need to start their work.
 
 It looks something like this:
 
