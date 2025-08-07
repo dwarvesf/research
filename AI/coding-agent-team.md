@@ -18,7 +18,7 @@ My own attempts felt like this. Using a single AI was like having a distractible
 
 It finally clicked for me that you can’t expect one person to do the work of an entire engineering department. You have to build a team. That sparked a thought: what if AI was organized as a group of specialists? One agent could handle research, another could focus on planning, and another on testing. It reflects how we approach building software, and it seemed like a promising direction to take.
 
-## The Five-Phase Flow
+## The Five-phase flow
 
 This led me to design a workflow with eight distinct agent roles, organized into a five-phase process. The key idea is that the agents don't all talk to each other at once. That would be chaos. Instead, they work sequentially, each producing documentation that becomes the input for the next. The system is managed by a master orchestrator that handles the handoffs, much like a project manager ensuring each person has what they need to start their work.
 
@@ -32,7 +32,7 @@ It looks something like this:
 
 Before any of this happens, though, there's a critical pre-phase. The master orchestrator has a detailed conversation with the user to clarify the requirements. This isn't just about getting a yes or no; it's an exploration that often uncovers hidden assumptions. The goal is to turn a vague request into a concrete, documented plan.
 
-## How It Works in Practice
+## How it works in practice
 
 Let's return to that "track more page visits" request.
 
@@ -62,7 +62,7 @@ Finally, the **QA Engineer** validated the whole implementation. It checked not 
 
 The result was a production-ready analytics system, complete with tests and documentation that explained not just what was built, but why.
 
-## What I Learned
+## What I learned
 
 The difference was noticeable. I saw fewer post-deployment bugs, especially for complex features. The documentation became radically better because every decision was captured as it was made. And onboarding new engineers became easier because they could read the session logs and understand the thinking behind a feature. The "works on my machine" problem for complex setups virtually disappeared.
 
@@ -85,7 +85,7 @@ The output of one agent in its directory becomes the input for the next. This cr
 
 The most surprising thing is that this system feels less like operating a machine and more like managing a very efficient team. The documentation reads like a series of well-documented conversations and handoffs.
 
-## Realistic Expectations
+## Realistic expectations
 
 This workflow isn’t magic. It doesn't produce a perfect, finished feature in a single pass. What it does produce is a very strong first draft—maybe 50-70% of the way to the final solution. From there, a human developer needs to step in, assess what's missing, and perhaps run the process again on smaller, more targeted tasks.
 
