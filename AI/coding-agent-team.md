@@ -1,7 +1,7 @@
 ---
 title: The Coding Agent Team
 date: 2025-08-07
-description: I've been experimenting with making AI assistants work not as a single tool, but as a specialized team. It seems to work surprisingly well.
+description: "I've been experimenting with making AI assistants work not as a single tool, but as a specialized team. It seems to work surprisingly well."
 authors:
 - "lmquang"
 tags:
