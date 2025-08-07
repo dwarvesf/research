@@ -221,14 +221,6 @@ Each `STATUS.md` file isn't just a checkbox—it's a narrative of what was accom
 **Next phase ready:** Planning agent has all context needed
 ```
 
-### Enable built-in feedback loops
-
-The magic happens when agents can automatically detect conflicts with requirements. If the Research phase discovers that Google's OAuth implementation doesn't support our backward compatibility requirement, the system flags this immediately and can re-engage the user for clarification rather than proceeding with an impossible implementation.
-
-### Embrace automation where it matters
-
-The magic happens when agents can validate each other's work automatically. Our Test Case Designer creates specs that the Feature Implementer must satisfy, and the QA Engineer runs those tests continuously. This creates accountability without micromanagement.
-
 ### Make it conversational
 
 The best part of this system is that it feels like working with a really good team. Each agent has personality and expertise, but they communicate clearly about handoffs, blockers, and decisions. Documentation reads like collaborative problem-solving, not sterile specifications.
