@@ -80,8 +80,8 @@ LLMs typically "forget" information once it falls outside their context window, 
 
 This architecture mimics human cognition by selectively storing, consolidating, and retrieving important information, even as conversations exceed context window limits or lose thematic continuity.
 
-![memory pipeline architecture](/assets/mem0-vector-architecture.png)
-![memory graph architecture](/assets/mem0-graph-architecture.png)
+![memory pipeline architecture](assets/mem0-vector-architecture.png)
+![memory graph architecture](assets/mem0-graph-architecture.png)
 
 ### Request flow
 
@@ -345,7 +345,7 @@ The trigger mechanism is static. Future research could explore dynamic strategie
 **Current State:**
 Mem0 includes a comprehensive evaluation framework, using the LOCOMO benchmark and LLM-as-a-Judge metrics to assess factual accuracy, relevance, and contextual appropriateness. Mem0 and Mem0g outperform existing systems, with Mem0g excelling in temporal reasoning.
 
-![Benchmark latency](/assets/mem0-benchmarck-latency.png)
+![Benchmark latency](assets/mem0-benchmarck-latency.png)
 
 **Future Improvements:**
 Potential directions include:
