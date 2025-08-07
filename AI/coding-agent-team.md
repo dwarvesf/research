@@ -24,11 +24,11 @@ This led me to design a workflow with five distinct agent roles, organized into 
 
 It looks something like this:
 
-1.  **Analyze & Research:** A Researcher agent digs into the problem space.
-2.  **Planning:** A Project Manager agent creates architectural plans and specifications.
-3.  **Test Case Design:** A Test Case Designer defines how we'll know if the solution works, before a line of code is written.
-4.  **Implementation:** A Feature Implementer writes the code to pass those tests.
-5.  **Quality Assurance:** A QA Engineer validates the whole thing against the original requirements.
+1. **Analyze & Research:** A Researcher agent digs into the problem space.
+2. **Planning:** A Project Manager agent creates architectural plans and specifications.
+3. **Test Case Design:** A Test Case Designer defines how we'll know if the solution works, before a line of code is written.
+4. **Implementation:** A Feature Implementer writes the code to pass those tests.
+5. **Quality Assurance:** A QA Engineer validates the whole thing against the original requirements.
 
 Before any of this happens, though, there's a critical pre-phase. The master orchestrator has a detailed conversation with the user to clarify the requirements. This isn't just about getting a yes or no; it's an exploration that often uncovers hidden assumptions. The goal is to turn a vague request into a concrete, documented plan.
 
@@ -73,7 +73,8 @@ If you wanted to build something like this, the lessons I learned are straightfo
 **First, think in terms of roles, not just prompts.** Start with three: a Researcher, a Planner, and an Implementer. You can add more specialized roles as you find you need them.
 
 **Second, make documentation the centerpiece of the workflow.** Every task should start with a timestamped directory. The structure I use looks like this:
-```
+
+```text
 docs/sessions/YYYY-MM-DD-HHMM/
 ├── requirements/
 ├── research/
@@ -81,6 +82,7 @@ docs/sessions/YYYY-MM-DD-HHMM/
 ├── test-cases/
 └── implementation/
 ```
+
 The output of one agent in its directory becomes the input for the next. This creates an audit trail that is invaluable. Each phase ends by creating a `STATUS.md` file, which is a narrative of what was done, what decisions were made, and why, all linked back to the original requirements. It’s a quality gate, not just a checkbox.
 
 The most surprising thing is that this system feels less like operating a machine and more like managing a very efficient team. The documentation reads like a series of well-documented conversations and handoffs.
