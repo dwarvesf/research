@@ -1,5 +1,5 @@
 ---
-title: Context7 MCP breakdown
+title: "Context7 mcp breakdown"
 short_title: Context7 MCP
 description: "Technical analysis of Context7 MCP, a Model Context Protocol server that bridges LLMs with real-time library documentation to eliminate outdated code generation and API hallucination"
 date: 2025-08-14
@@ -382,9 +382,9 @@ server.tool(
 
     // Inject version-specific information
     const enhanced = `
-# Current Documentation (Last updated: ${new Date().toISOString()})
-# Library Version: ${docs.metadata.version}
-# Breaking Changes: ${docs.metadata.breakingChanges || "None"}
+# Current documentation (last updated: ${new Date().toISOString()})
+# Library version: ${docs.metadata.version}
+# Breaking changes: ${docs.metadata.breakingChanges || "None"}
 
 ${docs.content}
     `;
