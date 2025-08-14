@@ -21,6 +21,7 @@ obsidian.zip
 
 # IDE
 .vscode
+.idea/
 
 # debug
 npm-debug.log*
