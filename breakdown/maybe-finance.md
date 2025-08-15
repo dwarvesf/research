@@ -1,7 +1,7 @@
 ---
 title: Maybe Finance breakdown
 short_title: Maybe finance
-description: null
+description: An in-depth analysis of a $1M open-source personal finance application built with Ruby on Rails
 date: 2025-08-14
 authors:
   - huymaius
