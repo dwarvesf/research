@@ -15,6 +15,8 @@ tags:
 
 Maybe is an open-source personal finance application originally developed as a commercial product with over $1 million in development investment. After the commercial venture ended in 2023, the codebase was open-sourced to enable individuals to manage their finances using a sophisticated, feature-rich platform.
 
+![Demo](./assets/maybe-illu.gif)
+
 **Key components:**
 - **Multi-tenant family-based architecture**: Central organizational structure around families
 - **Multi-currency support**: Powered by Synth Finance API for exchange rates
@@ -184,75 +186,58 @@ flowchart TD
 Maybe implements a comprehensive multi-layered caching strategy to handle the performance demands of financial data processing. The core caching system is built around the Family model's cache key management, which creates cache keys that automatically invalidate when account data changes, using sync timestamps and account update times as invalidation triggers. The system also maintains separate cache versioning for entry-related calculations, ensuring that different types of financial data have appropriate invalidation strategies.
 
 ```mermaid
-flowchart TD  
-    subgraph "Request Entry Points"  
-        A["User Dashboard Request"]   
-        B["Sparkline Request"]  
-        C["Balance Chart Request"]  
-        D["Income Statement Request"]  
-    end  
-      
-    subgraph "Cache Layer Decision"  
-        E["Determine Cache Strategy"]  
-        E --> F["HTTP ETag Cache"]  
-        E --> G["Rails Memory/Redis Cache"]  
-        E --> H["Memoization Cache"]  
-    end  
-      
-    subgraph "Cache Key Generation"  
-        I["Family.build_cache_key()"]  
-        I --> J["Family ID + Key Name"]  
-        J --> K{"Data Dependent?"}  
-        K -->|Yes| L["+ latest_sync_completed_at"]  
-        K -->|No| M["Skip Sync Timestamp"]  
-        L --> N["+ accounts.maximum(:updated_at)"]  
-        M --> N  
-        N --> O["Final Cache Key"]  
-    end  
-      
-    subgraph "Cache Storage Backends"  
-        P["Development: Memory Store"]  
-        Q["Production: Redis Store"]  
-        R["HTTP ETags (Client-side)"]  
-        S["In-Memory Memoization"]  
-    end  
-      
-    subgraph "Cache Invalidation"  
-        T["Data Change Events"]  
-        T --> U["Account Updates"]  
-        T --> V["Entry Updates"]   
-        T --> W["Sync Completion"]  
-        U --> X["Invalidate Account Caches"]  
-        V --> Y["Invalidate Entry Caches"]  
-        W --> Z["Invalidate Data-Dependent Caches"]  
-    end  
-      
-    subgraph "Environment Configuration"  
-        AA["Environment Check"]  
-        AA --> BB{"Development?"}  
-        BB -->|Yes| CC["rails dev:cache toggle"]  
-        CC -->|Enabled| P  
-        CC -->|Disabled| DD["Null Store (No Cache)"]  
-        BB -->|No| EE["Production Mode"]  
-        EE --> Q  
-    end  
-      
-    A --> E  
-    B --> E  
-    C --> E  
-    D --> E  
-      
-    F --> R  
-    G --> P  
-    G --> Q  
-    H --> S  
-      
-    E --> I  
-    O --> G  
-      
-    X --> I  
-    Y --> I  
-    Z --> I  
+flowchart TD
+    %% User Entry Points
+    A[User Request] --> B[Cache Strategy Decision]
+
+    %% Three Cache Layers
+    B --> C[Layer 1: HTTP ETag Cache]
+    B --> D[Layer 2: Rails Cache]
+    B --> E[Layer 3: Memoization]
+
+    %% Cache Hit/Miss Flow
+    C -->|Hit| F[Return 304 Not Modified]
+    C -->|Miss| D
+    D -->|Hit| G[Return Cached Data]
+    D -->|Miss| H[Generate Cache Key]
+    E -->|Hit| I[Return Memoized Data]
+    E -->|Miss| J[Execute Query & Calculate]
+
+    %% Cache Key Generation
+    H --> K[Family ID + Key Name + Timestamps]
+    K --> L[Store in Rails Cache]
+
+    %% Data Processing
+    J --> M[Process Financial Data]
+    M --> N[Store in All Cache Layers]
+
+    %% Storage Backends
+    subgraph "Storage"
+        O[Client Browser ETags]
+        P[Rails Memory/Redis Cache]
+        Q[Ruby Instance Variables]
+    end
+
+    %% Invalidation
+    subgraph "Cache Invalidation"
+        R[Account Updates]
+        S[Entry Updates]
+        T[Sync Completion]
+    end
+
+    %% Connections
+    F --> O
+    G --> P
+    L --> P
+    I --> Q
+    N --> O
+    N --> P
+    N --> Q
+
+    R --> U[Invalidate Caches]
+    S --> U
+    T --> U
+    U --> H
 ```
 
 **Family-Level Cache Key Management**
@@ -357,25 +342,142 @@ The LOCF strategy prevents broken financial charts and ensures consistent calcul
 
 The system uses Rails' delegated types pattern to implement account specialization while maintaining a unified interface. This approach enables account-type-specific behavior (credit limits for credit cards, interest rates for loans) while preserving common operations like balance calculations and transaction aggregation.
 
-### Intelligent CSV Import with Format Detection
-
-The import system automatically detects various international number formats, column separators, and signage conventions. The system supports US format (1,234.56), European format (1.234,56), and Scandinavian format (1 234,56), with automatic format detection reducing user configuration burden.
+```
+def balance_type
+    case accountable_type
+    when "Depository", "CreditCard"
+      :cash
+    when "Property", "Vehicle", "OtherAsset", "Loan", "OtherLiability"
+      :non_cash
+    when "Investment", "Crypto"
+      :investment
+    else
+      raise "Unknown account type: #{accountable_type}"
+    end
+  end
+```
 
 ### Transfer Auto-Detection Algorithm
 
-Maybe implements sophisticated transfer detection that identifies matching amounts and dates across family accounts. The algorithm accounts for processing delays and amount variations while avoiding false positives that could incorrectly classify legitimate transactions as transfers.
+Maybe implements smart transfer detection that finds matching amounts and dates across family accounts. The algorithm handles processing delays and amount differences while avoiding mistakes that could wrongly classify regular transactions as transfers.
+
+```ruby
+module Family::AutoTransferMatchable
+  def transfer_match_candidates
+    Entry.select([
+      "inflow_candidates.entryable_id as inflow_transaction_id",
+      "outflow_candidates.entryable_id as outflow_transaction_id",
+      "ABS(inflow_candidates.date - outflow_candidates.date) as date_diff"
+    ]).from("entries inflow_candidates")
+      .joins("
+        JOIN entries outflow_candidates ON (
+          inflow_candidates.amount < 0 AND
+          outflow_candidates.amount > 0 AND
+          inflow_candidates.account_id <> outflow_candidates.account_id AND
+          inflow_candidates.date BETWEEN outflow_candidates.date - 4 AND outflow_candidates.date + 4
+        )
+      ").joins("
+        LEFT JOIN transfers existing_transfers ON (
+          existing_transfers.inflow_transaction_id = inflow_candidates.entryable_id OR
+          existing_transfers.outflow_transaction_id = outflow_candidates.entryable_id
+        )
+      ")
+      .joins("LEFT JOIN rejected_transfers ON (
+        rejected_transfers.inflow_transaction_id = inflow_candidates.entryable_id AND
+        rejected_transfers.outflow_transaction_id = outflow_candidates.entryable_id
+      )")
+      .joins("LEFT JOIN exchange_rates ON (
+        exchange_rates.date = outflow_candidates.date AND
+        exchange_rates.from_currency = outflow_candidates.currency AND
+        exchange_rates.to_currency = inflow_candidates.currency
+      )")
+      .joins("JOIN accounts inflow_accounts ON inflow_accounts.id = inflow_candidates.account_id")
+      .joins("JOIN accounts outflow_accounts ON outflow_accounts.id = outflow_candidates.account_id")
+      .where("inflow_accounts.family_id = ? AND outflow_accounts.family_id = ?", self.id, self.id)
+      .where("inflow_accounts.status IN ('draft', 'active')")
+      .where("outflow_accounts.status IN ('draft', 'active')")
+      .where("inflow_candidates.entryable_type = 'Transaction' AND outflow_candidates.entryable_type = 'Transaction'")
+      .where("
+        (
+          inflow_candidates.currency = outflow_candidates.currency AND
+          inflow_candidates.amount = -outflow_candidates.amount
+        ) OR (
+          inflow_candidates.currency <> outflow_candidates.currency AND
+          ABS(inflow_candidates.amount / NULLIF(outflow_candidates.amount * exchange_rates.rate, 0)) BETWEEN 0.95 AND 1.05
+        )
+      ")
+      .where(existing_transfers: { id: nil })
+      .order("date_diff ASC") # Closest matches first
+  end
+```
+
+```
+def auto_match_transfers!
+    # Exclude already matched transfers
+    candidates_scope = transfer_match_candidates.where(rejected_transfers: { id: nil })
+
+    # Track which transactions we've already matched to avoid duplicates
+    used_transaction_ids = Set.new
+
+    candidates = []
+
+    Transfer.transaction do
+      candidates_scope.each do |match|
+        next if used_transaction_ids.include?(match.inflow_transaction_id) ||
+               used_transaction_ids.include?(match.outflow_transaction_id)
+
+        Transfer.create!(
+          inflow_transaction_id: match.inflow_transaction_id,
+          outflow_transaction_id: match.outflow_transaction_id,
+        )
+
+        Transaction.find(match.inflow_transaction_id).update!(kind: "funds_movement")
+        Transaction.find(match.outflow_transaction_id).update!(kind: Transfer.kind_for_account(Transaction.find(match.outflow_transaction_id).entry.account))
+
+        used_transaction_ids << match.inflow_transaction_id
+        used_transaction_ids << match.outflow_transaction_id
+      end
+    end
+  end
+```
 
 ### Git-Style Checkpoint System for Financial Data
 
 The application implements a checkpoint system similar to Git commits, allowing users to create snapshots of their financial state before major changes. This enables safe experimentation with categorization rules and import processes with reliable rollback capabilities.
 
+#### Anchor-Based Balance Management
+
+**Core Anchor System Architecture**
+Maybe's checkpoint-like functionality is built on an anchor-based balance management system through the `Account::Anchorable` concern. This system uses two types of anchors as reference points: Opening anchors that establish starting balances when accounts are first created, and Current anchors that track the most recent balance state, particularly for accounts linked to external providers like Plaid.
+
+**Dual Calculator Strategy**
+The system implements two distinct balance calculation strategies depending on account management approach. The `Forward Calculator` is used for manual accounts where users enter transactions directly, calculating balances chronologically from entries starting from zero or an opening anchor. The `Reverse Calculator` is used for linked accounts that sync from external providers, starting with the current balance and calculating backwards to derive historical balances.
+
+**Balance Update Management**
+implements different strategies based on account characteristics. For cash accounts without reconciliations, the Transaction Adjustment Strategy adjusts the opening balance by calculating the delta needed to reach the desired current balance, preventing timeline clutter with unnecessary reconciliation entries. For accounts with existing reconciliations, the Value Tracking Strategy appends new reconciliation valuations to track value changes over time.
+
+#### Entry-Based Immutable Ledger
+
+**Immutable Financial Records**
+Rather than traditional git-style commits, Maybe uses an entry-based ledger where all financial events (transactions, trades, valuations) are stored as immutable Entry records. This approach creates a complete audit trail without requiring explicit checkpoints, as the balance calculators can process these entries to derive account balances at any point in time.
+
+**Checkpoint-Like Functionality**
+The anchor system provides checkpoint-like functionality while being specifically optimized for financial data management. Unlike git's commit-based history, Maybe's system maintains continuous balance calculations and supports both forward and reverse synchronization patterns needed for manual entry and external data integration scenarios.
+
+**Safe Experimentation Framework**
+Users can safely experiment with categorization rules and import processes because the immutable entry system preserves the original financial data. The anchor points serve as stable reference points that enable rollback capabilities, allowing users to revert changes without losing historical accuracy or data integrity.
+
 ### Smart Import Template Suggestions
 
 The import system learns from previous successful imports, suggesting column mappings and configurations based on similar import types and file formats. This reduces repetitive configuration for users who regularly import data from the same sources.
 
-### Context-Aware Category Suggestions
+The system searches for templates using these criteria:
 
-The categorization system analyzes transaction descriptions, amounts, and merchant data to suggest appropriate categories. The algorithm learns from user corrections, improving accuracy over time while respecting family-specific categorization preferences.
+- Same family
+- Same import type (TransactionImport, TradeImport, etc.)
+- Same target account (if specified)
+- Completed status only
+- Most recent first
 
 ## Conclusion
 
