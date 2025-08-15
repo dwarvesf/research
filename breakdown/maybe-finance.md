@@ -187,82 +187,39 @@ Maybe implements a comprehensive multi-layered caching strategy to handle the pe
 
 ```mermaid
 flowchart TD
-    %% User Entry Points
-    A[User Request] --> B[Cache Strategy Decision]
+    %% User Entry
+    A[User Request] --> B{HTTP ETag}
 
     %% Three Cache Layers
-    B --> C[Layer 1: HTTP ETag Cache]
-    B --> D[Layer 2: Rails Cache]
-    B --> E[Layer 3: Memoization]
+    B -->|Hit| C[304 Not Modified]
+    B -->|Miss| D{Rails Cache}
+    D -->|Hit| E[Return Cached Data]
+    D -->|Miss| F{Memoization}
+    F -->|Hit| G[Return Memoized Data]
+    F -->|Miss| H[Execute Query]
 
-    %% Cache Hit/Miss Flow
-    C -->|Hit| F[Return 304 Not Modified]
-    C -->|Miss| D
-    D -->|Hit| G[Return Cached Data]
-    D -->|Miss| H[Generate Cache Key]
-    E -->|Hit| I[Return Memoized Data]
-    E -->|Miss| J[Execute Query & Calculate]
-
-    %% Cache Key Generation
-    H --> K[Family ID + Key Name + Timestamps]
-    K --> L[Store in Rails Cache]
-
-    %% Data Processing
-    J --> M[Process Financial Data]
-    M --> N[Store in All Cache Layers]
-
-    %% Storage Backends
-    subgraph "Storage"
-        O[Client Browser ETags]
-        P[Rails Memory/Redis Cache]
-        Q[Ruby Instance Variables]
-    end
+    %% Data Flow
+    H --> I[Store in All Layers]
+    I --> J[Return Data]
 
     %% Invalidation
-    subgraph "Cache Invalidation"
-        R[Account Updates]
-        S[Entry Updates]
-        T[Sync Completion]
-    end
-
-    %% Connections
-    F --> O
-    G --> P
-    L --> P
-    I --> Q
-    N --> O
-    N --> P
-    N --> Q
-
-    R --> U[Invalidate Caches]
-    S --> U
-    T --> U
-    U --> H
+    K[Data Changes] --> L[Clear All Caches]
+    L --> B
 ```
 
-**Family-Level Cache Key Management**
-The caching mechanism uses intelligent cache management where the Family model serves as the central cache coordinator. Cache keys are generated using composite timestamps that include latest sync completion times and account update timestamps. This dual-cache approach ensures that account-related changes trigger appropriate cache invalidation while maintaining performance for unchanged data. The system creates hierarchical cache keys that cascade invalidation from family level down to individual account calculations.
+**Three-Tier Cache Strategy**
 
-**Sparkline Caching Strategy**
-The sparkline system implements sophisticated multi-layered caching for chart data through the AccountableSparklinesController, which uses HTTP ETags for client-side caching combined with Rails.cache for server-side storage. Individual accounts implement their own sparkline caching through the Account::Chartable module, creating a hierarchical caching system where both family-level and account-level sparklines are cached independently with 24-hour expiration times. This approach reduces computational overhead for frequently accessed dashboard elements while ensuring data freshness.
+**Layer 1: HTTP ETag Cache**
+The fastest response path uses HTTP ETags to return 304 Not Modified responses when client-side data hasn't changed. This eliminates server processing entirely for frequently accessed dashboard elements like sparklines and financial summaries, providing sub-millisecond response times.
 
-**Environment-Specific Cache Configuration**
-The development environment provides configurable caching for testing purposes through `rails dev:cache` command, using memory store with 2-day cache headers when enabled, or null store to prevent caching during development. Production environments implement always-on caching with Redis integration, including eager loading for better memory efficiency and improved response times. This environment-specific approach allows developers to test both cached and non-cached scenarios while ensuring production performance.
+**Layer 2: Rails Cache**
+Server-side caching handles expensive database queries and financial calculations using intelligent cache key generation. The system uses memory store in development and Redis in production, with cache keys that automatically invalidate when underlying financial data changes through sync timestamps and account update tracking.
 
-**Income Statement Cache Optimization**
-The income statement system demonstrates sophisticated query-level caching with multiple cache layers, caching family stats, category stats, and totals queries using SQL hash-based cache keys combined with the family's entries cache version for automatic invalidation. This approach ensures that expensive financial calculations are cached appropriately while maintaining accuracy when underlying data changes.
+**Layer 3: Memoization**
+Instance-level caching stores calculation results in Ruby instance variables during single requests. This prevents redundant balance calculations and chart data generation when the same financial metrics are accessed multiple times within a request cycle.
 
-**Cache Invalidation Challenges and Solutions**
-Financial data changes frequently through syncs, user updates, and external data imports, making cache invalidation extremely complex. The system addresses this through a multi-trigger invalidation strategy using different cache keys for different data types. Account-related caches invalidate when accounts change, while entry-related caches use separate versioning. The invalidation strategy uses sync-based triggers with latest_sync_completed_at timestamps, account update invalidation using accounts.maximum(:updated_at), entry-based invalidation using entries.maximum(:updated_at), and SQL hash invalidation using MD5 hashes of SQL queries for query-specific caches.
-
-**Balance Calculation Cache Coordination**
-Balance calculations involve multiple data sources including entries, holdings, and exchange rates that must be coordinated for cache consistency. The balance calculator uses a sync cache system to coordinate entry flows and holdings calculations, ensuring consistent data access patterns across balance calculations. This prevents cache inconsistencies that could lead to incorrect financial displays while maintaining computational efficiency.
-
-**Administrative Cache Management**
-For self-hosted instances, the system provides administrative cache clearing functionality that removes exchange rates, security prices, holdings, and balances. This capability is only available to family admins in self-hosted mode, allowing users to resolve cache-related issues without requiring developer intervention. The cache clearing process is comprehensive, addressing all major cached data types that could become problematic in self-hosted environments.
-
-**Performance Monitoring Integration**
-The system includes Public Skylight dashboard integration for monitoring caching effectiveness and identifying performance bottlenecks. This provides transparency into which caching strategies are working effectively and helps identify areas needing optimization. The monitoring integration allows the development team to continuously refine caching strategies based on real-world usage patterns and performance data.
+**Smart Cache Key Management**
+The caching mechanism centers around the Family model as the cache coordinator, generating composite cache keys that include family ID for multi-tenant isolation, sync completion timestamps for data-dependent invalidation, and account update times for granular cache control. This hierarchical approach ensures cache invalidation cascades appropriately from family-level changes down to individual account calculations.
 
 ### Multi-Currency Complexity
 
@@ -323,6 +280,29 @@ Maybe implements a sophisticated caching strategy to minimize external API calls
 The caching mechanism uses intelligent cache management where rates are stored with currency pair and date as composite keys, enabling fast lookups for historical data. The system can optionally cache newly fetched rates for future use, reducing redundant API calls for commonly requested currency pairs. Cache invalidation ensures stale rates don't affect calculations while maintaining performance benefits.
 
 #### LOCF (Last Observation Carried Forward) Algorithm
+
+```
+-- Last observation carried forward (LOCF), use the most recent balance on or before the chart date
+          LEFT JOIN LATERAL (
+            SELECT b.balance, b.cash_balance
+            FROM balances b
+            WHERE b.account_id = accounts.id
+              AND b.date <= d.date
+            ORDER BY b.date DESC
+            LIMIT 1
+          ) last_bal ON TRUE
+ 
+-- Last observation carried forward (LOCF), use the most recent exchange rate on or before the chart date
+          LEFT JOIN LATERAL (
+            SELECT er.rate
+            FROM exchange_rates er
+            WHERE er.from_currency = accounts.currency
+              AND er.to_currency = :target_currency
+              AND er.date <= d.date
+            ORDER BY er.date DESC
+            LIMIT 1
+          ) er ON TRUE
+```
 
 **Gap-Filling Strategy**
 LOCF represents the core algorithm for handling missing exchange rate data across weekends, holidays, and provider outages. When the system encounters missing rate data for a specific date, it automatically carries forward the most recent available rate from a previous date.
@@ -446,6 +426,41 @@ def auto_match_transfers!
 The application implements a checkpoint system similar to Git commits, allowing users to create snapshots of their financial state before major changes. This enables safe experimentation with categorization rules and import processes with reliable rollback capabilities.
 
 #### Anchor-Based Balance Management
+
+```mermaid
+flowchart TD
+    %% Account Types
+    A[Account Created] --> B{Account Type}
+    B -->|Manual| C[Opening Anchor]
+    B -->|Linked| D[Current Anchor]
+    
+    %% Calculation Direction
+    C --> E[Forward Calculation]
+    D --> F[Reverse Calculation]
+    
+    %% Balance Flow
+    E --> G[Opening Balance + Transactions = Current Balance]
+    F --> H[Current Balance - Transactions = Historical Balance]
+    
+    %% Anchor System Benefits
+    subgraph "Anchor Benefits"
+        I[Reference Points]
+        J[Safe Rollback]
+        K[Data Integrity]
+    end
+    
+    %% Immutable Foundation
+    G --> L[Immutable Entry Ledger]
+    H --> L
+    L --> I
+    L --> J
+    L --> K
+    
+    %% User Experience
+    I --> M[Experiment Safely]
+    J --> M
+    K --> M
+```
 
 **Core Anchor System Architecture**
 Maybe's checkpoint-like functionality is built on an anchor-based balance management system through the `Account::Anchorable` concern. This system uses two types of anchors as reference points: Opening anchors that establish starting balances when accounts are first created, and Current anchors that track the most recent balance state, particularly for accounts linked to external providers like Plaid.
