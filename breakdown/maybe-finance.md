@@ -2,13 +2,14 @@
 title: Maybe Finance breakdown
 short_title: Maybe finance
 description: An in-depth analysis of a $1M open-source personal finance application built with Ruby on Rails
-date: 2025-08-14
+date: 2025-08-15
 authors:
-  - huymaius
+  - quanghuynguyen1902
 tags:
   - breakdown
   - finance
-  - ruby on rail
+  - ruby-on-rails
+  - rails
 ---
 
 ## Overview
@@ -18,6 +19,7 @@ Maybe is an open-source personal finance application originally developed as a c
 ![Demo](./assets/maybe-illu.gif)
 
 **Key components:**
+
 - **Multi-tenant family-based architecture**: Central organizational structure around families
 - **Multi-currency support**: Powered by Synth Finance API for exchange rates
 - **Financial institution integration**: Plaid API for US/EU bank connections
@@ -27,7 +29,8 @@ Maybe is an open-source personal finance application originally developed as a c
 
 ## How it works
 
-### Application Infrastructure
+### Application infrastructure
+
 Maybe implements a Rails 7.2 application with specialized subsystems for financial data management, external integrations, and multi-tenant organization. The architecture is built around the Family model as the central aggregate root and tenant boundary.
 
 ```mermaid
@@ -86,8 +89,7 @@ graph TB
     TransactionEntry --> TransactionForms
 ```
 
-
-### Core Data Model
+### Core data model
 
 The data model implements a multi-tenant architecture centered around the Family model. Each family serves as an isolated tenant with complete ownership of their financial data, users, and configurations.
 
@@ -117,26 +119,30 @@ flowchart TD
     PlaidAccounts --> Accounts
 ```
 
-#### Primary Models
+#### Primary models
 
 **Family (Aggregate Root)**
+
 - Central tenant boundary for data isolation
 - Owns all financial data (accounts, transactions, categories)
 - Stores default currency and family-wide configuration
 - Enables shared access for multiple family members
 
 **User (Access Control)**
+
 - Belongs to family, inherits access to all family data
 - Supports multiple users per family (spouses, advisors)
 - No direct data ownership - all data belongs to family unit
 
 **Account (Financial Foundation)**
+
 - Uses Rails delegated types for account specialization
 - Supports checking, savings, credit, investment, loan, property accounts
 - Polymorphic design enables type-specific behavior while maintaining unified interface
 - Links to financial institutions via Plaid integration
 
 **Entry (Financial Events)**
+
 - Base class for all financial events using polymorphic relationships
 - Handles transactions, valuations, and trades through "entryable" pattern
 - Provides consistent chronological ordering and amount handling
@@ -145,42 +151,49 @@ flowchart TD
 #### Specialized Models
 
 **Transaction**
+
 - Core personal finance activity (purchases, deposits, transfers)
 - Automatic transfer detection prevents double-counting in budgets
 - Supports categorization and tagging for organization
 - Handles complex transfer scenarios between family accounts
 
-**Investment System**
+**Investment system**
+
 - Security: Investable assets with market data
 - Holding: Current positions in investment accounts
 - Trade: Buy/sell transactions with quantity, price, fees
 - Enables portfolio valuation and performance tracking
 
-**Category & Tag System**
+**Category & tag system**
+
 - Categories: Hierarchical organization for budgeting
 - Tags: Flexible, non-hierarchical cross-cutting analysis
 - Supports both income and expense classification
 
-**Import System**
+**Import system**
+
 - Handles CSV imports, Mint exports, other financial software
 - Type-specific models (TransactionImport, TradeImport, AccountImport)
 - Intelligent format detection and validation
 - Robust data migration capabilities
 
 **Institution Integration**
+
 - Institution: Financial institution metadata
 - PlaidItem/PlaidAccount: API integration management
 - Supports both automated syncing and manual entry
 - Fallback mechanisms for connection failures
 
-**Multi-Currency Support**
+**Multi-currency support**
+
 - Consistent currency storage at account level
 - Family-level default currency for aggregation
 - Money objects handle conversion and arithmetic
 - Exchange rate integration for accurate cross-currency calculations
 
 ## Technical Challenges
-#### Caching Performance Optimization
+
+#### Caching performance optimization
 
 **Multi-Layered Caching Architecture**
 Maybe implements a comprehensive multi-layered caching strategy to handle the performance demands of financial data processing. The core caching system is built around the Family model's cache key management, which creates cache keys that automatically invalidate when account data changes, using sync timestamps and account update times as invalidation triggers. The system also maintains separate cache versioning for entry-related calculations, ensuring that different types of financial data have appropriate invalidation strategies.
@@ -207,9 +220,9 @@ flowchart TD
     L --> B
 ```
 
-**Three-Tier Cache Strategy**
+**Three-tier cache strategy**
 
-**Layer 1: HTTP ETag Cache**
+**Layer 1: HTTP ETag cache**
 The fastest response path uses HTTP ETags to return 304 Not Modified responses when client-side data hasn't changed. This eliminates server processing entirely for frequently accessed dashboard elements like sparklines and financial summaries, providing sub-millisecond response times.
 
 **Layer 2: Rails Cache**
@@ -218,10 +231,10 @@ Server-side caching handles expensive database queries and financial calculation
 **Layer 3: Memoization**
 Instance-level caching stores calculation results in Ruby instance variables during single requests. This prevents redundant balance calculations and chart data generation when the same financial metrics are accessed multiple times within a request cycle.
 
-**Smart Cache Key Management**
+**Smart cache key management**
 The caching mechanism centers around the Family model as the cache coordinator, generating composite cache keys that include family ID for multi-tenant isolation, sync completion timestamps for data-dependent invalidation, and account update times for granular cache control. This hierarchical approach ensures cache invalidation cascades appropriately from family-level changes down to individual account calculations.
 
-### Multi-Currency Complexity
+### Multi-currency complexity
 
 **Challenge**: Supporting global users requires handling multiple currencies within the same family's financial data. Exchange rate fluctuations, currency conversion accuracy, and meaningful aggregation across currencies present significant technical challenges.
 
@@ -271,15 +284,15 @@ graph TD
     I --> S
 ```
 
-#### Exchange Rate Caching Strategy
+#### Exchange rate caching strategy
 
-**Multi-Layer Caching Architecture**
+**Multi-layer caching architecture**
 Maybe implements a sophisticated caching strategy to minimize external API calls while ensuring rate accuracy. The system employs a database-first lookup approach where exchange rates are stored locally in a dedicated ExchangeRate model. When a rate is needed, the system first checks the local cache before making external provider requests to Synth Finance API.
 
-**Cache Optimization Logic**
+**Cache optimization logic**
 The caching mechanism uses intelligent cache management where rates are stored with currency pair and date as composite keys, enabling fast lookups for historical data. The system can optionally cache newly fetched rates for future use, reducing redundant API calls for commonly requested currency pairs. Cache invalidation ensures stale rates don't affect calculations while maintaining performance benefits.
 
-#### LOCF (Last Observation Carried Forward) Algorithm
+#### LOCF (Last Observation Carried Forward) algorithm
 
 ```
 -- Last observation carried forward (LOCF), use the most recent balance on or before the chart date
@@ -304,21 +317,21 @@ The caching mechanism uses intelligent cache management where rates are stored w
           ) er ON TRUE
 ```
 
-**Gap-Filling Strategy**
+**Gap-filling strategy**
 LOCF represents the core algorithm for handling missing exchange rate data across weekends, holidays, and provider outages. When the system encounters missing rate data for a specific date, it automatically carries forward the most recent available rate from a previous date.
 
-**Implementation Process**
+**Implementation process**
 The LOCF algorithm iterates through each date in a target range, checking for existing rates in both database cache and external providers. When no rate is available from either source, the algorithm uses the previous rate value to fill the gap. This previous rate value is continuously updated as the algorithm progresses through the date range, ensuring continuous data coverage.
 
-**Application Areas**
+**Application areas**
 LOCF is implemented across multiple system components. In exchange rate imports, it ensures continuous rate coverage when external providers don't return weekend or holiday data. For security price data, the same strategy fills gaps in stock and investment prices when markets are closed. In balance chart calculations, LOCF operates at the SQL level using lateral joins to find the most recent balance and exchange rate on or before each chart date.
 
-**Data Consistency Benefits**
+**Data consistency benefits**
 The LOCF strategy prevents broken financial charts and ensures consistent calculations even when external data sources have gaps. This approach is particularly crucial for time series analysis where continuous data is essential for accurate trend visualization and portfolio valuation. The algorithm maintains historical accuracy while providing seamless user experience across different market conditions and data provider limitations.
 
-## Clever Tricks and Tips
+## Clever tricks and tips
 
-### Polymorphic Account Architecture with Delegated Types
+### Polymorphic account architecture with delegated types
 
 The system uses Rails' delegated types pattern to implement account specialization while maintaining a unified interface. This approach enables account-type-specific behavior (credit limits for credit cards, interest rates for loans) while preserving common operations like balance calculations and transaction aggregation.
 
@@ -337,7 +350,7 @@ def balance_type
   end
 ```
 
-### Transfer Auto-Detection Algorithm
+### Transfer auto-detection algorithm
 
 Maybe implements smart transfer detection that finds matching amounts and dates across family accounts. The algorithm handles processing delays and amount differences while avoiding mistakes that could wrongly classify regular transactions as transfers.
 
@@ -421,11 +434,11 @@ def auto_match_transfers!
   end
 ```
 
-### Git-Style Checkpoint System for Financial Data
+### Git-Style checkpoint system for financial data
 
 The application implements a checkpoint system similar to Git commits, allowing users to create snapshots of their financial state before major changes. This enables safe experimentation with categorization rules and import processes with reliable rollback capabilities.
 
-#### Anchor-Based Balance Management
+#### Anchor-based balance management
 
 ```mermaid
 flowchart TD
@@ -462,27 +475,27 @@ flowchart TD
     K --> M
 ```
 
-**Core Anchor System Architecture**
+**Core anchor system architecture**
 Maybe's checkpoint-like functionality is built on an anchor-based balance management system through the `Account::Anchorable` concern. This system uses two types of anchors as reference points: Opening anchors that establish starting balances when accounts are first created, and Current anchors that track the most recent balance state, particularly for accounts linked to external providers like Plaid.
 
-**Dual Calculator Strategy**
+**Dual calculator strategy**
 The system implements two distinct balance calculation strategies depending on account management approach. The `Forward Calculator` is used for manual accounts where users enter transactions directly, calculating balances chronologically from entries starting from zero or an opening anchor. The `Reverse Calculator` is used for linked accounts that sync from external providers, starting with the current balance and calculating backwards to derive historical balances.
 
-**Balance Update Management**
+**Balance update management**
 implements different strategies based on account characteristics. For cash accounts without reconciliations, the Transaction Adjustment Strategy adjusts the opening balance by calculating the delta needed to reach the desired current balance, preventing timeline clutter with unnecessary reconciliation entries. For accounts with existing reconciliations, the Value Tracking Strategy appends new reconciliation valuations to track value changes over time.
 
-#### Entry-Based Immutable Ledger
+#### Entry-based immutable ledger
 
-**Immutable Financial Records**
+**Immutable financial records**
 Rather than traditional git-style commits, Maybe uses an entry-based ledger where all financial events (transactions, trades, valuations) are stored as immutable Entry records. This approach creates a complete audit trail without requiring explicit checkpoints, as the balance calculators can process these entries to derive account balances at any point in time.
 
-**Checkpoint-Like Functionality**
+**Checkpoint-like functionality**
 The anchor system provides checkpoint-like functionality while being specifically optimized for financial data management. Unlike git's commit-based history, Maybe's system maintains continuous balance calculations and supports both forward and reverse synchronization patterns needed for manual entry and external data integration scenarios.
 
-**Safe Experimentation Framework**
+**Safe experimentation framework**
 Users can safely experiment with categorization rules and import processes because the immutable entry system preserves the original financial data. The anchor points serve as stable reference points that enable rollback capabilities, allowing users to revert changes without losing historical accuracy or data integrity.
 
-### Smart Import Template Suggestions
+### Smart import template suggestions
 
 The import system learns from previous successful imports, suggesting column mappings and configurations based on similar import types and file formats. This reduces repetitive configuration for users who regularly import data from the same sources.
 
