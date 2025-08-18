@@ -13,6 +13,8 @@ tags:
   - python
 ---
 
+![](assets/crawl4ai-cheatsheet.png)
+
 ## What Crawl4AI does
 
 Crawl4AI is a specialized web crawler designed specifically for AI applications. Unlike traditional scrapers that merely extract HTML, it intelligently processes web content to create clean, structured data that language models can effectively utilize.

@@ -15,6 +15,8 @@ tags:
 toc: true
 ---
 
+![](assets/cline-cheatsheet.png)
+
 ## Overview
 
 Cline is an AI coding assistant implemented as a VS Code extension that demonstrates an **amalgamation of state-of-the-art techniques** for human-AI collaborative programming. The system architecture combines several technical approaches that address common challenges in autonomous coding tools: streaming UX, XML-based tool calling, generative UI, and safety mechanisms.
@@ -26,20 +28,20 @@ Cline is an AI coding assistant implemented as a VS Code extension that demonstr
 The system integrates techniques from multiple domains:
 
 - **XML Tool Calling**: Response parsing mechanism that enables models without native JSON tool support to participate in agent workflows
-- **Generative Streaming UI**: Real-time visualization of tool execution including diffs, browser interactions, and command outputs
-- **Git Shadow Versioning**: Rollback system that enables autonomous operation without affecting user Git history
-- **Multi-Provider API Abstraction**: Interface supporting 33+ providers with graceful degradation
-- **Context Window Intelligence**: Truncation algorithms that preserve semantic meaning across varying model capabilities (64K-200K+ tokens)
-- **Human-in-the-Loop Safety**: Risk assessment with granular approval mechanisms
+- **Generative streaming UI**: Real-time visualization of tool execution including diffs, browser interactions, and command outputs
+- **Git shadow versioning**: Rollback system that enables autonomous operation without affecting user Git history
+- **Multi-provider API abstraction**: Interface supporting 33+ providers with graceful degradation
+- **Context window intelligence**: Truncation algorithms that preserve semantic meaning across varying model capabilities (64K-200K+ tokens)
+- **Human-in-the-loop safety**: Risk assessment with granular approval mechanisms
 
 **Key architectural components:**
 
-- **Hybrid Backend/Frontend**: Node.js extension + React webview with gRPC communication
-- **Multi-Provider API Support**: 33+ AI providers via unified factory pattern
-- **Stream Processing**: Real-time AI response handling with tool execution coordination
-- **Context Management**: Conversation truncation that preserves critical context
-- **Git Shadow Versioning**: Autonomous operation with rollback capabilities
-- **Dual-Mode Operation**: Separate Plan and Act modes with optimized configurations
+- **Hybrid backend/frontend**: Node.js extension + React webview with gRPC communication
+- **Multi-provider API support**: 33+ AI providers via unified factory pattern
+- **Stream processing**: Real-time AI response handling with tool execution coordination
+- **Context management**: Conversation truncation that preserves critical context
+- **Git shadow versioning**: Autonomous operation with rollback capabilities
+- **Dual-mode operation**: Separate Plan and Act modes with optimized configurations
 
 ## What Cline does
 
@@ -264,7 +266,7 @@ graph TB
         OtherProviders["Other Providers..."]
     end
 
-    subgraph "Stream Processing Core"
+    subgraph "Stream processing Core"
         ApiStream["ApiStream<br/>(AsyncGenerator)"]
         StreamChunks["Stream Chunks"]
         ChunkTypes["text | reasoning | usage"]
@@ -452,8 +454,8 @@ The file context tracker intelligently manages which files are included in the A
 
 - **Recency**: Files are tracked with `cline_read_date`, `cline_edit_date`, and `user_edit_date` timestamps
 - **Frequency**: Files frequently referenced in conversations get boosted scores
-- **Modification Status**: Recently modified files are prioritized through the `recentlyModifiedFiles` set
-- **File Type Awareness**: The system tracks different operation types (`read_tool`, `user_edited`, `cline_edited`, `file_mentioned`)
+- **Modification status**: Recently modified files are prioritized through the `recentlyModifiedFiles` set
+- **File type awareness**: The system tracks different operation types (`read_tool`, `user_edited`, `cline_edited`, `file_mentioned`)
 
 ```mermaid
 flowchart TD
@@ -504,24 +506,24 @@ flowchart TD
 
 **Intelligent Selection Algorithm**:
 
-1. **Scoring Phase**: Each file receives a composite score based on multiple factors
-2. **Efficiency Calculation**: Score-to-size ratio determines value per token
-3. **Greedy Selection**: Files selected in descending order of efficiency until budget exhausted
-4. **Dynamic Rebalancing**: Budget adjusts based on conversation needs and file importance
+1. **Scoring phase**: Each file receives a composite score based on multiple factors
+2. **Efficiency calculation**: Score-to-size ratio determines value per token
+3. **Greedy selection**: Files selected in descending order of efficiency until budget exhausted
+4. **Dynamic rebalancing**: Budget adjusts based on conversation needs and file importance
 
 **Adaptive Behavior**:
 
-- **Learning from User Patterns**: Files frequently accessed together get co-located in context
-- **Project Phase Awareness**: Different files prioritized during different development phases
-- **Task Context Awareness**: Files relevant to current conversation topic receive priority boosts
-- **Error Context**: When errors occur, related files automatically get higher priority
+- **Learning from user patterns**: Files frequently accessed together get co-located in context
+- **Project phase awareness**: Different files prioritized during different development phases
+- **Task context awareness**: Files relevant to current conversation topic receive priority boosts
+- **Error context**: When errors occur, related files automatically get higher priority
 
 **Performance Optimizations**:
 
-- **Incremental Updates**: Only recalculate scores for changed files
+- **Incremental updates**: Only recalculate scores for changed files
 - **Caching**: File size estimates and scores cached to avoid repeated calculations
-- **Lazy Loading**: File content loaded only when selected for context inclusion
-- **Batch Updates**: Multiple file changes processed together to avoid thrashing
+- **Lazy loading**: File content loaded only when selected for context inclusion
+- **Batch updates**: Multiple file changes processed together to avoid thrashing
 
 ```typescript
 // File context tracking with intelligent scoring
@@ -759,10 +761,10 @@ class XmlToolCallParser {
 
 This approach enables:
 
-- **Universal Model Support**: Any model that can generate text can participate in agent workflows
-- **Training-Free Integration**: No additional fine-tuning required for tool calling capabilities
-- **Adoption by Major Engineering Teams**: Google and Alibaba engineers use Cline specifically for this XML tool calling capability
-- **Graceful Degradation**: Falls back seamlessly when native JSON tool calling isn't available
+- **Universal model support**: Any model that can generate text can participate in agent workflows
+- **Training-free integration**: No additional fine-tuning required for tool calling capabilities
+- **Adoption by major engineering teams**: Google and Alibaba engineers use Cline specifically for this XML tool calling capability
+- **Graceful degradation**: Falls back seamlessly when native JSON tool calling isn't available
 
 ### 5. Generative streaming UI
 
@@ -806,10 +808,10 @@ class GenerativeUIStreamer {
 
 This approach differs from CLI tools or simple chat interfaces by providing:
 
-- **Real-time Tool Visualization**: See file diffs being generated line by line
-- **Interactive Browser Sessions**: Watch Cline navigate web pages with visual feedback
-- **Streaming Command Output**: Terminal interactions appear as they execute
-- **Progressive Disclosure**: Complex operations break down into understandable steps
+- **Real-time tool visualization**: See file diffs being generated line by line
+- **Interactive browser sessions**: Watch Cline navigate web pages with visual feedback
+- **Streaming command output**: Terminal interactions appear as they execute
+- **Progressive disclosure**: Complex operations break down into understandable steps
 
 ### 6. Multi-provider API integration
 
@@ -881,11 +883,11 @@ The system provides distinct behavioral modes through system prompt differentiat
 
 **Core Architecture Components:**
 
-1. **Extension Entry** (`src/extension.ts`): Main extension entry point
+1. **Extension entry** (`src/extension.ts`): Main extension entry point
 2. **WebviewProvider** (`src/core/webview/index.ts`): Manages webview lifecycle and communication
 3. **Controller** (`src/core/controller/index.ts`): Handles state and task management
 4. **Task** (`src/core/task/index.ts`): Executes API requests and tool operations
-5. **React Frontend** (`webview-ui/src/App.tsx`): React-based webview interface
+5. **React frontend** (`webview-ui/src/App.tsx`): React-based webview interface
 
 **Direct API Architecture**: User input → React Webview → Controller → Task Manager → Direct Provider API → Tool Execution → Human Approval → Memory Bank Update → UI Response
 
@@ -1092,9 +1094,9 @@ flowchart TD
 **Native Integration Features**:
 
 - **Microsoft Webview UI Toolkit**: Automatic theme integration (light/dark mode)
-- **VS Code Command Integration**: Accessible via Command Palette
-- **Keyboard Navigation**: Full keyboard accessibility following VS Code patterns
-- **Panel Management**: Flexible positioning (tabs, side panels, floating)
+- **VS Code command integration**: Accessible via Command Palette
+- **Keyboard navigation**: Full keyboard accessibility following VS Code patterns
+- **Panel management**: Flexible positioning (tabs, side panels, floating)
 
 **Accessibility Implementation**:
 

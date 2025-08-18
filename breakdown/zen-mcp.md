@@ -15,6 +15,8 @@ tags:
 toc: true
 ---
 
+![](assets/zen-mcp-cheatsheet.png)
+
 ## Overview
 
 The Zen MCP Server is a sophisticated Model Context Protocol (MCP) server that enables multi-AI orchestration, conversation memory, and advanced workflow management.
@@ -423,9 +425,9 @@ class InMemoryStorage:
 **Key characteristics**:
 
 - **TTL**: 3 hours (configurable via `CONVERSATION_TIMEOUT_HOURS`)
-- **Turn Limit**: 20 turns max (configurable via `MAX_CONVERSATION_TURNS`)
-- **Thread Safety**: All operations protected by threading.Lock()
-- **Automatic Cleanup**: Expired threads removed on access
+- **Turn limit**: 20 turns max (configurable via `MAX_CONVERSATION_TURNS`)
+- **Thread safety**: All operations protected by threading.Lock()
+- **Automatic cleanup**: Expired threads removed on access
 
 #### Conversation chains
 
