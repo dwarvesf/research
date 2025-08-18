@@ -13,6 +13,8 @@ tags:
   - python
 ---
 
+![](assets/crawl4ai-cheatsheet.png)
+
 ## What Crawl4AI does
 
 Crawl4AI is a specialized web crawler designed specifically for AI applications. Unlike traditional scrapers that merely extract HTML, it intelligently processes web content to create clean, structured data that language models can effectively utilize.
@@ -22,8 +24,6 @@ The framework delivers 6x faster performance while producing higher quality resu
 For **RAG systems**, it delivers source-tracked content with noise (menus, ads) removed. **AI agents** receive consistently formatted data following predefined schemas. **Training datasets** benefit from filtered, high-quality content, and **real-time applications** can process multiple pages concurrently without performance issues.
 
 Crawl4AI's key advantages include independence from external APIs (avoiding rate limits and extra costs), AI-first design philosophy, flexible extraction methods (CSS, XPath, regex, or LLMs), and robust handling of anti-bot measures, session management, and IP rotation.
-
-![](assets/crawl4ai-cheatsheet.png)
 
 ## How it works under the hood
 

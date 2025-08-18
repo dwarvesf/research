@@ -15,11 +15,11 @@ tags:
 toc: true
 ---
 
+![](assets/zen-mcp-cheatsheet.png)
+
 ## Overview
 
 The Zen MCP Server is a sophisticated Model Context Protocol (MCP) server that enables multi-AI orchestration, conversation memory, and advanced workflow management.
-
-![](assets/zen-mcp-cheatsheet.png)
 
 ### Solved problems
 

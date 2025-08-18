@@ -15,6 +15,8 @@ tags:
 toc: true
 ---
 
+![](assets/ax-framework-cheatsheet.png)
+
 ## Overview
 
 ### TL;DR
@@ -26,8 +28,6 @@ Ax is the essential toolkit you wish to have in the new emerging trend of contex
 - **Advanced optimization**: Make your LLM smarter by literally teaching it, using the teacher-student pattern (no cap)
 
 Ax brings DSPy’s signature and optimization to TypeScript. Less prompt maneuver, more context engineering.
-
-![](assets/ax-framework-cheatsheet.png)
 
 ### You lost me at DSPy, wtf is that?
 
