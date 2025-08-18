@@ -23,6 +23,8 @@ For **RAG systems**, it delivers source-tracked content with noise (menus, ads) 
 
 Crawl4AI's key advantages include independence from external APIs (avoiding rate limits and extra costs), AI-first design philosophy, flexible extraction methods (CSS, XPath, regex, or LLMs), and robust handling of anti-bot measures, session management, and IP rotation.
 
+![](assets/crawl4ai-cheatsheet.png)
+
 ## How it works under the hood
 
 ### Core architecture

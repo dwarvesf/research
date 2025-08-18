@@ -19,6 +19,8 @@ toc: true
 
 The Zen MCP Server is a sophisticated Model Context Protocol (MCP) server that enables multi-AI orchestration, conversation memory, and advanced workflow management.
 
+![](assets/zen-mcp-cheatsheet.png)
+
 ### Solved problems
 
 Traditional MCP tools call are stateless - each request is independent, with no memory. For complex tasks, this creates significant friction:

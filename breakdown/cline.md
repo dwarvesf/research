@@ -19,6 +19,8 @@ toc: true
 
 Cline is an AI coding assistant implemented as a VS Code extension that demonstrates an **amalgamation of state-of-the-art techniques** for human-AI collaborative programming. The system architecture combines several technical approaches that address common challenges in autonomous coding tools: streaming UX, XML-based tool calling, generative UI, and safety mechanisms.
 
+![](assets/cline-cheatsheet.png)
+
 ![Demo](./assets/cline-illu.gif)
 
 **Core technical approaches:**
