@@ -18,7 +18,7 @@ toc: true
 
 ![](assets/dify.gif)
 
-## Overall System Architecture
+## Overall system architecture
 
 ```mermaid
 graph TB
