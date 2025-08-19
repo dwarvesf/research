@@ -20,67 +20,7 @@ toc: true
 
 ## Overall system architecture
 
-```mermaid
-graph TB
-    subgraph "User Interface Layer"
-        WEB[Next.js Web App]
-        API_CLIENT[API Clients]
-        PLUGIN_UI[Plugin Interface]
-    end
-
-    subgraph "API Gateway"
-        NGINX[Nginx Reverse Proxy]
-        AUTH[Auth Service]
-    end
-
-    subgraph "Core Services - Beehive Architecture"
-        API_SERVICE[Flask API Service]
-        WORKER[Celery Worker Service]
-        PLUGIN_DAEMON[Plugin Daemon Go]
-
-        subgraph "Core Engines"
-            WORKFLOW[Workflow Engine]
-            MODEL_RUNTIME[Model Runtime]
-            RAG_ENGINE[RAG Engine]
-            AGENT[Agent Framework]
-        end
-    end
-
-    subgraph "Data Layer"
-        POSTGRES[(PostgreSQL)]
-        REDIS[(Redis)]
-        VECTOR_DB[(Vector DB)]
-        FILE_STORAGE[File Storage]
-    end
-
-    subgraph "External Services"
-        LLM_PROVIDERS[LLM Providers]
-        TOOLS[External Tools]
-        PLUGINS[Plugin Marketplace]
-    end
-
-    WEB --> NGINX
-    API_CLIENT --> NGINX
-    PLUGIN_UI --> NGINX
-
-    NGINX --> AUTH
-    AUTH --> API_SERVICE
-
-    API_SERVICE --> WORKFLOW
-    API_SERVICE --> MODEL_RUNTIME
-    API_SERVICE --> RAG_ENGINE
-    API_SERVICE --> AGENT
-
-    WORKFLOW --> WORKER
-    MODEL_RUNTIME --> LLM_PROVIDERS
-    AGENT --> TOOLS
-    PLUGIN_DAEMON --> PLUGINS
-
-    API_SERVICE --> POSTGRES
-    API_SERVICE --> REDIS
-    RAG_ENGINE --> VECTOR_DB
-    API_SERVICE --> FILE_STORAGE
-```
+![](assets/dify-architecture.webp)
 
 ## Visual AI development at scale
 
@@ -130,41 +70,7 @@ The platform's **open-source nature** with a strong community (70,000+ GitHub st
 
 ## Beehive architecture for infinite extensibility
 
-```mermaid
-graph LR
-    subgraph "Plugin Ecosystem"
-        subgraph "Plugin Types"
-            MODELS[Model Plugins]
-            TOOLS[Tool Plugins]
-            AGENTS[Agent Strategies]
-            EXTENSIONS[Extensions]
-            BUNDLES[Bundle Packages]
-        end
-
-        subgraph "Runtime Environments"
-            LOCAL[Local Subprocess]
-            DEBUG[TCP Debug Mode]
-            SERVERLESS[AWS Lambda]
-            ENTERPRISE[Trusted Runtime]
-        end
-
-        subgraph "Security Layer"
-            SIGNATURES[Cryptographic Signatures]
-            PERMISSIONS[Permission System]
-            ISOLATION[Process Isolation]
-        end
-    end
-
-    MODELS --> LOCAL
-    TOOLS --> DEBUG
-    AGENTS --> SERVERLESS
-    EXTENSIONS --> ENTERPRISE
-
-    LOCAL --> ISOLATION
-    DEBUG --> SIGNATURES
-    SERVERLESS --> PERMISSIONS
-    ENTERPRISE --> SIGNATURES
-```
+![](assets/dify-plugin-ecosystem.webp)
 
 The Beehive architecture's most clever implementation is its **plugin system with multiple runtime environments**. Located in the plugin daemon service, this system provides four distinct execution modes. The local runtime uses subprocess communication via STDIN/STDOUT for development. The debug runtime maintains TCP long connections with stateful management through Redis, enabling hot-reload during development. The serverless runtime integrates with AWS Lambda for automatic scaling in SaaS deployments. The enterprise runtime provides a controlled environment for private deployments.
 
@@ -172,54 +78,7 @@ What makes this particularly sophisticated is the security model. Instead of res
 
 ## Workflow engine parallel processing
 
-```mermaid
-graph TB
-    subgraph "Workflow Execution Engine"
-        START[Start Node]
-
-        subgraph "Parallel Branch A"
-            LLM1[LLM Node 1]
-            HTTP1[HTTP Request]
-            CODE1[Code Node]
-        end
-
-        subgraph "Parallel Branch B"
-            LLM2[LLM Node 2]
-            TOOL1[Tool Node]
-            ITER[Iteration Node]
-        end
-
-        MERGE[Merge Node]
-        CONDITION[Conditional Node]
-
-        subgraph "Variable Pool"
-            SCOPE1[Node Scope 1]
-            SCOPE2[Node Scope 2]
-            GLOBAL[Global Scope]
-        end
-
-        END[End Node]
-    end
-
-    START --> LLM1
-    START --> LLM2
-
-    LLM1 --> HTTP1
-    HTTP1 --> CODE1
-
-    LLM2 --> TOOL1
-    TOOL1 --> ITER
-
-    CODE1 --> MERGE
-    ITER --> MERGE
-
-    MERGE --> CONDITION
-    CONDITION --> END
-
-    SCOPE1 -.-> LLM1
-    SCOPE2 -.-> LLM2
-    GLOBAL -.-> MERGE
-```
+![](assets/dify-workflow-execution-engine.webp)
 
 The workflow engine's **parallel execution system** (`/api/core/workflow/nodes/iteration/iteration_node.py`) demonstrates engineering excellence through its thread pool management:
 
@@ -238,44 +97,7 @@ This implementation cleverly handles both sequential and parallel execution mode
 
 ## Model runtime abstracts 100+ providers
 
-```mermaid
-graph LR
-    subgraph "Model Runtime Layer"
-        subgraph "Model Types"
-            LLM[Large Language Models]
-            EMBED[Text Embedding]
-            RERANK[Rerank Models]
-            TTS[Text-to-Speech]
-            STT[Speech-to-Text]
-        end
-
-        subgraph "Provider Registry"
-            OPENAI[OpenAI Provider]
-            ANTHROPIC[Anthropic Provider]
-            LOCAL[Local Model Provider]
-            CUSTOM[Custom Providers]
-        end
-
-        subgraph "Runtime Services"
-            INVOKE[Invocation Service]
-            STREAM[Streaming Handler]
-            TOKEN[Token Counter]
-            CACHE[Response Cache]
-        end
-    end
-
-    LLM --> INVOKE
-    EMBED --> INVOKE
-    RERANK --> INVOKE
-
-    INVOKE --> OPENAI
-    INVOKE --> ANTHROPIC
-    INVOKE --> LOCAL
-
-    INVOKE --> STREAM
-    STREAM --> TOKEN
-    TOKEN --> CACHE
-```
+![](assets/dify-model-runtime-layer.webp)
 
 The **Model Runtime abstraction** (`/api/core/model_runtime/`) provides a unified interface that makes switching between providers transparent:
 
@@ -379,43 +201,7 @@ This system enables complex parameter passing between nodes, supporting everythi
 
 ## Performance architecture scaling patterns
 
-```mermaid
-graph TB
-    subgraph "Load Distribution"
-        LB[Load Balancer]
-
-        subgraph "API Pods"
-            API1[API Pod 1<br/>1 CPU, 2GB]
-            API2[API Pod 2<br/>1 CPU, 2GB]
-            API3[API Pod 3<br/>1 CPU, 2GB]
-        end
-
-        subgraph "Worker Pods"
-            W1[Worker Pod 1<br/>2 CPU, 4GB]
-            W2[Worker Pod 2<br/>2 CPU, 4GB]
-        end
-
-        subgraph "Shared Services"
-            PSQL[(PostgreSQL<br/>4 CPU, 8GB)]
-            REDIS[(Redis<br/>2GB)]
-            VECTOR[(Vector DB<br/>Dedicated)]
-        end
-    end
-
-    LB --> API1
-    LB --> API2
-    LB --> API3
-
-    API1 --> W1
-    API2 --> W2
-    API3 --> W1
-
-    W1 --> PSQL
-    W2 --> PSQL
-    W1 --> REDIS
-    W2 --> REDIS
-    W1 --> VECTOR
-```
+![](assets/dify-load-distribution.webp)
 
 Performance testing reveals Dify handles approximately **10 QPS per pod** with 1 CPU and 2GB RAM. Under load testing with 8 cores and 16GB RAM across 2 pods, the system achieves **11 requests/second without model integration** and **6 requests/second with model integration**. These numbers indicate suitability for small-to-medium workloads but highlight scaling limitations for high-traffic scenarios.
 
