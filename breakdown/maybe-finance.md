@@ -1,5 +1,5 @@
 ---
-title: Maybe Finance breakdown
+title: Maybe finance breakdown
 short_title: Maybe finance
 description: An in-depth analysis of a $1M open-source personal finance application built with Ruby on Rails
 date: 2025-08-15
@@ -68,22 +68,22 @@ graph TB
     %% Data Flow Connections
     PlaidAPI --> SyncSystem
     SynthAPI --> SyncSystem
-    
+
     UserAuth --> Family
-    
+
     Family --> Account
     Family --> TransactionEntry
     Account --> TransactionEntry
-    
+
     SyncSystem --> Account
     CSVImport --> TransactionEntry
     SidekiqWorkers --> SyncSystem
     SidekiqWorkers --> CSVImport
-    
+
     UserAuth --> AppLayout
     AppLayout --> Dashboard
     AppLayout --> TransactionForms
-    
+
     Family --> Dashboard
     Account --> Dashboard
     TransactionEntry --> TransactionForms
@@ -96,7 +96,7 @@ The data model implements a multi-tenant architecture centered around the Family
 ```mermaid
 flowchart TD
     Family["Family (Tenant Root)"]
-    
+
     Family --> Users
     Family --> Categories
     Family --> Tags
@@ -106,7 +106,7 @@ flowchart TD
     Family --> Imports
     Family --> InvitationsReceived["Invitations (received)"]
     Family --> PlaidItems
-    
+
     Users --> Sessions
     Users --> InvitationsInviter["Invitations (as inviter)"]
 
@@ -148,7 +148,7 @@ flowchart TD
 - Provides consistent chronological ordering and amount handling
 - Maintains family-level aggregation capabilities
 
-#### Specialized Models
+#### Specialized models
 
 **Transaction**
 
@@ -191,7 +191,7 @@ flowchart TD
 - Money objects handle conversion and arithmetic
 - Exchange rate integration for accurate cross-currency calculations
 
-## Technical Challenges
+## Technical challenges
 
 #### Caching performance optimization
 
@@ -240,49 +240,7 @@ The caching mechanism centers around the Family model as the cache coordinator, 
 
 **Solution**: The architecture stores both amount and currency for every financial entry, using the Synth Finance API for real-time exchange rates. The family's default currency serves as the base for aggregation, while individual accounts maintain their native currencies. Money objects handle conversion mathematics with proper precision.
 
-```mermaid
-graph TD
-    subgraph "Maybe Multi-Currency System"
-        A["Family Currency Setup"]
-        A --> B["Currency Detection"]
-        A --> C["Exchange Rate System"]
-        A --> D["Currency Conversion"]
-    end
-
-    subgraph "Data Requirements"
-        B --> E{"Need Provider?"}
-        E -->|Has Trades/Multi-Currency| F["Synth Finance API"]
-        E -->|Single Currency Only| G["Local Only"]
-    end
-
-    subgraph "Exchange Rate Processing"
-        C --> H["Database Storage"]
-        C --> I["LOCF Gap Filling"]
-        C --> J["Cache Strategy"]
-    end
-
-    subgraph "Currency Conversion"
-        D --> K["Money Class"]
-        D --> L["Balance Calculation"]
-        D --> M["Transfer Matching"]
-    end
-
-    subgraph "Complex Operations"
-        N["Cross-Currency Transfers"]
-        N --> O["6-Way SQL JOIN"]
-        N --> P["5% Tolerance"]
-        Q["Multi-Currency Charts"]
-        Q --> R["Family Base Currency"]
-        Q --> S["Time Series LOCF"]
-    end
-
-    %% Data Flow Connections
-    F --> H
-    K --> H
-    L --> R
-    M --> O
-    I --> S
-```
+![multi-currency-system](./assets/maybe-multi-currency.png)
 
 #### Exchange rate caching strategy
 
@@ -304,7 +262,7 @@ The caching mechanism uses intelligent cache management where rates are stored w
             ORDER BY b.date DESC
             LIMIT 1
           ) last_bal ON TRUE
- 
+
 -- Last observation carried forward (LOCF), use the most recent exchange rate on or before the chart date
           LEFT JOIN LATERAL (
             SELECT er.rate
@@ -446,29 +404,29 @@ flowchart TD
     A[Account Created] --> B{Account Type}
     B -->|Manual| C[Opening Anchor]
     B -->|Linked| D[Current Anchor]
-    
+
     %% Calculation Direction
     C --> E[Forward Calculation]
     D --> F[Reverse Calculation]
-    
+
     %% Balance Flow
     E --> G[Opening Balance + Transactions = Current Balance]
     F --> H[Current Balance - Transactions = Historical Balance]
-    
+
     %% Anchor System Benefits
     subgraph "Anchor Benefits"
         I[Reference Points]
         J[Safe Rollback]
         K[Data Integrity]
     end
-    
+
     %% Immutable Foundation
     G --> L[Immutable Entry Ledger]
     H --> L
     L --> I
     L --> J
     L --> K
-    
+
     %% User Experience
     I --> M[Experiment Safely]
     J --> M
