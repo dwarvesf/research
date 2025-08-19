@@ -240,49 +240,7 @@ The caching mechanism centers around the Family model as the cache coordinator, 
 
 **Solution**: The architecture stores both amount and currency for every financial entry, using the Synth Finance API for real-time exchange rates. The family's default currency serves as the base for aggregation, while individual accounts maintain their native currencies. Money objects handle conversion mathematics with proper precision.
 
-```mermaid
-graph TD
-    subgraph "Maybe Multi-Currency System"
-        A["Family Currency Setup"]
-        A --> B["Currency Detection"]
-        A --> C["Exchange Rate System"]
-        A --> D["Currency Conversion"]
-    end
-
-    subgraph "Data Requirements"
-        B --> E{"Need Provider?"}
-        E -->|Has Trades/Multi-Currency| F["Synth Finance API"]
-        E -->|Single Currency Only| G["Local Only"]
-    end
-
-    subgraph "Exchange Rate Processing"
-        C --> H["Database Storage"]
-        C --> I["LOCF Gap Filling"]
-        C --> J["Cache Strategy"]
-    end
-
-    subgraph "Currency Conversion"
-        D --> K["Money Class"]
-        D --> L["Balance Calculation"]
-        D --> M["Transfer Matching"]
-    end
-
-    subgraph "Complex Operations"
-        N["Cross-Currency Transfers"]
-        N --> O["6-Way SQL JOIN"]
-        N --> P["5% Tolerance"]
-        Q["Multi-Currency Charts"]
-        Q --> R["Family Base Currency"]
-        Q --> S["Time Series LOCF"]
-    end
-
-    %% Data Flow Connections
-    F --> H
-    K --> H
-    L --> R
-    M --> O
-    I --> S
-```
+![multi-currency-system](./assets/maybe-multi-currency.png)
 
 #### Exchange rate caching strategy
 
