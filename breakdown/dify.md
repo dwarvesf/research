@@ -68,7 +68,7 @@ The platform's **open-source nature** with a strong community (70,000+ GitHub st
 
 ## Technical deep-dive
 
-## Beehive architecture for infinite extensibility
+### Beehive architecture for infinite extensibility
 
 ![](assets/dify-plugin-ecosystem.webp)
 
@@ -76,7 +76,7 @@ The Beehive architecture's most clever implementation is its **plugin system wit
 
 What makes this particularly sophisticated is the security model. Instead of restrictive sandboxing that limits functionality, Dify uses cryptographic signatures to verify plugin integrity. This allows plugins to have full capabilities while maintaining security through public-key verification.
 
-## Workflow engine parallel processing
+### Workflow engine parallel processing
 
 ![](assets/dify-workflow-execution-engine.webp)
 
@@ -95,7 +95,7 @@ if self.node_data.is_parallel:
 
 This implementation cleverly handles both sequential and parallel execution modes, with proper resource management and error propagation. The system maintains execution context across parallel branches through a sophisticated **variable pool system** that implements hierarchical scoping. Variables can be accessed across nodes while maintaining isolation.
 
-## Model runtime abstracts 100+ providers
+### Model runtime abstracts 100+ providers
 
 ![](assets/dify-model-runtime-layer.webp)
 
@@ -121,7 +121,7 @@ class ModelRuntime:
 
 This abstraction handles credential management, token counting, streaming responses, and error handling transparently across all providers. The system supports YAML-based model configuration, enabling new models to be added without code changes.
 
-## HTTP request node intelligent file handling
+### HTTP request node intelligent file handling
 
 The **HTTP Request Node** (`/api/core/workflow/nodes/http_request/node.py`) demonstrates sophisticated file handling:
 
@@ -146,7 +146,7 @@ def extract_files(self, url: str, response: Response) -> list[File]:
 
 This implementation automatically detects file types, extracts embedded content, and seamlessly integrates with Dify's file management system, enabling workflows to process files from APIs without manual intervention.
 
-## Code execution sandbox balances security and functionality
+### Code execution sandbox balances security and functionality
 
 The **Code Node** (`/api/core/workflow/nodes/code/code_node.py`) provides secure code execution:
 
@@ -174,7 +174,7 @@ def _run(self) -> NodeRunResult:
 
 The sandbox uses Linux chroot for isolation while maintaining access to standard libraries. This enables powerful custom transformations without compromising security, a balance many platforms struggle to achieve.
 
-## Tool node dynamic parameter resolution
+### Tool node dynamic parameter resolution
 
 The **Tool Node's** parameter generation (`/api/core/workflow/nodes/tool/tool_node.py`) showcases dynamic configuration:
 
