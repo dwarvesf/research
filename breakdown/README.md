@@ -35,6 +35,7 @@ If you want to understand how things really work, you are in the right place.
 
 If you have a specific app or technology you would like us to break down, let us know! Otherwise, following are some open source projects we are interested in exploring:
 
+- [e2b](https://e2b.dev/): AI sandbox
 - [anus](https://github.com/nikmcfly/ANUS): agent framework
 - [openmanus](https://github.com/mannaandpoem/OpenManus): agent framework
 - [screenpipe](https://github.com/mediar-ai/screenpipe): record desktop history
@@ -63,5 +64,5 @@ FROM vault
 WHERE file_path ILIKE '%breakdown%'
   OR ['breakdown'] && tags
 ORDER BY date DESC
-LIMIT 5;
+LIMIT 10;
 ```
