@@ -15,7 +15,7 @@ tags:
 
 E2B represents a paradigm shift in cloud-based code execution, specifically designed for the AI era. By leveraging [Firecracker microVMs](https://firecracker-microvm.github.io/) instead of traditional [containers](https://en.wikipedia.org/wiki/OS-level_virtualization), E2B provides fast startup times and hardware-level isolation for untrusted AI-generated code. This technical breakdown analyzes E2B's architecture, security features, and real-world deployment patterns that have enabled companies to integrate secure code execution into their AI workflows.
 
-## Introduction: The AI Code Execution Challenge
+## Introduction: The AI code execution challenge
 
 ### The problem space
 
@@ -84,7 +84,7 @@ E2B's core innovation lies in using **Firecracker microVMs** instead of traditio
 
 ---
 
-## E2B's Technical Architecture
+## E2B's technical architecture
 
 ### Core architecture components
 
@@ -238,7 +238,7 @@ sequenceDiagram
 
 ---
 
-## Firecracker vs Containers: Design Decision Analysis
+## Firecracker vs containers: Design decision analysis
 
 ### Alternative: Container-based architecture
 
@@ -347,9 +347,9 @@ E2B's architectural decision was driven by specific AI development requirements:
 
 ---
 
-## Technical Challenges
+## Technical challenges
 
-### Achieving Fast Cold Starts with Full VM Isolation
+### Achieving fast cold starts with full VM isolation
 
 E2B's fast startup times represent one of the most challenging technical problems in cloud computing: achieving container-like startup performance while maintaining full [VM isolation](https://en.wikipedia.org/wiki/Virtual_machine). This challenge requires sophisticated engineering optimization across multiple layers:
 
@@ -382,46 +382,46 @@ graph LR
     end
 ```
 
-#### Technical Solutions for Fast Cold Starts
+#### Technical solutions for fast cold starts
 
 **Parallelization of Initialization Tasks**
 
 To achieve fast cold starts with full VM isolation, E2B employs several sophisticated strategies:
 
-- **Concurrent Initialization**: By identifying and executing independent startup tasks concurrently, the overall startup time is significantly reduced. For instance, initializing caches, configuring networking, and loading base images happen simultaneously rather than sequentially.
-- **Pipeline Optimization**: The VM startup pipeline is carefully orchestrated to overlap [I/O operations](https://en.wikipedia.org/wiki/Input/output) with CPU-intensive tasks, maximizing resource utilization during the critical startup phase.
+- **Concurrent initialization**: By identifying and executing independent startup tasks concurrently, the overall startup time is significantly reduced. For instance, initializing caches, configuring networking, and loading base images happen simultaneously rather than sequentially.
+- **Pipeline optimization**: The VM startup pipeline is carefully orchestrated to overlap [I/O operations](https://en.wikipedia.org/wiki/Input/output) with CPU-intensive tasks, maximizing resource utilization during the critical startup phase.
 
 **Optimized VM Boot Processes**
 
-- **Pre-booted Snapshots**: E2B utilizes techniques such as pre-booted [VM snapshots](<https://en.wikipedia.org/wiki/Snapshot_(computer_storage)>) and lightweight [hypervisor](https://en.wikipedia.org/wiki/Hypervisor) optimizations to accelerate VM provisioning.
-- **Instant Cloning Methods**: Employing instant [VM cloning](https://en.wikipedia.org/wiki/Virtual_machine#Cloning) that shares both disk and memory with parent VMs drastically reduces provisioning times compared to full cloning operations.
-- **Firecracker Optimizations**: The minimal device model and streamlined virtualization stack of Firecracker enables faster boot sequences compared to traditional hypervisors.
+- **Pre-booted snapshots**: E2B utilizes techniques such as pre-booted [VM snapshots](<https://en.wikipedia.org/wiki/Snapshot_(computer_storage)>) and lightweight [hypervisor](https://en.wikipedia.org/wiki/Hypervisor) optimizations to accelerate VM provisioning.
+- **Instant cloning methods**: Employing instant [VM cloning](https://en.wikipedia.org/wiki/Virtual_machine#Cloning) that shares both disk and memory with parent VMs drastically reduces provisioning times compared to full cloning operations.
+- **Firecracker optimizations**: The minimal device model and streamlined virtualization stack of Firecracker enables faster boot sequences compared to traditional hypervisors.
 
 **Lazy Initialization and On-Demand Loading**
 
-- **Deferred Non-Critical Tasks**: Non-essential initialization tasks are deferred until after the VM is operational, ensuring essential services are available promptly.
-- **Progressive Loading**: Less critical components are loaded as needed, allowing the VM to become user-ready while background optimization continues.
-- **Resource Staging**: Critical resources are pre-staged in memory pools, enabling immediate allocation without disk I/O during startup.
+- **Deferred non-critical tasks**: Non-essential initialization tasks are deferred until after the VM is operational, ensuring essential services are available promptly.
+- **Progressive loading**: Less critical components are loaded as needed, allowing the VM to become user-ready while background optimization continues.
+- **Resource staging**: Critical resources are pre-staged in memory pools, enabling immediate allocation without disk I/O during startup.
 
-### Efficient Resource Utilization
+### Efficient resource utilization
 
 E2B's resource management system dynamically adjusts allocations based on real-time demand, representing a sophisticated approach to multi-tenant infrastructure optimization:
 
-#### Dynamic Resource Allocation Strategies
+#### Dynamic resource allocation strategies
 
 **Real-Time Demand Response**
 
 E2B implements sophisticated algorithms to automatically scale CPU and memory resources in response to workload demands:
 
-- **Predictive Autoscaling**: Utilizing online multi-resource neural networks, E2B enables proactive [autoscaling](https://en.wikipedia.org/wiki/Autoscaling) of VMs that anticipates resource requirements and adjusts allocations accordingly, leading to improved energy efficiency while maintaining [Quality of Service (QoS)](https://en.wikipedia.org/wiki/Quality_of_service) constraints.
-- **Dynamic Memory Management**: Implementation of dynamic memory allocation techniques including [memory ballooning](https://en.wikipedia.org/wiki/Memory_ballooning) that adjusts available memory based on real-time usage patterns.
-- **Intelligent Load Distribution**: Advanced [load balancing](<https://en.wikipedia.org/wiki/Load_balancing_(computing)>) algorithms that consider both current resource utilization and predicted demand patterns.
+- **Predictive autoscaling**: Utilizing online multi-resource neural networks, E2B enables proactive [autoscaling](https://en.wikipedia.org/wiki/Autoscaling) of VMs that anticipates resource requirements and adjusts allocations accordingly, leading to improved energy efficiency while maintaining [Quality of Service (QoS)](https://en.wikipedia.org/wiki/Quality_of_service) constraints.
+- **Dynamic memory management**: Implementation of dynamic memory allocation techniques including [memory ballooning](https://en.wikipedia.org/wiki/Memory_ballooning) that adjusts available memory based on real-time usage patterns.
+- **Intelligent load distribution**: Advanced [load balancing](<https://en.wikipedia.org/wiki/Load_balancing_(computing)>) algorithms that consider both current resource utilization and predicted demand patterns.
 
 **Energy-Efficient VM Allocation**
 
-- **Optimization Algorithms**: E2B employs optimization algorithms similar to [Genetic Algorithms](https://en.wikipedia.org/wiki/Genetic_algorithm) for VM placement and consolidation to minimize power usage while maintaining QoS requirements.
-- **Dynamic VM Consolidation**: The system dynamically adjusts VM allocation based on real-time workload variations, enhancing overall resource utilization efficiency.
-- **Geographic Load Balancing**: Intelligent routing of requests to regions with optimal resource availability and lower energy costs.
+- **Optimization algorithms**: E2B employs optimization algorithms similar to [Genetic Algorithms](https://en.wikipedia.org/wiki/Genetic_algorithm) for VM placement and consolidation to minimize power usage while maintaining QoS requirements.
+- **Dynamic VM consolidation**: The system dynamically adjusts VM allocation based on real-time workload variations, enhancing overall resource utilization efficiency.
+- **Geographic load balancing**: Intelligent routing of requests to regions with optimal resource availability and lower energy costs.
 
 #### Pre-warming architecture
 
@@ -475,7 +475,7 @@ E2B VM Memory Management
 - Resource allocation happens at pool level
 - Instant response to user demands
 
-#### Resource Optimization Techniques
+#### Resource optimization techniques
 
 **Memory Management**
 
@@ -537,7 +537,7 @@ graph TB
 
 ---
 
-## Real-World Case Studies
+## Real-world case studies
 
 ### Perplexity: Production-scale AI data analysis
 
@@ -547,7 +547,7 @@ Perplexity represents E2B's most prominent success story, implementing advanced 
 
 **Scale and Performance**
 
-- **Use Case**: Advanced data analysis for Pro users
+- **Use case**: Advanced data analysis for Pro users
 - **Implementation**: Fast deployment of secure code execution
 - **Production**: Successfully running in production environment
 - **Architecture**: Leveraging E2B's sandboxed execution for AI-generated code
@@ -600,14 +600,14 @@ sequenceDiagram
 
 Hugging Face leverages E2B for replicating and testing advanced AI models, utilizing the platform's secure sandbox environment for AI research workflows.
 
-#### Use Case: AI Model Research and Development
+#### Use case: AI model research and development
 
 **Implementation Characteristics**
 
-- **Multi-language Support**: Python, JavaScript, and other languages
-- **Concurrent Execution**: Multiple research scripts simultaneously
-- **Secure Environment**: Safe execution of experimental code
-- **Research Workflow**: Isolated environment for AI model development
+- **Multi-language support**: Python, JavaScript, and other languages
+- **Concurrent execution**: Multiple research scripts simultaneously
+- **Secure environment**: Safe execution of experimental code
+- **Research workflow**: Isolated environment for AI model development
 
 #### Technical requirements met
 
@@ -646,7 +646,7 @@ Manus provides AI agents with virtual computers through E2B integration[⁶](htt
 
 ---
 
-## Security and Isolation Models
+## Security and isolation models
 
 ### Multi-layer security architecture
 
@@ -757,7 +757,7 @@ graph TB
 
 ---
 
-## Infrastructure and Scaling Patterns
+## Infrastructure and scaling patterns
 
 ### Global infrastructure architecture
 
@@ -903,7 +903,7 @@ E2B implements intelligent auto-scaling based on usage patterns and predictive a
 
 ---
 
-## Key Technical Insights
+## Key technical insights
 
 ### 1. Architecture decisions drive business outcomes
 
