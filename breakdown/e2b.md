@@ -2,7 +2,7 @@
 title: "E2b breakdown"
 short_title: E2B
 description: "Technical analysis of E2B, a cloud infrastructure platform that runs AI-generated code in secure, isolated sandboxes using lightweight virtual machines that start in approximately 150ms."
-date: 2025-08-19
+date: 2025-08-25
 authors:
   - ngolapnguyen
 tags:
@@ -11,6 +11,7 @@ tags:
   - sandbox
   - ai
   - architecture
+toc: true
 ---
 
 E2B represents a paradigm shift in cloud-based code execution, specifically designed for the AI era. By leveraging [Firecracker microVMs](https://firecracker-microvm.github.io/) instead of traditional [containers](https://en.wikipedia.org/wiki/OS-level_virtualization), E2B provides fast startup times and hardware-level isolation for untrusted AI-generated code. This technical breakdown analyzes E2B's architecture, security features, and real-world deployment patterns that have enabled companies to integrate secure code execution into their AI workflows.
