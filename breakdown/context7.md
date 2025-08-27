@@ -218,34 +218,6 @@ sequenceDiagram
     Client-->>User: Accurate Next.js 15 implementation
 ```
 
-### Transport mechanisms
-
-Context7's transport layer is fundamentally adaptive - it detects your client and chooses the optimal communication method:
-
-```typescript
-// Actual CLI argument processing from Context7 MCP
-const program = new Command()
-  .option("--transport <stdio|http|sse>", "transport type", "stdio")
-  .option("--port <number>", "port for HTTP/SSE transport", "3000")
-  .allowUnknownOption() // let MCP Inspector / other wrappers pass through
-  .parse(process.argv);
-
-// Validate and set transport type
-const allowedTransports = ["stdio", "http", "sse"];
-if (!allowedTransports.includes(cliOptions.transport)) {
-  console.error(
-    `Invalid --transport value: '${cliOptions.transport}'. Must be one of: stdio, http, sse.`
-  );
-  process.exit(1);
-}
-
-// The clever bit: Auto-detection based on client
-const TRANSPORT_TYPE = (cliOptions.transport || "stdio") as
-  | "stdio" // Cursor, Claude Desktop
-  | "http" // VS Code extensions
-  | "sse"; // Windsurf, streaming clients
-```
-
 ## Data structures and algorithms
 
 ### Core data models
@@ -865,17 +837,30 @@ The result: Instead of scrolling through 100+ random snippets, developers see th
 
 ## Technical challenges and solutions
 
-### Challenge 1: Outdated training data vs real-time documentation
+### Challenge 1: Keeping 33k+ libraries updated vs static snapshots
 
-**The problem**: LLMs are frozen in time. Next.js 15 released yesterday? Your LLM still thinks Next.js 13 is cutting edge. This fundamental disconnect causes AI assistants to confidently generate code using deprecated APIs, removed functions, or patterns that no longer work.
+**The problem**: Documentation changes constantly. Libraries release new versions, APIs get deprecated, examples become outdated. Traditional documentation systems take snapshots and serve stale data for months. By the time you notice the documentation is wrong, you've already wasted hours debugging.
 
-**Context7's solution**: Real-time documentation injection through MCP tools. When users include "use context7" in their prompts, the MCP server fetches current documentation from Context7's API and injects it directly into the LLM context. The complexity happens on Context7's servers, not in the MCP client - keeping it fast and maintainable.
+**Context7's solution**: Scheduled sync cycles with intelligent change detection and manual override capabilities. The system operates on three levels:
+
+**Automatic sync cycle (10-15 days)**: Context7 automatically crawls all 33k+ libraries on a rolling schedule. Each library gets checked every 10-15 days for updates, ensuring the index stays current without overwhelming source servers.
+
+**Manual trigger via Context7 UI**: Users can manually trigger documentation updates for specific libraries through the Context7 interface. This is crucial when developers know a library just released a major update and need the latest docs immediately.
+
+**Change detection system**: Before reprocessing, Context7 checks if the library actually has new changes. The system compares:
+
+- Git commit hashes for repository-based documentation
+- Package version numbers from registries (NPM, PyPI, Maven)
+
+![](./assets/context7-refresh-library.png)
 
 ### Challenge 2: Context window limitations
 
 **The problem**: Modern LLMs have context windows ranging from 8K to 200K tokens. Naive documentation injection could easily consume the entire context, leaving no room for conversation history or causing the LLM to "forget" important instructions.
 
-**Context7's solution**: Server-side token management with a minimum guarantee of 10,000 tokens. The MCP client sends a token limit, Context7's API applies proprietary ranking to return the most relevant documentation within that budget. Code examples rank higher than prose, API signatures higher than descriptions. The result: maximum value per token.
+**Context7's solution**: Server-side token management with a default guarantee of 10,000 tokens. The MCP client sends a token limit, Context7's API applies proprietary ranking to return the most relevant documentation within that budget. Code examples rank higher than prose, API signatures higher than descriptions. The result: maximum value per token.
+
+![](./assets/context7-token-limit.gif)
 
 ### Challenge 3: Library name ambiguity
 
