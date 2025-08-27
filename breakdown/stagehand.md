@@ -18,40 +18,40 @@ toc: true
 
 Stagehand offers several advantages over conventional methods:
 
-- **Enhanced Resilience:** Adapts automatically to website changes, significantly reducing maintenance overhead.
-- **AI-Powered Adaptability:** Integrates natural language processing for flexible, intent-driven automation.
-- **Production Readiness:** Provides the predictability and control essential for enterprise-grade systems.
-- **Cost Optimization:** Intelligently manages LLM usage to minimize operational expenses.
+- **Enhanced resilience:** Adapts automatically to website changes, significantly reducing maintenance overhead.
+- **AI-powered adaptability:** Integrates natural language processing for flexible, intent-driven automation.
+- **Production readiness:** Provides the predictability and control essential for enterprise-grade systems.
+- **Cost optimization:** Intelligently manages LLM usage to minimize operational expenses.
 
-## What Stagehand Does
+## What stagehand does
 
 Stagehand is a TypeScript/JavaScript framework that transforms browser automation from a fragile, maintenance-heavy process into a resilient, AI-enhanced workflow that adapts to website changes automatically. It provides three core modes of browser interaction, allowing developers to combine the precision of traditional Playwright code with the flexibility of natural language instructions:
 
-- **AI Actions (`page.act()`):** Enables natural language-driven browser actions. For instance, `await page.act("click the login button")` allows Stagehand to intelligently find and interact with the correct element, even on dynamic or unfamiliar interfaces, without relying on brittle selectors.
-- **Data Extraction (`page.extract()`):** Facilitates structured data retrieval. Developers can provide natural language instructions along with a Zod schema, and Stagehand will extract the relevant data from the page, ensuring type safety and validation. This is ideal for content scraping or extracting form data.
-- **Element Analysis (`page.observe()`):** Provides AI-powered element identification and analysis. This method helps in understanding the page structure, identifying specific elements (e.g., `await page.observe("find all buttons")`), and can be used for debugging or gaining insights into a web page's interactive components.
+- **AI actions (`page.act()`):** Enables natural language-driven browser actions. For instance, `await page.act("click the login button")` allows Stagehand to intelligently find and interact with the correct element, even on dynamic or unfamiliar interfaces, without relying on brittle selectors.
+- **Data extraction (`page.extract()`):** Facilitates structured data retrieval. Developers can provide natural language instructions along with a Zod schema, and Stagehand will extract the relevant data from the page, ensuring type safety and validation. This is ideal for content scraping or extracting form data.
+- **Element analysis (`page.observe()`):** Provides AI-powered element identification and analysis. This method helps in understanding the page structure, identifying specific elements (e.g., `await page.observe("find all buttons")`), and can be used for debugging or gaining insights into a web page's interactive components.
 
 Beyond these core AI-enhanced methods, Stagehand also integrates an **Agent System** for multi-step autonomous browser automation. This system allows for high-level instructions (e.g., `agent.execute("find all available apartments with floor plans")`) to be broken down into a sequence of AI-driven and programmatic browser actions, enabling complex workflows that would traditionally require extensive, brittle code. The framework integrates with major LLM providers (OpenAI, Anthropic, Google) and supports both local Playwright browsers and cloud browsers via Browserbase.
 
-## How Stagehand Operates Under the Hood
+## How stagehand operates under the hood
 
 Stagehand's core innovation lies in its **hybrid intelligence architecture**, which combines Playwright's reliability with advanced AI capabilities. This hybrid approach allows developers to seamlessly mix traditional, deterministic automation code (e.g., precise CSS selectors for stable elements) with flexible, AI-driven natural language instructions (e.g., "click the submit button" for dynamic elements). This strategic blend ensures that automation scripts are both resilient to UI changes and maintain the predictability and control required for production systems. We leverage several key architectural pillars to deliver this unique functionality:
 
-### Overall System Architecture
+### Overall system architecture
 
 ```mermaid
 graph TB
     subgraph "User Interface Layer"
         DEV[Developer Code]
         NL[Natural Language Instructions]
-        SCHEMA[Zod Schemas]
+        SCHEMA[Zod schemas]
     end
 
     subgraph "Stagehand Core"
         API[Stagehand API Layer]
         ATOMIC[Atomic Primitives]
         AGENT[Agent Orchestrator]
-        CACHE[Action Cache]
+        CACHE[Action cache]
 
         ATOMIC --> ACT[act<>]
         ATOMIC --> EXTRACT[extract<>]
@@ -104,7 +104,7 @@ graph TB
     BB --> METRICS
 ```
 
-### Revolutionary Accessibility Tree Processing
+### Revolutionary accessibility tree processing
 
 The migration from raw DOM parsing to Chrome's Accessibility Tree represents Stagehand's most significant architectural innovation. Instead of relying on brittle HTML structures, Stagehand leverages Playwright's capability to access Chrome's Accessibility Tree. This tree provides a semantic representation of web pages, filtered to include only interactive and meaningful elements. This architectural choice dramatically improves both performance and resilience: the accessibility tree remains stable even when visual layouts change, offering a cleaner and more stable view of web pages by filtering out unnecessary noise. This typically reduces the data size by 80-90% compared to raw DOM, directly translating to lower token usage and faster LLM processing. The core AI handlers (`ActHandler`, `ExtractHandler`, `ObserveHandler`) utilize this semantic tree, sending an optimized representation to the LLM for interpretation. This approach provides multiple engineering advantages: element roles and ARIA labels offer semantic meaning that maps naturally to human language instructions, and the tree structure's stability across visual redesigns ensures that automation scripts represent functional intent rather than visual layout. Furthermore, Stagehand injects a helper script (`lib/dom/process.ts`) into the browser context to enable robust Shadow DOM piercing, allowing its custom selector engine to traverse and interact with elements hidden within both open and closed shadow roots.
 
@@ -174,9 +174,9 @@ class StagehandPage extends Page {
 
 Stagehand's caching system operates through a unified LLM response cache to minimize API costs and improve performance:
 
-- **File-based LLM Cache**: The `LLMCache` class extends `BaseCache` and stores LLM responses in JSON files on disk. When `enableCaching` is enabled, all LLM provider clients check for cached responses before making API calls.
-- **Cache Integration Pattern**: Every LLM client (`OpenAIClient`, `AnthropicClient`, `AISdkClient`, etc.) follows the same caching pattern - checking cache before API calls and storing responses after successful calls.
-- **Action Cache**: There is also an `ActionCache` class that stores browser action steps (in a JSON format), but this operates independently as a separate caching mechanism for Playwright commands and browser actions.
+- **File-based LLM cache**: The `LLMCache` class extends `BaseCache` and stores LLM responses in JSON files on disk. When `enableCaching` is enabled, all LLM provider clients check for cached responses before making API calls.
+- **Cache integration pattern**: Every LLM client (`OpenAIClient`, `AnthropicClient`, `AISdkClient`, etc.) follows the same caching pattern - checking cache before API calls and storing responses after successful calls.
+- **Action cache**: There is also an `ActionCache` class that stores browser action steps (in a JSON format), but this operates independently as a separate caching mechanism for Playwright commands and browser actions.
 
 ```mermaid
 stateDiagram-v2
@@ -229,7 +229,7 @@ class ActionCache {
 }
 ```
 
-### Multi-Model LLM Provider Abstraction
+### Multi-model LLM provider abstraction
 
 Stagehand employs a sophisticated **multi-model LLM routing system** that abstracts away the complexities of various LLM providers. Through extensive empirical testing and a comprehensive `modelToProviderMap`, we discovered that different large language models excel at distinct tasks. For instance, Claude is optimal for high-level reasoning and planning, GPT-4o performs best for executing specific browser actions, and Gemini offers superior cost-performance for observation tasks. Our system intelligently routes each operation to the most suitable model, maximizing both accuracy and cost-effectiveness. Stagehand supports a wide array of LLM providers including OpenAI, Anthropic, Google, Cerebras, and Groq, and further extends its compatibility through integration with the `@ai-sdk` ecosystem, allowing for seamless use of models from providers like xAI, Azure, TogetherAI, Mistral, Perplexity, and Ollama. This flexible architecture ensures optimal model selection for diverse automation needs.
 
@@ -286,7 +286,7 @@ class LLMRouter {
 }
 ```
 
-### TypeScript-first Schema Extraction
+### TypeScript-first schema extraction
 
 The schema extraction system leverages Zod's powerful validation capabilities to ensure type-safe data extraction from unstructured web content. This approach transforms web scraping from a fragile string-parsing exercise into a robust, typed data pipeline that catches errors at compile time rather than runtime.
 
@@ -363,23 +363,23 @@ class SchemaExtractor {
 }
 ```
 
-### Observe-Act Caching Pattern
+### Observe-act caching pattern
 
 To address the inherent unpredictability of AI-driven automation, Stagehand implements an **observe-act caching pattern**. This allows developers to preview what the AI intends to do (`observe`) before execution. Once an action is validated and successful, it can be cached for deterministic replay. This pattern ensures reliability through consistent execution, boosts performance by eliminating redundant LLM calls, and optimizes costs by reducing API usage. Cached actions can persist across browser sessions and deployments, building a knowledge base of proven automation patterns.
 
-### Agent Orchestration for Complex Workflows
+### Agent orchestration for complex workflows
 
 Stagehand introduces an **agent layer** capable of handling complex, multi-step workflows. The `StagehandAgent` class delegates the core intelligence to an underlying `AgentClient` (e.g., `OpenAICUAClient`), which leverages specialized LLM APIs for computer use. These agents operate through an iterative execution loop:
 
-1.  **Instruction to Action:** The agent receives a high-level instruction (goal).
-2.  **LLM Reasoning:** The `AgentClient` sends the current state (including a screenshot of the browser) and the instruction to the LLM (e.g., OpenAI's Responses API for Computer Use). The LLM then reasons about the next best action.
-3.  **Action Execution:** The LLM returns a structured action (e.g., a click, type, or navigation). The `AgentClient` executes this action in the browser.
-4.  **Visual Feedback Loop:** After executing an action, a new screenshot of the browser's state is captured and sent back to the LLM. This visual feedback allows the agent to "observe" the outcome of its action and adapt its subsequent steps.
-5.  **Self-Healing and Adaptation:** If an action fails or the page state is unexpected, the `AgentClient` can send error information back to the LLM. The LLM then dynamically adjusts its approach, tries alternative methods, or even reformulates the problem, enabling sophisticated self-healing capabilities without explicit planner or decomposer classes. The planning and decomposition logic are implicitly handled by the LLM itself within this iterative request/response cycle.
+1.  **Instruction to action:** The agent receives a high-level instruction (goal).
+2.  **LLM reasoning:** The `AgentClient` sends the current state (including a screenshot of the browser) and the instruction to the LLM (e.g., OpenAI's Responses API for Computer Use). The LLM then reasons about the next best action.
+3.  **Action execution:** The LLM returns a structured action (e.g., a click, type, or navigation). The `AgentClient` executes this action in the browser.
+4.  **Visual feedback loop:** After executing an action, a new screenshot of the browser's state is captured and sent back to the LLM. This visual feedback allows the agent to "observe" the outcome of its action and adapt its subsequent steps.
+5.  **Self-healing and adaptation:** If an action fails or the page state is unexpected, the `AgentClient` can send error information back to the LLM. The LLM then dynamically adjusts its approach, tries alternative methods, or even reformulates the problem, enabling sophisticated self-healing capabilities without explicit planner or decomposer classes. The planning and decomposition logic are implicitly handled by the LLM itself within this iterative request/response cycle.
 
 This iterative process allows agents to maintain context across numerous actions, adapt to unexpected situations, and recover from errors, making them suitable for production environments where websites change frequently and unpredictably.
 
-### Browser Session Persistence
+### Browser session persistence
 
 Leveraging Browserbase's cloud infrastructure, Stagehand provides robust **browser session persistence**. This ensures that long-running automation tasks can survive network disconnections, process crashes, and system restarts while maintaining full browser state, including cookies, local storage, and page context. This capability is crucial for enterprise-grade, resilient automation.
 
@@ -471,22 +471,22 @@ class SessionManager {
 }
 ```
 
-### Advanced Performance Optimization Strategies
+### Advanced performance optimization strategies
 
 Our framework incorporates several advanced strategies to reduce latency, minimize costs, and improve reliability:
 
-- **DOM Chunking:** Intelligently segments large pages into processable chunks, preventing token limit errors and preserving context.
-- **Parallel Execution:** Identifies independent operations and executes them concurrently, significantly reducing end-to-end execution time.
-- **Token Minimization:** Optimizes prompts by removing redundant information, compressing descriptions, and using references for repeated elements, leading to substantial cost savings.
-- **Connection Pooling:** Further enhances performance by efficiently managing browser connections.
+- **DOM chunking:** Intelligently segments large pages into processable chunks, preventing token limit errors and preserving context.
+- **Parallel execution:** Identifies independent operations and executes them concurrently, significantly reducing end-to-end execution time.
+- **Token minimization:** Optimizes prompts by removing redundant information, compressing descriptions, and using references for repeated elements, leading to substantial cost savings.
+- **Connection pooling:** Further enhances performance by efficiently managing browser connections.
 
 ```mermaid
 graph LR
-    subgraph "Performance Optimizations"
-        OPT1[DOM Chunking]
-        OPT2[Parallel Execution]
-        OPT3[Token Minimization]
-        OPT4[Connection Pooling]
+    subgraph "Performance optimizations"
+        OPT1[DOM chunking]
+        OPT2[Parallel execution]
+        OPT3[Token minimization]
+        OPT4[Connection pooling]
         OPT5[Predictive Caching]
     end
 
@@ -574,7 +574,7 @@ class PerformanceOptimizer {
 }
 ```
 
-## Data Structures and Algorithms
+## Data structures and algorithms
 
 Stagehand's architecture is built upon a set of key TypeScript classes and data structures that orchestrate its hybrid intelligence operations:
 
@@ -582,43 +582,43 @@ Stagehand's architecture is built upon a set of key TypeScript classes and data 
 - **`StagehandPage` Class (`lib/StagehandPage.ts`):** An enhanced Playwright `Page` object that exposes Stagehand's AI-powered methods (`act()`, `extract()`, `observe()`). It handles the translation of natural language instructions into precise browser actions.
 - **`StagehandContext` Class (`lib/StagehandContext.ts`):** Manages browser contexts, allowing for the creation of new pages (`newPage()`) and managing multiple pages within a session.
 - **`LLMProvider` Class (`lib/llm/LLMProvider.ts`):** Acts as a multi-model LLM client factory, abstracting away the specifics of different LLM providers (OpenAI, Anthropic, Google, local models). It's responsible for selecting and interfacing with the appropriate LLM based on task requirements.
-- **Handler Classes (`lib/handlers/`):**
+- **Handler classes (`lib/handlers/`):**
   - **`ActHandler`:** Implements the logic for natural language action execution (`act()` method).
   - **`ExtractHandler`:** Manages structured data extraction (`extract()` method), integrating with Zod schemas.
   - **`ObserveHandler`:** Handles AI-powered element identification and analysis (`observe()` method).
-- **Accessibility Tree Snapshot:** A filtered, semantic representation of the web page, used as a key input for LLM processing. It typically contains interactive elements (buttons, inputs, links) and their metadata (role, name, description, state).
-- **Zod Schemas:** Used extensively for defining the structure and validation rules for extracted data. These schemas are transformed into JSON Schema for LLM prompting and then used to `safeParse` and validate the raw LLM output, ensuring type safety and data integrity.
+- **Accessibility tree snapshot:** A filtered, semantic representation of the web page, used as a key input for LLM processing. It typically contains interactive elements (buttons, inputs, links) and their metadata (role, name, description, state).
+- **Zod schemas:** Used extensively for defining the structure and validation rules for extracted data. These schemas are transformed into JSON Schema for LLM prompting and then used to `safeParse` and validate the raw LLM output, ensuring type safety and data integrity.
 - **`ActionCache`:** Internally uses a `Map` for in-memory caching, and interacts with `SessionStorage` and `CloudCache` for persistent and global caching. It stores `CachedAction` objects, which encapsulate the browser action and its context.
 - **`LLMRouter`:** Employs a `modelBenchmarks` object (a dictionary of models with their performance scores across reasoning, actions, and observation tasks, along with cost metrics) to calculate a cost-adjusted score and select the optimal LLM for a given `AutomationTask`.
 - **`StagehandAgent`:** Orchestrates complex workflows using a `TaskPlanner` (to create `plan` objects with `tasks`), an `AtomicExecutor` (to execute tasks, potentially in parallel), and `ContextMemory` (to maintain state and context). It manages `executionState` objects, tracking `completed`, `pending`, and `failed` tasks, and their associated context.
 - **`SessionManager`:** Manages `Session` objects, which represent persistent browser instances. It checkpoints and restores `state` objects containing cookies, local storage, session storage, URL, viewport size, and custom application state.
 - **`PerformanceOptimizer`:** Works with `DOMChunk` objects (containing content, context, and token estimates) for intelligent page segmentation. It builds `dependencyGraph` and `executionPlan` (via topological sort) for parallel task execution, and processes `Task` and `Result` objects.
 
-## Technical Challenges and Solutions
+## Technical challenges and solutions
 
 We have successfully addressed several fundamental challenges that have historically plagued browser automation:
 
-- **The Brittleness Problem:** Traditional tools break when UI changes. Stagehand solves this by combining semantic understanding via the **Accessibility Tree** with AI's ability to interpret intent. This allows scripts to understand their goal rather than relying on rigid selectors, making them resilient to UI modifications.
-- **The Unpredictability Challenge:** Pure AI agents lack consistency for production systems. Our **hybrid approach** provides granular control: developers can preview AI actions (`observe`), cache successful patterns for deterministic reuse, and seamlessly mix traditional code with AI instructions within the same script. This ensures the predictability required for business-critical automation.
-- **The Performance and Cost Problem:** Frequent, expensive LLM calls can be prohibitive. Stagehand addresses this critical challenge through a multi-pronged approach to LLM cost management. This includes **intelligent caching** (memory, session, and global caching) to eliminate redundant LLM calls, **session affinity** for connection reuse, and **DOM chunking** strategies that minimize the amount of data sent to LLMs, thereby reducing token usage. Furthermore, our **multi-model routing system** dynamically selects the most cost-effective LLM for each specific task, ensuring that simpler operations utilize cheaper models while reserving premium models for complex reasoning. These comprehensive optimizations have collectively reduced LLM costs by up to 70% compared to naive implementations, while simultaneously improving reliability through cached action replay.
+- **The brittleness problem:** Traditional tools break when UI changes. Stagehand solves this by combining semantic understanding via the **Accessibility Tree** with AI's ability to interpret intent. This allows scripts to understand their goal rather than relying on rigid selectors, making them resilient to UI modifications.
+- **The unpredictability challenge:** Pure AI agents lack consistency for production systems. Our **hybrid approach** provides granular control: developers can preview AI actions (`observe`), cache successful patterns for deterministic reuse, and seamlessly mix traditional code with AI instructions within the same script. This ensures the predictability required for business-critical automation.
+- **The performance and cost problem:** Frequent, expensive LLM calls can be prohibitive. Stagehand addresses this critical challenge through a multi-pronged approach to LLM cost management. This includes **intelligent caching** (memory, session, and global caching) to eliminate redundant LLM calls, **session affinity** for connection reuse, and **DOM chunking** strategies that minimize the amount of data sent to LLMs, thereby reducing token usage. Furthermore, our **multi-model routing system** dynamically selects the most cost-effective LLM for each specific task, ensuring that simpler operations utilize cheaper models while reserving premium models for complex reasoning. These comprehensive optimizations have collectively reduced LLM costs by up to 70% compared to naive implementations, while simultaneously improving reliability through cached action replay.
 
 While Stagehand excels, we continuously identify areas for improvement. Handling **complex Single Page Applications (SPAs)**, especially those with heavy Shadow DOM usage or intricate state management, remains an ongoing challenge. We are also focused on enhancing the **local development experience** with better tooling for debugging AI decisions and improving **model cost predictability** through more robust estimation and budget enforcement mechanisms.
 
-## Clever Tricks and Tips Discovered Along the Way
+## Clever tricks and tips discovered along the way
 
 Our journey with Stagehand has yielded several key insights and innovative approaches:
 
-- **Accessibility Tree as a Semantic Filter:** This was a game-changer. By processing the accessibility tree instead of the raw DOM, we not only achieved significant performance gains (80-90% data reduction) but also gained a more stable and semantically rich representation of web pages, which is ideal for AI interpretation.
-- **Optimized Multi-Model LLM Routing:** Recognizing that no single LLM is best for all tasks allowed us to create a dynamic routing system. This "best tool for the job" approach dramatically improves both accuracy and cost-efficiency by leveraging the unique strengths of models like Claude, GPT-4o, and Gemini.
-- **The `observe` Primitive:** This unique feature provides an unprecedented level of control and transparency over AI actions. Developers can "see" what the AI intends to do before it acts, fostering trust and enabling the caching of validated actions for future deterministic execution.
-- **TypeScript-First with Zod for Data Extraction:** This combination transforms web scraping from a fragile, error-prone process into a robust, type-safe data pipeline. Compile-time validation catches errors early, and full TypeScript inference throughout the extraction process significantly enhances developer experience.
-- **Self-Healing Agent Orchestration with Visual Feedback:** Our agents go beyond simple retries. Leveraging specialized LLM APIs for computer use, they operate through an iterative execution loop. After each action, a new screenshot of the browser's state is captured and sent back to the LLM as visual feedback. This allows the agent to "observe" the outcome, analyze failure contexts, dynamically adjust its approach, and even reformulate problems. This resilience is critical for automating complex, real-world workflows that are prone to unexpected changes.
-- **Persistent Browser Sessions:** The ability to maintain full browser state across disconnections and restarts ensures that long-running automation tasks are incredibly reliable, a crucial feature for enterprise-level operations.
-- **Holistic Performance Optimizations:** Beyond caching, strategies like intelligent DOM chunking, parallel execution with dependency resolution, and meticulous prompt optimization for token minimization have collectively delivered 3-5x speed improvements and 60-70% cost reductions, demonstrating that performance and cost-efficiency can be achieved simultaneously.
+- **Accessibility tree as a semantic filter:** This was a game-changer. By processing the accessibility tree instead of the raw DOM, we not only achieved significant performance gains (80-90% data reduction) but also gained a more stable and semantically rich representation of web pages, which is ideal for AI interpretation.
+- **Optimized multi-model LLM routing:** Recognizing that no single LLM is best for all tasks allowed us to create a dynamic routing system. This "best tool for the job" approach dramatically improves both accuracy and cost-efficiency by leveraging the unique strengths of models like Claude, GPT-4o, and Gemini.
+- **The `observe` primitive:** This unique feature provides an unprecedented level of control and transparency over AI actions. Developers can "see" what the AI intends to do before it acts, fostering trust and enabling the caching of validated actions for future deterministic execution.
+- **TypeScript-first with Zod for data extraction:** This combination transforms web scraping from a fragile, error-prone process into a robust, type-safe data pipeline. Compile-time validation catches errors early, and full TypeScript inference throughout the extraction process significantly enhances developer experience.
+- **Self-healing agent orchestration with visual feedback:** Our agents go beyond simple retries. Leveraging specialized LLM APIs for computer use, they operate through an iterative execution loop. After each action, a new screenshot of the browser's state is captured and sent back to the LLM as visual feedback. This allows the agent to "observe" the outcome, analyze failure contexts, dynamically adjust its approach, and even reformulate problems. This resilience is critical for automating complex, real-world workflows that are prone to unexpected changes.
+- **Persistent browser sessions:** The ability to maintain full browser state across disconnections and restarts ensures that long-running automation tasks are incredibly reliable, a crucial feature for enterprise-level operations.
+- **Holistic Performance optimizations:** Beyond caching, strategies like intelligent DOM chunking, parallel execution with dependency resolution, and meticulous prompt optimization for token minimization have collectively delivered 3-5x speed improvements and 60-70% cost reductions, demonstrating that performance and cost-efficiency can be achieved simultaneously.
 
 ## Future improvement considerations
 
-### Architecture Improvements
+### Architecture improvements
 
 **Simplify Caching Strategy**
 The current caching implementation is already quite simple with just LLM response caching, but future improvements could include:
@@ -634,7 +634,7 @@ While Stagehand has self-healing capabilities, future improvements could include
 - Better context preservation during error recovery
 - Automated fallback to simpler automation methods when AI fails
 
-### Performance Optimizations
+### Performance optimizations
 
 **Reduce Token Usage Further**
 The framework already optimizes token usage through accessibility tree processing, but could improve with:
@@ -643,14 +643,14 @@ The framework already optimizes token usage through accessibility tree processin
 - More aggressive prompt compression techniques
 - Dynamic model selection based on page complexity
 
-**Faster Action Execution**
+**Faster Action execution**
 Recent changes show focus on performance improvements, with future enhancements including:
 
 - Parallel execution of independent actions
 - Better prediction of action success before execution
 - Reduced screenshot frequency for agent workflows
 
-### Developer Experience Enhancements
+### Developer experience enhancements
 
 **Better Debugging Tools**
 The framework has improved logging, but could add:
@@ -666,7 +666,7 @@ Recent work on local browser options could be extended with:
 - Improved browser profile management
 - Enhanced stealth mode for local testing
 
-### AI Model Integration
+### AI model integration
 
 **Better Model Routing**
 While Stagehand supports multiple providers, future improvements could include:
@@ -682,7 +682,7 @@ The agent system introduced could be improved with:
 - More sophisticated planning algorithms
 - Integration with external knowledge bases
 
-### Production Readiness
+### Production readiness
 
 **Better Monitoring and Observability**
 Current metrics tracking could be enhanced with:
@@ -698,7 +698,7 @@ Future improvements could include:
 - Enhanced browser fingerprint protection
 - Audit logging for compliance requirements
 
-### Framework Integration
+### Framework integration
 
 **Broader Ecosystem Support**
 The framework already integrates with LangChain and CrewAI, but could expand to:
