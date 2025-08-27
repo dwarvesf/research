@@ -1,8 +1,8 @@
 ---
-title: "E2b breakdown"
+title: 'E2b breakdown'
 short_title: E2B
-description: "Technical analysis of E2B, a cloud infrastructure platform that runs AI-generated code in secure, isolated sandboxes using lightweight virtual machines that start in approximately 150ms."
-date: 2025-08-25
+description: 'Technical analysis of E2B, a cloud infrastructure platform that runs AI-generated code in secure, isolated sandboxes using lightweight virtual machines that start in under 200ms.'
+date: 2025-08-27
 authors:
   - ngolapnguyen
 tags:
@@ -14,13 +14,15 @@ tags:
 toc: true
 ---
 
-E2B represents a paradigm shift in cloud-based code execution, specifically designed for the AI era. By leveraging [Firecracker microVMs](https://firecracker-microvm.github.io/) instead of traditional [containers](https://en.wikipedia.org/wiki/OS-level_virtualization), E2B provides fast startup times and hardware-level isolation for untrusted AI-generated code. This technical breakdown analyzes E2B's architecture, security features, and real-world deployment patterns that have enabled companies to integrate secure code execution into their AI workflows.
+E2B is a cloud-based code execution platform designed for AI applications. By leveraging [Firecracker microVMs](https://firecracker-microvm.github.io/) instead of traditional [containers](https://en.wikipedia.org/wiki/OS-level_virtualization), E2B provides fast startup times and hardware-level isolation for untrusted AI-generated code. This technical breakdown analyzes E2B's architecture and the key components that power its performance.
+
+![E2B](./assets/e2b-illustration-01.png)
 
 ## Introduction: The AI code execution challenge
 
 ### The problem space
 
-The rise of AI-powered development tools has created unprecedented demand for secure, fast code execution platforms. Unlike traditional development workflows, AI agents require:
+AI-powered development tools require secure, fast code execution platforms. Unlike traditional development workflows, AI agents require:
 
 - **Rapid iteration cycles** with sub-second response times
 - **Untrusted code execution** with complete isolation
@@ -29,7 +31,7 @@ The rise of AI-powered development tools has created unprecedented demand for se
 
 ### What is E2b?
 
-E2B is an open-source, secure cloud runtime designed for AI applications and agents[¹](https://e2b.dev/docs). The platform provides secure, isolated [sandboxes](<https://en.wikipedia.org/wiki/Sandbox_(computer_security)>) in the cloud where AI agents can execute code, access browsers, and utilize full operating system capabilities. E2B offers JavaScript/TypeScript and Python SDKs for creating and managing sandboxes, connecting LLMs, and executing code across multiple programming languages.
+E2B is an open-source, secure cloud runtime designed for AI applications and agents[¹](https://e2b.dev/docs). The platform provides secure, isolated [sandboxes](<https://en.wikipedia.org/wiki/Sandbox_(computer_security)>) in the cloud where AI agents can execute code, access browsers, and use full operating system capabilities. E2B offers JavaScript/TypeScript and Python SDKs for creating and managing sandboxes, connecting LLMs, and executing code across multiple programming languages[¹](https://e2b.dev/docs).
 
 ```mermaid
 graph TB
@@ -50,46 +52,19 @@ graph TB
             Pool --> VM3[Firecracker VM N<br/>Multi-language]
         end
 
-        subgraph "Real-World Adoption"
-            Perplexity[Perplexity<br/>Data Analysis]
-            HuggingFace[Hugging Face<br/>AI Research]
-            Groq[Groq<br/>AI Models]
-        end
-
         VM1 -.-> Code1[Python Execution]
         VM2 -.-> Code2[Data Analysis]
         VM3 -.-> Code3[Multi-language support]
     end
-
-    Perplexity -.-> API
-    HuggingFace -.-> API
-    Groq -.-> API
 ```
-
-### Key innovation: Micro-vm architecture
-
-**What is a MicroVM?**
-
-A **[microVM](https://en.wikipedia.org/wiki/Hypervisor#Classification)** (micro virtual machine) is a lightweight virtual machine designed to provide the security and isolation of traditional VMs while maintaining the resource efficiency and rapid startup times of containers. MicroVMs achieve this by including only essential components needed to run applications, eliminating unnecessary OS services and drivers.
-
-Unlike traditional VMs, which can be resource-intensive and slow to boot, microVMs are optimized for minimal resource usage and fast initialization. They typically require only a few megabytes of memory overhead per instance and can start in milliseconds. MicroVMs leverage hardware-based isolation to prevent malicious code from compromising the host system, combining the strong isolation and security features of traditional virtual machines with the speed and resource efficiency of containers.
-
-**E2B's MicroVM Implementation**
-
-E2B's core innovation lies in using **Firecracker microVMs** instead of traditional containers. This architectural choice enables:
-
-- **Hardware-level isolation** with separate kernels per sandbox
-- **Fast startup times** through optimized virtualization
-- **Persistent state management** across code executions
-- **Enterprise-grade security** suitable for multi-tenant environments
 
 ---
 
-## E2B's technical architecture
+## E2B's architecture
 
 ### Core architecture components
 
-E2B's architecture is built around several key components optimized for AI workloads:
+E2B's architecture is built around several key components optimized for AI workloads, implemented primarily in Go and deployed using Terraform[⁴](https://github.com/e2b-dev/infra/):
 
 ```mermaid
 graph TB
@@ -159,34 +134,17 @@ graph TB
     VM3 --> SnapshotStorage
 ```
 
-### Firecracker integration
+The platform's core components include:
 
-E2B leverages **[Firecracker](https://firecracker-microvm.github.io/)**, AWS's open-source microVM virtualization technology, as the foundation for their sandbox infrastructure:
-
-#### Firecracker advantages for E2b
-
-**Minimal Attack Surface**
-
-- Limited emulated devices (virtio-net, virtio-block, virtio-vsock, serial console, minimal keyboard controller)
-- Minimal code base compared to traditional hypervisors (~50,000 lines of code)
-- Purpose-built for serverless and container workloads[²](https://firecracker-microvm.github.io/)
-
-**Performance Characteristics**
-
-- Fast startup times
-- Low memory footprint per VM
-- User-space execution using [Linux KVM](https://en.wikipedia.org/wiki/Kernel-based_Virtual_Machine)
-- Written in [Rust](<https://en.wikipedia.org/wiki/Rust_(programming_language)>) for [memory safety](https://en.wikipedia.org/wiki/Memory_safety)
-
-**Security Features**
-
-- Hardware-enforced isolation between VMs
-- Minimal device model reduces vulnerabilities
-- Built-in rate limiting and metadata service
+- **API Server**: Built with FastAPI to handle sandbox management and client requests[⁴](https://github.com/e2b-dev/infra/)
+- **Daemon (envd)**: Runs inside each instance to manage the execution environment and handle code execution[⁴](https://github.com/e2b-dev/infra/)
+- **Instance Management Service**: Oversees sandbox lifecycle including creation, monitoring, and termination[⁴](https://github.com/e2b-dev/infra/)
+- **Environment Builder Service**: Constructs custom execution environments based on predefined templates[⁴](https://github.com/e2b-dev/infra/)
+- **Firecracker microVMs**: AWS's open-source microVM virtualization technology, as the foundation for their sandbox infrastructure[⁴](https://github.com/e2b-dev/infra/). See [Firecracker microVM technology](#firecracker-microvm-technology) for more details.
 
 ### Session lifecycle management
 
-E2B implements sophisticated session management for persistent development environments:
+E2B implements session management for persistent development environments. The boot times shown reflect Firecracker's performance characteristics[²](https://www.usenix.org/system/files/nsdi20-paper-agache.pdf):
 
 ```mermaid
 sequenceDiagram
@@ -202,10 +160,10 @@ sequenceDiagram
 
     alt VM Available in Pool
         SessionMgr->>VMPool: Get Pre-warmed VM
-        VMPool->>Firecracker: Assign VM (~20ms)
+        VMPool->>Firecracker: Assign VM (Fast)
     else No VM Available
         SessionMgr->>VMPool: Create New VM
-        VMPool->>Firecracker: Boot VM (Fast)
+        VMPool->>Firecracker: Boot VM (~125-180ms)
     end
 
     Firecracker-->>SessionMgr: VM Ready
@@ -239,112 +197,92 @@ sequenceDiagram
 
 ---
 
-## Firecracker vs containers: Design decision analysis
+## What are Firecracker microVMs and why E2B chose them?
 
-### Alternative: Container-based architecture
+### What is a MicroVM?
 
-Container platforms represent the conventional approach to code execution isolation:
+A **[microVM](https://en.wikipedia.org/wiki/Hypervisor#Classification)** (micro virtual machine) is a lightweight virtual machine designed to provide the security and isolation of traditional VMs while maintaining the resource efficiency and rapid startup times of containers[²](https://www.usenix.org/system/files/nsdi20-paper-agache.pdf). MicroVMs achieve this through a minimalist approach that includes only essential components needed to run applications, eliminating unnecessary OS services and drivers.
 
-```mermaid
-graph TB
-    subgraph "Container-Based Architecture"
-        subgraph "Host Operating System"
-            ContainerEngine[Container Runtime]
-            SharedKernel[Shared Linux Kernel]
+Unlike traditional VMs, which typically require ~131 MB of memory overhead and boot in seconds, microVMs are optimized for minimal resource usage with only **3-5 MB of memory overhead per instance** and can boot in **≤125 ms (pre-configured) to ~160-180 ms end-to-end**[²](https://www.usenix.org/system/files/nsdi20-paper-agache.pdf). MicroVMs leverage [KVM](https://en.wikipedia.org/wiki/Kernel-based_Virtual_Machine)-based hardware virtualization to provide hardware-enforced isolation, preventing malicious code from compromising the host system while maintaining the speed and resource efficiency of containers.
 
-            subgraph "Container Execution"
-                Container1[Python Container]
-                Container2[Node.js Container]
-                Container3[Data Science Container]
-            end
+### E2B's Firecracker implementation
 
-            ContainerEngine --> SharedKernel
-            SharedKernel --> Container1
-            SharedKernel --> Container2
-            SharedKernel --> Container3
-        end
+E2B uses **[Firecracker microVMs](https://firecracker-microvm.github.io/)** instead of traditional containers. Firecracker is AWS's purpose-built Virtual Machine Monitor (VMM) written in Rust with approximately **50,000 lines of code compared to QEMU's 1.4 million lines**[²](https://www.usenix.org/system/files/nsdi20-paper-agache.pdf).
 
-        subgraph "Container-based Characteristics"
-            Security[Process-Level Isolation]
-            Performance[Fast Startup 50-200ms]
-            Persistence[Requires External State Management]
-            Density[High Container Density]
-        end
-    end
+Firecracker introduces MicroVMs as a minimalist virtual machine abstraction that combines the security isolation of traditional VMs with the speed and resource efficiency of containers[²](https://www.usenix.org/system/files/nsdi20-paper-agache.pdf). Key design principles include:
 
-    subgraph "E2B's Firecracker Architecture"
-        subgraph "Physical Host"
-            FirecrackerVMM[Firecracker VMM]
-            HostKernel[Host Kernel]
+- **RESTful API control**: Each MicroVM is configured and controlled via a RESTful API over a UNIX socket, enabling asynchronous setup and fast "start" calls[²](https://www.usenix.org/system/files/nsdi20-paper-agache.pdf)
+- **Minimal device emulation**: Scoped to essentials—virtio block and network, serial console, and minimal keyboard controller—trading flexibility for dramatically reduced Trusted Computing Base[²](https://www.usenix.org/system/files/nsdi20-paper-agache.pdf)
+- **Built-in rate limiting**: Token-bucket rate limiters on disk and network I/O enforce bandwidth and IOPS caps per MicroVM, ensuring noisy-neighbor containment[²](https://www.usenix.org/system/files/nsdi20-paper-agache.pdf)
 
-            subgraph "Isolated VMs"
-                VM1[VM 1: Own Kernel]
-                VM2[VM 2: Own Kernel]
-                VM3[VM 3: Own Kernel]
-            end
+#### Architecture and Thread Model
 
-            FirecrackerVMM --> HostKernel
-            FirecrackerVMM --> VM1
-            FirecrackerVMM --> VM2
-            FirecrackerVMM --> VM3
-        end
+![Firecracker architecture](./assets/e2b-illustration-02.png)
 
-        subgraph "E2B Characteristics"
-            HWIsolation[Hardware-Level Isolation]
-            FastStart[Production: Fast Startup]
-            StatePersist[Native Persistent State]
-            Enterprise[Enterprise Security Model]
-        end
-    end
-```
+Each Firecracker process encapsulates one microVM and runs three types of threads[³](https://github.com/firecracker-microvm/firecracker/blob/main/docs/design.md):
+
+- **API thread**: Handles Firecracker's REST API server and control plane
+- **VMM thread**: Manages the machine model and device emulation
+- **vCPU threads**: Execute guest code via KVM (one thread per virtual CPU)
+
+#### Security and Isolation
+
+Firecracker implements multi-layered security[³](https://github.com/firecracker-microvm/firecracker/blob/main/docs/design.md):
+
+- **Hardware-level isolation** with KVM-based virtualization and separate kernels per sandbox[²](https://www.usenix.org/system/files/nsdi20-paper-agache.pdf)
+- **Jailer process**: In production, runs Firecracker in a secure sandbox with dropped privileges, cgroups, and namespaces[³](https://github.com/firecracker-microvm/firecracker/blob/main/docs/design.md)
+- **Thread-specific seccomp filters**: Limit system calls per thread type for enhanced security[³](https://github.com/firecracker-microvm/firecracker/blob/main/docs/design.md)
+- **Minimal attack surface** through limited device emulation (VirtIO block/network, serial console)[²](https://www.usenix.org/system/files/nsdi20-paper-agache.pdf)
+
+#### Performance and Resource Management
+
+- **Memory overhead**: ~3-5 MB per MicroVM, regardless of guest memory size (versus ~131 MB for QEMU)[²](https://www.usenix.org/system/files/nsdi20-paper-agache.pdf)
+- **Boot latency**: Cold-start to guest init in ≤125 ms (pre-configured) and ~160-180 ms end-to-end (including API calls), roughly 2× faster than QEMU[²](https://www.usenix.org/system/files/nsdi20-paper-agache.pdf)
+- **Creation throughput**: Up to **150 MicroVMs per second per host** without contention[²](https://www.usenix.org/system/files/nsdi20-paper-agache.pdf)
+- **Rate limiting**: Built-in token bucket algorithm for I/O operations to ensure fair resource usage[³](https://github.com/firecracker-microvm/firecracker/blob/main/docs/design.md)
+- **Production scale**: Supports millions of simultaneous workloads and processes trillions of serverless invocations per month in AWS Lambda and Fargate[²](https://www.usenix.org/system/files/nsdi20-paper-agache.pdf)
+- **Persistent state management** across code executions with up to 24-hour session duration[¹](https://e2b.dev/docs)
+
+#### Serverless Specialization and Production Readiness
+
+Firecracker's design reflects specialization for serverless workloads, enabling massive simplification[²](https://www.usenix.org/system/files/nsdi20-paper-agache.pdf):
+
+- **Focused scope**: Drops legacy device support, VM migration, BIOS, and PCI emulation to focus on the 80% of use-cases that power functions and containers[²](https://www.usenix.org/system/files/nsdi20-paper-agache.pdf)
+- **Memory safety**: Rust's memory safety combined with minimal VMM features reduces attack surface compared to monolithic hypervisors[²](https://www.usenix.org/system/files/nsdi20-paper-agache.pdf)
+- **Economic efficiency**: Fast startup and low overhead enable high levels of oversubscription and soft resource allocation, delivering multi-tenant serverless benefits without compromising isolation[²](https://www.usenix.org/system/files/nsdi20-paper-agache.pdf)
+- **Production validation**: Seamless AWS Lambda migration from containers to Firecracker showed no customer-visible regressions, demonstrating production readiness[²](https://www.usenix.org/system/files/nsdi20-paper-agache.pdf)
 
 ### Technical comparison
 
-| Aspect                     | Container Platforms                                                   | E2B Firecracker VMs                 | E2B's Advantage                                 |
-| -------------------------- | --------------------------------------------------------------------- | ----------------------------------- | ----------------------------------------------- |
-| **Startup Time**           | 50-200ms (optimal conditions)                                         | Fast startup (production validated) | Competitive performance with superior isolation |
-| **Isolation Level**        | Process-level (shared kernel)                                         | Hardware-level (separate kernels)   | Stronger security boundaries                    |
-| **Memory Overhead**        | ~50-100MB                                                             | ~100-150MB                          | Comparable resource efficiency                  |
-| **Persistent State**       | External volumes/orchestration                                        | Native VM filesystem                | Simplified state management                     |
-| **Multi-tenancy**          | [Namespace isolation](https://en.wikipedia.org/wiki/Linux_namespaces) | Hardware isolation                  | Enterprise-grade tenant separation              |
-| **Attack Surface**         | Container runtime + shared kernel                                     | Minimal hypervisor                  | Reduced attack vectors                          |
-| **Operational Complexity** | Moderate                                                              | High                                | Trade-off for enhanced capabilities             |
+The following comparison is based on the official Firecracker research[²](https://www.usenix.org/system/files/nsdi20-paper-agache.pdf):
 
-### Why E2b chose firecracker
+| Dimension             | Linux Containers                                                                                 | QEMU/KVM Virtualization                                              | Firecracker MicroVMs                                                                 |
+| --------------------- | ------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| **Security**          | Depends on kernel syscalls and namespaces; tradeoffs between compatibility and syscall filtering | Full guest kernel, hardware-enforced isolation, large TCB (QEMU+KVM) | Hardware-enforced isolation via KVM, minimal Rust VMM (≈50 KLOC), seccomp-bpf jailer |
+| **Resource Overhead** | Negligible per container; shared kernel footprint                                                | ~131 MB per VM; seconds-scale boot                                   | ~3–5 MB per MicroVM; < 150 ms boot                                                   |
+| **Boot Time**         | Milliseconds (container start)                                                                   | Seconds (VM)                                                         | 125–180 ms                                                                           |
+| **Feature Scope**     | Full Linux API surface                                                                           | Broad device and BIOS emulation                                      | Minimal device set (virtio block, net, serial)                                       |
+| **Multi-Tenancy**     | Soft isolation, noisy-neighbor risk                                                              | Strong isolation, high overhead                                      | Strong isolation, low overhead                                                       |
 
-E2B's architectural decision was driven by specific AI development requirements:
+### Why E2B chose Firecracker
 
-#### 1. **Performance Requirements**
+E2B's architectural decision to adopt Firecracker microVMs was driven by specific technical requirements for AI code execution platforms:
 
-**Sub-second Response Times for AI Workflows**
+#### Security and isolation requirements
 
-- AI agents require immediate feedback for effective iteration
-- Fast startup enables real-time code execution
-- Performance directly impacts user adoption and satisfaction
+E2B requires strong isolation for executing untrusted AI-generated code. Firecracker provides **hardware-level isolation via KVM-based virtualization**, ensuring each sandbox operates with its own kernel and preventing cross-tenant attacks. Unlike container-based solutions that share the host kernel, Firecracker's **minimalist design reduces the attack surface** by excluding unnecessary devices and guest functionality.
 
-#### 2. **Security Requirements**
+#### Performance requirements
 
-**Hardware-Level Isolation for Untrusted Code**
+AI development workflows require **rapid environment provisioning** to maintain developer productivity. Firecracker's **≤125 millisecond boot times** enable near-instantaneous sandbox creation, while the **<5 MiB memory overhead per microVM** allows for high-density deployments essential for multi-tenant platforms.
 
-- AI-generated code is inherently untrusted
-- Complete kernel separation prevents cross-tenant attacks
-- Enterprise customers require strongest possible isolation
+#### Resource efficiency
 
-#### 3. **Persistent development environments**
+E2B's cloud infrastructure requires efficient resource utilization for cost-effective scaling. Firecracker's **built-in rate limiters for network and storage resources** enable optimized sharing across thousands of concurrent microVMs, while the minimal resource footprint allows **high-density deployment on single hosts**[⁶](https://aws.amazon.com/blogs/opensource/firecracker-open-source-secure-fast-microvm-serverless/).
 
-**Stateful AI Development Workflows**
+#### Persistent state management
 
-- AI agents build complex projects over multiple interactions
-- Package installations and file changes must persist
-- VM filesystems naturally support persistence
-
-#### 4. **Enterprise Compliance**
-
-**Multi-Tenant Security for Business Customers**
-
-- Regulatory requirements demand strong isolation
-- Audit trails require VM-level separation
-- Compliance certifications need hardware boundaries
+AI agents require **stateful development environments** that maintain installed packages, file systems, and project state across sessions. Firecracker's VM-based architecture provides **native filesystem persistence** without requiring complex external state management systems, supporting E2B's up to 24-hour session duration.
 
 ---
 
@@ -352,660 +290,386 @@ E2B's architectural decision was driven by specific AI development requirements:
 
 ### Achieving fast cold starts with full VM isolation
 
-E2B's fast startup times represent one of the most challenging technical problems in cloud computing: achieving container-like startup performance while maintaining full [VM isolation](https://en.wikipedia.org/wiki/Virtual_machine). This challenge requires sophisticated engineering optimization across multiple layers:
+The **cold start problem** represents a fundamental challenge for AI code execution platforms: the latency between a user request and when code can actually execute. Traditional solutions force a choice between **security** (slow VM startup) or **speed** (fast but vulnerable containers).
+
+- **Containers**: Fast startup (~50-200ms) but **shared kernel
+  vulnerabilities**
+- **Traditional VMs**: Strong isolation but **slow startup (seconds)** and high memory overhead (~131MB)
+- **Required solution**: VM-level security with container-like performance
+
+By leveraging Firecracker's microVM technology, E2B achieves **<200ms sandbox initialization** and "effectively eliminate cold starts" for AI applications, providing immediate responsiveness while maintaining VM-level security isolation required for untrusted code execution.
+
+**Further optimizations:**
+
+- **Pre-warmed infrastructure**: E2B maintains ready microVM pools to reduce allocation latency
+- **Hardware isolation with minimal overhead**: Firecracker's ~5 MiB memory footprint enables high-density deployments
+- **Session persistence**: Up to 24-hour session duration eliminates repeated cold starts for ongoing workflows
+
+### Template-based environment provisioning and VM pooling
+
+E2B implements a **sophisticated template-based resource management system** that enables efficient resource reuse through pre-built, snapshotted environments that can be rapidly instantiated multiple times.
+
+#### Template creation and snapshotting
+
+**Template build process**
+
+Templates are created using the `e2b template build` command, which builds sandbox templates from Dockerfiles and converts them to microVM snapshots. The system uses an `e2b.toml` configuration file to store template metadata including resource specifications with configurable CPU and memory settings. Docker images serve as **build artifacts** during template creation but are converted to Firecracker microVM snapshots for runtime execution.
+
+**Template lifecycle process**
+
+The template creation process involves several key steps that optimize resource utilization:
 
 ```mermaid
-graph LR
-    subgraph "E2B VM Startup Pipeline (Fast Startup)"
-        T0[Request] --> T1[VM Allocation]
-        T1 --> T2[Firecracker Boot]
-        T2 --> T3[Guest OS Init]
-        T3 --> T4[Runtime Ready]
-        T4 --> T5[User Code Ready]
-    end
+graph TD
+    A[Dockerfile Input] --> B[Docker Image Build]
+    B --> C[Convert to MicroVM]
+    C --> D[Dependency Installation]
+    D --> E[Start Command Execution]
+    E --> F[Environment Readiness Check]
+    F --> G[VM State Snapshotting]
+    G --> H[Template Ready for Use]
 
-    subgraph "Optimization Strategies"
-        PreWarm[Pre-warmed VM Pool]
-        OptImg[Optimized VM Images]
-        FastBoot[Firecracker Fast Boot]
-        MemBalloon[Memory Ballooning]
-
-        PreWarm -.-> T1
-        OptImg -.-> T2
-        FastBoot -.-> T2
-        MemBalloon -.-> T3
-    end
-
-    subgraph "Performance Context"
-        Production[Production Validated<br/>Real-world usage]
-        Scale[Enterprise-scale adoption]
-        Enterprise[Enterprise SLA compliance]
-    end
+    B1[Standard Docker build<br/>process] --> B
+    C1[Convert Docker image<br/>to Firecracker microVM] --> C
+    E1[Pre-initialize services<br/>Seed databases] --> E
+    F1[Verify all services<br/>running correctly] --> F
+    G1[Serialize complete VM state<br/>Save as reusable snapshot] --> G
 ```
 
-#### Technical solutions for fast cold starts
+This process transforms a standard Dockerfile into a **pre-configured, snapshotted microVM** that can be instantly restored without rebuilding. The final output is a Firecracker microVM snapshot, not a container image.
 
-**Parallelization of Initialization Tasks**
+**Snapshotting technology**
 
-To achieve fast cold starts with full VM isolation, E2B employs several sophisticated strategies:
+This snapshotting approach captures the complete running state, including all processes and filesystem changes, allowing for **near-instantaneous restoration** and eliminating the need to rebuild environments from scratch for each sandbox.
 
-- **Concurrent initialization**: By identifying and executing independent startup tasks concurrently, the overall startup time is significantly reduced. For instance, initializing caches, configuring networking, and loading base images happen simultaneously rather than sequentially.
-- **Pipeline optimization**: The VM startup pipeline is carefully orchestrated to overlap [I/O operations](https://en.wikipedia.org/wiki/Input/output) with CPU-intensive tasks, maximizing resource utilization during the critical startup phase.
+#### Node-based orchestration and resource management
 
-**Optimized VM Boot Processes**
+**Cluster resource tracking**
 
-- **Pre-booted snapshots**: E2B utilizes techniques such as pre-booted [VM snapshots](<https://en.wikipedia.org/wiki/Snapshot_(computer_storage)>) and lightweight [hypervisor](https://en.wikipedia.org/wiki/Hypervisor) optimizations to accelerate VM provisioning.
-- **Instant cloning methods**: Employing instant [VM cloning](https://en.wikipedia.org/wiki/Virtual_machine#Cloning) that shares both disk and memory with parent VMs drastically reduces provisioning times compared to full cloning operations.
-- **Firecracker optimizations**: The minimal device model and streamlined virtualization stack of Firecracker enables faster boot sequences compared to traditional hypervisors.
+E2B manages resources through a cluster of nodes, where each node monitors:
 
-**Lazy Initialization and On-Demand Loading**
+- **CPU allocation**: Total CPU cores allocated across running sandboxes
+- **Memory tracking**: Real-time memory usage across all instances
+- **Sandbox capacity**: Current running instances and sandboxes being started
 
-- **Deferred non-critical tasks**: Non-essential initialization tasks are deferred until after the VM is operational, ensuring essential services are available promptly.
-- **Progressive loading**: Less critical components are loaded as needed, allowing the VM to become user-ready while background optimization continues.
-- **Resource staging**: Critical resources are pre-staged in memory pools, enabling immediate allocation without disk I/O during startup.
+**Local template caching**
 
-### Efficient resource utilization
+Each cluster node maintains **locally cached templates** - pre-built environments stored locally for immediate sandbox creation, reducing startup latency by eliminating the need to fetch and prepare VM images from remote storage.
 
-E2B's resource management system dynamically adjusts allocations based on real-time demand, representing a sophisticated approach to multi-tenant infrastructure optimization:
+**Node state management**
 
-#### Dynamic resource allocation strategies
-
-**Real-Time Demand Response**
-
-E2B implements sophisticated algorithms to automatically scale CPU and memory resources in response to workload demands:
-
-- **Predictive autoscaling**: Utilizing online multi-resource neural networks, E2B enables proactive [autoscaling](https://en.wikipedia.org/wiki/Autoscaling) of VMs that anticipates resource requirements and adjusts allocations accordingly, leading to improved energy efficiency while maintaining [Quality of Service (QoS)](https://en.wikipedia.org/wiki/Quality_of_service) constraints.
-- **Dynamic memory management**: Implementation of dynamic memory allocation techniques including [memory ballooning](https://en.wikipedia.org/wiki/Memory_ballooning) that adjusts available memory based on real-time usage patterns.
-- **Intelligent load distribution**: Advanced [load balancing](<https://en.wikipedia.org/wiki/Load_balancing_(computing)>) algorithms that consider both current resource utilization and predicted demand patterns.
-
-**Energy-Efficient VM Allocation**
-
-- **Optimization algorithms**: E2B employs optimization algorithms similar to [Genetic Algorithms](https://en.wikipedia.org/wiki/Genetic_algorithm) for VM placement and consolidation to minimize power usage while maintaining QoS requirements.
-- **Dynamic VM consolidation**: The system dynamically adjusts VM allocation based on real-time workload variations, enhancing overall resource utilization efficiency.
-- **Geographic load balancing**: Intelligent routing of requests to regions with optimal resource availability and lower energy costs.
-
-#### Pre-warming architecture
-
-**Template-Based VM Pool: E2B's Production Implementation**
-
-Based on E2B's actual production architecture, their template-based VM pool leverages sophisticated pre-warming and orchestration strategies:
-
-**E2B's VM Pool Architecture**
-
-```
-E2B Production Infrastructure
-├── Ready VM Pool (Pre-warmed)
-│   ├── VM Template A (Python + Data Science)
-│   ├── VM Template B (Node.js + Web Dev)
-│   └── VM Template C (Custom Environment)
-├── User Request Routing
-└── Instant VM Allocation
-```
-
-**Key E2B Implementation Details**
-
-**Pre-warmed VMs**: Virtual machines that are started and ready before user requests arrive, eliminating startup wait time. This is core to E2B's fast startup performance.
-
-**VM Templates**: Pre-configured virtual machine images with specific software installed (like Python libraries for data science), allowing faster deployment of specialized environments without runtime installation overhead.
-
-**Request Routing**: Intelligent system that directs user requests to the most appropriate available VM based on requirements and geographic location.
-
-**E2B's Base Template Strategy**
-
-From E2B's production optimization approach:
-
-- **Common environments pre-built and cached** - Templates are prepared with frequently used software stacks
-- **Incremental updates rather than full rebuilds** - Efficient template maintenance strategy
-- **Copy-on-write for rapid VM cloning** - New VMs share base template memory until modifications
-- **Snapshot-based state management** - Persistent state across user sessions
-
-**Memory Optimization (E2B Production Architecture)**
-
-```
-E2B VM Memory Management
-├── Shared Base Pages (Optimized)
-├── Template-Specific Libraries (Cached)
-├── User Workspace (Variable)
-└── Memory Ballooning (Dynamic)
-```
-
-**Why E2B's Pre-warming Works**
-
-- VMs are created before user requests arrive
-- Templates are optimized for specific use cases
-- Resource allocation happens at pool level
-- Instant response to user demands
-
-#### Resource optimization techniques
-
-**Memory Management**
-
-- Shared base pages reduce memory footprint
-- Copy-on-write for rapid VM cloning
-- Memory ballooning for dynamic allocation
-- Intelligent garbage collection of unused VMs
-
-**Geographic Distribution**
-
-- VM pools in multiple cloud regions
-- Latency-optimized request routing
-- Load balancing across availability zones
-- Disaster recovery and failover capabilities
-
-### Performance monitoring and analytics
-
-E2B implements comprehensive performance monitoring:
+The platform employs a **node-based orchestration system** for managing sandboxes across a distributed cluster. Each node tracks critical metrics including allocated CPU cores, allocated memory, sandbox count, and operational status:
 
 ```mermaid
 graph TB
-    subgraph "Performance Monitoring Stack"
-        subgraph "Real-time Metrics"
-            StartupTime[VM Startup Times]
-            ResourceUtil[Resource Utilization]
-            UserLatency[User-Perceived Latency]
-            ThroughputMetrics[Execution Throughput]
+    subgraph "Node Orchestration System"
+        subgraph "Node States"
+            Ready[Ready<br/>Available for workloads]
+            Draining[Draining<br/>Completing existing work]
+            Connecting[Connecting<br/>Joining cluster]
+            Unhealthy[Unhealthy<br/>Removed from rotation]
         end
 
-        subgraph "Analytics Engine"
-            MetricsCollector[Metrics Collector]
-            RealTimeAnalyzer[Real-time Analyzer]
-            PredictiveModels[Predictive Models]
-            AlertSystem[Alert System]
+        subgraph "Node Metrics Tracking"
+            AllocCPU[Allocated CPU Cores]
+            AllocMem[Allocated Memory]
+            SandboxCount[Running Sandboxes]
+            StartingCount[Starting Sandboxes]
         end
 
-        subgraph "Optimization Feedback"
-            AutoScaling[Auto-scaling Triggers]
-            LoadBalancing[Load Balancing Adjustments]
-            CapacityPlanning[Capacity Planning]
-            PerformanceTuning[Performance Tuning]
+        subgraph "Load Distribution"
+            Scheduler[Workload Scheduler]
+            CapacityPlanner[Capacity Planner]
+            LoadBalancer[Load Balancer]
         end
+
+        Ready --> Scheduler
+        Draining --> Scheduler
+        Connecting --> Scheduler
+        Unhealthy --> Scheduler
+
+        AllocCPU --> CapacityPlanner
+        AllocMem --> CapacityPlanner
+        SandboxCount --> LoadBalancer
+        StartingCount --> LoadBalancer
     end
-
-    StartupTime --> MetricsCollector
-    ResourceUtil --> MetricsCollector
-    UserLatency --> MetricsCollector
-    ThroughputMetrics --> MetricsCollector
-
-    MetricsCollector --> RealTimeAnalyzer
-    RealTimeAnalyzer --> PredictiveModels
-    PredictiveModels --> AlertSystem
-
-    AlertSystem --> AutoScaling
-    RealTimeAnalyzer --> LoadBalancing
-    PredictiveModels --> CapacityPlanning
-    MetricsCollector --> PerformanceTuning
 ```
 
----
+Nodes can be in various states (ready, draining, connecting, or unhealthy), providing the orchestration system with **granular control over resource allocation and workload distribution**.
 
-## Real-world case studies
+**Resource allocation specifications**
 
-### Perplexity: Production-scale AI data analysis
+The system uses predefined resource specifications with **minimum requirements of 1 CPU core and 128MB memory**. Sandbox creation requests specify template ID and resource parameters, allowing the orchestrator to schedule VMs on appropriate nodes based on available capacity.
 
-Perplexity represents E2B's most prominent success story, implementing advanced data analysis capabilities for their AI platform.
+#### Advanced resource optimization
 
-#### Implementation details
+**Start command pre-initialization**
 
-**Scale and Performance**
+Templates support start commands that pre-initialize services and applications, reducing runtime startup overhead. This feature allows running servers or seeded databases to be ready immediately when spawning sandboxes, eliminating wait times during runtime.
 
-- **Use case**: Advanced data analysis for Pro users
-- **Implementation**: Fast deployment of secure code execution
-- **Production**: Successfully running in production environment
-- **Architecture**: Leveraging E2B's sandboxed execution for AI-generated code
+**Pause and resume functionality**
 
-#### Technical architecture
+The system supports pause and resume functionality, allowing VMs to be temporarily suspended while preserving state, effectively extending the pre-warmed pool concept to running instances.
 
-```mermaid
-sequenceDiagram
-    participant User as Perplexity User
-    participant Frontend as Perplexity Frontend
-    participant Backend as Perplexity Backend
-    participant LLM as LLM (AI Model)
-    participant E2B as E2B Sandbox
-    participant Results as Analysis Results
+**Template management operations**
 
-    User->>Frontend: Data Analysis Query
-    Frontend->>Backend: Process Request
-    Backend->>LLM: Generate Analysis Code
-    LLM-->>Backend: Python/Data Science Code
+E2B provides comprehensive template management through CLI commands:
 
-    Backend->>E2B: Create Sandbox
-    E2B-->>Backend: Sandbox Ready (Fast)
+- **Template listing**: View all templates with their resource allocations
+- **Template publishing**: Share templates across teams for resource standardization
+- **Template deletion**: Clean up unused templates to free resources
 
-    Backend->>E2B: Execute Generated Code
-    E2B->>E2B: Run Data Analysis
-    E2B-->>Backend: Execution Results
-
-    Backend->>Results: Format Output
-    Results-->>Frontend: Processed Results
-    Frontend-->>User: Interactive Data Insights
-
-    Note over User,Results: Fast analysis response
-```
-
-#### Business impact
-
-**User Experience Transformation**
-
-- Enabled advanced data analysis features for paying customers
-- Sub-second response times improved user engagement
-- Secure execution of untrusted AI-generated data science code
-
-**Technical Benefits**
-
-- Stateful execution environment for complex analysis
-- Multiple data format support (CSV, JSON, Excel)
-- Persistent package installations across user sessions
-
-### Hugging Face: AI research and model replication
-
-Hugging Face leverages E2B for replicating and testing advanced AI models, utilizing the platform's secure sandbox environment for AI research workflows.
-
-#### Use case: AI model research and development
-
-**Implementation Characteristics**
-
-- **Multi-language support**: Python, JavaScript, and other languages
-- **Concurrent execution**: Multiple research scripts simultaneously
-- **Secure environment**: Safe execution of experimental code
-- **Research workflow**: Isolated environment for AI model development
-
-#### Technical requirements met
-
-**Research Environment Needs**
-
-- Isolated execution for experimental code
-- Support for various programming languages and tools
-- Persistent environments for long-running experiments
-- Secure handling of proprietary research code
-
-### Groq: AI model infrastructure
-
-Groq utilizes E2B to power their compound AI models, demonstrating enterprise-scale adoption[⁵](https://e2b.dev/blog/groqs-compound-ai-models-are-powered-by-e2b).
-
-#### Implementation focus
-
-**AI Model Pipeline Integration**
-
-- Secure execution of AI model inference code
-- Support for complex AI workflows
-- Integration with existing ML infrastructure
-- Enterprise-grade security and compliance
-
-### Manus: Agent-based virtual computing
-
-Manus provides AI agents with virtual computers through E2B integration[⁶](https://e2b.dev/blog/how-manus-uses-e2b-to-provide-agents-with-virtual-computers).
-
-#### Architecture pattern
-
-**Agent-Computer Interface**
-
-- Full Linux environments for AI agents
-- Persistent state across agent interactions
-- Complete system access for complex tasks
-- Multi-tenant isolation for different agents
+This template-based architecture represents a sophisticated approach to environment reuse that significantly reduces resource overhead compared to traditional container-per-request models, enabling **sub-second sandbox startup times** while maintaining full isolation between instances.
 
 ---
 
 ## Security and isolation models
 
-### Multi-layer security architecture
+E2B implements a **multi-layered security and isolation model** that combines Firecracker microVM isolation, dual authentication mechanisms, and secure communication protocols to provide safe execution environments for AI agents.
 
-E2B implements comprehensive security through multiple isolation layers:
+### Authentication and access control
+
+#### Dual authentication model
+
+E2B uses a **dual authentication architecture** where API keys authenticate with the main API while access tokens secure communication with individual sandbox environments:
 
 ```mermaid
 graph TB
-    subgraph "E2B Security Stack"
-        subgraph "Layer 1: Hardware Isolation"
-            Intel[Intel VT-x / AMD SVM]
-            MMU[Hardware Memory Management]
-            IOMMU[I/O Memory Management]
+    subgraph "E2B Security Architecture"
+        Client[AI Agent/Client] --> API[Main API Server]
+        API --> |API Key Auth| Lifecycle[Sandbox Lifecycle]
+        API --> |Generate| Token[Access Token]
+
+        Token --> |Secure Auth| Sandbox1[Sandbox Environment 1]
+        Token --> |Secure Auth| Sandbox2[Sandbox Environment 2]
+
+        subgraph "Sandbox Security"
+            Sandbox1 --> EnvD1[Environment Daemon]
+            Sandbox2 --> EnvD2[Environment Daemon]
+            EnvD1 --> MicroVM1[Firecracker MicroVM]
+            EnvD2 --> MicroVM2[Firecracker MicroVM]
+        end
+
+        subgraph "Communication Protocols"
+            REST[REST API<br/>Lifecycle Management]
+            GRPC[gRPC Protocol<br/>Real-time Operations]
+        end
+
+        API --> REST
+        Token --> GRPC
+    end
+```
+
+**Optional Secure Mode**
+
+The system supports an **optional secure mode** that requires access token authentication for all sandbox operations. When enabled, this mode generates per-sandbox access tokens that must be included in all subsequent requests.
+
+#### MicroVM-based isolation
+
+Each sandbox runs as an **isolated Firecracker microVM** with its own environment daemon (`envd`) that provides secure access to filesystem, process, and terminal operations. The sandboxes are built from **Docker images** that are converted to microVM snapshots through customizable templates, providing VM-level security boundaries while maintaining rapid startup capabilities.
+
+### Secure communication architecture
+
+#### Dual protocol design
+
+The platform uses **dual protocols** for different types of operations:
+
+- **REST API**: Sandbox lifecycle management (create, kill, timeout) with API key authentication
+- **gRPC Protocol**: Real-time operations (filesystem, commands, terminals) with access token authentication
+
+All gRPC communications include authentication headers when access tokens are available, ensuring secure communication channels between clients and sandbox environments.
+
+#### Network security
+
+All communications use **HTTPS/TLS encryption** for data in transit, with the system automatically switching between HTTP (debug mode) and HTTPS (production) based on configuration.
+
+### File access security
+
+#### **Signature-based access control**
+
+E2B implements **signature-based file access control** for enhanced security. In secure mode, file upload and download operations require cryptographic signatures that include the file path, operation type, user, and access token.
+
+**Time-limited access**
+
+The signature system supports **time-limited access** with configurable expiration times, providing fine-grained control over file access permissions. Without proper signatures in secure mode, file access requests are rejected with authentication errors.
+
+### Runtime environment isolation
+
+#### Multi-layer isolation architecture
+
+E2B implements **defense-in-depth isolation** through multiple security boundaries, from hardware to application level:
+
+```mermaid
+graph TB
+    subgraph "E2B Isolation Layers"
+        subgraph "Layer 4: Application Security"
+            App1[AI Agent Code]
+            App2[User Processes]
+            EnvD[Environment Daemon<br/>Port 49983]
+            Auth[Access Token Auth]
+        end
+
+        subgraph "Layer 3: Guest OS Isolation"
+            GuestOS1[Linux Guest OS 1]
+            GuestOS2[Linux Guest OS 2]
+            Filesystem1[Isolated Filesystem]
+            Filesystem2[Isolated Filesystem]
         end
 
         subgraph "Layer 2: Hypervisor Security"
-            Firecracker[Firecracker VMM]
-            KVMSec[KVM Security Features]
-            Seccomp[Seccomp Filters]
-            Jailer[Firecracker Jailer]
+            Firecracker[Firecracker VMM<br/>~50K lines of code]
+            VMM1[MicroVM Instance 1]
+            VMM2[MicroVM Instance 2]
+            RustSafety[Rust Memory Safety]
         end
 
-        subgraph "Layer 3: Guest OS Security"
-            GuestKernel[Isolated Guest Kernel]
-            Namespaces[Process Namespaces]
-            Cgroups[Resource Control Groups]
-            Capabilities[Linux Capabilities]
+        subgraph "Layer 1: Hardware Isolation"
+            KVM[KVM Virtualization]
+            CPU[Hardware CPU<br/>VT-x/AMD-V]
+            Memory[Hardware Memory<br/>Isolation]
+            IOMMU[Hardware I/O<br/>Protection]
         end
 
-        subgraph "Layer 4: Application Security"
-            RuntimeSec[Runtime Security]
-            NetworkIso[Network Isolation]
-            FilePermissions[File System Permissions]
-            ResourceLimits[Resource Limits]
-        end
-
-        subgraph "Threat Mitigation"
-            ContainerEscape[Container Escape Prevention]
-            KernelExploits[Kernel Exploit Isolation]
-            DataLeakage[Data Leakage Prevention]
-            ResourceAbuse[Resource Abuse Protection]
-        end
+        Host[Host Operating System]
     end
 
-    Layer1 -.-> ContainerEscape
-    Layer2 -.-> KernelExploits
-    Layer3 -.-> DataLeakage
-    Layer4 -.-> ResourceAbuse
+    App1 --> EnvD
+    App2 --> EnvD
+    EnvD --> GuestOS1
+    EnvD --> GuestOS2
+
+    GuestOS1 --> Filesystem1
+    GuestOS2 --> Filesystem2
+
+    GuestOS1 --> VMM1
+    GuestOS2 --> VMM2
+
+    VMM1 --> Firecracker
+    VMM2 --> Firecracker
+
+    Firecracker --> KVM
+    KVM --> CPU
+    KVM --> Memory
+    KVM --> IOMMU
+
+    CPU --> Host
+    Memory --> Host
+    IOMMU --> Host
 ```
 
-### Enterprise security features
+**Security boundary analysis:**
 
-#### Hardware-level isolation guarantees
+- **Layer 1 (Hardware)**: KVM-based virtualization with CPU-level isolation (Intel VT-x/AMD-V)
+- **Layer 2 (Hypervisor)**: Firecracker VMM with minimal attack surface (~50,000 vs 1.4M lines)
+- **Layer 3 (Guest OS)**: Separate Linux instances with isolated filesystems per microVM
+- **Layer 4 (Application)**: Environment daemon access control and process isolation
 
-**CPU Virtualization Extensions**
+#### **Firecracker microVM isolation**
 
-- [Intel VT-x](https://en.wikipedia.org/wiki/X86_virtualization#Intel_VT-x) and [AMD SVM](https://en.wikipedia.org/wiki/X86_virtualization#AMD_virtualization) provide [hardware-assisted virtualization](https://en.wikipedia.org/wiki/Hardware_virtualization)
-- [Memory Management Unit (MMU)](https://en.wikipedia.org/wiki/Memory_management_unit) enforces memory isolation
-- [I/O Memory Management Unit (IOMMU)](https://en.wikipedia.org/wiki/Input%E2%80%93output_memory_management_unit) prevents device-based attacks
+Each sandbox operates within its own **isolated Firecracker microVM** with hardware-level security boundaries and controlled access to system resources. The environment daemon runs on a dedicated port (49983) within each microVM and manages all interactions within the sandbox.
 
-**Memory Protection**
+#### VM snapshotting technology
 
-- Hardware-enforced page table separation
-- No shared memory regions between VMs
-- [DMA attack](https://en.wikipedia.org/wiki/DMA_attack) prevention through IOMMU
+E2B leverages **VM snapshotting technology** that allows the entire VM state (filesystem + running processes) to be serialized and restored in **~150ms**. This enables rapid instantiation of pre-configured environments while maintaining complete isolation between sandboxes.
 
-#### Firecracker security model
+#### Lifecycle management
 
-**Minimal Attack Surface**
-
-- Only ~50,000 lines of hypervisor code
-- Limited device emulation (5 virtual devices)
-- No legacy hardware support reduces complexity
-- Rust implementation prevents memory safety vulnerabilities
-
-**Secure-by-Default Configuration**
-
-- No network access by default
-- Minimal device model
-- Built-in rate limiting
-- Metadata service isolation
-
-### Compliance and audit features
-
-#### Enterprise security requirements
-
-**Multi-Tenant Isolation**
-
-- Complete separation between customer workloads
-- Independent security domains per user
-- No data leakage possibilities between tenants
-- Audit trails at VM level
-
-**Regulatory Compliance Support**
-
-- SOC 2 Type II compliance capabilities
-- GDPR data protection compliance
-- HIPAA-ready isolation for healthcare data
-- Enterprise audit and logging features
-
-#### Security monitoring and response
-
-**Real-Time Security Monitoring**
-
-- VM behavior analysis and anomaly detection
-- Network traffic inspection and filtering
-- Resource usage pattern monitoring
-- Automated threat response capabilities
+Sandboxes have **timeout-based lifecycle management** where microVMs are automatically terminated after a specified duration, providing resource cleanup and preventing long-running processes from consuming system resources indefinitely.
 
 ---
 
 ## Infrastructure and scaling patterns
 
-### Global infrastructure architecture
+E2B's infrastructure design enables **scalable AI code execution** by building upon the technical foundations described earlier. The platform's scaling strategy leverages its **Firecracker microVM architecture**, **template-based provisioning**, and **node orchestration** to support diverse workload patterns[¹¹](https://deepwiki.com/e2b-dev/E2B).
 
-E2B operates a globally distributed infrastructure designed for high availability and low latency:
+### Scaling architecture overview
+
+Building on the **template lifecycle** and **node orchestration** systems detailed in the technical challenges section, E2B's infrastructure supports both horizontal and vertical scaling patterns:
 
 ```mermaid
 graph TB
-    subgraph "Global E2B Infrastructure"
-        subgraph "DNS and Edge"
-            GlobalDNS[Global DNS / CDN]
-            EdgePOP[Edge Points of Presence]
+    subgraph "E2B Scaling Strategy"
+        subgraph "Foundation Layer (Covered in Technical Challenges)"
+            Templates[Template Creation<br/>& Snapshotting]
+            Nodes[Node Orchestration<br/>& State Management]
+            Caching[Local Template<br/>Caching]
         end
 
-        subgraph "Region: US-East"
-            subgraph "AZ-1A"
-                LB1A[Load Balancer]
-                API1A[API Servers]
-                Compute1A[Compute Clusters]
-                Storage1A[Storage Systems]
-            end
-            subgraph "AZ-1B"
-                LB1B[Load Balancer]
-                API1B[API Servers]
-                Compute1B[Compute Clusters]
-                Storage1B[Storage Systems]
-            end
+        subgraph "Horizontal Scaling"
+            ClusterExpansion[Cluster Expansion<br/>Add more nodes]
+            LoadDistribution[Workload Distribution<br/>Across nodes]
+            ConcurrentOps[Concurrent Operations<br/>Stress testing support]
         end
 
-        subgraph "Region: EU-West"
-            subgraph "AZ-2A"
-                LB2A[Load Balancer]
-                API2A[API Servers]
-                Compute2A[Compute Clusters]
-                Storage2A[Storage Systems]
-            end
-            subgraph "AZ-2B"
-                LB2B[Load Balancer]
-                API2B[API Servers]
-                Compute2B[Compute Clusters]
-                Storage2B[Storage Systems]
-            end
+        subgraph "Vertical Scaling"
+            ResourceConfig[Resource Configuration<br/>CPU + Memory tuning]
+            TemplateOptimization[Template Optimization<br/>Pre-initialization]
+            StateManagement[State Management<br/>Pause/Resume capabilities]
         end
 
-        subgraph "Region: Asia-Pacific"
-            subgraph "AZ-3A"
-                LB3A[Load Balancer]
-                API3A[API Servers]
-                Compute3A[Compute Clusters]
-                Storage3A[Storage Systems]
-            end
-        end
+        Templates --> ClusterExpansion
+        Nodes --> LoadDistribution
+        Caching --> ConcurrentOps
 
-        subgraph "Control Systems"
-            GlobalControl[Global Control Plane]
-            Monitoring[Global Monitoring]
-            Analytics[Analytics Engine]
-        end
+        Templates --> ResourceConfig
+        Nodes --> TemplateOptimization
+        Caching --> StateManagement
     end
-
-    GlobalDNS --> EdgePOP
-    EdgePOP --> LB1A
-    EdgePOP --> LB2A
-    EdgePOP --> LB3A
-
-    GlobalControl --> API1A
-    GlobalControl --> API2A
-    GlobalControl --> API3A
-
-    Monitoring --> Compute1A
-    Monitoring --> Compute2A
-    Monitoring --> Compute3A
 ```
 
-### Auto-scaling and resource management
+### Production scaling capabilities
 
-#### Predictive scaling architecture
+#### Enterprise-grade scaling
 
-E2B implements intelligent auto-scaling based on usage patterns and predictive analytics:
+E2B's infrastructure design prioritizes **rapid provisioning**, **efficient resource utilization**, and **horizontal scalability**:
 
-**Scaling Triggers**
+**Horizontal scaling:**
 
-- Real-time demand monitoring
-- Machine learning-based demand prediction
-- Geographic usage pattern analysis
-- Seasonal and time-based scaling adjustments
+- **Node expansion**: Adding more nodes to the cluster, with each node capable of hosting multiple sandbox instances
+- **Resource distribution**: System tracks resource allocation per node and distributes workloads across available nodes
+- **Concurrent operations**: Support for concurrent sandbox operations with stress testing capabilities
 
-**Resource Pool Management**
+**Vertical scaling:**
 
-- Dynamic VM pool sizing across regions
-- Intelligent resource allocation algorithms
-- Cost-optimized resource utilization
-- Automated capacity planning and provisioning
+- **Resource configuration**: Templates can be optimized with specific CPU cores (1-16) and memory allocation (128MB-32GB)
+- **Template optimization**: Pre-initialization through start commands and dependency caching
+- **State management**: Pause/resume functionality for optimal resource utilization during inactivity
 
-#### Multi-tenancy and resource isolation
+#### Operational excellence
 
-**Tenant Isolation Strategies**
+**Resource efficiency:**
 
-- Hardware-level separation for enterprise customers
-- Shared resource pools with guaranteed allocation
-- QoS enforcement and priority scheduling
-- Fair resource sharing algorithms
+- **Template reuse**: Standardized environments eliminate redundant provisioning overhead
+- **Snapshot mechanism**: Sub-second startup times through VM state preservation
+- **Resource waste minimization**: Predictable resource patterns enable efficient capacity planning
 
-**Resource Quotas and Limits**
+**Reliability and Performance:**
 
-- Per-customer resource quotas
-- Usage-based billing and metering
-- Resource abuse detection and prevention
-- Automated resource cleanup and garbage collection
+- **Node state management**: Automated handling of unhealthy nodes and graceful workload draining
+- **Concurrent file operations**: Support for multiple simultaneous operations and network requests
+- **State preservation**: Maintains user progress and context across extended sessions
 
-### Operational excellence
-
-#### Site reliability engineering (SRE)
-
-**Availability and Uptime**
-
-- 99.9%+ availability SLA targets
-- Multi-region failover capabilities
-- Automated incident detection and response
-- Comprehensive disaster recovery procedures
-
-**Performance Monitoring**
-
-- Real-time performance metrics and alerting
-- User experience monitoring and optimization
-- Capacity planning and performance tuning
-- Continuous optimization based on usage data
-
-#### DevOps and deployment practices
-
-**Infrastructure as Code**
-
-- Automated infrastructure provisioning
-- Version-controlled infrastructure configurations
-- Automated testing and validation
-- Blue-green deployment strategies
-
-**Continuous Integration/Deployment**
-
-- Automated testing pipelines
-- Gradual rollout and canary deployments
-- Feature flags and A/B testing
-- Automated rollback capabilities
-
----
-
-## Key technical insights
-
-### 1. Architecture decisions drive business outcomes
-
-E2B's choice of Firecracker microVMs over containers demonstrates how technical architecture directly impacts business success:
-
-**Performance Enables New Use cases**
-
-- Sub-200ms startup times enable real-time AI development workflows
-- Interactive user experiences previously impossible with slower container startup
-- Performance becomes a competitive moat in the AI development platform space
-
-**Security Drives Enterprise Adoption**
-
-- Hardware-level isolation meets enterprise security requirements
-- Compliance capabilities enable regulated industry adoption
-- Strong security becomes a business differentiator
-
-### 2. The AI development paradigm shift
-
-E2B's success reflects fundamental changes in how software development works:
-
-**From Containers to AI-Optimized Infrastructure**
-
-- Traditional container platforms designed for predictable workloads
-- AI development requires rapid iteration and untrusted code execution
-- Purpose-built infrastructure for AI workflows creates new market opportunities
-
-**Persistent Development Environments**
-
-- AI agents build complex projects over multiple interactions
-- State preservation across sessions enables sophisticated workflows
-- Traditional stateless execution models insufficient for AI development
-
-### 3. Performance engineering as product strategy
-
-E2B's investment in performance optimization represents strategic product development:
-
-**User Experience as Competitive Advantage**
-
-- Performance directly impacts user productivity and satisfaction
-- Engineering investment in optimization pays dividends in adoption
-- Technical excellence becomes a primary business differentiator
-
-**Infrastructure Sophistication Enables Scale**
-
-- Complex orchestration and optimization systems required for performance
-- Investment in engineering capabilities enables competitive positioning
-- Technical debt from performance shortcuts avoided through upfront investment
-
-### 4. Security model innovation
-
-E2B's security approach demonstrates evolution in cloud security:
-
-**Beyond Container Security**
-
-- Container isolation insufficient for multi-tenant AI workloads
-- Hardware-level isolation provides enterprise-grade guarantees
-- Security requirements drive fundamental architectural decisions
-
-**Multi-Layer Defense Strategy**
-
-- Hardware, hypervisor, OS, and application-level security
-- Defense-in-depth approach reduces single points of failure
-- Comprehensive threat model coverage for untrusted code execution
-
-### 5. Platform economics and scaling
-
-E2B's business model reflects new economics of AI infrastructure:
-
-**Platform Network Effects**
-
-- Developer adoption drives ecosystem growth
-- Enterprise customers require proven platform reliability
-- Success breeds success through case study validation
-
-**Infrastructure Investment Requirements**
-
-- High-performance platforms require significant upfront investment
-- Operational complexity increases with optimization requirements
-- Long-term competitive advantages from infrastructure excellence
+This **scaling-focused architecture** leverages the technical implementations detailed earlier to provide enterprise-grade performance and reliability for AI code execution workloads.
 
 ---
 
 ## References
 
-1. [E2B Documentation - What is E2b?](https://e2b.dev/docs)
-2. [Firecracker Official Documentation](https://firecracker-microvm.github.io/)
-3. [Perplexity Case Study: Advanced Data Analysis in 1 Week](https://www.e2b.dev/blog/how-perplexity-implemented-advanced-data-analysis-for-pro-users-in-1-week)
-4. [Hugging Face Case Study: Using E2B to Replicate DeepSeek-R1](https://www.e2b.dev/blog/how-hugging-face-is-using-e2b-to-replicate-deepseek-r1)
-5. [Groq's Compound AI Models are Powered by E2B](https://e2b.dev/blog/groqs-compound-ai-models-are-powered-by-e2b)
-6. [How Manus Uses E2B to Provide Agents With Virtual Computers](https://e2b.dev/blog/how-manus-uses-e2b-to-provide-agents-with-virtual-computers)
+1. [E2B Documentation - What is E2B?](https://e2b.dev/docs)
+2. Agache, A., Brooker, M., Florescu, A., Iordache, A., Liguori, A., Neugebauer, R., Piwonka, P., & Popa, D.-M. (2020). [Firecracker: Lightweight Virtualization for Serverless Applications](https://www.usenix.org/system/files/nsdi20-paper-agache.pdf). _17th USENIX Symposium on Networked Systems Design and Implementation (NSDI 20)_.
+3. [Firecracker Official Repository and Design Documentation](https://github.com/firecracker-microvm/firecracker/blob/main/docs/design.md)
+4. [E2B Infrastructure Repository](https://github.com/e2b-dev/infra/)
+5. [Firecracker microVM Official Website](https://firecracker-microvm.github.io/) - Technical specifications and performance characteristics
+6. [AWS Firecracker Open Source Blog](https://aws.amazon.com/blogs/opensource/firecracker-open-source-secure-fast-microvm-serverless/) - Official announcement and technical details
 7. [E2B SDK Reference](https://e2b.dev/docs/sdk-reference)
 8. [E2B Sandbox Documentation](https://e2b.dev/docs/sandbox)
 9. [E2B Enterprise Solutions](https://e2b.dev/enterprise)
-
 10. [E2B Cookbook - Code Examples](https://github.com/e2b-dev/e2b-cookbook)
-11. [AWS Lambda Firecracker Paper](https://www.usenix.org/system/files/nsdi20-paper-agache.pdf)
+11. [DeepWiki - E2B](https://deepwiki.com/e2b-dev/E2B)
 
 ---
 
-**About This Analysis**
+**About this analysis**
 
 This technical breakdown analyzes E2B's public documentation, case studies, and architectural information to provide an objective assessment of their AI code execution infrastructure.
 
