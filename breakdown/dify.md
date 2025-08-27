@@ -64,7 +64,7 @@ Compared to **Flowise**, another visual LLM application builder, Dify provides s
 
 Against **OpenAI's Assistants API**, Dify's model-agnostic approach prevents vendor lock-in while providing comparable features. Organizations can use OpenAI models through Dify today and switch to open-source alternatives tomorrow without rewriting applications.
 
-The platform's **open-source nature** with a strong community (70,000+ GitHub stars) ensures rapid innovation and vendor independence. However, some licensing concerns have been raised about Dify's "Apache 2.0-like but not really" license, which allows the company to change terms for future versions.
+The platform's **open-source nature** with a strong community (100,000+ GitHub stars) ensures rapid innovation and vendor independence. However, some licensing concerns have been raised about Dify's "Apache 2.0-like but not really" license, which allows the company to change terms for future versions.
 
 ## Technical deep-dive
 
