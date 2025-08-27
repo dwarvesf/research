@@ -63,7 +63,9 @@ Traditional documentation retrieval systems fail spectacularly for AI code gener
 
 **With Context7**: "Create a Next.js app with app router. use context7" → Real Next.js 15 docs injected → 5-metric ranking applied → Best snippets surfaced first → Working code with current APIs → 0 minutes debugging
 
-**See it in action**: [Context7 vs Cursor Docs Comparison - Building MCP Python Agent](https://www.youtube.com/watch?v=323l56VqJQw) - Watch how Context7's intelligent ranking delivers better code examples compared to traditional documentation injection, demonstrated through building an MCP Python agent for Airbnb using the MCPUs framework.
+**See it in action**: Watch how Context7's intelligent ranking delivers better code examples compared to traditional documentation injection, demonstrated through building an MCP Python agent for Airbnb using the MCPUs framework.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/323l56VqJQw?si=tUF8UjUB5XfmgPBQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## How it works
 
