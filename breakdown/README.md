@@ -35,24 +35,24 @@ If you want to understand how things really work, you are in the right place.
 
 If you have a specific app or technology you would like us to break down, let us know! Otherwise, following are some open source projects we are interested in exploring:
 
-- [e2b](https://e2b.dev/): AI sandbox
 - [anus](https://github.com/nikmcfly/ANUS): agent framework
 - [openmanus](https://github.com/mannaandpoem/OpenManus): agent framework
 - [screenpipe](https://github.com/mediar-ai/screenpipe): record desktop history
 - [onlook](https://github.com/onlook-dev/onlook): cursor for designer
 - [autogen](https://microsoft.github.io/autogen/stable//index.html): multi-agent app framework
-- [Pik Pose](https://apps.apple.com/vn/app/t%E1%BA%A1o-d%C3%A1ng-ch%E1%BB%A5p-%E1%BA%A3nh/id6747959578?l=vi) (iOS app)
 - [mathom](https://github.com/stephenlacy/mathom): monitor MCP locally
 - [midday](https://github.com/midday-ai/midday): finance tracking
 - [dyad](https://github.com/dyad-sh/dyad): AI app builder
 - [nautilus trader](https://nautilustrader.io/): trading platform
-- [stagehand](https://www.stagehand.dev/): AI browser automation
 - [sim](https://github.com/simstudioai/sim): AI agent workflow
 - [wg-easy](https://github.com/wg-easy/wg-easy): wireguard vpn
 - [frigate](https://github.com/blakeblackshear/frigate): object detection for IP camera
 - [activepieces](https://github.com/activepieces/activepieces): AI agent + workflow automation
 - [deepwiki-open](https://github.com/AsyncFuncAI/deepwiki-open): AI-powered Wiki generator
 - [cap](https://github.com/CapSoftware/Cap): shareable screen recording
+- [prefect](https://github.com/PrefectHQ/prefect): workflow orchestration for building data pipelines
+- [tianji](https://github.com/msgbyte/tianji): all-in-one analytics
+- [terminator](https://github.com/mediar-ai/terminator/tree/main): AI-powered desktop automation
 
 > Next: Explore the latest deep dives from this series in the list below.
 
