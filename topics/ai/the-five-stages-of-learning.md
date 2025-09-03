@@ -21,6 +21,8 @@ When a child first learns that a hot stove burns, the lesson arrives as immediat
 
 This progression from surface pattern recognition to deep understanding follows a predictable path across both human development and artificial intelligence. Rather than distinct categories, these stages represent a continuum where each level builds upon the previous, trading specificity for generality while maintaining essential features through compression.
 
+![the-five-stages-of-learning](./assets/the-five-stages-of-learning.webp)
+
 ## Stage one: associative learning
 
 Picture a toddler reaching toward a glowing burner. The lesson is immediate and visceral - hot surface equals pain. There's no understanding of thermal conductivity or heat transfer, just a simple association burned into memory. This represents the foundation where both humans and early AI systems form basic stimulus-response mappings without underlying comprehension.
