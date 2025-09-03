@@ -24,7 +24,7 @@ There is something implicit on how knowledge works naturally to organize itself,
 
 ## Operators: those who apply compressed rules
 
-<img src="./assets/operators.webp" width="250px" alt="operators">
+![operators](./assets/operators.webp)
 
 Most people in knowledge work apply socially bootstrapped knowledge without necessarily understanding the underlying principles. A software developer using React doesn't need to understand virtual DOM diffing algorithms; they need to know that components re-render when state changes.
 
@@ -38,7 +38,7 @@ Consider how medical knowledge operates. General practitioners diagnose common c
 
 ## Adapters: those who connect the dots
 
-<img src="./assets/adapters.webp" width="250px" alt="adapters">
+![adapters](./assets/adapters.webp)
 
 Some knowledge workers recognize when heuristics break down and adjust them without reverting to first principles. A senior engineer debugging a complex system doesn't need to understand every component; they can recognize that "this performance issue looks like that memory leak we saw last quarter, except the symptoms are slightly different."
 
@@ -52,7 +52,7 @@ In medicine, specialists adapt treatment protocols for rare conditions. An oncol
 
 ## Explorers: those who derive new principles
 
-<img src="./assets/explorers.webp" width="250px" alt="explorers">
+![explorers](./assets/explorers.webp)
 
 A minority deliberately abandon compressed heuristics to reconstruct from base constraints. When the existing abstractions collapse, when distributed systems theory can't handle the scale, when standard cancer treatments stop working; they burn down the scaffolding and rebuild from ground truth.
 
@@ -72,4 +72,4 @@ When environmental conditions shift; when the underlying assumptions that compre
 
 Understanding this organization suggests that AGI development won't eliminate these approaches, but will augment them. AI will handle routine and basic heuristic application, assist in pattern transfer, and accelerate hypothesis generation.
 
-Unlike the consultants that tout that AI would replace every one, **AI replaces no one here**. What it does give us is more [_leverage_](https://www.indiehackers.com/post/lifestyle/the-leverage-paradox-ksRiX6y6W7NzfBE57dzt) at each part of the system.
+Unlike the consultants that tout that AI would replace every one, **AI replaces no one here**. What it does give us is more [*leverage*](https://www.indiehackers.com/post/lifestyle/the-leverage-paradox-ksRiX6y6W7NzfBE57dzt) at each part of the system.
