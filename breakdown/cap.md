@@ -13,25 +13,25 @@ tags:
 toc: true
 ---
 
-
 [Cap](https://github.com/CapSoftware/Cap) is an open-source, cross-platform screen recording system. It provides desktop and web apps for recording, editing, and sharing videos. All components are modular and can be self-hosted.
 
 This documentation is a technical breakdown of Cap's Instant mode screen recording implementation. It describes the architecture, performance characteristics, and trade-offs made in the current implementation.
-
 
 ## Components
 
 Cap is organized as a monorepo with two main types of components:
 
 **Apps** — TypeScript/JavaScript applications that provide user interfaces and services:
+
 - **apps/web** — Next.js 14 web application (sharing, management, dashboard).
 - **apps/desktop** — Tauri v2 desktop app (recording, editing) with SolidJS.
 - **apps/tasks** — Background processing service for AI and post-processing.
 
 **Crates** — Rust libraries that handle performance-critical operations:
+
 - **crates/recording** — Core recording functionality and pipeline management.
-- **crates/camera*** — Platform-specific camera capture implementations.
-- **crates/scap-*** — Screen capture implementations (ScreenCaptureKit, Direct3D, etc.).
+- **crates/camera\*** — Platform-specific camera capture implementations.
+- **crates/scap-\*** — Screen capture implementations (ScreenCaptureKit, Direct3D, etc.).
 - **crates/media-encoders** — Video/audio encoding modules with hardware acceleration.
 - **crates/rendering** — Video rendering and compositing engine.
 - **crates/editor** — Non-destructive editing system for advanced recording modes.
@@ -77,11 +77,11 @@ flowchart TD
   recording --> camera
   recording --> cursorcapture
   recording --> audio
-  
+
   recording --> encoder
   editor --> rendering
   editor --> export
-  
+
   export --> s3
   tasks --> s3
   tasks --> database
@@ -89,11 +89,11 @@ flowchart TD
   web --> s3
 ```
 
-## Instant Screen Recording
+## Instant screen recording
 
 Instant mode produces a single MP4 file that can be played immediately. While the file requires no post-processing for playback, standard MP4 editing tools can be used for trimming, cropping, or other modifications. This mode trades built-in editing features for reduced complexity and faster file availability.
 
-### Recording Flow
+### Recording flow
 
 The instant recording pipeline consists of three phases:
 
@@ -105,25 +105,25 @@ flowchart LR
     encoder[Setup H.264/AAC encoders]
     muxer[Create MP4 muxer]
   end
-  
+
   subgraph CAPTURE[Capture Loop]
     screen[Screen capture BGRA32]
     cursor[OS cursor rendering]
     convert[BGRA32→NV12 conversion]
     h264[H.264 encoding]
-    
+
     mic[Microphone capture]
     sys[System audio capture]
     mix[Audio mixer]
     aac[AAC encoding]
   end
-  
+
   subgraph OUTPUT[Output]
     mux[MP4 muxer]
     write[Sequential disk writes]
     final[Finalization]
   end
-  
+
   perm --> config --> encoder --> muxer
   muxer --> screen
   screen --> cursor --> convert --> h264 --> mux
@@ -134,7 +134,7 @@ flowchart LR
 
 This high-level flow is implemented through platform-specific capture APIs that provide the raw frames for processing.
 
-### Platform-Specific Capture Implementation
+### Platform-specific capture implementation
 
 ```rust
 // crates/recording/src/sources/screen_capture/mod.rs
@@ -145,12 +145,14 @@ mod macos;    // ScreenCaptureKit
 ```
 
 **macOS (ScreenCaptureKit)**:
+
 - Unified API for screen + system audio
 - Native cursor compositing
 - Display stream capability up to 120fps (instant mode uses 30fps)
 - Typical latency: 16-20ms (measured via custom timestamps)
 
 **Windows (Windows.Graphics.Capture)**:
+
 - Direct3D11 capture pipeline
 - Separate WASAPI for audio loopback
 - Manual cursor rendering
@@ -158,11 +160,11 @@ mod macos;    // ScreenCaptureKit
 
 Both platforms capture frames in BGRA32 format, which includes the desktop content and cursor. The following section details how these visual elements are processed.
 
-### Image Recording
+### Image recording
 
 The image recording subsystem handles three critical aspects: cursor capture, pixel format conversion, and resolution management.
 
-#### Cursor Capture
+#### Cursor capture
 
 Instant mode embeds the cursor directly into the video frames during capture:
 
@@ -172,12 +174,12 @@ create_screen_capture(&inputs.capture_target, true, 30, system_audio.0, start_ti
 ```
 
 **Platform differences**:
-- **macOS (ScreenCaptureKit)**: 
+
+- **macOS (ScreenCaptureKit)**:
   - Cursor composited natively by the OS
   - Hardware-accelerated rendering
   - No additional CPU overhead
   - Captures at display refresh rate (but instant mode samples at 30fps)
-  
 - **Windows (Direct3D11)**:
   - Manual cursor rendering required
   - Cursor image fetched separately
@@ -185,18 +187,19 @@ create_screen_capture(&inputs.capture_target, true, 30, system_audio.0, start_ti
   - May show slight lag on high-refresh displays
 
 **Trade-offs of embedded cursor**:
+
 - ✅ Frame-accurate sync, no post-processing required
 - ❌ Cannot modify cursor after recording (size, visibility, style)
 
 Note: Instant mode prioritizes immediate availability over post-capture cursor editing.
 
-#### Pixel Format Conversion
+#### Pixel format conversion
 
 The captured BGRA32 frames (with cursor already composited) undergo transformation:
 
 1. **Native formats**: OS provides BGRA32 (GPU framebuffer format)
 2. **Encoder requirements**: H.264 requires YUV color space (NV12)
-3. **Bandwidth reduction**: 
+3. **Bandwidth reduction**:
    - BGRA32: 32 bits/pixel (4 bytes)
    - NV12: 12 bits/pixel (1.5 bytes)
    - **Result**: 62.5% size reduction before encoding
@@ -208,6 +211,7 @@ The captured BGRA32 frames (with cursor already composited) undergo transformati
    ```
 
 **GPU-accelerated conversion**:
+
 ```rust
 // crates/gpu-converters/src/nv12_rgba/mod.rs
 pub struct NV12ToRGBA {
@@ -220,7 +224,7 @@ pub struct NV12ToRGBA {
 
 The conversion preserves cursor quality while maintaining color accuracy across the frame.
 
-#### Resolution Strategy
+#### Resolution strategy
 
 While capture happens at native resolution (including high-DPI displays), instant mode applies automatic downscaling when necessary:
 
@@ -241,6 +245,7 @@ While capture happens at native resolution (including high-DPI displays), instan
    - Maintains even dimensions (H.264 requirement)
 
 **Cursor considerations during downscaling**:
+
 - High-DPI cursors scaled proportionally
 - Sub-pixel positioning preserved
 - Animation timing maintained
@@ -248,18 +253,18 @@ While capture happens at native resolution (including high-DPI displays), instan
 
 With the image capture pipeline complete, the next component is the audio recording system that runs in parallel.
 
-### Audio Recording
+### Audio recording
 
 The audio recording subsystem runs in parallel with video capture, handling multiple responsibilities:
 
-1. **Source Management**: Captures from microphone and/or system audio with platform-specific APIs
-2. **Audio Mixing**: Combines multiple sources into a single stereo stream at 48kHz
-3. **Buffering Strategy**: Maintains elastic buffers to handle timing variations
-4. **AAC Encoding**: Compresses audio to 320 kbps constant bitrate
+1. **Source management**: Captures from microphone and/or system audio with platform-specific APIs
+2. **Audio mixing**: Combines multiple sources into a single stereo stream at 48kHz
+3. **Buffering strategy**: Maintains elastic buffers to handle timing variations
+4. **AAC encoding**: Compresses audio to 320 kbps constant bitrate
 
 The following sections detail each component of the audio pipeline.
 
-#### Audio Sources
+#### Audio sources
 
 Instant mode supports two audio sources that can be used individually or combined:
 
@@ -278,6 +283,7 @@ if let Some(system_audio) = system_audio {
 ```
 
 **Microphone capture**:
+
 - **Sample format**: Float32 PCM
 - **Sample rate**: 48kHz (industry standard for digital audio; resampled if necessary)
 - **Channels**: Mono or stereo based on device
@@ -285,18 +291,18 @@ if let Some(system_audio) = system_audio {
 - **Processing**: Noise suppression available
 
 **System audio capture**:
+
 - **macOS**: Captured via ScreenCaptureKit alongside video
   - Zero additional latency
   - Synchronized with screen content
   - Requires screen recording permission only
-  
 - **Windows**: WASAPI loopback capture
   - Separate API from screen capture
   - ~10-20ms additional latency (1-2 video frames at 30fps)
   - Requires explicit alignment with video
   - May need additional permissions
 
-#### Audio Mixing
+#### Audio mixing
 
 The `AudioMixer` combines multiple sources into a single stream:
 
@@ -314,14 +320,15 @@ AudioInfo {
 ```
 
 **Mixing pipeline**:
+
 1. **Input normalization**: All sources resampled to 48kHz
-2. **Channel mapping**: 
+2. **Channel mapping**:
    - Mono mic → Stereo (duplicated to both channels)
    - Stereo system audio → Passthrough
 3. **Level mixing**: Simple additive mixing (no compression)
 4. **Overflow prevention**: Soft clipping at ±1.0 (prevents harsh digital distortion)
 
-#### Audio Buffering
+#### Audio buffering
 
 Audio uses elastic buffering to handle timing variations:
 
@@ -335,12 +342,13 @@ pub struct AudioBuffer {
 ```
 
 **Buffer management**:
+
 - **Accumulation**: Samples collected until frame_size reached (1024 samples)
 - **Timing tolerance**: Can buffer up to 100ms without drops (4,800 samples)
 - **Underrun handling**: Inserts silence to maintain sync
 - **Overrun handling**: Drops oldest samples (rare)
 
-#### Audio Encoding
+#### Audio encoding
 
 Audio is compressed using AAC for broad compatibility:
 
@@ -351,6 +359,7 @@ const SAMPLE_FORMAT: Sample = Sample::F32(Type::Planar);
 ```
 
 **Encoding parameters**:
+
 - **Codec**: AAC-LC (Low Complexity)
 - **Bitrate**: 320 kbps constant bitrate
 - **Frame size**: 1024 samples (21.3ms @ 48kHz - AAC standard frame)
@@ -359,6 +368,7 @@ const SAMPLE_FORMAT: Sample = Sample::F32(Type::Planar);
 Note: 320 kbps chosen for maximum compatibility while maintaining high quality. Variable bitrate (VBR) could reduce file size by 20-30% but was avoided due to compatibility concerns with some video players and streaming services.
 
 **Quality considerations**:
+
 - 320 kbps provides transparency for most content (comparable to streaming services)
 - Voice remains clear even with background music
 - System sounds preserved without artifacts
@@ -366,11 +376,12 @@ Note: 320 kbps chosen for maximum compatibility while maintaining high quality. 
 
 With both image and audio capture systems defined, the next major challenge is maintaining synchronization.
 
-### Audio-Video Synchronization
+### Audio-video synchronization
 
 Audio-video synchronization is a critical technical challenge in screen recording. Timing errors exceeding 40ms are perceptible to viewers and degrade the viewing experience.
 
 **Real-world example**: Imagine recording someone waving and saying "Hello!"
+
 ```
 What happens without proper sync:
 ┌─────────────┬─────────────┬─────────────┬──────────┬───────────┐
@@ -398,11 +409,12 @@ With proper sync:
 Result: Proper coordination between speech and gesture
 ```
 
-#### The Synchronization Challenge
+#### The synchronization challenge
 
 Multiple factors make A/V sync difficult in screen recording:
 
 **Independent hardware clocks**:
+
 ```
 Video clock: Display refresh (60Hz, 120Hz, etc.)
 Audio clock: Sample rate oscillator (48kHz ± 0.01%)
@@ -416,12 +428,13 @@ Drift example over 1 hour:
 ```
 
 **Variable capture latencies**:
+
 - Screen capture: 5-20ms (varies by GPU load)
 - Microphone: 10-50ms (depends on buffer size)
 - System audio: 20-100ms (especially on Windows)
 - Network cameras: 100-500ms (USB/compression delays)
 
-#### Master Clock Architecture
+#### Master clock architecture
 
 Cap uses a video-driven master clock design:
 
@@ -437,12 +450,13 @@ const FRAME_DURATION_30FPS: f64 = 1.0 / 30.0;  // 33.33ms
 ```
 
 **Why video as master?**
+
 1. **Predictable intervals**: Exactly 33.33ms per frame
 2. **User expectation**: Dropped audio less noticeable than frozen video
 3. **Simpler pipeline**: Audio can adapt buffer size, video cannot
 4. **Display sync**: Aligns with monitor refresh rate
 
-#### Timestamp Management
+#### Timestamp management
 
 Each media source maintains its own timestamps, which must be correlated:
 
@@ -457,6 +471,7 @@ aligned_audio_pts = round(audio_pts / FRAME_DURATION) * FRAME_DURATION
 ```
 
 **Dual timestamp system**:
+
 ```rust
 // Wall clock for absolute reference
 segment_start_time: f64  // Unix timestamp
@@ -468,7 +483,7 @@ let pts = elapsed.as_secs_f64();
 
 This prevents system clock adjustments from causing sync issues.
 
-#### Elastic Audio Buffering
+#### Elastic Audio buffering
 
 Audio uses elastic buffering to adapt to video timing. Here's how it handles our "Hello!" example:
 
@@ -482,7 +497,7 @@ pub struct AudioBuffer {
 impl AudioBuffer {
     fn read_frame(&mut self, video_pts: f64) -> Option<AudioFrame> {
         let target_samples = self.samples_for_video_pts(video_pts);
-        
+
         if self.available_samples() < target_samples * 0.8 {
             // Underrun: repeat samples or insert silence
             self.handle_underrun(target_samples)
@@ -498,6 +513,7 @@ impl AudioBuffer {
 ```
 
 **Example: Processing "Hello!" audio**
+
 ```
 Video Frame 1 (0ms): Need 1,600 audio samples for 33.33ms
 ├─ Buffer has 1,500 samples of "He-" sound
@@ -505,25 +521,27 @@ Video Frame 1 (0ms): Need 1,600 audio samples for 33.33ms
 └─ Action: Duplicate last 100 samples to fill gap
 
 Video Frame 2 (33ms): Need next 1,600 samples
-├─ Buffer has 1,650 samples of "-llo!" 
+├─ Buffer has 1,650 samples of "-llo!"
 ├─ Status: Normal (103%)
 └─ Action: Read exactly 1,600 samples
 
 Video Frame 3 (66ms): Need next 1,600 samples
 ├─ Buffer has 2,100 samples (mic catching up)
-├─ Status: Overrun (131%) 
+├─ Status: Overrun (131%)
 └─ Action: Drop oldest 500 samples to stay in sync
 ```
 
 **Buffer dynamics**:
+
 - **Target level**: 21-42ms of audio (1-2 frames)
 - **Underrun threshold**: <80% of target
 - **Overrun threshold**: >120% of target
 - **Adaptation rate**: Gradual to avoid artifacts
 
-#### Platform-Specific Synchronization
+#### Platform-specific synchronization
 
 **macOS (Unified capture)**:
+
 ```objc
 // ScreenCaptureKit provides synchronized timestamps
 SCStreamHandler {
@@ -539,6 +557,7 @@ SCStreamHandler {
 ```
 
 **Windows (Separate APIs)**:
+
 ```rust
 // Manual synchronization required
 let capture_delay = estimate_capture_latency();
@@ -549,7 +568,7 @@ video_pts = video_capture_time - recording_start;
 audio_pts = audio_capture_time - recording_start - (audio_delay - capture_delay);
 ```
 
-#### Synchronization Quality Metrics
+#### Synchronization quality metrics
 
 The pipeline monitors sync quality in real-time:
 
@@ -567,17 +586,19 @@ const DRIFT_THRESHOLD: f64 = 0.001; // 1ms/minute
 ```
 
 **Sync preservation strategies**:
+
 1. **Frame dropping policy**: Drop P-frames first, preserve I-frames for seeking
 2. **No resampling**: Avoid audio quality loss
 3. **Minimal correction**: Small, gradual adjustments (<5ms per second)
 4. **Early detection**: Monitor drift continuously
 
 When frames must be dropped:
+
 - P-frames dropped first (minimal visual impact)
 - I-frames preserved to maintain seekability
 - Audio never dropped (more noticeable than video drops)
 
-#### Muxer Synchronization
+#### Muxer synchronization
 
 The MP4 muxer enforces final synchronization by interleaving audio and video data:
 
@@ -586,7 +607,7 @@ The MP4 muxer enforces final synchronization by interleaving audio and video dat
 loop {
     let next_video = video_queue.peek();
     let next_audio = audio_queue.peek();
-    
+
     match (next_video, next_audio) {
         (Some(v), Some(a)) => {
             if v.dts <= a.dts {
@@ -611,6 +632,7 @@ loop {
 ```
 
 **Example: Muxing the "Hello!" sequence**
+
 ```
 Queue state during muxing:
 ┌──────────────────────────────────────────────────────────────┐
@@ -620,7 +642,7 @@ Queue state during muxing:
 
 Muxing order (by timestamp):
 1. Write V0 (0ms)    - Mouth opening
-2. Write A0 (0ms)    - "He-" sound begins  
+2. Write A0 (0ms)    - "He-" sound begins
 3. Write A1 (21ms)   - "He-" continues
 4. Write V1 (33ms)   - Hand starts moving
 5. Write A2 (42ms)   - "-llo!" begins
@@ -633,6 +655,7 @@ Result: Synchronized playback with correct frame interleaving
 ```
 
 **Edit lists for start alignment**:
+
 ```
 // If audio starts 50ms late:
 Video track: [edts] media_time=0, duration=full
@@ -643,20 +666,20 @@ This aligns playback start for both tracks.
 
 With audio and video streams synchronized, the following section illustrates how the complete recording unfolds over time.
 
-### Screen Recording Timeline
+### Screen recording timeline
 
 The instant recording pipeline orchestrates multiple parallel activities across a precise timeline. Here's how a typical recording session progresses from start to finish.
 
-#### Recording Timeline Overview
+#### Recording timeline overview
 
 ```
 Timeline: T+0s      T+1s         T+2s         T+3s         T+60s
           START     Recording... Recording... Recording... STOP
           |         |            |            |            |
-          
+
 INITIALIZATION (T-50ms to T+0ms):
 ├─ Permission check: ~10ms
-├─ Display enumeration: ~20ms  
+├─ Display enumeration: ~20ms
 ├─ Encoder setup: ~15ms
 └─ File creation: ~5ms
 
@@ -682,7 +705,7 @@ FINALIZATION (T+60s to T+60.1s):
 └─ Ready to share: T+60.100s
 ```
 
-#### Initialization Phase (T-50ms to T+0ms)
+#### Initialization phase (T-50ms to T+0ms)
 
 Before recording begins, the pipeline performs rapid initialization:
 
@@ -699,7 +722,7 @@ tokio::join!(
 
 // Start capture sources
 let (screen_source, screen_rx) = create_screen_capture(
-    &capture_target, 
+    &capture_target,
     true,  // force_show_cursor
     30,    // fps
     system_audio_tx,
@@ -708,12 +731,13 @@ let (screen_source, screen_rx) = create_screen_capture(
 ```
 
 **Critical setup tasks**:
+
 - Verify screen recording permissions
 - Initialize GPU resources for color conversion
 - Allocate encoding buffers
 - Create output.mp4 with write streaming enabled
 
-#### First Frame Critical Path (T+0ms to T+50ms)
+#### First frame critical path (T+0ms to T+50ms)
 
 The first frame establishes timing for the entire recording:
 
@@ -730,12 +754,13 @@ T+50ms:   First encoded frame ready for muxing
 ```
 
 **First frame importance**:
+
 - Establishes PTS baseline (0.000)
 - Creates I-frame for random access
 - Larger size (~150KB) vs P-frames (~50KB)
 - Sets quality baseline for encoding
 
-#### Steady State Timeline (T+50ms ongoing)
+#### Steady state timeline (T+50ms ongoing)
 
 Once initialized, the pipeline operates in a predictable pattern:
 
@@ -763,7 +788,7 @@ Every 2 seconds:
 └─ Insert H.264 I-frame for seeking
 ```
 
-#### Parallel Activity Coordination
+#### Parallel activity coordination
 
 Multiple threads work simultaneously without blocking:
 
@@ -779,12 +804,12 @@ Thread Pool Usage:
 
 Audio Thread:
 ├─ Microphone capture (continuous)
-├─ System audio capture (continuous)  
+├─ System audio capture (continuous)
 ├─ Mixing and buffering
 └─ Drift compensation
 ```
 
-#### Resource Timeline
+#### Resource timeline
 
 System resource usage follows a predictable pattern:
 
@@ -806,7 +831,7 @@ Disk I/O Timeline:
 59s-60s:   █ 100KB (moov atom)
 ```
 
-#### Frame Timing Precision
+#### Frame timing precision
 
 The 30fps cadence must be maintained precisely:
 
@@ -821,7 +846,7 @@ Correction applied every 60 frames (2 seconds):
 - Maintain monotonic timestamps
 ```
 
-#### End-of-Recording Timeline (T+59.9s to T+60.1s)
+#### End-of-recording timeline (T+59.9s to T+60.1s)
 
 The finalization phase produces a valid MP4 file:
 
@@ -843,6 +868,7 @@ T+60.100s: Signal completion to UI
 ```
 
 **Finalization completes**:
+
 - All captured frames are encoded
 - Audio extends slightly past video (normal)
 - Moov atom allows progressive playback
@@ -851,11 +877,12 @@ T+60.100s: Signal completion to UI
 
 With this complete timeline view of the recording process, the synchronized audio and video streams are ready for final encoding and packaging.
 
-### MP4 Muxing Implementation
+### MP4 muxing implementation
 
 The `MP4AVAssetWriterEncoder` creates a standard MP4 file with the following structure:
 
 1. **File type box (ftyp)**:
+
    ```
    - Major brand: mp42
    - Compatible brands: mp42, isom
@@ -886,9 +913,10 @@ The `MP4AVAssetWriterEncoder` creates a standard MP4 file with the following str
 
 The faststart optimization allows progressive playback during download.
 
-### Encoding Configuration
+### Encoding configuration
 
 Cap uses FFmpeg's codec support with the following configuration for real-time encoding:
+
 ```rust
 // Hardware encoder selection priority
 1. VideoToolbox (macOS)
@@ -899,6 +927,7 @@ Cap uses FFmpeg's codec support with the following configuration for real-time e
 ```
 
 **H.264 parameters**:
+
 - **Preset**: "ultrafast" (optimized for real-time)
 - **Profile**: High (when supported by hardware encoder, falls back to Main)
 - **Level**: Auto (based on resolution)
@@ -907,6 +936,7 @@ Cap uses FFmpeg's codec support with the following configuration for real-time e
 - **Rate control**: Calculated based on resolution (≈18.7 Mbps for 1080p@30fps)
 
 **AAC parameters**:
+
 - **Sample rate**: 48 kHz
 - **Bitrate**: 320 kbps
 - **Channels**: Stereo when available, mono fallback
@@ -914,40 +944,43 @@ Cap uses FFmpeg's codec support with the following configuration for real-time e
 
 These encoding parameters balance quality with the performance constraints of real-time capture.
 
-### Performance Characteristics
+### Performance characteristics
 
 The instant mode pipeline resource usage is as follows:
 
-| Component | CPU Usage* | Memory | Notes |
-|-----------|-----------|---------|-------|
-| Screen capture | 1-3% | 20MB | OS-handled |
-| BGRA→NV12 | 2-5% | 50MB | GPU when available |
-| H.264 encode | 3-8% | 80MB | Hardware accelerated |
-| AAC encode | 1-2% | 10MB | Hardware when available |
-| MP4 muxing | <1% | 5MB | Sequential writes |
+| Component      | CPU Usage\* | Memory | Notes                   |
+| -------------- | ----------- | ------ | ----------------------- |
+| Screen capture | 1-3%        | 20MB   | OS-handled              |
+| BGRA→NV12      | 2-5%        | 50MB   | GPU when available      |
+| H.264 encode   | 3-8%        | 80MB   | Hardware accelerated    |
+| AAC encode     | 1-2%        | 10MB   | Hardware when available |
+| MP4 muxing     | <1%         | 5MB    | Sequential writes       |
 
-*CPU percentages are estimates and due to parallel execution and shared resources, individual components may not sum to the total in actual measurement.
+\*CPU percentages are estimates and due to parallel execution and shared resources, individual components may not sum to the total in actual measurement.
 
 **Throughput metrics**:
+
 - 1080p@30fps: ~248.8 MB/s raw → 18.7 Mbps encoded
 - Audio: 1.5 Mbps raw → 320 kbps encoded
 
 These resource usage levels allow concurrent operation with other applications on typical hardware.
 
-### Error Handling
+### Error handling
 
 The instant mode pipeline implements error recovery across all components, prioritizing recording continuity over quality when failures occur.
 
 Errors are logged to system telemetry (when enabled) with the following metrics:
+
 - `dropped_frames_count`
-- `audio_underrun_count` 
+- `audio_underrun_count`
 - `encoder_fallback_count`
 - `sync_correction_count`
 - `disk_space_warnings`
 
-#### Permission & Initialization Errors
+#### Permission & initialization errors
 
 **Screen recording permission denied**:
+
 ```rust
 // macOS: Direct user to System Preferences
 // Windows: Retry with fallback to BitBlt API
@@ -961,6 +994,7 @@ match check_screen_permission() {
 ```
 
 **Audio device unavailable**:
+
 ```rust
 // Continue recording without audio rather than failing
 match init_microphone() {
@@ -972,15 +1006,16 @@ match init_microphone() {
 }
 ```
 
-#### Runtime Capture Errors
+#### Runtime capture errors
 
 **Frame drops and recovery**:
+
 ```rust
 // Monitor frame timing and adapt
 if elapsed > FRAME_DURATION * 1.5 {
     // Missed frame deadline
     stats.dropped_frames += 1;
-    
+
     if stats.dropped_frames > 10 {
         // Persistent issues - reduce capture rate
         reduce_framerate_to_24fps();
@@ -992,25 +1027,27 @@ if elapsed > FRAME_DURATION * 1.5 {
 ```
 
 **Encoder failures with fallback chain**:
+
 ```
 1. Try hardware encoder (VideoToolbox/NVENC)
    ↓ Fails (GPU overloaded)
 2. Try alternative hardware (QuickSync)
-   ↓ Fails (not available)  
+   ↓ Fails (not available)
 3. Fall back to software x264
    ↓ Fails (CPU overloaded)
 4. Reduce resolution to 720p and retry
    ↓ Success - continue recording
 ```
 
-#### Resource Management
+#### Resource management
 
 **Disk space monitoring**:
+
 ```rust
 // Check available space every second
 fn monitor_disk_space(&self) -> Result<()> {
     let available = get_free_space(&self.output_path)?;
-    
+
     match available {
         0..=100_000_000 => {      // <100MB
             self.stop_recording();
@@ -1027,6 +1064,7 @@ fn monitor_disk_space(&self) -> Result<()> {
 ```
 
 **Memory pressure handling**:
+
 ```rust
 // Adapt buffer sizes based on available memory
 let buffer_size = match available_memory() {
@@ -1036,9 +1074,10 @@ let buffer_size = match available_memory() {
 };
 ```
 
-#### Synchronization Recovery
+#### Synchronization recovery
 
 **Audio drift correction**:
+
 ```rust
 // Detect and correct audio/video drift
 if audio_pts - video_pts > MAX_DRIFT {
@@ -1046,13 +1085,13 @@ if audio_pts - video_pts > MAX_DRIFT {
     audio_buffer.drop_samples(drift_samples);
     log_event("Dropped {} audio samples to maintain sync", drift_samples);
 } else if video_pts - audio_pts > MAX_DRIFT {
-    // Video running ahead  
+    // Video running ahead
     audio_buffer.insert_silence(drift_samples);
     log_event("Inserted {} silence samples to maintain sync", drift_samples);
 }
 ```
 
-#### Graceful Degradation Priority
+#### Graceful degradation priority
 
 When multiple errors occur, the system follows this degradation hierarchy:
 
@@ -1063,6 +1102,7 @@ When multiple errors occur, the system follows this degradation hierarchy:
 5. **Alert user** - Clear indication of degraded state
 
 **Example cascade**:
+
 ```
 Normal:     1080p30 + audio + cursor → 142.7MB/min
 Degraded 1: 1080p24 + audio + cursor → 115MB/min (thermal throttle)
@@ -1074,80 +1114,85 @@ Emergency:  480p15 + no audio        → 20MB/min (critical resources)
 This error handling strategy maintains recording continuity when possible.
 
 **User-facing error states**:
+
 - Recording indicator changes color (green→yellow→red)
 - Toast notifications for degraded quality
 - Final recording includes metadata about any quality reductions
 
-### Constraints & Trade-offs
+### Constraints & trade-offs
 
 Instant mode implements specific trade-offs to produce recordings that are available immediately with low resource usage.
 
-#### Feature Constraints
+#### Feature constraints
 
 **What instant mode CANNOT do**:
 
-| Feature | Why It Is Excluded | Impact |
-|---------|-------------------|--------|
-| Camera overlay | Requires real-time compositing (+30% CPU) | No picture-in-picture presentations |
-| Cursor customization | Cursor baked into frames during capture | Cannot enhance or hide cursor after recording |
-| Pause/resume | Implementation choice for simplicity* | Must stop and start new recording |
-| Variable quality | Encoders locked during capture | Quality decisions must be made upfront |
-| Built-in editing | Not included in instant mode** | Use Studio mode or external tools |
-| Multiple audio tracks | Single AAC stream in MP4 | Cannot separate mic/system audio later |
+| Feature               | Why It Is Excluded                        | Impact                                        |
+| --------------------- | ----------------------------------------- | --------------------------------------------- |
+| Camera overlay        | Requires real-time compositing (+30% CPU) | No picture-in-picture presentations           |
+| Cursor customization  | Cursor baked into frames during capture   | Cannot enhance or hide cursor after recording |
+| Pause/resume          | Implementation choice for simplicity\*    | Must stop and start new recording             |
+| Variable quality      | Encoders locked during capture            | Quality decisions must be made upfront        |
+| Built-in editing      | Not included in instant mode\*\*          | Use Studio mode or external tools             |
+| Multiple audio tracks | Single AAC stream in MP4                  | Cannot separate mic/system audio later        |
 
-*MP4 supports pause/resume through segment concatenation or edit lists, but instant mode prioritizes one-click simplicity over complex timeline management.
+\*MP4 supports pause/resume through segment concatenation or edit lists, but instant mode prioritizes one-click simplicity over complex timeline management.
 
-**The MP4 files produced by instant mode are standard format and fully compatible with video editing software (FFmpeg, Adobe Premiere, DaVinci Resolve, etc.). Instant mode omits built-in editing features to maintain simplicity and reduce complexity.
+\*\*The MP4 files produced by instant mode are standard format and fully compatible with video editing software (FFmpeg, Adobe Premiere, DaVinci Resolve, etc.). Instant mode omits built-in editing features to maintain simplicity and reduce complexity.
 
-#### Technical Trade-offs
+#### Technical trade-offs
 
 **Performance vs. Flexibility**:
+
 ```
 Cap Instant Mode:       Traditional Screen Recorders (OBS, etc.):
 ├─ Single encoding pass         ├─ Capture raw → encode → remux
 ├─ Direct-to-MP4 muxing         ├─ MKV/FLV → convert to MP4
-├─ 5-15% CPU usage (typical)    ├─ 20-40% CPU usage  
+├─ 5-15% CPU usage (typical)    ├─ 20-40% CPU usage
 ├─ 165MB memory                 ├─ 400MB+ memory
 ├─ Direct MP4 output            ├─ Intermediate format → MP4
 └─ Ready in <100ms              └─ Ready in 5-30 seconds
 ```
 
 **Quality vs. File Size**:
+
 - **Current**: 1080p30 @ 18.7 Mbps video + 320 kbps audio = 142.7 MB/minute
 - **Alternative 1**: 4K30 @ 50 Mbps video + 320 kbps audio = 377.4 MB/minute (2.6x larger)
 - **Alternative 2**: 1080p60 @ 25 Mbps video + 320 kbps audio = 189.9 MB/minute (1.3x larger)
 - **Decision**: 1080p30 balances quality with reasonable file sizes
 
-#### Design Philosophy
+#### Design philosophy
 
 The constraints reflect three core principles:
 
-1. **Immediate Availability**
+1. **Immediate availability**
    - No waiting for processing
    - No intermediate files
    - Direct upload capability
 
-2. **Universal Compatibility**
+2. **Universal compatibility**
    - Standard MP4 container
    - H.264/AAC codecs work everywhere
    - No special players required
 
-3. **Predictable Performance**
+3. **Predictable performance**
    - Consistent resource usage
    - No surprise CPU spikes
    - Works on modest hardware
 
-#### Ideal Use Cases
+#### Ideal use cases
 
 **Instant mode excels at**:
+
 - Short demos and explanations (1-10 minutes)
-- Bug reports and issue documentation  
+- Bug reports and issue documentation
 - Meeting recordings and presentations
 - Social media content (sub-5 minute videos)
 - Live troubleshooting sessions
 - Educational content without heavy editing needs
 
 **Instant mode struggles with**:
+
 - Long recordings (>30 minutes due to file size)
 - Content requiring post-production
 - Multi-camera or complex audio setups
@@ -1172,4 +1217,4 @@ This breakdown examined the instant recording pipeline from permission checks th
 
 ---
 
-*Disclaimer: Additional appendices covering Performance Measurement Methodology, Platform Support & Limitations, Security & Privacy Considerations, and Known Issues have been excluded from this document to keep it focused on the core technical implementation.*
+_Disclaimer: Additional appendices covering Performance Measurement Methodology, Platform Support & Limitations, Security & Privacy Considerations, and Known Issues have been excluded from this document to keep it focused on the core technical implementation._
