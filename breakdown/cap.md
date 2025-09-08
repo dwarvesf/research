@@ -251,8 +251,6 @@ The audio recording subsystem operates concurrently with video capture, handling
 3. **Buffering strategy**: Maintains elastic buffers to handle timing variations
 4. **AAC encoding**: Compresses audio to 320 kbps constant bitrate
 
-
-
 #### Audio sources
 
 Instant mode supports two audio sources that can be used individually or combined:
@@ -337,6 +335,7 @@ pub struct AudioBuffer {
 The buffer operates elastically, growing and shrinking to accommodate timing variations while maintaining a target depth of 21-42ms (1-2 AAC frames). This balances low latency with protection against underruns during CPU spikes.
 
 **Key timing relationships**:
+
 - Audio hardware: Delivers samples in variable chunks (256, 512, etc.)
 - AAC encoder: Requires exactly 1024 samples per frame (21.3ms)
 - Video frames: Arrive every 33.33ms (≈1,600 audio samples)
@@ -366,7 +365,7 @@ Uncompressed PCM audio (48kHz stereo):
 - Problem: 23 MB/minute is too large for screen recordings
 
 AAC compression at 320 kbps:
-- Size: 320,000 bits ÷ 8 = 40 KB/second  
+- Size: 320,000 bits ÷ 8 = 40 KB/second
 - Quality: Transparent to human hearing for most content
 - Result: 2.4 MB/minute (83.3% size reduction)
 ```
