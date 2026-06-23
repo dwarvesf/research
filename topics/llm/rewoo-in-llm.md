@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "ReWOO: Reasoning without observation - a deeper look"
 description: "In the process of improving Large Language Model (LLM) performance, many techniques have been proposed. The Augmented Language Model (ALM) approach boosted LLM accuracy by enabling the attachment of external sources to enhance the model's knowledge. However, ALMs still had limitations in terms of time consumption and token resources. To address these issues, ReWOO was developed as a more efficient solution."
 date: 2024-10-18

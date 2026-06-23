@@ -1,4 +1,5 @@
 ---
+draft: true
 title: A fragment colocation pattern with React & Apollo GraphQL
 description: "When working with complex GraphQL schemas, it's common to have shared fields across different types. A fragment colocation pattern allows us to define fragments alongside their corresponding components, resulting in a more cohesive and maintainable codebase."
 date: 2023-06-04

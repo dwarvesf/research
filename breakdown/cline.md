@@ -1,4 +1,5 @@
 ---
+draft: true
 title: 'Cline breakdown'
 short_title: 'Cline'
 description: "Comprehensive technical analysis of Cline's VS Code extension architecture, covering system design, implementation patterns, and architectural innovations"

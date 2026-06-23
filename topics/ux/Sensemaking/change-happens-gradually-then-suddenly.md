@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Change happens gradually then suddenly
 description: Discover how long-term change unfolds through subtle signals and storytelling, and learn why we often underestimate its impact over ten years despite early weak signs.
 date: null

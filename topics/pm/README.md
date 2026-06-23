@@ -1,4 +1,5 @@
 ---
+draft: true
 title: § PM
 description: Explore key project management and agile practices, including Scrum techniques, estimation methods, and handling technical debt to improve team productivity and project success.
 date: 2025-04-23

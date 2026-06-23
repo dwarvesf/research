@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Multi-MCP data integration - receiving data from other MCP servers
 description: null
 date: 2025-04-25

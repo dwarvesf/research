@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Different kinds of zettelkasten notes
 description: Learn how the Zettelkasten method uses fleeting, permanent, and project notes to boost writing and thinking by capturing and rephrasing ideas for better understanding and lasting value.
 date: null

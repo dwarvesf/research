@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Journey of thought prompting: Harnessing AI to craft better prompts"
 description: Journey of Thought Prompting is an innovative technique that leverages AI to craft more effective prompts for large language models. This approach uses the analytical capabilities of AI assistants to help users create detailed system prompts, fill in missing details, and iteratively refine their prompt engineering skills. It represents a shift towards collaborative AI interaction, enhancing problem-solving capabilities for businesses and engineers.
 date: 2024-09-11

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Three clicks rule is a myth
 description: 'The "three clicks rule" for website navigation is a myth, as research shows click count doesn''''t impact user experience or conversion rates, and more clicks can sometimes improve control and satisfaction.'
 date: null

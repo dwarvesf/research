@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Cognitive load
 description: Learn how cognitive load affects mental effort and team performance, and why managing it is key to reducing overload and improving focus in business and technology teams.
 date: 2022-08-28

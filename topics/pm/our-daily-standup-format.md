@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Our daily standup format
 description: Create clear daily reports with this simple template to track tasks, progress, and blockers efficiently for your team’s smooth project management.
 date: 2018-07-23

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Ton: blockchain of blockchains"
 description: "Talk about TON and its core technologies. Why do we call TON the 'Blockchain of blockchains'?"
 date: 2024-07-11

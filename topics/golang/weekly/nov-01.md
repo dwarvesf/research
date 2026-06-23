@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Go commentary #18: Fuzz testing Go HTTP services"
 short_title: "#18 Fuzz Testing Go HTTP Services"
 description: Understanding how to use Fuzz Testing in Go

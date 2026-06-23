@@ -1,4 +1,5 @@
 ---
+draft: true
 title: § Elixir
 description: Explore comprehensive guides on Elixir programming, including testing, finite state machines, clustering, process groups, and PostgreSQL integration to enhance your Elixir development skills.
 date: 2025-04-23

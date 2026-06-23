@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Personas lack rich context
 description: Learn why personas often lack deep context and how missing background can lead teams to make incorrect assumptions, causing misalignment in design and product development.
 date: null

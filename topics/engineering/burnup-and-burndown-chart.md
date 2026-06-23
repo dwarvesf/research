@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Burnup and burndown chart
 description: Learn how Burnup and Burndown charts help project managers track product development progress by showing completed work, remaining tasks, and timeline status clearly to clients.
 date: 2023-02-28

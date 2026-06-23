@@ -1,4 +1,5 @@
 ---
+draft: true
 title: What is Kubernetes
 description: Kubernetes is an open-source platform for managing containerized applications with features like automated rollouts, self-healing, and load balancing, enabling scalable and portable cloud deployments.
 date: 2019-09-27

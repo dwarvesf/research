@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Use jtbd stories to foreground the context in which a solution is required
 description: Learn how job stories focus on user context and motivations to improve product design, offering a clear alternative to traditional user stories by highlighting real user needs and situations.
 date: null

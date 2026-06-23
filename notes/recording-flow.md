@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Set up recording workflow for OGIF
 description: This memo is essentially a playbook and recipe on how to record the Discord events.
 date: 2024-06-15

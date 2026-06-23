@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Shadow copies in Docker builds
 description: An explanation of shadow copies in Docker builds
 date: 2024-08-01

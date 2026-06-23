@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Finite state transducer
 description: Learn what a finite-state transducer is, its mathematical model, and how it processes inputs to outputs with states, including examples in programming and applications in natural language processing.
 date: 2022-06-28

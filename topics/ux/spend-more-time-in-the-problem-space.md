@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Spend more time in the problem space
 description: Learn why embracing uncertainty and spending more time understanding problems leads to better solutions by avoiding assumptions and applying thoughtful analysis in decision-making.
 date: null

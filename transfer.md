@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Tech transfer framework
 short_title: Transfer framework
 description: A practical system for moving research insights from our labs team to consulting deliverables in 1-2 months. We bridge the gap through pilot experiments, automation, and organic knowledge sharing.

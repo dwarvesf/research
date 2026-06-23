@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Write literature notes to inform permanent notes
 description: Learn how to make effective literature notes by summarizing texts in your own words, avoiding information overload, and linking notes to develop new ideas for better understanding and writing.
 date: null

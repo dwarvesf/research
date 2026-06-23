@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Smart contracts
 description: null
 date: null

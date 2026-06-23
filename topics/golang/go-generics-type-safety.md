@@ -1,4 +1,5 @@
 ---
+draft: true
 title: How does Go achieve type safety when it enables generics?
 description: A quick note on How does Go achieve type safety when it enables generics
 date: 2024-10-14

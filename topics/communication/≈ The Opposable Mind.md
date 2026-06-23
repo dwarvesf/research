@@ -1,4 +1,5 @@
 ---
+draft: true
 title: ≈ the opposable mind
 description: Discover how successful leaders use integrative thinking to solve complex problems by combining different perspectives and avoiding simple either/or choices for creative solutions.
 date: null

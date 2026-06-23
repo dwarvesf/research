@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Build custom AI agent with ElizaOS
 description: This guide shows how to build a custom AI Agent with ElizaOS.
 date: 2025-04-02

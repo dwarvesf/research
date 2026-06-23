@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Mixpanel
 description: Mixpanel is a powerful analytics platform that assists companies in monitoring and analyzing user behavior on their websites and mobile applications.
 date: 2023-02-13

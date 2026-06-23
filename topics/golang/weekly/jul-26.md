@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Go commentary #4: Ethical hacking, HTTP requests, Mac app development"
 short_title: "#4 Ethical Hacking, HTTP Requests, Mac App Development"
 description: "This post explores two cutting-edge applications of Go programming. First, it details an ethical hacking project that successfully sent 500 million HTTP requests to 2.5 million hosts using Go's concurrency features and custom optimizations. The article then introduces DarwinKit, a powerful Go library for creating native Mac applications without Objective-C or Swift. Both examples demonstrate Go's versatility in handling high-performance networking tasks and cross-platform development, showcasing its potential for complex, scalable projects in cybersecurity and application development."

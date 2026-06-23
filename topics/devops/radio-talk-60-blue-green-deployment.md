@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Radio talk 60 blue green deployment
 description: Learn how blue-green deployment reduces downtime and risk by switching traffic between identical environments, improving software reliability and flexibility for seamless updates.
 date: 2023-03-10

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Prevent layout thrashing
 description: Layout Thrashing happens, when you request layout information of an element or the document, while the layout is in an invalidated state.
 date: 2022-09-11

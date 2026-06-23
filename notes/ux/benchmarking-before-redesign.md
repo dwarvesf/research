@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Why every redesign should start with UX Benchmarking
 description: Discover why UX benchmarking is essential before any redesign. Learn how capturing usability metrics provides a baseline for improvement, avoids accidental regression, and builds stakeholder confidence. Get practical tips for effective benchmarking and see how it drives outcome-focused design.
 date: 2025-07-21

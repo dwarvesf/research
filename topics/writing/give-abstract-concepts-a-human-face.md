@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Give abstract concepts a human face
 description: Learn how giving abstract concepts a human face makes economic and market topics relatable and impactful by showing real people with genuine stakes.
 date: null

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Analysis document
 description: Learn how to use analysis documentation to clarify requirements, identify issues, and align solutions with clients for smoother product development and better team planning.
 date: 2023-01-03

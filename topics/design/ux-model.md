@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Ux model
 description: Good UX means creating useful, easy-to-use, and accessible products that attract users, build trust, and make information easy to find, ensuring a satisfying experience for all users.
 date: 2018-03-19

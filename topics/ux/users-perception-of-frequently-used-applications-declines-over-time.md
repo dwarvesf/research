@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Users perception of frequently used applications declines over time
 description: Long-term user experience shows that perceived usefulness declines over time, making software attractiveness and enjoyment key to maintaining user loyalty and satisfaction.
 date: null

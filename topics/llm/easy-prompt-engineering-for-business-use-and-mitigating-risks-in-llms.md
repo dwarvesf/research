@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Easy prompt engineering for business use and mitigating risks in LLMs
 description: Learn essential prompt engineering techniques for ChatGPT to improve business app accuracy, handle complex tasks, and defend against risks like adversarial prompting and data leaks.
 date: 2023-05-22

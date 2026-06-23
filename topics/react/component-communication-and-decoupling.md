@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Component communication and decoupling
 description: Learn key React component communication methods like props drilling, Context API, event emitters, global stores, and custom hooks to build decoupled, maintainable, and flexible applications.
 date: null

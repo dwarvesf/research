@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Dcos series part 2 deploy simple applications
 description: Learn how to deploy applications on DC/OS using the GUI and CLI, manage services, and install packages from the Universe for easy cluster and app management.
 date: 2017-05-05

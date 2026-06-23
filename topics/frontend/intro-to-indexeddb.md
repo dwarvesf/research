@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Intro to IndexedDB
 description: IndexedDB is a low-level API for client-side storage like localStorage and cookies. But this built-in non-relational database is much more powerful than those 2 counterparts.
 date: 2022-10-13

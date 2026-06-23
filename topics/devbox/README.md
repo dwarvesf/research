@@ -1,4 +1,5 @@
 ---
+draft: true
 title: § Devbox
 description: "A comprehensive guide to Devbox: The tool that creates isolated, reproducible development environments anywhere, without Docker or VMs, powered by Nix."
 date: 2024-08-09

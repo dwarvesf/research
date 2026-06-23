@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "¶ luhmann's zettelkasten"
 description: "Discover how Niklas Luhmann's zettelkasten system uses linked note cards to organize ideas, boost creativity, and generate new knowledge through unique indexing and connections."
 date: null

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: The six lines of gold
 description: "Discover Tim Ferriss's Six Lines of Gold method to quickly learn key language structures and common phrases, helping you grasp syntax, semantics, and fluency basics in just one hour."
 date: 2022-09-26

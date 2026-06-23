@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Dynamic liquidity market maker - a new form of concentrated liquidity AMM on Solana
 description: a new form of concentrated liquidity AMM on solana
 date: 2024-06-21

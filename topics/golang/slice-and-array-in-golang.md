@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Slice and array in Golang
 description: An in-depth exploration of arrays and slices in Go, covering their differences, internal implementations, and key operations like append. Learn about fixed-length arrays, flexible slices, and how Go manages memory allocation for growing slices.
 date: 2018-03-13

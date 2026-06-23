@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Domain model in domain driven design
 description: Learn what a Domain Model is in Domain Driven Design, including key components like Domain events, Commands, Aggregates, and Bounded Contexts to organize business knowledge effectively.
 date: 2022-07-02

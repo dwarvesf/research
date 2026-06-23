@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Playaround with Rust
 description: "Learn how Mozilla uses Rust to build safer, parallel browsers by leveraging Rust's ownership, immutability, lifetime tracking, and expression-based design for error-free, efficient code."
 date: 2019-08-30

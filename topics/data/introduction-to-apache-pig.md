@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Introduction to Apache Pig
 description: Apache Pig simplifies Hadoop data processing by converting easy-to-write Pig Latin scripts into MapReduce jobs, enabling non-programmers to handle big data without coding in Java or Python.
 date: 2022-11-14

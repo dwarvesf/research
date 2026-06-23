@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Ditch the containers: go containerless with Devbox"
 description: "Build a lean, mean Golang backend without the container bloat. Here's how."
 date: 2024-08-01

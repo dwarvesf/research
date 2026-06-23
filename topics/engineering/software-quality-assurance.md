@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Software quality assurance
 description: Learn how Software Quality Assurance ensures software meets requirements through testing, planning, and process control to improve reliability, usability, and maintainability in development projects.
 date: 2022-10-04

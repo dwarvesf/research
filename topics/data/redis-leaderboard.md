@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Redis leaderboard
 description: Learn how to build a fast user leaderboard system using Redis sorted sets and hashes to track scores and store user profiles like usernames and avatars.
 date: 2023-08-08

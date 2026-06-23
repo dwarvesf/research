@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Triple s of ux in web3
 description: Discover the Triple S of UX—Simple, Secure, and Self-custodial designs that make Web3 easy and safe for users to access and control decentralized applications.
 date: 2022-08-05

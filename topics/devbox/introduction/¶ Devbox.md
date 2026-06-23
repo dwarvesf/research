@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Devbox: your dev environment on steroids"
 description: Forget setup headaches. Devbox delivers instant, rock-solid dev environments powered by Nix.
 date: 2024-08-01

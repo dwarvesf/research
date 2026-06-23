@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Smart contract
 description: This article provides an overview of smart contracts in blockchain technology, including their definition, how they work, and their advantages.
 date: 2022-06-16

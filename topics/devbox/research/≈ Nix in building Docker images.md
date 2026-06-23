@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Nix: revolutionizing Docker image builds"
 description: Ditch the Docker headaches. Learn how Nix brings sanity to image building with determinism and efficiency.
 date: 2024-08-01

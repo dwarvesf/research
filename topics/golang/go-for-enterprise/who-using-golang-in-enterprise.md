@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Who is using Go in enterprise?
 description: This content map explores the companies and organizations that have embraced Go as their primary programming language for enterprise-level applications.
 date: 2024-09-13

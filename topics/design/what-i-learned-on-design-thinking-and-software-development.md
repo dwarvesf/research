@@ -1,4 +1,5 @@
 ---
+draft: true
 title: What I learned on design thinking and software development
 description: Learn how design thinking and the Software Development Life Cycle (SDLC) guide software projects to create user-focused products efficiently with quality, budget, and time management.
 date: 2021-05-10

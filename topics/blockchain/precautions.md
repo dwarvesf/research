@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Precautions
 description: Learn how to prepare smart contracts for failure with techniques like circuit breakers, rate limits, speed bumps, and upgradeability to enhance blockchain security and reduce risks.
 date: null

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Dbt the good solution to accelerate data transformation
 description: Discover how DBT (data build tool) simplifies data transformation in warehouses with modular SQL, automation, and software engineering practices for faster, reliable analytics and trusted data delivery.
 date: 2022-11-21

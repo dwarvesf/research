@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Quick learning vector database
 description: The motivation of this thoughts that trying to discover the LLMs and Generative AI...
 date: 2024-03-15

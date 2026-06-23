@@ -1,4 +1,5 @@
 ---
+draft: true
 title: StarkNet architecture
 description: "This article provides an overview of StarkNet's architecture, including its main components, how it works, and its transaction lifecycle. It also covers the messaging mechanism between Layer 1 and Layer 2, as well as the node clients used in the StarkNet network."
 date: 2022-12-26

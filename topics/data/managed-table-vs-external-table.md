@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Managed table vs external table
 description: Learn the key differences between Hive managed tables and external tables, including when to use each type and how dropping tables affects their underlying data in HDFS.
 date: 2022-11-16

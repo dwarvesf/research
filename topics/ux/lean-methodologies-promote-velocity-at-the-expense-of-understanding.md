@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Lean methodologies promote velocity at the expense of understanding
 description: Lean design focuses on fast delivery and efficiency but can overlook ethical impacts and long-term value, urging designers to consider user and societal well-being beyond quick market feedback.
 date: null

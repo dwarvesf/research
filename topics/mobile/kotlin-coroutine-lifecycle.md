@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Kotlin coroutine lifecycle
 description: Learn the difference between CoroutineScope and CoroutineContext, understand the Job lifecycle states, and discover how cooperative cancellation works in Kotlin coroutines for effective concurrency control.
 date: 2022-10-10

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Cap theorem
 description: Learn about the CAP theorem, which explains how distributed databases balance consistency, availability, and partition tolerance, and how different database types prioritize these guarantees.
 date: 2022-04-18

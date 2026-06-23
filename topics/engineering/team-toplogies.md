@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Team toplogies
 description: Discover how Team Topologies improves software delivery by organizing teams into four types and using three interaction modes to boost collaboration, reduce cognitive load, and enhance flow.
 date: 2022-08-15

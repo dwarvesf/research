@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Design system integration in React
 short_title: Design system integration
 description: Learn how to integrate design systems in React applications with comprehensive coverage of design tokens, atomic components, and accessibility standards.

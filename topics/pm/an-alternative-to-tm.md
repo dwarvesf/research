@@ -1,4 +1,5 @@
 ---
+draft: true
 title: An alternative to TM
 description: "Discover why Atomic replaces 'time and materials' with 'fixed budget, scope-controlled' projects to deliver efficient, well-estimated custom software within set budgets and clear progress updates."
 date: 2020-05-09

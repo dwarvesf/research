@@ -1,4 +1,5 @@
 ---
+draft: true
 title: MPA, SPA and partial hydration
 description: MPA, SPA and partial hydration are three different approaches to building web applications.
 date: 2022-03-24

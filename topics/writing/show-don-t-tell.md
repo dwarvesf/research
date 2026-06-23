@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Show don t tell
 description: 'Learn how "show, don''''t tell" enhances writing and business communication by using vivid details and sharing information to engage audiences more effectively than simple statements.'
 date: null

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Pg in elixir
 description: "Learn how to use Erlang's pg library for process groups to broadcast messages across clustered Elixir services, enabling scalable WebSocket communication without third-party tools."
 date: 2022-11-01

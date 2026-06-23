@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Intuition vs sensing
 description: Discover the key traits of Sensors and Intuitives, highlighting how Sensors excel in practical details while Intuitives thrive on abstract ideas and creative connections.
 date: null

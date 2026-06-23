@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Google data fusion
 description: Learn how to use Google Cloud Data Fusion to build and manage ETL pipelines with a simple drag-and-drop interface, integrating data from cloud storage to BigQuery for fast analytics.
 date: 2024-01-22

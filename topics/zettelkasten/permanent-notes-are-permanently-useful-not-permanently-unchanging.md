@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Permanent notes are permanently useful not permanently unchanging
 description: Learn the difference between permanent and literature notes in the zettelkasten method, focusing on creating flexible, permanently useful notes that evolve with new ideas.
 date: null

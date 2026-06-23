@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Why Hollywood and gaming struggle with AI
 description: Why Hollywood and gaming struggle with AI
 date: 2024-10-11

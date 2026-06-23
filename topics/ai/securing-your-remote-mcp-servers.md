@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Securing your remote MCP servers
 description: This guide explores implementing robust authorization for Model Context Protocol (MCP) over Server-Sent Events (SSE) transport, providing a standardized framework for secure AI-to-tool communication while maintaining vendor independence.
 date: 2025-03-27

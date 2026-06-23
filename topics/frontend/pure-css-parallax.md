@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Pure CSS parallax
 description: This article demonstrates how to use CSS transforms, perspective and some scaling trickery to create a pure CSS parallax scrolling website.
 date: 2022-09-10

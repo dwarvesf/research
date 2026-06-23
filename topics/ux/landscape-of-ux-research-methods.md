@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Landscape of ux research methods
 description: Learn how UX research methods are organized by attitudinal vs behavioural, qualitative vs quantitative, and context of use to uncover valuable user insights and improve product design.
 date: null

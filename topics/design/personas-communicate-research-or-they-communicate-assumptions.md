@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Personas communicate research or they communicate assumptions
 description: Personas should be based on user research to provide accurate insights, while proto-personas rely on assumptions that require careful validation to avoid misleading design decisions.
 date: null

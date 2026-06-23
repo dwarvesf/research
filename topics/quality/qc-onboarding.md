@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Qc onboarding
 description: Learn how to access QA resources and use gitlab-issues-tools for managing tasks, cloning issues, and exporting defect reports with step-by-step commands and templates.
 date: 2017-07-13

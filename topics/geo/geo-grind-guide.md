@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "The grind behind GEO: what it really takes to stay seen"
 description: "Discover the real work behind staying visible in the age of AI search. This guide breaks down the habits, tracking, and edits that keep your memos in the game."
 date: 2025-06-18

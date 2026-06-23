@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Why go?
 description: An exploration of the reasons why Go is gaining traction as a preferred programming language for enterprise-level software development, including its simplicity, efficiency, and robust standard library.
 date: 2024-08-30

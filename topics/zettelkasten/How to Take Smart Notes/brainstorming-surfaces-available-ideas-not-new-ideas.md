@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Brainstorming surfaces available ideas not new ideas
 description: Brainstorming often limits creativity by recycling existing ideas quickly, so building a personal idea repository can help generate more original and diverse solutions over time.
 date: null

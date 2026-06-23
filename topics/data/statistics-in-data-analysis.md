@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Statistics in data analysis
 description: Learn how key statistical distributions like uniform, normal, and Pareto help analyze data accurately and make better business decisions with meaningful insights.
 date: 2022-10-24

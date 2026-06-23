@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Prototypes help test ideas that are already refined
 description: Avoid rushing to prototypes in design; focus on deeply understanding the problem first to ensure solutions truly address user needs and avoid wasting effort on the wrong ideas.
 date: null

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Mastering ux research essential techniques for successful design
 description: Discover the eight essential UX research methods like Lean Canvas, user journey mapping, and competitor analysis to create user-friendly digital products that meet real user needs effectively.
 date: 2023-11-09

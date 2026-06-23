@@ -1,4 +1,5 @@
 ---
+draft: true
 title: How we setup cicd
 description: Learn how Dwarves simplifies CI/CD with Gitlab, Github Actions, automated linting, testing, previewing, building Docker images, and deploying to Kubernetes for faster, reliable software delivery.
 date: 2021-02-16

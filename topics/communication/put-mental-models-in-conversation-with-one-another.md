@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Put mental models in conversation with one another
 description: Learn how applying multiple mental models and diverse perspectives improves decision-making by revealing hidden insights and overcoming narrow, specialized thinking.
 date: null

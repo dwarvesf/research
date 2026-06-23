@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Go commentary #6: GUI framework, leadership change"
 short_title: "#6 Cogent Core, Russ Cox stepping down"
 description: Introducing Cogent Core, a new GUI framework for Go, and announcing Russ Cox stepping down as Tech Lead of Go after 12 years.

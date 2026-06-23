@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Context7 breakdown"
 short_title: Context7
 description: "Technical analysis of Context7, an intelligent documentation indexing and retrieval system that transforms raw library docs into AI-optimized, ranked snippets for real-time LLM context injection"

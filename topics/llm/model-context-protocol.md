@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Intro to model context protocol
 description: "Explore Anthropic's Model Context Protocol (MCP) - a groundbreaking approach to enhancing AI assistants. Learn how MCP integrates with local and remote resources, enabling smarter interactions with tools and databases."
 date: 2024-11-29

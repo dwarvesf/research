@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Focus product development on customer jobs that are important tangible unsatisfied and lucrative
 description: Learn how to identify high-value customer jobs by focusing on important, tangible, unsatisfied, and lucrative needs to create effective value propositions that drive business success.
 date: null

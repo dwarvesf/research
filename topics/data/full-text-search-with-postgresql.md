@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Full text search with postgresql
 description: Learn how to boost PostgreSQL search performance using full-text search with GIN indexes, stop words, and custom configurations for faster and flexible text queries on large datasets.
 date: 2022-07-12

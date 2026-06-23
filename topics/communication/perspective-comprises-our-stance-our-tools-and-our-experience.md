@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Perspective comprises our stance our tools and our experience
 description: Learn how perspective is shaped by the interaction of stance, tools, and experience to better understand and approach complex problems effectively.
 date: null

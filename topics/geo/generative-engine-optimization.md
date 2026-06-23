@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Generative engine optimization
 description: "Learn the essential principles of Generative Engine Optimization (GEO): structure content for AI, boost your reference rate, and get LLMs to quote your pages directly in their answers"
 date: 2025-06-12

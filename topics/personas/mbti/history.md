@@ -1,4 +1,5 @@
 ---
+draft: true
 title: The history
 description: Discover the difference between MBTI personality types and Big Five traits, explaining how types categorize over 50% traits while Big Five measures personality degrees without strict types.
 date: null

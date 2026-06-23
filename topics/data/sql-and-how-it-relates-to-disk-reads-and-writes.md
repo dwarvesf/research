@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Sql and how it relates to disk reads and writes
 description: Sequential read/write operations involve accessing data in a continuous, linear manner. This typically occurs when transferring large files or accessing a large file on the drive. In sequential read/write operations, the drive can read or write data from a series of blocks, allowing for faster performance...
 date: 2023-09-06

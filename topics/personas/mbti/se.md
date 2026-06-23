@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Extraverted Sensing (Se)
 description: Discover how Se types like ESTPs and ESFPs seek new sensory experiences and excel in hands-on activities, focusing on present details and physical appearances.
 date: null

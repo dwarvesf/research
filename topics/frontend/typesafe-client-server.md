@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Typesafe client server
 description: A code generation layer that bridges the gap between frontend and backend more effectively.
 date: 2023-12-06

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Playaround with Clojure
 description: Discover Clojure, a dynamic, functional Lisp dialect hosted on the JVM, offering powerful concurrency, immutable data structures, and seamless Java integration for efficient multithreaded programming.
 date: 2019-09-06

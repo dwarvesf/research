@@ -1,4 +1,5 @@
 ---
+draft: true
 title: BIP39
 description: null
 date: null

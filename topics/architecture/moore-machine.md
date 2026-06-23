@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Moore machine
 description: Learn about Moore machines, a type of finite-state machine where outputs depend only on current states, and explore their differences from Mealy machines and formal definitions.
 date: 2022-06-28

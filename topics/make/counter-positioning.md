@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Attack their cash cow
 description: Counter-positioning disrupts incumbents by adopting business models that force established players to hurt their own profits if they copy. Research shows successful disruption targets the core profit engines that companies are structurally unable to abandon.
 date: 2025-07-01

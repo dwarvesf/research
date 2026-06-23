@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Understanding Tidewave.ai
 description: Discover how Tidewave connects AI assistants to your web framework's runtime through MCP, enabling real-time interaction with your application. Learn about its features, benefits, and how to get started.
 date: 2025-06-12

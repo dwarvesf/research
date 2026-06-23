@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Qualitative and quantitative research methods each have trade offs
 description: Discover the key differences between qualitative and quantitative research methods, their strengths in explanation and measurement, and how each offers unique insights for better understanding data.
 date: null

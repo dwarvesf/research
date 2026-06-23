@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Take notes with connection in mind
 description: Learn how to take smart notes by connecting new ideas with existing ones to deepen understanding and reveal insights, boosting your learning, writing, and thinking skills effectively.
 date: null

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Project management
 description: Learn essential project manager skills like organizing tasks, managing client expectations, leading teams without micromanaging, anticipating problems, and keeping clients informed for smooth project success.
 date: 2020-01-12

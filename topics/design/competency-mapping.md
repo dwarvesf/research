@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Competency mapping
 description: Discover a detailed competency framework for user research, design, usability, metrics, prototyping, client management, and development to assess and develop skills across 13 key UX and product areas.
 date: 2018-04-01

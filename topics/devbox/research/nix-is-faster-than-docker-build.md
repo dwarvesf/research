@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Nix is faster than Docker build
 description: An exploration of how Nix outperforms Docker in building images, leveraging its deep understanding of package dependencies and content-addressable storage
 date: 2024-08-01

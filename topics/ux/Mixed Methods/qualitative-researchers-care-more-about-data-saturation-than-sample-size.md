@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Qualitative researchers care more about data saturation than sample size
 description: Learn how qualitative UX research focuses on data saturation over sample size to uncover key user insights and improve products through ongoing Agile feedback and diverse user interviews.
 date: null

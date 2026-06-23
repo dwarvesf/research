@@ -1,4 +1,5 @@
 ---
+draft: true
 title: § engineering backend moc
 description: Explore key backend engineering concepts including Golang atomic packages, database locking, GraphQL microservices, Redis tools, SQL optimization, concurrency patterns, and effective testing strategies.
 date: null

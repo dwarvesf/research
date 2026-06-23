@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Mapping the path to AGI
 description: Dissecting the evolution of AI agents from eager human-in-the-loop systems to fully autonomous entities, and how each stage automates the core tasks of exploration, planning, execution, and review.
 date: 2025-06-02

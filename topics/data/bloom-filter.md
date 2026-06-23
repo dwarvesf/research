@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Bloom filter
 description: "A Bloom filter is a probabilistic data structure used for testing whether an element is a member of a set or not. It's space-efficient compared to other data structures like hash tables, but it may give false positives (indicating that an element is in the set when it's not) and never gives false negatives (indicating that an element is not in the set when it actually is not)..."
 date: 2024-06-28

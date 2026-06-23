@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Data race and race condition
 description: Learn the difference between data race and race condition in multithreaded programming, and discover how mutex and atomic operations ensure data safety by controlling access to shared resources.
 date: 2022-12-11

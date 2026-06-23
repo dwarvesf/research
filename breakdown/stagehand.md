@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Stagehand breakdown
 short_title: Stagehand
 description: A comprehensive technical breakdown of Stagehand, an advanced browser automation framework by Browserbase

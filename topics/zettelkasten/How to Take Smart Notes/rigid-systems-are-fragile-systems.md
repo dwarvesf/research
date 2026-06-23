@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Rigid systems are fragile systems
 description: Learn why rigid systems fail in uncertain environments and how effective system design channels change and friction into productive outcomes to adapt and thrive.
 date: null

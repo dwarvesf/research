@@ -1,4 +1,5 @@
 ---
+draft: true
 title: 'RFCs'
 description: 'A collaborative workspace for organizing and reviewing team proposals, ideas, and significant changes through structured RFC documents'
 date: 2025-04-03T00:00:00.000Z

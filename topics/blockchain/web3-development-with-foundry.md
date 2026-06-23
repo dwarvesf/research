@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Web3 development with Foundry
 description: Provides a comprehensive guide to Web3 development using Foundry, a modern, Rust-based toolkit for Ethereum smart contract development.
 date: 2025-04-01

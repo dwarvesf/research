@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Skill of software engineer
 description: Discover essential software development skills including coding, debugging, version control, design, and automated testing, plus key soft skills like teamwork and communication for effective collaboration.
 date: 2017-03-14

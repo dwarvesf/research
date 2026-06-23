@@ -1,4 +1,5 @@
 ---
+draft: true
 title: From markup to pixels - a look inside the DOM, CSSOM, and render tree
 description: A deep dive into the rendering process of a web page, exploring the Document Object Model (DOM), CSS Object Model (CSSOM), and the Render Tree.
 date: 2023-09-11

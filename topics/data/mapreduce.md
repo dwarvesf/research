@@ -1,4 +1,5 @@
 ---
+draft: true
 title: ¶ MapReduce
 description: We are the head of census bureau for the state of California and tasked with finding the finding the population of all cities in California. All the resources we want are ready but we have only four months to finish the task. Calculating the population of all cities for a big state like california is not an easy task. The sensible thing to do is to divide the state by city and make individuals in charge of each city to calculate the population of each city where he is in charge of...
 date: 2022-10-24

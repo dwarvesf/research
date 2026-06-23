@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Code splitting in React
 short_title: Code splitting
 description: Optimize JavaScript performance with code splitting techniques like route-based splitting, lazy loading, and dynamic imports

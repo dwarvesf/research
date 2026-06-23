@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Service based architecture
 description: Service-based architecture offers a flexible, middle-ground approach between monoliths and microservices, ideal for managing complex business needs without the overhead of full microservice complexity.
 date: 2022-06-21

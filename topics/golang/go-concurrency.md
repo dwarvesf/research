@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Go concurrency
 description: "A comprehensive guide to concurrency in Go, covering goroutines, channels, and the Go scheduler. This article explains the differences between concurrency and parallelism, dives into the implementation details of channels, and explores the inner workings of the Go scheduler. It provides insights into how Go's concurrency model compares to other languages and offers a deep understanding of Go's efficient approach to managing concurrent tasks."
 date: 2019-12-04

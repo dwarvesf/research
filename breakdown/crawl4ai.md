@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Crawl4AI breakdown
 short_title: Crawl4AI
 description: "Deep dive into Crawl4AI's architecture, data structures, and algorithms - from async pipelines and strategy patterns to browser management and intelligent content extraction for AI workflows."
