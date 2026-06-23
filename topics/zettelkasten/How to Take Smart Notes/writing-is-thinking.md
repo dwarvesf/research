@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Writing is thinking
 description: Writing is a powerful tool for thinking, as putting ideas into your own words deepens understanding and reveals gaps in logic or contradictions.
 date: null

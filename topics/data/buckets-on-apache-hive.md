@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Buckets on Apache Hive
 description: Learn how Apache Hive buckets solve issues with dynamic partitions by reducing tiny files, enabling efficient sampling, and improving query performance through bucketing and partitioning techniques.
 date: 2022-12-10

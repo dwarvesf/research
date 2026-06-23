@@ -1,4 +1,5 @@
 ---
+draft: true
 title: § Wealth study
 description: null
 date: 2025-05-18

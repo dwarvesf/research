@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Uidynamicanimator
 description: Learn how UIDynamicAnimator and UIDynamicItem enable realistic 2D physics animations in iOS using behaviors like gravity, collision, and attachment for natural, high-performance user interface effects.
 date: 2019-07-26

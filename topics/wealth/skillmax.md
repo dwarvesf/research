@@ -1,4 +1,5 @@
 ---
+draft: true
 title: What is skillmax?
 description: "Explains 'skillmaxing,' using AI for accelerated learning and skill development in a fast-changing world, and why it's crucial now."
 authors:

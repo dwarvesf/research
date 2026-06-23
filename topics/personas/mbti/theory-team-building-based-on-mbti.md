@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Theory team building based on mbti
 description: "Discover the four temperaments—Guardians, Artisans, Idealists, and Rationals—and how they shape communication, action, and personality based on Myers-Briggs and David Keirsey's insights."
 date: null

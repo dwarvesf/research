@@ -1,4 +1,5 @@
 ---
+draft: true
 title: How to build a product sense
 description: Learn how to improve your product sense to create user-focused products by observing users, analyzing everyday products, learning from experts, and staying updated with technology trends.
 date: 2023-02-23

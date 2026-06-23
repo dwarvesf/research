@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Pinning nixpkgs in Nix
 description: An explanation of pinning nixpkgs in Nix and its importance for reproducible builds
 date: 2024-08-01

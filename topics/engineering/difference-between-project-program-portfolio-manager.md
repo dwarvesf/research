@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Difference between project program portfolio manager
 description: Learn the key differences between Project Manager, Program manager, and Portfolio manager roles in software development and how they manage teams to meet client requirements effectively.
 date: 2023-01-17

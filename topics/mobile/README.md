@@ -1,4 +1,5 @@
 ---
+draft: true
 title: § Mobile
 description: Explore essential mobile development topics including Flutter widgets, SwiftUI, Kotlin coroutines, and iOS security with practical guides and case studies for building modern apps.
 date: 2025-04-23

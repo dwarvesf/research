@@ -1,4 +1,5 @@
 ---
+draft: true
 title: § AI
 description: Explore clear explanations of gradient descent, AI-powered interview systems, secure remote servers, and challenges of AI in Hollywood and gaming to enhance your understanding of machine learning and AI applications.
 date: 2025-04-23

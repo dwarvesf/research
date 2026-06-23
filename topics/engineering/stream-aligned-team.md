@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Stream aligned team
 description: Learn how stream-aligned teams enable fast delivery by owning end-to-end work, reducing hand-offs, and adapting quickly to change for better software flow and customer feedback.
 date: 2022-09-19

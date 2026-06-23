@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Democratize user research to scale user research
 description: Learn how democratizing research by sharing tasks with non-researchers helps large organizations scale insights and avoid bottlenecks without expanding research teams.
 date: null

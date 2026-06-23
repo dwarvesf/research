@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Build polymorphic React components with Typescript
 description: This article provides a step-by-step guide on how to build polymorphic React components with Typescript, covering the necessary concepts and techniques to create flexible and reusable components.
 date: 2022-09-26

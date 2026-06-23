@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Umami breakdown
 short_title: Umami
 description: Comprehensive technical analysis of Umami, a modern, privacy-focused web analytics platform.

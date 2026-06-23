@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Model selection
 description: Learn how to choose the right AI model for your needs. Explore key factors like accuracy, privacy, and cost. Compare commercial vs open-source options and API vs self-hosting approaches.
 date: 2024-10-15

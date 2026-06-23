@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Reward model
 description: A Reward model is a critical component in Reinforcement Learning for Large Language Models (LLMs), designed to evaluate and score the quality of generated responses. It plays a key role in aligning LLMs with human values and improving their output through iterative refinement.
 date: 2023-06-23

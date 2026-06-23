@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Our view on fullstack engineering
 description: Discover what full-stack engineering truly means, exploring how skilled developers blend frontend, backend, and infrastructure knowledge to create seamless, user-focused software solutions.
 date: 2023-08-30

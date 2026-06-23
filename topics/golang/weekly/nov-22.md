@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Go commentary #21: Go sync.Once is simple"
 short_title: "#21 Go sync.Once is Simple"
 description: "Understanding Go's sync.Once - A Deep Dive into Single-Execution Guarantees and Atomic Operations"

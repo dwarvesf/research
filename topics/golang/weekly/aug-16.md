@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Go commentary #7: Releases, websockets, and struct behavior"
 short_title: "#7 Go 1.23, Websockets, and Structs"
 description: Exploring Go 1.23 release notes, the new home for nhooyr/websocket, and common mistakes with Go structs and slices.

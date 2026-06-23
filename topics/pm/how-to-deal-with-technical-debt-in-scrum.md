@@ -1,4 +1,5 @@
 ---
+draft: true
 title: How to deal with technical debt in Scrum
 description: How to deal with Technical debt in Scrum
 date: 2022-12-13

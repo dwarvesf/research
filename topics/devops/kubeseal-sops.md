@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Kubeseal sops
 description: Learn how to securely manage Kubernetes secrets using Kubeseal and Sops to encrypt and store secrets safely in public repos while ensuring only your cluster can decrypt them.
 date: 2022-09-28

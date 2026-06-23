@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Design better mobile application
 description: Explore key differences between iOS and Android operating systems for UX/UI designers, including performance, development, privacy, and app platforms to create better mobile applications.
 date: 2020-05-01

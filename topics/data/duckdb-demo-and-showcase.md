@@ -1,4 +1,5 @@
 ---
+draft: true
 title: DuckDB demo and showcase
 description: "DuckDB is a great starting point for modern stacks that don't need to worry about scalability, but want to derive hard analytics from the data that they have. This meeting will do a 3-part demo of DuckDB (15 minutes total): • Consolidate NYC taxi data in parallel (through map-reduce) over HTTPS • Aggregate IBM AML transactions (Anti-Money Laundering) • Some examples of how it is used to consolidate and do basic analytics on note.d and log.console.so"
 date: 2023-11-23

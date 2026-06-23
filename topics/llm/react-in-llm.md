@@ -1,4 +1,5 @@
 ---
+draft: true
 title: ReAct(reason + act) in LLM
 description: Working with Large Language Models (LLMs) may seem straightforward at first glance. Initially, we might think that simply prompting the AI model with a task is sufficient for it to assist us. However, when faced with more complex tasks, we need to break down the problem into smaller sub-tasks and guide the AI model to solve them sequentially. This is where the ReAct approach comes into play.
 date: 2024-10-18

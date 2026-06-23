@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Qualitative research creates mental models about the problem space
 description: Qualitative research builds deep understanding of people’s motivations and contexts, helping create better products by revealing what truly matters through open-ended, narrative-driven insights.
 date: null

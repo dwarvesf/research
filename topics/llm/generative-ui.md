@@ -1,4 +1,5 @@
 ---
+draft: true
 title: What is Generative UI?
 description: An introduction to Generative UI (genUI), a user interface that generates interactive elements in response to user needs using AI, enhancing UX in chat applications. The article explores examples, benefits, and popular solutions like the Vercel AI SDK for implementing generative UI.
 date: 2024-08-08

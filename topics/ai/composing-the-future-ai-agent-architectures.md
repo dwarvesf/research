@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Composing the future: an iron-clad analysis of AI agent architecture frameworks"
 description: "Forget toy agents. This is your guide to the guts of AI agent frameworks, how to pick 'em, and how to build agentic systems that actually deliver."
 date: "2025-06-02"

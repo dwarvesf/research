@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Cognitive diversity enhances team problem solving capabilities
 description: Teams with cognitive diversity solve problems faster and think more creatively than homogeneous groups, showing the value of diverse thinking styles in improving team performance and problem-solving.
 date: null

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Acceptance test in elixir
 description: Learn how to automate End2End acceptance tests in Elixir using Hound and WebDriver to run browser tests efficiently and reduce manual testing time.
 date: 2022-07-13

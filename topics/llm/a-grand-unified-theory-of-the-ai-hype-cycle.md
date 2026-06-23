@@ -1,4 +1,5 @@
 ---
+draft: true
 title: A grand unified theory of the AI hype cycle
 description: An exploration of the cyclical nature of AI development, tracing the rise and fall of new technologies within the field, and how this pattern has repeated throughout history.
 date: 2024-06-13

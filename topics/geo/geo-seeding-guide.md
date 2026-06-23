@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Seeding your content for AI: a writer’s guide"
 description: "This guide shows writers practical tactics for sharing content on platforms like Reddit, YouTube, and Quora to boost citations and stay visible in AI-generated answers."
 date: 2025-06-19

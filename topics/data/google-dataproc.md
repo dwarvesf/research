@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Google dataproc
 description: Learn how to set up and use Google Dataproc for fast, scalable Apache Spark and Hadoop data processing on Google Cloud, including cluster creation, job submission, and pricing details.
 date: 2024-01-22

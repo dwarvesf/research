@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Blockchain oracle
 short_title: ¶ Oracle
 description: Learn how blockchain oracles solve the oracle problem by connecting smart contracts with real-world data, enabling secure input, output, cross-chain communication, and off-chain computing.

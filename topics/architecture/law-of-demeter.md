@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Law of demeter
 description: Learn how the Law of Demeter reduces object dependencies by promoting loose coupling and improving code flexibility, maintainability, and testability in object-oriented programming.
 date: 2023-01-17

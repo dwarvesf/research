@@ -1,4 +1,5 @@
 ---
+draft: true
 title: 'E2b breakdown'
 short_title: E2B
 description: 'Technical analysis of E2B, a cloud infrastructure platform that runs AI-generated code in secure, isolated sandboxes using lightweight virtual machines that start in under 200ms.'

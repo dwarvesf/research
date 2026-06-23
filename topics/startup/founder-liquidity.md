@@ -1,4 +1,5 @@
 ---
+draft: true
 title: ≈ Founder liquidity
 description: "Founder liquidity is a secret that founders and investors don't want you to know"
 date: 2024-10-11

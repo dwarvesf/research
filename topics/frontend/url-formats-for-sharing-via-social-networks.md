@@ -1,4 +1,5 @@
 ---
+draft: true
 title: URL formats for sharing via social networks
 description: Each social network has its own unique way of handling URLs, and understanding the correct formatting can make a significant difference in the visibility and engagement of your shared content.
 date: 2023-05-26

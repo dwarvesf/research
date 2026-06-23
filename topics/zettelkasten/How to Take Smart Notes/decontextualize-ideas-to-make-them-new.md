@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Decontextualize ideas to make them new
 description: Learn how decontextualizing ideas and breaking familiar patterns boosts creativity and critical thinking by embracing uncertainty, divergent thinking, and fresh perspectives to generate new knowledge.
 date: null

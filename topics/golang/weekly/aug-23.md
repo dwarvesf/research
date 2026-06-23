@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Go commentary #8: Jupyter notebooks, Kubernetes tools, GopherCon talks"
 short_title: "#8 GoNB, kubetrim, and GopherCon UK 2024"
 description: "Explore GoNB for Jupyter notebooks, kubetrim for KUBECONFIG management, and key highlights from GopherCon UK 2024 talks, covering performance testing, software design, event-driven workflows, and AI's impact on tech jobs."

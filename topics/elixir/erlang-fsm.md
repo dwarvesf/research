@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Erlang finite state machine
 description: The Power of Finite State Machines
 date: 2024-07-12

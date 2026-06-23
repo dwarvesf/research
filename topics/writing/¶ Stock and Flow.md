@@ -1,4 +1,5 @@
 ---
+draft: true
 title: ¶ stock and flow
 description: 'Learn how Robin Sloan''''s "stock and flow" theory helps creators balance evergreen content with fresh updates to grow long-term traffic and audience engagement effectively.'
 date: null

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Working with langchain document loaders
 description: This article explores Langchain document loaders, explaining their role in overcoming token limits, integrating with vector databases, and demonstrating how to build a question-answering system using CSV data and an AI agent.
 date: 2023-04-21

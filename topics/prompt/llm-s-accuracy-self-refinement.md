@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "LLM's accuracy - self refinement"
 description: An overview of self-refinement, a technique where Large Language Models (LLMs) evaluate and improve their own output without the need for supervised data or reinforcement learning.
 date: 2023-06-29

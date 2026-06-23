@@ -1,4 +1,5 @@
 ---
+draft: true
 title: ¶ deductive reasoning
 description: Deductive research tests theories by gathering data to confirm or reject hypotheses, focusing on concrete conclusions rather than generating new knowledge or predicting future events.
 date: null

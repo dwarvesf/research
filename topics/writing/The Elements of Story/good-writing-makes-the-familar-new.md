@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Good writing makes the familar new
 description: Discover how good writing transforms the familiar into something fresh by creating new perspectives and focusing on themes without distracting the reader.
 date: null

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Giving a talk checklist
 description: The checklist presents how to prepare for a talk
 date: 2024-11-11

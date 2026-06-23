@@ -1,4 +1,5 @@
 ---
+draft: true
 title: RLHF with Open Assistant
 description: An overview of Open Assistant, an open-source chat-based AI assistant, and its implementation of Reinforcement Learning from Human Feedback (RLHF). This article covers the three-step process of RLHF, system requirements, and detailed setup instructions for training the model using Supervised Fine-Tuning, Reward Modeling, and Reinforcement Learning.
 date: 2023-08-10

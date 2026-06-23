@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Plonky2
 description: "Plonky2 is a non-Interactive Proof of Proof of Knowledge (NIPoPoK) chain that reduces blockchain size and speeds up transaction confirmations. This article explores Plonky2's technology, its applications in various blockchain projects, and compares it with other scaling solutions."
 date: 2023-02-28

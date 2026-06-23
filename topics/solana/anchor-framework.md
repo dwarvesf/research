@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Anchor framework
 description: A comprehensive guide to getting started with smart contract development on Solana using the Anchor framework. This tutorial covers the basics of Anchor, its components, installation process, and provides step-by-step instructions for creating and deploying a simple program.
 date: 2022-07-01

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Behind a hive table
 description: Learn how to create and understand Hive tables, including table structure, storage formats, SerDe functions, HDFS data location, and metadata management in the Hive metastore.
 date: 2022-11-11

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: PoS
 description: This article provides an overview of Proof of Stake (PoS) in blockchain technology, including its definition, how it works, and its advantages.
 date: 2022-06-16

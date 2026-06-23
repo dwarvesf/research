@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Foundation models: the latest advancement in AI"
 description: An overview of foundation models, their versatility in generative AI tasks, and their impact across various domains like NLP, image generation, and scientific research. The article highlights the benefits, challenges, and future potential of these models.
 date: 2023-05-18

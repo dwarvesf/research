@@ -1,4 +1,5 @@
 ---
+draft: true
 title: React server components, NextJs route and data fetching
 description: React Server Components (RSCs) offer the flexibility to decide where to render components based on their purpose, diverging from the client-side rendering approach of Single-Page Applications.
 date: 2023-05-28

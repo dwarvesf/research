@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Design resourcestools
 description: Discover top UX design resources, including expert articles, communities, podcasts, books, and tools to improve user experience and master UX design techniques effectively.
 date: 2018-03-25

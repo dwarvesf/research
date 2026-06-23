@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Hoc renderprops and hook in Reactjs
 description: Learn how to refactor React.js components using HOC, render props, and hooks to create reusable toggle logic that follows the DRY principle and simplifies state management.
 date: 2019-04-12

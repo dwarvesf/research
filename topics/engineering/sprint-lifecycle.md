@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Sprint lifecycle
 description: Learn the strict sprint lifecycle rules including sprint start, automatic closure, code release timing, and deployment schedules to ensure smooth project management and timely deliveries.
 date: 2016-02-10

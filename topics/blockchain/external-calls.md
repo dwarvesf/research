@@ -1,4 +1,5 @@
 ---
+draft: true
 title: External calls
 description: Learn best practices for safe external calls in Solidity, including avoiding reentrancy, handling errors, using call() over transfer(), and never delegatecall untrusted contracts to secure smart contracts.
 date: null

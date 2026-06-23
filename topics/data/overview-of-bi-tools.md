@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Overview of BI tools
 description: Compare top data visualization tools like Tableau, Power BI, and Google Data Studio to find the best business intelligence software for interactive dashboards, ease of use, pricing, and integration.
 date: 2022-11-21

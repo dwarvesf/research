@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Synthetic users in UX research
 description: Explore AI-generated user profiles in UX research and their potential benefits and limitations. Learn when synthetic users can complement real user research and best practices for responsible use.
 date: 2024-12-19

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: 000 RFC template
 description: null
 date: 2025-04-03

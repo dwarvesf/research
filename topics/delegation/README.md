@@ -1,4 +1,5 @@
 ---
+draft: true
 title: § Delegation
 description: null
 date: null

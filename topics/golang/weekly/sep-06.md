@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Go commentary #10: Script, telemetry"
 short_title: "#10 Script, Telemetry"
 description: "Exploring a Go library for shell-like scripting and Go's telemetry feature."

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Design environments to facilitate behaviours
 description: Design environments that reduce friction for good habits and increase friction for bad ones to conserve willpower and encourage positive behavior effectively.
 date: null

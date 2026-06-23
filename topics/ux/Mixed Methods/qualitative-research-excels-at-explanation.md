@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Qualitative research excels at explanation
 description: Qualitative research explains causation using metaphors and narratives to create concepts for quantitative testing, offering deep insights beyond event frequency and complementing quantitative methods.
 date: null

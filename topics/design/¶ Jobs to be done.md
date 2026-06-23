@@ -1,4 +1,5 @@
 ---
+draft: true
 title: ¶ jobs to be done
 description: Learn how the Jobs to Be Done (JTBD) framework helps product teams focus on customer needs and outcomes by understanding the processes customers use to achieve their goals.
 date: null

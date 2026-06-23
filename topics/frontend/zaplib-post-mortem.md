@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Zaplib post-mortem
 description: "Zaplib is a frontend framework that helps to port your JS/TS app to Rust/Wasm. This idea was found after the founder's painful work at https://webviz.io when he had to use a bundle of manual memory management techniques such as ArrayBuffers, WebWorkers for performance optimization. Back up with the assumption that an intricate web app like Figma also uses Wasm, they thought there would be a lot of companies experiencing a similar performance issue with their applications and those companies would be keen on using their new tool to 10x speed up the apps."
 date: 2022-05-01

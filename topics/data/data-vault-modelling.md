@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Data vault modelling
 description: Learn how Data Vault architecture builds flexible, scalable data lakes using hubs, links, and satellites to manage business keys and historical data with pros and cons explained.
 date: 2022-12-15

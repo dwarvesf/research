@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Go in software engineering
 description: "An overview of Go's key features, including simplicity, concurrency support, and interface-driven OOP. Explores Go's strengths in cloud applications and utility development, and its role in software engineering practices for maintaining resilient programs over time."
 date: 2020-08-07

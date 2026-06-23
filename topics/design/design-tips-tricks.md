@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Design tips tricks
 description: Discover key UX design principles to create user-friendly forms, avoid common product design mistakes, and simplify online checkout processes for better user experience and higher conversion rates.
 date: 2018-03-24

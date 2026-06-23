@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Project operations copilots
 description: Project operations copilots is a suite of AI assistants designed to streamline project management and reporting processes. These copilots, built using Dify and custom implementations, help teams generate insightful project reports, create comprehensive project charters, and facilitate smooth project handovers. This approach represents a shift towards AI-assisted project management, enhancing team efficiency and project success rates.
 date: 2024-11-14

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Multi-column index in DB
 description: Multi-column index in DB
 date: 2023-01-19

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Test digital experiences longitudinally
 description: User perception of experiences changes over time, so longitudinal testing is essential to understand how feelings toward applications evolve with repeated use and familiarity.
 date: null

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Parse, don't validate in TypeScript"
 description: 'The "parse, don''t validate" approach is about processing incoming data and failing in a controlled manner if parsing fails.'
 date: 2023-01-05

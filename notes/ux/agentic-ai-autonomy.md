@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Should AI agents transact without human confirmation?
 description: A UX guide to designing agentic AI systems that balance automation with user control.
 date: 2025-07-08

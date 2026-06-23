@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Good research starts with a good question
 description: Effective research starts with a clear, focused question that guides inquiry and helps find solutions, making the process more targeted and valuable.
 date: null

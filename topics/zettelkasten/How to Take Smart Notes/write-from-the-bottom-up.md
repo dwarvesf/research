@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Write from the bottom up
 description: Discover why writing from the bottom up, starting with your existing notes and ideas, reduces anxiety and uncovers deeper insights for clearer, more confident writing.
 date: null

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Progressive delivery
 description: Progressive delivery lets teams release new software features gradually using feature flags and mature CI/CD pipelines to reduce risks and improve user experience.
 date: 2022-09-25

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Quant data is lossy
 description: "Reducing human activity to numbers often loses important context and rich qualitative data, showing that quantitative measures alone can't fully capture complex human behavior and experiences."
 date: null

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Order by vs sort by vs distribute by vs cluster by
 description: Learn how to optimize Hive queries by using ORDER BY, SORT BY, DISTRIBUTE BY, and CLUSTER BY to efficiently order large datasets with multiple reducers and improve performance.
 date: 2022-11-23

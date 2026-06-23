@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Atomic package in golang
 description: Learn how to solve race conditions in Go by using the sync/atomic package for atomic operations and pointers, offering faster and simpler alternatives to mutex locks in concurrent programming.
 date: 2022-08-09

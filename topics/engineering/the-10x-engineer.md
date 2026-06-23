@@ -1,4 +1,5 @@
 ---
+draft: true
 title: The 10x engineer
 description: Discover what makes a 10x engineer highly productive with skills in software development, communication, innovation, and problem-solving, and why tech companies seek these exceptional engineers.
 date: 2016-03-01

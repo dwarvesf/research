@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Go import design: using git repo path"
 description: Go’s use of git repository paths as package identifiers is a unique and powerful feature. Unlike most languages that rely on centralized package repositories, Go links directly to git paths.
 date: 2024-10-25

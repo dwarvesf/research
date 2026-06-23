@@ -1,4 +1,5 @@
 ---
+draft: true
 title: § Architecture
 description: Explore comprehensive guides on software architecture patterns, design patterns, state machines, domain-driven design, and key software principles to improve your system design and development skills.
 date: 2025-04-23

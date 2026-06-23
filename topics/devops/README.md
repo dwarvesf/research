@@ -1,4 +1,5 @@
 ---
+draft: true
 title: § DevOps
 description: Explore essential DevOps concepts including CI/CD, deployment strategies like blue-green deployment, containerization with Docker and Kubernetes, feature management, and security best practices for efficient software delivery.
 date: 2025-04-23

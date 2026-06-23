@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Variable fonts
 description: Variable fonts are a font format that allows for a single font file to contain multiple variations of a typeface.
 date: 2023-03-06

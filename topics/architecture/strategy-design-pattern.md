@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Strategy design pattern, the concept, use cases and difference with the state design pattern
 description: Strategy design pattern, a behavioral design pattern that denote the functionality of a family of interchangeable classes to a interface, the context, with the helper objects, selects the appropriate implementation of the interface.
 date: 2024-07-11

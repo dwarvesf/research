@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Leveraging Golang and WebRTC for high-performance video streaming
 description: "Explores using Golang and the Pion WebRTC library to build high-performance, scalable, low-latency video streaming infrastructure. Covers WebRTC basics (ICE, STUN, TURN), Go's concurrency benefits, Pion's native Go implementation, and a real-world multi-stream security monitoring use case."
 date: 2023-11-22

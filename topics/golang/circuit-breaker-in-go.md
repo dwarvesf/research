@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Circuit breaker in go
 description: Learn how to implement the circuit breaker pattern in Go to handle remote resource failures, improve fault tolerance, and redirect requests using the sony/gobreaker library for reliable API calls.
 date: 2023-07-02

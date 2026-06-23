@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Documents
 description: Learn how to properly document smart contracts with contact info, testing history, known issues, procedures, specifications, and deployment status to ensure security and transparency.
 date: null

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Blue green deployment
 description: Learn how to implement blue-green deployment in Kubernetes using Argo Rollouts to reduce downtime, improve reliability, and smoothly switch between production environments.
 date: 2022-02-16

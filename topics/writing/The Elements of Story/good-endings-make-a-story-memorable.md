@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Good endings make a story memorable
 description: Learn how to craft a strong kicker ending that leaves readers thinking by adding depth, surprise, or a human touch without simply repeating the story’s main points.
 date: null

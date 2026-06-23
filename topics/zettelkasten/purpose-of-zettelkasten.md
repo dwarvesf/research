@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Purpose of zettelkasten
 description: Discover how the Zettelkasten method boosts productivity and creativity by organizing notes to generate new ideas and insights for effective knowledge work and writing.
 date: null

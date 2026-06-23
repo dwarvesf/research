@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Database designs for multilingual apps
 description: Learn how to design multilingual databases using column-based, JSON-based, and translation table approaches to efficiently manage multi-language support for apps with scalable and flexible solutions.
 date: 2023-04-11

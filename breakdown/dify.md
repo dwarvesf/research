@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Dify breakdown
 short_title: Dify
 description: 'Technical analysis of the Dify platform, its architecture, and engineering decisions that enable scalable LLM application development.'

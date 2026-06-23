@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Make notes in your own words
 description: Learn how reformulating text in your own words boosts understanding and memory, while copying notes hinders critical thinking, using the Zettelkasten method to deepen learning and writing skills.
 date: null

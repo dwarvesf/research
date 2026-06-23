@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Remix versus Nextjs
 description: A brief comparison between Remix and Next.js frameworks
 date: 2022-05-27

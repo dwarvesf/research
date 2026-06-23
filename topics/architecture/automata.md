@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Automata
 description: Things about automata that devs should know
 date: 2024-10-22

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Profiling in Go
 description: "Profiling in Go is a powerful tool that can help you identify and fix the subtle issues in your code quickly and efficiently. In this article, we'll explore the world of profiling in Go and show you how you can use it to catch all the issues in your code."
 date: 2023-03-28

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Personas make abstract research concrete for design teams
 description: Personas help design teams focus on real user needs by creating detailed, memorable models of single users, improving product decisions without relying on personal assumptions.
 date: null

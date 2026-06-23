@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Message queues and streaming platforms eg Kafka Nats Rabbitmq
 description: An in-depth exploration of message brokers, their use cases, and implementation examples using RabbitMQ in Go. Covers the basics of message queues, their advantages and disadvantages, and common patterns like work queues and publish/subscribe models.
 date: 2023-05-04

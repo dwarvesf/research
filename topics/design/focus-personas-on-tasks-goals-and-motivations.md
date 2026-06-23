@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Focus personas on tasks goals and motivations
 description: Discover how effective user personas emerge from qualitative research and sensemaking to capture real user experiences, guiding product design with authentic insights rather than assumptions.
 date: null
