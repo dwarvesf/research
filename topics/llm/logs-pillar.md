@@ -127,7 +127,7 @@ While logging might feel like a small detail in the bigger picture of generative
 ## References
 
 - https://www.honeyhive.ai/monitoring
-- https://neptune.ai/blog/llm-observability
+- https://web.archive.org/web/20251005112019/https://neptune.ai/blog/llm-observability
 - https://www.qwak.com/post/prompt-management
 - https://humanloop.com/blog/human-in-the-loop-ai
 - https://www.projectpro.io/article/llm-parameters/1029
