@@ -9,7 +9,7 @@ redirect:
 
 #### The difference between Si <> Se
 
-- While [Se](obsidian://open?vault=dwarves&file=brain%2FHR%2FMBTI%2FExtroverted%20Sensing%20-%20Se) attends to environmental details, [Si](obsidian://open?vault=dwarves&file=brain%2FHR%2FMBTI%2FIntroverted%20Sensing%20%20-%20Si) is concerned with recalling or reconciling past details with those of the present.
+- While [Se](/research/notes/hr/mbti/extroverted-sensing-se) attends to environmental details, [Si](/research/notes/hr/mbti/introverted-sensing-si) is concerned with recalling or reconciling past details with those of the present.
 
 - Se gathers concrete information broadly, seeking diversity and novelty. Si perceives more narrowly, drawing on past experiences.
 

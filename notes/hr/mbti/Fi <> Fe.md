@@ -9,8 +9,8 @@ redirect:
 
 #### The difference between Fi and Fe
 
-- [Fi](obsidian://open?vault=dwarves&file=brain%2FHR%2FMBTI%2FIntroverted%20Feeling%20-%20Fi) users focus on their own personal inner feelings
-- [Fe](obsidian://open?vault=dwarves&file=brain%2FHR%2FMBTI%2FExtroverted%20Feeling%20-%20Fe) users focus on feelings in the external world
+- [Fi](/research/notes/hr/mbti/introverted-feeling-fi) users focus on their own personal inner feelings
+- [Fe](/research/notes/hr/mbti/extroverted-feeling-fe) users focus on feelings in the external world
 
 ---
 

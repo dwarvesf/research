@@ -7,7 +7,7 @@ redirect:
   - /on2WEA
 ---
 
-- As an extraverted function, [Ne](obsidian://open?vault=dwarves&file=brain%2FHR%2FMBTI%2FExtroverted%20Intuition%20-%20Ne) is also more reliant on circulating ideas than [Ni](obsidian://open?vault=dwarves&file=brain%2FHR%2FMBTI%2FIntroverted%20Intuition%20-%20Ni) is. They seem more concerned with knowing which thinkers and theories are in vogue. They are also notorious for “name dropping,” constantly referencing various books or theorists to support their arguments.
+- As an extraverted function, [Ne](/research/notes/hr/mbti/extroverted-intuition-ne) is also more reliant on circulating ideas than [Ni](/research/notes/hr/mbti/introverted-intuition-ni) is. They seem more concerned with knowing which thinkers and theories are in vogue. They are also notorious for “name dropping,” constantly referencing various books or theorists to support their arguments.
 
 - NPs also rely heavily on contrasts and comparisons
 

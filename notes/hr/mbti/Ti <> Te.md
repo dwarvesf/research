@@ -9,8 +9,8 @@ redirect:
 
 ### The difference between Ti and Te
 
-- [Ti](obsidian://open?vault=dwarves&file=brain%2FHR%2FMBTI%2FIntroverted%20Thinking%20-%20Ti) users introvert and organize their thoughts and judgments
-- [Te](obsidian://open?vault=dwarves&file=brain%2FHR%2FMBTI%2FExtroverted%20Thinking%20-%20Te) users extrovert thinking and make decisions based on facts
+- [Ti](/research/notes/hr/mbti/introverted-thinking-ti) users introvert and organize their thoughts and judgments
+- [Te](/research/notes/hr/mbti/extroverted-thinking-te) users extrovert thinking and make decisions based on facts
 
 ---
 

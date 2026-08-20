@@ -7,7 +7,7 @@ redirect:
   - /UsZJ6A
 ---
 
-Each PT has 4 [cognitive functions](obsidian://open?vault=dwarves&file=brain%2FHR%2FMBTI%2F8%20Cognitive%20Functions) that called cognitive fuctions stack. t is arranged in order of 4 layers from strong > weak:
+Each PT has 4 [cognitive functions](/research/notes/hr/mbti/8-cognitive-functions) that called cognitive fuctions stack. t is arranged in order of 4 layers from strong > weak:
 
 - Dominant
 - Auxiliary
