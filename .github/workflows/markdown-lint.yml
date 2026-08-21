@@ -1,0 +1,105 @@
+name: Markdown-lint Check
+
+# Auto-generated GitHub Actions workflow for research
+# Runs markdown linting using script from: https://memo.d.foundation/tools/ci-lint.js
+
+on:
+  workflow_dispatch: # Manual trigger only
+
+concurrency:
+  group: ${{ github.repository }}-linting-workflow
+  cancel-in-progress: false
+
+jobs:
+  lint:
+    name: Markdown Lint
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          submodules: false # Avoid checking out submodules to speed up the process
+
+      - name: Install Pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+          run_install: false
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      
+      - name: Install dependencies
+        run: |
+          # Install tsx for TypeScript execution if needed
+          # No TypeScript dependencies needed
+          
+          # Install any project dependencies if package.json exists
+          if [ -f "package.json" ]; then
+            pnpm install
+          fi
+
+      - name: Download lint script
+        run: |
+          echo "📥 Downloading lint script from: https://memo.d.foundation/tools/ci-lint.js"
+          curl -sSL "https://memo.d.foundation/tools/ci-lint.js" -o ${{ runner.temp }}/lint-script.js
+
+          # Verify download
+          if [ ! -s "${{ runner.temp }}/lint-script.js" ]; then
+            echo "❌ Error: Downloaded script is empty"
+            exit 1
+          fi
+          
+          echo "✅ Script downloaded successfully"
+      
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v46.0.5
+        with:
+          separator: ','
+
+      - name: Run markdown linting
+        id: markdown-lint
+        run: |
+          echo "🔍 Running markdown linting for research..."
+          node ${{ runner.temp }}/lint-script.js
+        env:
+          # Pass any environment variables needed by the linting script
+          GITHUB_ACTIONS: true
+          REPO_NAME: research
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+          CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+
+      - name: Commit and push changes
+        if: ${{ github.event_name == 'pull_request' && steps.markdown-lint.outputs.fixed > 0 }}
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git fetch origin ${{ github.head_ref }}:${{ github.head_ref }}
+          git checkout ${{ github.head_ref }}
+          git add .
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: automatic formatting (sentence case, prettier, lint fixes) [skip ci]"
+            git push origin HEAD:${{ github.head_ref }}
+          else
+            echo "No changes to commit."
+          fi
+
+      - name: Add PR comment with formatting summary
+        if: ${{ github.event_name == 'pull_request' && steps.markdown-lint.outputs.fixed > 0 }}
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: "formatting-summary"
+          message: |
+            🤖 Automatic Formatting Applied
+
+            **Files formatted:** ${{ steps.markdown-lint.outputs.fixed }}
+            **Changes made:**
+            ${{ steps.markdown-lint.outputs.changed-made }}
+
+            View workflow run: [View Run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})

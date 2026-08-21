@@ -1,0 +1,13 @@
+{
+  "readableLineLength": true,
+  "pdfExportSettings": {
+    "pageSize": "Letter",
+    "landscape": true,
+    "margin": "0",
+    "downscalePercent": 50
+  },
+  "livePreview": true,
+  "promptDelete": false,
+  "alwaysUpdateLinks": true,
+  "attachmentFolderPath": "_assets"
+}

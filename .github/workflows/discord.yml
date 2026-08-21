@@ -1,0 +1,35 @@
+name: 'Discord webhook'
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  add-reviews:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: jungwinter/split@v2
+        id: split
+        with:
+          msg: ${{ github.event.pull_request.title }}
+          separator: ': '
+
+      - id: string
+        uses: ASzc/change-string-case-action@v2
+        with:
+          string: ${{ steps.split.outputs._1 }}
+
+      - name: Get current time
+        uses: josStorer/get-current-time@v2
+        id: current-time
+        with:
+          format: MMMM Do YYYY, h:mm a
+          utcOffset: '+07:00'
+
+      - name: Discord notification
+        if: steps.split.outputs._1 && steps.split.outputs._0 != 'fix' && steps.split.outputs._0 != 'chore' && steps.split.outputs._0 != 'docs'
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          DISCORD_USERNAME: Brainery
+          DISCORD_AVATAR: https://cdn.discordapp.com/icons/462663954813157376/79ac3a24cf98b3c89be3902ca6fe168f.webp?size=96
+          DISCORD_EMBEDS: '[{"title": "${{ steps.string.outputs.capitalized }}", "url": "${{ github.event.pull_request._links.html.href }}", "fields" : [{"name": "Author", "value": "${{ github.event.pull_request.user.login }}", "inline": true}, {"name": "Topic", "value": "${{ steps.split.outputs._0 }}", "inline": true} ], "footer": { "text": "Added at ${{ steps.current-time.outputs.formattedTime }} 🎉🎉🎉" } }]'
+        uses: Ilshidur/action-discord@master

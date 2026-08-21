@@ -1,0 +1,3 @@
+[submodule "challenge"]
+	path = challenge
+	url = git@github.com:dwarvesf/challenge.git
