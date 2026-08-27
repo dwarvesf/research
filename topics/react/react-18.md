@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: React 18
 description: React 18 was released in March 2022. This release focuses on performance improvements and updating the rendering engine.
 date: 2022-06-06

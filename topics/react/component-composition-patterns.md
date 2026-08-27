@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Component composition patterns in React
 short_title: Component composition patterns
 description: Learn React composition patterns with coverage of HOCs, render props, compound components, and custom hook

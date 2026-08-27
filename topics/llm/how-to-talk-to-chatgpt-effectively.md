@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: How to talk to ChatGPT effectively
 description: This post presents technique to improve the your output when prompting ChatGPT.
 date: 2024-06-21

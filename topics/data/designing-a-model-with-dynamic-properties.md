@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Designing a model with dynamic properties
 description: "When we started working on this project aimed at the creative community, we faced an interesting challenge. We needed to build a model that was similar to a task but with a key difference: it had to support custom, dynamic, and extensible properties. If you’ve ever used Notion and appreciated how flexible its objects are, you’ll know exactly what we were trying to achieve."
 date: 2024-08-21

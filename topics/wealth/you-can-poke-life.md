@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: You can poke life
 description: Steve Jobs revealed a transformative truth in 1995 that changes how we see our power to shape reality. His insight shows why most people accept limitations that don't actually exist.
 date: 2025-06-22

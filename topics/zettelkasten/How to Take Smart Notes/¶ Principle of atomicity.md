@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: ¶ principle of atomicity
 description: Learn how the atomicity principle in the Zettelkasten method improves note-taking by focusing each note on a single clear idea for better connections and easier reuse.
 date: null

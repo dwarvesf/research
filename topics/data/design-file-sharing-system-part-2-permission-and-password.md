@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: "Design file-sharing system - part 2: permission & password"
 description: "In this part, I will discuss how I handle the logic and design the data model for the following features: setting permissions, sharing files for public access, and setting a password for a file."
 date: 2024-08-21

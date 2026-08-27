@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: "Evolutionary database design: managing change and scaling with the system"
 description: As systems scale to meet growing demands, databases must evolve alongside them to maintain performance and integrity. This document explores best practices for managing database changes, maintaining knowledge, and ensuring smooth integration. Topics covered include knowledge sharing, repository structuring, continuous integration, and database refactoring, with real-world examples illustrating their application.
 date: 2025-03-07

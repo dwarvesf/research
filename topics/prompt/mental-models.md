@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Mental models for prompting
 description: Essential mental models to improve your LLM interactions and prompt engineering effectiveness
 date: 2025-01-06

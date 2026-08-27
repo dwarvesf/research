@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: "Devbox.json: Your project's DNA"
 description: Master your Devbox environment with this no-nonsense guide to devbox.json
 date: 2024-08-01

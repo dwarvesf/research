@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Agent-centric design
 description: As AI agents become inevitable, software design must 
 shift from human-centric to agent-centric experiences. The future 

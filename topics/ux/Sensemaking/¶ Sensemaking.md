@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: ¶ sensemaking
 description: Sensemaking is a humanities-based method that uses cultural understanding and empathy to interpret how people relate to their world, offering deep insights beyond data and algorithms.
 date: null

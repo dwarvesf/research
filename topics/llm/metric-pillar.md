@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Metrics
 description: Metrics give you the rundown on how your LLM’s performing. We will show how to use these metrics to identify issues, increase efficiency, and make changes for improved outcomes.
 date: 2024-10-11

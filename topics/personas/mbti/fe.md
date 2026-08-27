@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Extraverted Feeling (Fe)
 description: Discover the key traits of EFJ personality types, known for emotional expressiveness, strong communication, and motivating others, with examples like Martin Luther King and Dr. Phil McGraw.
 date: null

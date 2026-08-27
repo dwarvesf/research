@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: History of structured outputs for LLMs
 description: When Large Language Models (LLMs) becomes popular and an essential tool for growing businesses, it signals a transition toward more complex and efficient data processing. Instead of outputting raw text, the models may now generate structured data in formats such as JSON or XML. This allowed the information to be directly integrated into company databases, removing the need for human processing. Businesses can use structured outputs to streamline their data workflows, decrease processing time, and improve the accuracy and reliability of their analytics.
 date: 2024-06-11

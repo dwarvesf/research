@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Partitions on Apache Hive
 description: Learn how Hive partitions and dynamic partitions optimize query performance by targeting specific data subsets, reducing scan times, and efficiently managing large datasets for faster Hive queries.
 date: 2022-12-02

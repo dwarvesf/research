@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Distributed systems
 description: This article provides an overview of distributed systems in blockchain technology, including their definition, advantages, and how they work.
 date: 2022-06-16

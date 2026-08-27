@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Select vector database for LLM
 description: An overview of vector databases and their application in LLM systems. This article covers the history and core concepts of vector databases, their use cases, implementation considerations with LLMs, and a comparison of popular vector database options.
 date: 2023-05-18

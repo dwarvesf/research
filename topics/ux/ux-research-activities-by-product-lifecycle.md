@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Ux research activities by product lifecycle
 description: Learn how different UX research methods fit each product lifecycle phase to improve design, reduce risks, and ensure usability with effective discovery, exploration, testing, and listening techniques.
 date: null

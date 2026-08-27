@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Build productive team
 description: Use personality assessments in onboarding, promote diverse teams, rotate roles by project stages, and understand your own style to boost team success and project outcomes.
 date: null

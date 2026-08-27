@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Explaining gradient descent in machine learning with a simple analogy
 description: "Gradient descent is a fundamental optimization algorithm in machine learning. It's a way for models to learn from data and improve their accuracy by gradually adjusting their internal settings. Think of it like carefully descending a hill to find the lowest point, each small step you take brings you closer to the best possible solution."
 date: 2024-06-25

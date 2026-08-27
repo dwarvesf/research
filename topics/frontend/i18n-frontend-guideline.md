@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: I18n frontend guideline
 description: Learn how to implement multi-language support with locale detection, internationalized routing, RTL/LTR text handling, and i18next formatting in React.js and Next.js front-end applications.
 date: 2023-04-03

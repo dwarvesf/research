@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Feature flags
 description: Feature flags let software teams enable or disable features during runtime, supporting beta testing, A/B experiments, and smoother releases without multiple code branches or redeployments.
 date: 2022-09-25

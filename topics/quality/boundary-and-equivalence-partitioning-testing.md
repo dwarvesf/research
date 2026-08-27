@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Boundary and equivalence partitioning testing
 description: Learn how equivalence partitioning and boundary value analysis reduce test cases while ensuring full functional testing coverage for software input ranges and boundary conditions.
 date: 2022-11-22

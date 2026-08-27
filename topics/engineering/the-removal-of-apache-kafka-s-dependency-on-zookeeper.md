@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: "The removal of Apache Kafka's dependency on Zookeeper"
 description: Kafka has been using Zookeeper for a variety of important functions. It uses Zookeeper to keep track of which brokers are part of the Kafka cluster. This is a critical task, as it enables Kafka to ensure that each broker is working properly and that the entire cluster is functioning as intended...
 date: 2023-09-13

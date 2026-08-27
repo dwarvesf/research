@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Edsger dijkstra interview
 description: "Discover Edsger W. Dijkstra's insights on programming, software elegance, testing limits, and the challenges of writing code, revealing why simplicity and hard work lead to successful software development."
 date: 2022-05-09

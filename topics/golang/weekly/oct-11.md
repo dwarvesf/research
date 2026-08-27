@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: "Go commentary #15: using Go embed, and Reflect"
 short_title: "#15 Go embed and Reflect"
 description: Quick notes on Go embed and Go Reflect

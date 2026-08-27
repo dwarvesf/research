@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Css in JS
 description: CSS-in-JS is a styling technique where Javascript is used to style the component.
 date: 2022-08-11

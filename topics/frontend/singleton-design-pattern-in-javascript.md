@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Singleton design pattern in Javascript
 description: The Singleton design pattern is a design pattern that restricts the instantiation of a class to one object.
 date: 2022-10-16

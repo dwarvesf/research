@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Introduction to reinforcement learning and its application with LLMs
 description: An introduction to Reinforcement Learning (RL), a machine learning method where an agent learns to make decisions by interacting with an environment. This article covers the basics of RL, including how it works, common algorithms, and its application in training models with Large Language Models (LLMs).
 date: 2023-06-05

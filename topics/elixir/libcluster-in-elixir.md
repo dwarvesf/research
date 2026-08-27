@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Libcluster in elixir
 description: Learn how to set up Elixir node clustering with Libcluster on Kubernetes to build scalable, high-performance applications using Erlang features and reduce operational costs effectively.
 date: 2022-11-02

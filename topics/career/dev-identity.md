@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: "Speed beats perfectionism in AI adaptation"
 description: "Developers who adapt fast to AI are thriving. Those who overthink are falling behind."
 date: 2025-06-21

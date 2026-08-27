@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Blocks
 description: This article provides an overview of blocks in blockchain technology, including their structure, types, and how they work.
 date: 2022-06-16

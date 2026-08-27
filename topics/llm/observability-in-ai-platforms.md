@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Observability in AI platforms
 description: Observability in AI is all about understanding what’s going on inside complex systems. It gives you the tools - logs, metrics, and traces - to monitor, troubleshoot, and optimize how AI models and services run.
 date: 2024-10-11

@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Note
 description: null
 date: null

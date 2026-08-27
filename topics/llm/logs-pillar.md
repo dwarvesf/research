@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Logging
 description: Logs are like the footprints of your LLM, tracking every move it makes. We will look at how logging can help you see beneath the top layer of a system, which can help you troubleshoot problems and better understand the system behavior.
 date: 2024-10-11

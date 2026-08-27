@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: A holistic guide to security
 description: A high-level overview of how to implement a holistic approach to securing your application platform.
 date: 2024-09-06

@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Extraverted Intuition (Ne)
 description: "Discover how Ne users like ENTPs and ENFPs excel at brainstorming, creative thinking, and exploring endless possibilities, contrasting with Ni's deep, focused insight and structured approach."
 date: null

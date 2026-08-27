@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Dialogue illustrates the nature of the character
 description: Learn how effective dialogue reveals character traits and drives your story by showing emotions, intentions, and conflicts that engage readers and advance the plot.
 date: null

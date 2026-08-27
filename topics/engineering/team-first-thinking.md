@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Team first thinking
 description: Effective software delivery depends on building stable, small teams of five to nine people who own their code, foster trust, minimize cognitive load, and communicate clearly through defined team APIs.
 date: 2022-08-15

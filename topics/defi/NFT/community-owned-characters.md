@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Community owned characters
 description: null
 date: null

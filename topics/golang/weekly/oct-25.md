@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: "Go commentary #17: Leveraging benchstat projects in Go benchmark and Go Plan9 memo on 450% speeding up calculations"
 short_title: "#17 Leveraging benchstat Projects in Go benchmark and Go Plan9 memo on 450% speeding up calculations"
 description: Understanding benchstat usage in Go benchmark and Go Plan9 on boosting up performance

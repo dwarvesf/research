@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: "Nix shell: bulletproof development environments"
 description: Discover how Nix Shell creates rock-solid dev environments that work everywhere, every time.
 date: 2024-08-01

@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Story point estimation
 description: Learn how agile teams use story points and collaborative methods like Planning Poker to estimate workloads accurately, improving sprint planning and product development efficiency.
 date: 2022-09-15

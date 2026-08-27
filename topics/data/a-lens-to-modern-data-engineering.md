@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: "Building a data-driven project reporting system: A lens into modern data engineering"
 short_title: A Lens to Modern Data Engineering
 description: Learn how to transition from application development to data engineering by building a modern project reporting system. Discover essential mindset shifts, best practices, and hands-on look using tools like DuckDB, and Modal. Master system-level architecture and data pipeline design for scalable enterprise solutions.

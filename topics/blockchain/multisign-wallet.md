@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Multisign wallet
 description: A multisign wallet is a type of digital wallet that requires multiple signatures to authorize transactions. This article provides an overview of multisign wallets, how they work, and their benefits.
 date: 2022-08-10

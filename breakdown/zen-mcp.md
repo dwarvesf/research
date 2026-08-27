@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Zen MCP breakdown
 short_title: Zen MCP
 description: 'Technical analysis of the Zen MCP (Model Context Protocol) Server architecture, implementation, and design patterns.'

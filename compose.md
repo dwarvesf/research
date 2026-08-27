@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Composing forward engineering newsletter
 short_title: Compose newsletter
 description: This guide shows how the Dwarves create the forward engineering newsletter, a monthly summary of tech research and trends. It outlines our process to craft issues that reflect our innovation and craftsmanship.

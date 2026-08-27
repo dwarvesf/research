@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Data-first Approach & Maintaining Data Integrity with Zod Schema
 description: This memo explores the importance of a data-first approach and how to maintain data integrity using Zod, a powerful TypeScript schema validation library
 date: 2025-05-02

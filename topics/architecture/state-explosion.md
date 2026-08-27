@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: State explosion
 description: Learn how statecharts solve the state explosion problem in state machines using parallel states, hierarchical states, and guard conditions for simpler and more efficient designs.
 date: 2022-05-22

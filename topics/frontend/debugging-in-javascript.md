@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Debugging in javascript
 description: Learn how to use JavaScript console methods like console.log, console.assert, console.dir, console.time, and the debugger statement to effectively debug code in Chrome DevTools.
 date: 2022-10-16

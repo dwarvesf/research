@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Validation with Zod
 description: Zod is the TypeScript-first schema validation library with static type inference.
 date: 2023-01-17

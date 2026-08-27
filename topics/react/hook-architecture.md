@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Hook architecture in React
 short_title: Hook architecture
 description: React hooks architecture with in-depth coverage of custom hooks, state management, and side effects handling.

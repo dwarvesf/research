@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Update highest and lowest symbol prices in real time
 description: Learn how to update highest and lowest symbol prices in real-time using Binance WebSocket and in-memory caching to reduce database load and improve price peak tracking efficiency.
 date: 2023-06-07

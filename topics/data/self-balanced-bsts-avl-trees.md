@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Self balanced bsts avl trees
 description: Learn how trees, especially binary search trees (BST) and AVL trees, organize hierarchical data for fast search, insertion, and deletion with guaranteed balanced height and efficient operations.
 date: 2023-02-13

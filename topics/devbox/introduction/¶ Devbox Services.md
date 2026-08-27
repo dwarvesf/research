@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: "Devbox services: tame your daemons with process-compose"
 description: Discover how Devbox Services uses process-compose to wrangle your daemon applications without the container overhead
 date: 2024-08-01

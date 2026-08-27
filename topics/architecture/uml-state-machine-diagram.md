@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Uml state machine diagram
 description: Learn how UML State Machine Diagrams visualize object states, transitions, events, and actions to model dynamic system behavior in software development, embedded systems, and more.
 date: 2023-08-16

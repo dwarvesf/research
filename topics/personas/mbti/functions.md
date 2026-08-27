@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Cognitive functions stack
 description: Discover how cognitive functions explain the deeper traits behind MBTI personality types and learn how to calculate your unique cognitive function stack for better self-awareness.
 date: null

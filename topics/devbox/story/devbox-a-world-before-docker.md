@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: The world before Docker
 description: A brief history about the world before Docker and why we need devbox for local development
 date: 2024-04-09

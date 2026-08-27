@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Istio
 description: Learn how Istio service mesh improves microservices networking with features like traffic management, security, and monitoring, and why it complements API gateways for scalable applications.
 date: 2019-06-09

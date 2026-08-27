@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: ¶ NFT
 description: null
 date: null

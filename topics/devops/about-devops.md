@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: About Devops
 description: Learn how DevOps improves software delivery with continuous integration, automation, testing, and collaboration between development and operations for faster, reliable releases.
 date: 2018-07-23

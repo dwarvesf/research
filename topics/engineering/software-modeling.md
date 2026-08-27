@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Software modeling
 description: Learn how software modeling improves system maintainability and scalability by defining core objects, using diagrams like ERD, SMD, and USD to design clear, efficient applications.
 date: 2020-05-08

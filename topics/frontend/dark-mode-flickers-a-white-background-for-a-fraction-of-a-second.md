@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Dark mode flickers a white background for a fraction of a second
 description: "The dark mode feature uses local storage to store a user's preference for future usage. The problem is that when the dark mode is enabled and the page is reloaded, there's a flicker of a white background all over the page before it turns dark. This happens for a fraction of a second and doesn't look natural."
 date: 2022-08-11

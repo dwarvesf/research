@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Hive window and analytic functions
 description: Learn how to use Hive window and analytical functions to calculate complex metrics like a 10-day moving average on stock data with easy-to-understand SQL examples and syntax.
 date: 2022-12-12

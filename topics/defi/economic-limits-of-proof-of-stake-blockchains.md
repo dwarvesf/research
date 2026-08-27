@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Economic limits of proof of stake blockchains
 description: null
 date: null

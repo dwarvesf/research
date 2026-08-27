@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: "How to use Claude to build the system prompt"
 date: "2025-04-18"
 description: "Building the use case: how to use Claude to build the system prompt"

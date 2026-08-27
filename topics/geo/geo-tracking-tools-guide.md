@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: "Stand up GEO tracking tools: a simple guide"
 description: "Not sure if your content is showing up in AI search? This guide walks you through simple GEO tracking methods so you can see what works and keep your memos in play."
 date: 2025-06-18

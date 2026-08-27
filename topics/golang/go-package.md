@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Package first design
 description: In Go, packages serve as the basic building blocks for creating modular, reusable, and maintainable software.
 date: 2024-10-25

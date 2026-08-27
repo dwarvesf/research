@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Build randomness into knowledge generation systems
 description: Discover how adding randomness to knowledge systems can spark creativity and reveal unexpected connections, avoiding narrow thinking and boosting new insights.
 date: null

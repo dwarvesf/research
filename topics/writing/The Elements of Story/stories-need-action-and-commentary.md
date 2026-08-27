@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Stories need action and commentary
 description: Learn how balancing strong action with insightful commentary can create compelling stories using vivid verbs and clear interpretation to engage readers effectively.
 date: null

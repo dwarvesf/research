@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Prevent prompt injection
 description: "Nowadays, Large Language Models (LLMs) have become integral to various applications. However, with great power comes great responsibility, and the rise of LLMs has introduced new security challenges. One such challenge is prompt injection attacks, a sophisticated technique that can manipulate AI systems to perform unintended actions. In this article, we'll dive deep into the world of prompt injection, understand its implications, and explore strategies to prevent these attacks."
 date: 2024-09-23

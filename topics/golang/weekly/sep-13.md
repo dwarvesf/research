@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: "Go commentary #11: The gopher's LLM revolution - actors, frameworks, and the future of Go"
 short_title: "#11 Actors, Frameworks, and the Future of Go"
 description: "A critical look at Go's evolving role in the LLM ecosystem and the frameworks shaping its future"

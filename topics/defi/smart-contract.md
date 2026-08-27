@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Smart contract
 description: null
 date: null

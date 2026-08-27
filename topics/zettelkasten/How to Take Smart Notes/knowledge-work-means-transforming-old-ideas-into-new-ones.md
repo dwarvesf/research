@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Knowledge work means transforming old ideas into new ones
 description: Effective knowledge work transforms existing ideas into new insights by connecting diverse information through note-taking and fresh perspectives, boosting creativity and strategic thinking.
 date: null

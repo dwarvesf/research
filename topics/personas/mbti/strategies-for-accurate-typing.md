@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Strategies for accurate typing
 description: Discover how to understand your personality type using the function stack framework through tests, self-reflection, and discussion, while exploring childhood memories and balancing inconsistencies for deeper insight.
 date: null

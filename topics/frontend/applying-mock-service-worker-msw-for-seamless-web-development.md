@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Applying mock service worker (MSW) for seamless web development
 description: Mock Service Worker (MSW) is an API mocking library that leverages the Service Worker API to intercept requests. It offers unique features that set it apart from traditional mocking libraries, making it a go-to choice for developers. With MSW, you can seamlessly mock both RESTful and GraphQL APIs, providing flexibility for various API architectures. Additionally, MSW supports both Node.js and browser environments, enabling consistent API mocking across different parts of your application.
 date: 2023-06-19

@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Reproduce Apple Find Me bottom menu view
 description: Learn how to recreate the Apple Find Me Bottom Menu view with Swift by building a draggable bottom menu that smoothly resizes between collapsed, half-expanded, and expanded states.
 date: 2019-06-29

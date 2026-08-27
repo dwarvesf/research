@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Quality assurance works in the product team
 description: Learn how to improve QA testing records with clear documentation formats for Mobile, BackEnd, and FrontEnd teams to track test status, scenarios, and related tickets effectively.
 date: 2022-11-08

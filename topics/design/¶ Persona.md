@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: ¶ persona
 description: User personas help product teams understand user needs, behaviors, and goals by creating realistic profiles that guide design and improve user experience in marketing and development.
 date: null

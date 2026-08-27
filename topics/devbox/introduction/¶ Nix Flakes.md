@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: "Nix flakes: next-level package management"
 description: Discover how Nix Flakes revolutionize package management with reproducibility and discoverability
 date: 2024-08-01

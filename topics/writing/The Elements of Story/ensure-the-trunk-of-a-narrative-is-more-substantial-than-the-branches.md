@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Ensure the trunk of a narrative is more substantial than the branches
 description: Learn how to keep your writing focused by emphasizing the main idea over qualifiers and details, ensuring your core theme remains clear and compelling.
 date: null

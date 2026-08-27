@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Maybe finance breakdown
 short_title: Maybe finance
 description: An in-depth analysis of a $1M open-source personal finance application built with Ruby on Rails

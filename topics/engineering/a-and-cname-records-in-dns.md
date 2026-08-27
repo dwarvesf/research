@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: A and cname records in dns
 description: Learn the key differences between A records and CNAME records in DNS, including their uses for domain mapping, subdomains, and IP address management to optimize your website setup.
 date: 2022-01-06

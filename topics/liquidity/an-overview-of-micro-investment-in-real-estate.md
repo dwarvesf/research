@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: An overview of micro investment in real estate
 description: Discover how micro-investing in real estate offers an easy, low-cost way for millennials and new investors to enter the property market using technology-driven platforms and digital tools.
 date: 2020-08-26

@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: State pattern
 description: The State Design Pattern is a behavioral design pattern that allows an object to change its behavior when its internal state changes. This pattern is particularly useful for scenarios where an object can exist in multiple states and its behavior varies based on these states.
 date: 2024-06-27

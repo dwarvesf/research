@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Learning is enhanced by surprise
 description: Discover how surprising connections between ideas spark new insights and why broad reading and random linking in knowledge systems boost creativity and understanding.
 date: null

@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Knowledge is a compounding investment
 description: Learn how building knowledge through connecting ideas boosts creativity and innovation, turning effort into valuable insights with lasting benefits.
 date: null

@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Place characters within a landscape
 description: "Discover how detailed landscapes and settings reveal a character's personality and make them feel real before, during, and after the story."
 date: null

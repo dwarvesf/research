@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Go extension interface pattern
 description: Note about using Go extension interface pattern
 date: 2024-10-25

@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Database locking
 description: Learn how explicit locking techniques in PostgreSQL help manage concurrency control and prevent data conflicts in high workload databases by using table-level, row-level, and advisory locks effectively.
 date: 2023-04-22

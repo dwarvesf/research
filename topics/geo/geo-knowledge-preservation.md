@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: "GEO and the future of knowledge: Who gets to be remembered?"
 description: "As AI increasingly selects what we read and recall, understanding citations becomes crucial. Discover whose stories risk fading away and how to keep meaningful knowledge visible"
 date: 2025-06-12

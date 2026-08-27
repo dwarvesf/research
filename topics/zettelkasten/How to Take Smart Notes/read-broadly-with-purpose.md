@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Read broadly with purpose
 description: Learn how purposeful reading and seeking diverse perspectives can improve understanding, avoid confirmation bias, and enhance connections across information for better learning and thinking.
 date: null

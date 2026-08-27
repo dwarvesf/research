@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Lessons learned from concurrency practices in blockchain projects
 description: Learn how to handle concurrency and race conditions in Go blockchain projects using PostgreSQL advisory locks for efficient distributed locking and safe cronjob execution on Kubernetes.
 date: 2023-04-17

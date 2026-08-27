@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: "Natural language to database queries: Text-to-MongoDB"
 description: An exploration of natural language to database query systems using MongoDB, examining system prompts and implications for data engineering and agentic workflows.
 date: 2024-11-13

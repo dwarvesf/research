@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Enabling team
 description: Learn how enabling teams support stream-aligned teams by bridging skill gaps, sharing expertise, and improving delivery through collaboration, technical guidance, and knowledge transfer.
 date: 2022-08-15

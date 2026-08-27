@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Subscription pricing models
 description: Overview of Subscription pricing models
 date: 2024-07-19

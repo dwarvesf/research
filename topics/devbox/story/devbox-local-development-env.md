@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Using Devbox to setup local development environment
 description: Expanded section that focuses on Devbox and its practices on setup a local development environment.
 date: 2024-06-13

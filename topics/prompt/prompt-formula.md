@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Prompt formula
 description: Most prompts fail because they lack structure, but a six-part formula transforms vague requests into precise AI instructions. The difference lies in knowing which components matter most.
 date: 2025-06-23

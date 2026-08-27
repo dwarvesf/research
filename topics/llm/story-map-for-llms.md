@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Story map for LLMs
 description: A comprehensive guide outlining the journey for engineers developing applications on top of Large Language Models (LLMs), covering key stages from understanding AI basics to fine-tuning models.
 date: 2023-08-09

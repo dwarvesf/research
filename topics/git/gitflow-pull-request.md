@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Gitflow pull request
 description: Learn the best Git workflows, branching models, commit message tips, pull request strategies, code review practices, and merge vs rebase guidance to boost team productivity and code quality.
 date: 2021-04-10

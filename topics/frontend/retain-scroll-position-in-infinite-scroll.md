@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Retain scroll position in infinite scroll
 description: Infinite scroll has become a popular web design technique in recent years, as it offers several benefits over traditional pagination models. However, it can also present some painful challenges for accessibility and usability.
 date: 2023-04-24

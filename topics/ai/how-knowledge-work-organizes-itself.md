@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: How knowledge work organizes itself
 subtitle: From compressed rules to first-principles thinking
 description: How societies naturally organize around different types of knowledge work; from those who apply compressed rules to those who derive new principles from scratch.

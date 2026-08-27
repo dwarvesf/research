@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: State management strategy in React
 short_title: State management strategy
 description: Discover state management strategies, best practices, and when to use each approach for scalable, efficient React applications

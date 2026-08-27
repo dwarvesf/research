@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Quantitative analysis is not inherently more reliable than qualitative data
 description: Quantitative analysis can be biased and limited, as data selection and interpretation depend on human judgment and may overlook context and deeper understanding of human behavior.
 date: null

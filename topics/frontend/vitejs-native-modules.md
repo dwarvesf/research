@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: ViteJS native modules
 description: ViteJS takes full advantage of the availability of native ES modules in the browser and the rise of JavaScript tools written in compile-to-native languages by introducing pre-bundles dependancies using esbuild.
 date: 2022-07-04

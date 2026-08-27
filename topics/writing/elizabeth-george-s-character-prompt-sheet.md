@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Elizabeth George s character prompt sheet
 description: Discover Elizabeth George’s character development prompt sheet from *Mastering the Process* to create rich, believable characters using simple, freewriting prompts that inspire story depth and detail.
 date: null

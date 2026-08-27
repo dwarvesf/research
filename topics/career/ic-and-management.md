@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: IC and management
 description: Philip Su's journey from IC to management reveals three career growth drivers and one critical question every potential leader must answer. The insights challenge conventional wisdom about technical careers.
 date: 2025-06-22

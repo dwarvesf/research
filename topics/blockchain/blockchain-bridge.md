@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Blockchain bridge
 description: A comprehensive guide to understanding blockchain bridges, their types, and how they facilitate communication and asset transfers between different blockchain networks.
 date: 2022-06-21

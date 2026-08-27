@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Function calling in AI agents
 description: Function calling is a critical component in the architecture of AI agents, facilitating the integration of external functionalities and resources. This note explores how function calling is implemented in AI architectures and its role in enhancing agent capabilities
 date: 2024-07-18

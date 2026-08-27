@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Zero-knowledge proofs
 description: This article provides an overview of zero-knowledge proofs in blockchain technology, including their definition, how they work, and their advantages.
 date: 2022-09-06

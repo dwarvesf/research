@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Build an assistant on the terminal
 description: Mimir is a fast CLI tool that uses AI and heuristic methods to provide precise programming answers and debugging help directly in your terminal without browsing the web.
 date: 2020-03-27

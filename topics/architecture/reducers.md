@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Reducers
 description: Learn how frontend reducers act as single state machines with non-deterministic states, using algebraic data types for clear state management and enabling parallelizable operations in React and Redux.
 date: 2022-05-22

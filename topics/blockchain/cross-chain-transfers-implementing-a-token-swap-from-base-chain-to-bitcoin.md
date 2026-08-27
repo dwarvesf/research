@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Implement a token swap from the Base chain to Bitcoin for cross-chain transactions
 description: This guide shows how to implement a token swap from the Base Chain to Bitcoin.
 date: 2025-03-07

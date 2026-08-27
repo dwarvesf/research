@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Scale up application using Jetpack navigation
 description: Learn how to simplify Android app navigation with Jetpack navigation Component, handling fragment transitions, dynamic start destinations, modular flows, and integration with Firebase Analytics.
 date: 2022-11-14

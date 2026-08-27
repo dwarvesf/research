@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Event sourcing overview
 description: Event sourcing records all changes as events, allowing e-commerce platforms to track detailed order history and generate flexible analytics for better business insights and future-proof data management.
 date: 2022-12-05

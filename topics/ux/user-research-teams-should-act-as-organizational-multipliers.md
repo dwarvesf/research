@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: User research teams should act as organizational multipliers
 description: Learn how user research teams act as multipliers to share customer insights across organizations, enabling confident, customer-focused solutions through training, best practices, and collaboration.
 date: null

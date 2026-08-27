@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: The five stages of learning
 subtitle: From associative conditioning to hierarchical abstraction
 description: How human cognition and artificial intelligence both develop increasingly abstract representations, from simple stimulus-response patterns to deep hierarchical understanding.

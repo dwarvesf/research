@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Polygon zkEVM architecture
 description: This article provides an overview of the Polygon zkEVM architecture, including its main components, how it works, and its benefits.
 date: 2023-01-03

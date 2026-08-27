@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: ¶ inductive reasoning
 description: Inductive research develops new theories by observing limited data, linking ideas creatively to form hypotheses that help predict future events or explain phenomena.
 date: null

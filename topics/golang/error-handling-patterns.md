@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Error handling patterns
 description: Quick note on error handling patterns in programming languages
 date: 2024-10-14

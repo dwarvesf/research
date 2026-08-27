@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Talking heads avoidance device elizabeth george
 description: The talking heads avoidance device (THAD) adds action to dialogue scenes, revealing character traits, emotions, and setting details while increasing tension and enhancing story depth.
 date: null

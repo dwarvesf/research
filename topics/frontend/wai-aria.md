@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: WAI-ARIA
 description: WAI-ARIA is a technology that can help with the problems of modern websites and applications containing huge amounts of dynamic content and complex components with no semantics to describe what they mean.
 date: 2022-09-30

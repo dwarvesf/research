@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Dwarves Research
 short_title: § Dwarves Research 🧪
 description: This is our Labs team homepage, where we list out the latest advances in our engineering team, our publications, events & workshops, as well as frequently asked questions on who and what team labs are.

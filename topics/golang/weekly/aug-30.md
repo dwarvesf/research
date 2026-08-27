@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: "Go commentary #9: TinyGo, SQLite vector search, and authorization"
 short_title: "#9 TinyGo, SQLite vector search, and Permify"
 description: "Exploring TinyGo's latest release, a new vector search extension for SQLite, and an open-source authorization service inspired by Google Zanzibar."

@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: "Go JSON parser: number <-> interface"
 description: TLDR; be careful when using  map[string]interface{} to hold json number value, use custom decoder with newDecoder.UseNumber() to decode the json string.
 date: 2022-11-14

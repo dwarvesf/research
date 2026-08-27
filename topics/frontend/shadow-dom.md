@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Shadow DOM
 description: Shadow DOM is a web standard that allows encapsulation of HTML, CSS, and JavaScript within a specific context.
 date: 2023-05-16

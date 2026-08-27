@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Extraverted Thinking (Te)
 description: "Discover how Te users like ENTJs and ESTJs make clear, logic-based decisions using facts and efficient systems, contrasting with Ti's internal thought organization."
 date: null

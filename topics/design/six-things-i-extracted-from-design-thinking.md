@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Six things I extracted from design thinking
 description: Discover how applying Design Thinking in everyday life enhances problem solving, decision making, and adaptability with practical tips on gathering information, organizing data, and embracing change.
 date: 2021-04-14

@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: "Ton's base concepts"
 description: Base concepts to begin with TON development
 date: 2024-07-17

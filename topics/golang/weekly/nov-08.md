@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: "Go commentary #19: Writing secure Go code"
 short_title: "#19 Writing secure Go code"
 description: Pratices to write secure Go code

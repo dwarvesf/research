@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Dollar Cost Averaging (DCA)
 description: Dollar-Cost Averaging (DCA) is a simple yet powerful investment strategy that can help you minimize risk and maximize long-term returns. With DCA, you invest a fixed amount of money into an asset (crypto, stocks, funds, etc.) at regular intervals, regardless of the current market price. The goal is to accumulate as much of the asset as possible over time. This strategy is suitable for all investors, especially beginners.
 date: 2024-05-03

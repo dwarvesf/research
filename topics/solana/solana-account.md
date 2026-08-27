@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Solana account
 description: This article provides an overview of Solana accounts, including their structure, types, and how they work.
 date: 2022-11-17

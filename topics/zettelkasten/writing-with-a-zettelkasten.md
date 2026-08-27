@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Writing with a zettelkasten
 description: "Learn how Sönke Ahrens' zettelkasten method helps writers develop ideas from notes to drafts, avoiding blank pages and creating clear, connected, and well-organized articles."
 date: null

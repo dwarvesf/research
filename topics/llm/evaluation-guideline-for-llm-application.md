@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Evaluation guidelines for LLM applications
 description: This guide offers a structured approach to evaluating and optimizing the integration of third-party Large Language Models (LLMs) into applications, ensuring alignment with business goals and user needs through detailed checklists and evaluation metrics.
 date: 2024-09-26

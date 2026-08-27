@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: How we crafted the OGIF summarizer bot to streamline weekly knowledge-sharing
 description: Introducing the OGIF Memo Summarizer, a chatbot we developed using Dify in collaboration with @innno_. This tool transcribes YouTube videos and extracts key points from our Oh God It’s Friday (OGIF) sessions. By providing both short and detailed summaries in English and Vietnamese, it significantly enhances our ability to review and reference the diverse knowledge shared every Friday.
 date: 2024-07-10

@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Federated Byzantine
 description: "Learn how Stellar's consensus protocol uses trusted validators and quorum slices to prevent Sybil attacks and ensure secure, reliable transactions through federated voting and network trust."
 date: 2019-05-18

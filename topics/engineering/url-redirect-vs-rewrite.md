@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: URL Redirect vs. Rewrite; What’s the difference?
 description: "When working with websites and managing the computers that show them, we run into two important ideas: redirect URLs and rewrite URLs. These ideas are like tools that help us make websites work better for people. They help us make websites easier to find on search engines, and they help us make the paths on websites smoother. In this guide, we're going to explore these tools together. We'll learn what makes them different and how we can use them to make websites even cooler."
 date: 2023-09-06

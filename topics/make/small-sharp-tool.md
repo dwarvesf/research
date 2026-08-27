@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Do one thing well
 description: Explore the Unix philosophy of small, sharp tools and how it applies to modern product development and agentic AI. Learn why focused, composable solutions beat bloated all-in-one products.
 date: 2025-06-05

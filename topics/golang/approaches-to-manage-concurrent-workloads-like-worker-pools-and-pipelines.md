@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Approaches to manage concurrent workloads like worker pools and pipelines
 description: Explore efficient techniques for handling concurrent workloads in Go, including worker pools, fan-out/fan-in patterns, pipelines, and semaphores. This guide provides practical examples, code snippets, and insights into implementing these patterns, discussing their benefits and potential drawbacks. Learn how to improve performance, scalability, and resource management in Go applications while avoiding common pitfalls like deadlocks and excessive resource consumption.
 date: 2023-05-22

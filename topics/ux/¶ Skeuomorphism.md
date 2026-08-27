@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: ¶ skeuomorphism
 description: Skeuomorphism is a design approach that mimics familiar objects to help users understand new technology, but it can also limit innovation by sticking to old models.
 date: null

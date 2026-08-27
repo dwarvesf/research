@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: AI agent explained
 description: Most people confuse LLMs, workflows, and agents, but understanding these three levels unlocks the real potential of AI automation. The key difference lies in who makes the decisions.
 date: 2025-06-23

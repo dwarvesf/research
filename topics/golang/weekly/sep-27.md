@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: "Go commentary #13: Compiler quests and vector vexations"
 short_title: "#13 Compiler Quests and Vector Vexations"
 description: "A scathing look at Go's compiler internals and the vector search gold rush, exposing the industry's obsession with speed over substance"

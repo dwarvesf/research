@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Human touch in agent systems
 description: As agents become capable of making most decisions independently, understanding when and how humans should intervene becomes critical for building effective agent-human partnerships.
 date: 2025-01-23

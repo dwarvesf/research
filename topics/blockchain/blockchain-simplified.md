@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: "Blockchain fundamentals"
 description: "Blockchain breaks down the complex technology behind Bitcoin and other cryptocurrencies into simple terms anyone can understand. Learn how distributed ledgers work, why they're secure, and what makes them revolutionary for digital trust."
 date: 2020-12-19

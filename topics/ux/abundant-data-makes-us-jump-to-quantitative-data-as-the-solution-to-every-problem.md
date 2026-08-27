@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Abundant data makes us jump to quantitative data as the solution to every problem
 description: Explore why collecting too much data can mislead decision-making, highlighting the limits of quantitative analysis and the risks of relying on lagging indicators in uncertain situations.
 date: null

@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Thinking vs feeling
 description: Learn how Thinkers use logic and efficiency in decision-making while Feelers rely on emotions and compassion to balance work and relationships. Discover key personality traits now.
 date: null

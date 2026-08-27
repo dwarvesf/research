@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: "Go commentary #20: Go turns 15"
 short_title: "#20 Go Turns 15"
 description: The 15th anniversary of the Go open source release

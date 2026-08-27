@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Design tokens in the AI era
 description: Design tokens create consistency across platforms by centralizing visual attributes. AI tools now automate token creation and management, making design systems accessible to non-designers.
 date: 2025-06-08

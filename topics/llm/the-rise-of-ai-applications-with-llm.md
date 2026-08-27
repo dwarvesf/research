@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: The rise of AI applications with LLM
 description: Discover how the rapid surge in artificial intelligence, led by models like ChatGPT, Claude, and Gemini, is reshaping industries and democratizing AI development. This article explores the rise of model-as-a-service, the economic impact of AI, and how accessible APIs are transforming productivity, creativity, and innovation across sectors.
 date: 2024-10-01

@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Introduce the observer pattern and its use cases
 description: Concept of the observer pattern with its pros and cons.
 date: 2024-07-12

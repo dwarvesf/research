@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Question tree
 description: Learn how question trees help brainstorm research questions and explore business problems, guiding decision-making with clear, broad inquiries beyond simple yes or no answers.
 date: 2022-04-18

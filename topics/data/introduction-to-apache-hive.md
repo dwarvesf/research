@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Introduction to Apache Hive
 description: Learn how Apache Hive simplifies big data analysis by enabling SQL queries on Hadoop datasets using tables, making MapReduce easier for developers and data analysts.
 date: 2022-11-10

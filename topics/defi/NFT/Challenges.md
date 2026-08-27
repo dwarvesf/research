@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Challenges
 description: null
 date: null

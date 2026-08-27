@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Let AI ask you
 description: Most people give AI commands and expect perfect results, but the most effective approach flips this dynamic. Letting AI ask you questions transforms shallow outputs into precisely targeted solutions.
 date: 2025-01-27

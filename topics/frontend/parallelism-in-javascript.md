@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Parallelism in JavaScript
 description: Parallelism in JavaScript is a technique to improve the performance of web applications by executing multiple tasks simultaneously.
 date: 2022-04-04

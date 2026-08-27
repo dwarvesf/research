@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Inform rather than persuade
 description: Learn how evidence communication promotes honest, transparent sharing of research by presenting uncertainties and conflicts to inform audiences without persuasion or bias.
 date: null

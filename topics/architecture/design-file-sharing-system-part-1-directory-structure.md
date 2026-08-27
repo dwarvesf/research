@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: "Design file-sharing system - part 1: directory structure"
 description: This system aims to provide users with the ability to store, access, and share files directly on our website, similar to Google Drive. This system aims to enhance user convenience and collaboration by allowing seamless file management and sharing capabilities.
 date: 2024-07-31

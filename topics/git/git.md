@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Git
 description: Learn how Git, the popular version control system, helps developers track changes, manage branches, and collaborate effectively using workflows like GitHub flow and Git-flow for software development.
 date: 2021-08-11

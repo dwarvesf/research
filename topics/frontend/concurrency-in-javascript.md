@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Concurrency in javascript
 description: Learn how JavaScript’s single-threaded event loop enables asynchronous, non-blocking concurrency using callbacks, Promises, and async/await to handle tasks efficiently and avoid callback hell.
 date: 2022-08-26

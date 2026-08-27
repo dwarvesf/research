@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Salience is subjective
 description: Learn how Roger Martin explains problem solving by focusing on the most important information shaped by our stance, tools, and experience to improve decision-making and perspective.
 date: null

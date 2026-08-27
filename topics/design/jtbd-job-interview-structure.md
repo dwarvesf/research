@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Jtbd job interview structure
 description: Discover a step-by-step interview guide to uncover customer jobs-to-be-done, including how to explore tasks, needs, feelings, and circumstances for better product and service insights.
 date: null

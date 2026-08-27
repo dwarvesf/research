@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Your AI approach
 description: Most people struggle with AI tool paralysis and prompt fatigue, but building an AI-native workflow comes down to three focused strategies. The key is systems over tools.
 date: 2025-01-27

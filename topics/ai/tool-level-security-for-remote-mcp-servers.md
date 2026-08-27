@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Tool-level security for remote MCP servers
 description: A comprehensive guide to implementing granular access control for Model Context Protocol (MCP) servers, allowing organizations to securely expose tool capabilities based on user roles and permissions while maintaining data privacy.
 date: 2025-03-27
